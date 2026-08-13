@@ -7,6 +7,7 @@ Cette première bêta publique privilégie la fiabilité et la confidentialité 
 - récupération des dictées et des insertions qui n’ont pas abouti ;
 - mise à jour vérifiée par architecture, taille et SHA-256 ;
 - interface et site adaptés aux modes clair et sombre ;
+- pause et reprise des médias sans laisser un casque Bluetooth muet après la dictée ;
 - applications Apple Silicon et Intel construites et réellement lancées avant publication.
 
 Cette bêta n’est pas encore notarisée par Apple. Consultez le README ou le site pour la procédure

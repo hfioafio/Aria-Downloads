@@ -1,0 +1,18 @@
+{
+  "version": "2.48.0",
+  "releaseDate": "2026-08-13",
+  "minimumVersion": "2.48.0",
+  "notes": "Première bêta publique : mise à jour vérifiée, choix Groq Précision ou local au démarrage, fiabilité de l’insertion et lancement validé sur Apple Silicon et Intel.",
+  "downloads": {
+    "arm64": {
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.0/Aria-2.48.0-Apple-Silicon.dmg",
+      "sha256": "f2d38c4ef639aee3a525b79d88fccbd14e4412ddec819863e8c3bf076dd89e6c",
+      "size": 150599630
+    },
+    "x64": {
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.0/Aria-2.48.0-Intel.dmg",
+      "sha256": "46c3a051e29961b4a75b27ae56a9116fe60286011a077c149cc593f84d03d4c6",
+      "size": 158465286
+    }
+  }
+}

@@ -10,7 +10,7 @@ n’y sont pas publiés.
   `Aria-…-Apple-Silicon.dmg`.
 - Intel : voir la dernière release et choisir `Aria-…-Intel.dmg`.
 
-Page officielle : le lien sera ajouté dès la mise en ligne du site Aria.
+Page officielle : https://hfioafio.github.io/Aria-Downloads/
 
 ## Première ouverture de la bêta
 
