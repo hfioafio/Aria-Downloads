@@ -1,18 +1,18 @@
 {
-  "version": "2.48.0",
-  "releaseDate": "2026-08-13",
+  "version": "2.48.1",
+  "releaseDate": "2026-08-14",
   "minimumVersion": "2.48.0",
-  "notes": "Première bêta publique : mise à jour vérifiée, choix Groq Précision ou local au démarrage, fiabilité de l’insertion et lancement validé sur Apple Silicon et Intel.",
+  "notes": "Mise à jour témoin : seul le numéro de version change afin de valider le parcours de mise à jour depuis Aria 2.48.0.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.0/Aria-2.48.0-Apple-Silicon.dmg",
-      "sha256": "f2d38c4ef639aee3a525b79d88fccbd14e4412ddec819863e8c3bf076dd89e6c",
-      "size": 150599630
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Apple-Silicon.dmg",
+      "sha256": "ba8164b98a6534bb2934a5f789c0c02f9164bbb6b6710ad8eed3cf2634cd9365",
+      "size": 150622741
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.0/Aria-2.48.0-Intel.dmg",
-      "sha256": "46c3a051e29961b4a75b27ae56a9116fe60286011a077c149cc593f84d03d4c6",
-      "size": 158465286
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Intel.dmg",
+      "sha256": "155b38149b15506cfe9defd466605f3c4cdf5f20b66d32f62b3c65a013b3b046",
+      "size": 158441263
     }
   }
 }
