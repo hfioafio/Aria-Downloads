@@ -1,1 +1,17 @@
+# macOS and editor files
 .DS_Store
+.idea/
+.vscode/
+
+# Local configuration
+.env
+.env.*
+
+# Local release artifacts
+*.dmg
+*.zip
+*.blockmap
+*.tmp
+
+# Logs
+*.log
