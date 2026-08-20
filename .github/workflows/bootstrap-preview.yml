@@ -12,8 +12,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      VERSION: 2.48.2-preview.13
-      ARTIFACT_URL: 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-8418-81f4-8044-ac8e8e162c6d/raw?se=2026-08-20T18%3A46%3A03Z&sp=r&sv=2026-02-06&sr=b&scid=80408d40-54aa-540e-9176-8e006a16a6eb&skoid=56822d8b-6cfd-42ed-a00d-1452dca42036&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-20T00%3A28%3A13Z&ske=2026-08-21T00%3A28%3A13Z&sks=b&skv=2026-02-06&sig=G4PKDTn9pi5kNOyYU7OivSV5wIJjdCkkF%2B7Y2WB3Z0g%3D'
+      VERSION: 2.48.2-preview.25
+      ARTIFACT_URL: 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-62ec-81f4-9aaa-54b017ee6d7b/raw?se=2026-08-20T19%3A29%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=edc4d466-e592-5ad1-be63-9664e63aeaa1&skoid=8981e47a-681f-4a6a-b86c-73d6347614b7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-19T23%3A49%3A29Z&ske=2026-08-20T23%3A49%3A29Z&sks=b&skv=2026-02-06&sig=gd8p1zJYxSytpKTbtQupeXUkJBhMJxKwjE19DfZTRYk%3D'
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v7
@@ -39,10 +39,10 @@ jobs:
             gh release create "v${VERSION}" "$ARM" "$X64" \
               --prerelease \
               --title "Aria ${VERSION}" \
-              --notes "Preview validée automatiquement pour le canal de mise à jour Aria."
+              --notes "Preview validée automatiquement pour tester la mise à jour intégrée d'Aria."
           fi
 
-      - name: Point current Aria updater to Preview
+      - name: Point Preview updater to this release
         run: |
           set -euo pipefail
           ARM="/tmp/aria-preview/Aria-${VERSION}-Apple-Silicon.dmg"
@@ -59,7 +59,7 @@ jobs:
             version,
             releaseDate: new Date().toISOString().slice(0, 10),
             minimumVersion: '2.48.1',
-            notes: 'Preview Aria avec les dernières modifications ChatGPT/GitHub. Une fois installée, les prochaines Preview seront proposées directement dans Aria.',
+            notes: 'Test de mise à jour automatique : Aria doit télécharger, vérifier, se remplacer et redémarrer sans glisser manuellement l’application.',
             downloads: {
               arm64: {
                 url: `https://github.com/hfioafio/Aria-Downloads/releases/download/v${version}/Aria-${version}-Apple-Silicon.dmg`,
@@ -73,12 +73,12 @@ jobs:
               }
             }
           }
-          fs.writeFileSync('updates/latest.json', JSON.stringify(manifest, null, 2) + '\n')
+          fs.writeFileSync('updates/preview.json', JSON.stringify(manifest, null, 2) + '\n')
           NODE
           git config user.name "Aria Update Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add updates/latest.json
-          git commit -m "preview: offer ${VERSION} to current Aria installs"
+          git add updates/preview.json
+          git commit -m "preview: publish ${VERSION} for in-app update test"
           git push origin main
 
-# bootstrap trigger
+# bootstrap trigger preview.25
