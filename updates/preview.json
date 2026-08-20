@@ -1,0 +1,18 @@
+{
+  "version": "2.48.1",
+  "releaseDate": "2026-08-20",
+  "minimumVersion": "2.48.1",
+  "notes": "Canal Preview initialisé. La première Preview publiée remplacera automatiquement ce manifeste.",
+  "downloads": {
+    "arm64": {
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Apple-Silicon.dmg",
+      "sha256": "ba8164b98a6534bb2934a5f789c0c02f9164bbb6b6710ad8eed3cf2634cd9365",
+      "size": 150622741
+    },
+    "x64": {
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Intel.dmg",
+      "sha256": "155b38149b15506cfe9defd466605f3c4cdf5f20b66d32f62b3c65a013b3b046",
+      "size": 158441263
+    }
+  }
+}
