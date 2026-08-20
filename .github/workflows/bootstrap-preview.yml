@@ -1,0 +1,82 @@
+name: Bootstrap Aria Preview
+
+on:
+  push:
+    paths:
+      - '.github/workflows/bootstrap-preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      VERSION: 2.48.2-preview.13
+      ARTIFACT_URL: 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-8418-81f4-8044-ac8e8e162c6d/raw?se=2026-08-20T18%3A46%3A03Z&sp=r&sv=2026-02-06&sr=b&scid=80408d40-54aa-540e-9176-8e006a16a6eb&skoid=56822d8b-6cfd-42ed-a00d-1452dca42036&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-20T00%3A28%3A13Z&ske=2026-08-21T00%3A28%3A13Z&sks=b&skv=2026-02-06&sig=G4PKDTn9pi5kNOyYU7OivSV5wIJjdCkkF%2B7Y2WB3Z0g%3D'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Download validated Preview artifact
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 "$ARTIFACT_URL" -o /tmp/aria-preview.zip
+          mkdir -p /tmp/aria-preview
+          unzip -q /tmp/aria-preview.zip -d /tmp/aria-preview
+          ls -lh /tmp/aria-preview
+
+      - name: Publish GitHub prerelease
+        run: |
+          set -euo pipefail
+          ARM="/tmp/aria-preview/Aria-${VERSION}-Apple-Silicon.dmg"
+          X64="/tmp/aria-preview/Aria-${VERSION}-Intel.dmg"
+          test -f "$ARM"
+          test -f "$X64"
+          if gh release view "v${VERSION}" >/dev/null 2>&1; then
+            gh release upload "v${VERSION}" "$ARM" "$X64" --clobber
+          else
+            gh release create "v${VERSION}" "$ARM" "$X64" \
+              --prerelease \
+              --title "Aria ${VERSION}" \
+              --notes "Preview validée automatiquement pour le canal de mise à jour Aria."
+          fi
+
+      - name: Point current Aria updater to Preview
+        run: |
+          set -euo pipefail
+          ARM="/tmp/aria-preview/Aria-${VERSION}-Apple-Silicon.dmg"
+          X64="/tmp/aria-preview/Aria-${VERSION}-Intel.dmg"
+          ARM_SHA=$(sha256sum "$ARM" | awk '{print $1}')
+          X64_SHA=$(sha256sum "$X64" | awk '{print $1}')
+          ARM_SIZE=$(stat -c%s "$ARM")
+          X64_SIZE=$(stat -c%s "$X64")
+          export ARM_SHA X64_SHA ARM_SIZE X64_SIZE
+          node - <<'NODE'
+          const fs = require('fs')
+          const version = process.env.VERSION
+          const manifest = {
+            version,
+            releaseDate: new Date().toISOString().slice(0, 10),
+            minimumVersion: '2.48.1',
+            notes: 'Preview Aria avec les dernières modifications ChatGPT/GitHub. Une fois installée, les prochaines Preview seront proposées directement dans Aria.',
+            downloads: {
+              arm64: {
+                url: `https://github.com/hfioafio/Aria-Downloads/releases/download/v${version}/Aria-${version}-Apple-Silicon.dmg`,
+                sha256: process.env.ARM_SHA,
+                size: Number(process.env.ARM_SIZE)
+              },
+              x64: {
+                url: `https://github.com/hfioafio/Aria-Downloads/releases/download/v${version}/Aria-${version}-Intel.dmg`,
+                sha256: process.env.X64_SHA,
+                size: Number(process.env.X64_SIZE)
+              }
+            }
+          }
+          fs.writeFileSync('updates/latest.json', JSON.stringify(manifest, null, 2) + '\n')
+          NODE
+          git config user.name "Aria Update Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add updates/latest.json
+          git commit -m "preview: offer ${VERSION} to current Aria installs"
+          git push origin main
