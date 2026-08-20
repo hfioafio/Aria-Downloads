@@ -1,18 +1,18 @@
 {
-  "version": "2.48.1",
+  "version": "2.48.2-preview.25",
   "releaseDate": "2026-08-20",
   "minimumVersion": "2.48.1",
-  "notes": "Canal Preview initialisé. La première Preview publiée remplacera automatiquement ce manifeste.",
+  "notes": "Test de mise à jour automatique : Aria doit télécharger, vérifier, se remplacer et redémarrer sans glisser manuellement l’application.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Apple-Silicon.dmg",
-      "sha256": "ba8164b98a6534bb2934a5f789c0c02f9164bbb6b6710ad8eed3cf2634cd9365",
-      "size": 150622741
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.25/Aria-2.48.2-preview.25-Apple-Silicon.dmg",
+      "sha256": "e16707f09a25f22967d5d2302151e3a7913dca8407aab911198a7f443ebd58d2",
+      "size": 150706688
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Intel.dmg",
-      "sha256": "155b38149b15506cfe9defd466605f3c4cdf5f20b66d32f62b3c65a013b3b046",
-      "size": 158441263
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.25/Aria-2.48.2-preview.25-Intel.dmg",
+      "sha256": "b4c9ca9e4e25e4ccd71737b8aa937ee44865a0c79c2d54b69efdcfee2502dde8",
+      "size": 158424816
     }
   }
 }
