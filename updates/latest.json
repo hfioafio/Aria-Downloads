@@ -1,18 +1,18 @@
 {
-  "version": "2.48.1",
-  "releaseDate": "2026-08-14",
-  "minimumVersion": "2.48.0",
-  "notes": "Mise à jour témoin : seul le numéro de version change afin de valider le parcours de mise à jour depuis Aria 2.48.0.",
+  "version": "2.48.2-preview.13",
+  "releaseDate": "2026-08-20",
+  "minimumVersion": "2.48.1",
+  "notes": "Preview Aria avec les dernières modifications ChatGPT/GitHub. Une fois installée, les prochaines Preview seront proposées directement dans Aria.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Apple-Silicon.dmg",
-      "sha256": "ba8164b98a6534bb2934a5f789c0c02f9164bbb6b6710ad8eed3cf2634cd9365",
-      "size": 150622741
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.13/Aria-2.48.2-preview.13-Apple-Silicon.dmg",
+      "sha256": "75732870392196c49456f053542084761d2b6487c9c6785519dc9d1b83fdb421",
+      "size": 150726603
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.1/Aria-2.48.1-Intel.dmg",
-      "sha256": "155b38149b15506cfe9defd466605f3c4cdf5f20b66d32f62b3c65a013b3b046",
-      "size": 158441263
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.13/Aria-2.48.2-preview.13-Intel.dmg",
+      "sha256": "3c315b5483457d7bb95b03119c216cdf32ae9e5a3612edb8c19ade9ee507cf64",
+      "size": 158391771
     }
   }
 }
