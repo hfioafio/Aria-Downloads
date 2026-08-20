@@ -80,3 +80,5 @@ jobs:
           git add updates/latest.json
           git commit -m "preview: offer ${VERSION} to current Aria installs"
           git push origin main
+
+# bootstrap trigger
