@@ -1,18 +1,18 @@
 {
-  "version": "2.48.2-preview.50",
+  "version": "2.48.2-preview.51",
   "releaseDate": "2026-08-21",
   "minimumVersion": "2.48.1",
-  "notes": "Preview automatique 2.48.2-preview.50. Modifications validées par les tests et le build GitHub Actions.",
+  "notes": "Preview automatique 2.48.2-preview.51. Modifications validées par les tests et le build GitHub Actions.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.50/Aria-2.48.2-preview.50-Apple-Silicon.dmg",
-      "sha256": "66c9799c9cd636122367c0bd725cb61afa083f59243499a2ce202a429b2e29c5",
-      "size": 150683421
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.51/Aria-2.48.2-preview.51-Apple-Silicon.dmg",
+      "sha256": "42493ad85de411c2dfaa2625ee21c5c4b5096490ef4f52f6cec74e3e91454d62",
+      "size": 150720900
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.50/Aria-2.48.2-preview.50-Intel.dmg",
-      "sha256": "2b1c377410139fefa5bcb89e42ef410bfe6c27996cf4b1db927154824e3f6c07",
-      "size": 158420828
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.51/Aria-2.48.2-preview.51-Intel.dmg",
+      "sha256": "e5401cd6e2c489974358b0e28fb4b8fd07c2b3452972a3b06208dbcae19f74f9",
+      "size": 158510466
     }
   }
 }
