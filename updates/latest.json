@@ -1,18 +1,18 @@
 {
-  "version": "2.48.2-preview.28",
-  "releaseDate": "2026-08-20",
+  "version": "2.50.0",
+  "releaseDate": "2026-08-22",
   "minimumVersion": "2.48.1",
-  "notes": "Test du vrai auto-update Aria : téléchargement, vérification, remplacement de l’application puis redémarrage automatique.",
+  "notes": "Identité Apple stable et installation sur place : les mises à jour suivantes conservent Micro, Accessibilité et Trousseau. Une ancienne version signée ad hoc peut demander les autorisations une dernière fois lors de cette migration.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.28/Aria-2.48.2-preview.28-Apple-Silicon.dmg",
-      "sha256": "4878092f33e3467052cb6cbc2b76d6403b3732ca8603a85f677431a540d8d1eb",
-      "size": 150702709
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.50.0/Aria-2.50.0-Apple-Silicon.dmg",
+      "sha256": "f23c7c1278bdcb7ce4d522ec9d80683ecfc51ee1b21dd6050e90f576aa022506",
+      "size": 150795835
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.48.2-preview.28/Aria-2.48.2-preview.28-Intel.dmg",
-      "sha256": "3c630904ebe378258012564d31eeabd078284b0572ec74fb951095499506c494",
-      "size": 158391204
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.50.0/Aria-2.50.0-Intel.dmg",
+      "sha256": "9fb95ac31491091bd2026583370e04ddd06306b920f8252b48552b0e64ba1e4f",
+      "size": 158591246
     }
   }
 }
