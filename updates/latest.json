@@ -1,18 +1,18 @@
 {
-  "version": "2.51.0",
+  "version": "2.51.1",
   "releaseDate": "2026-08-25",
   "minimumVersion": "2.48.1",
-  "notes": "Mise à jour transactionnelle avec reprise réseau et retour automatique en cas d’échec, fiabilité renforcée des dictées et réunions, journal audio allégé et aperçu Nova réversible.",
+  "notes": "Correctif de validation du canal transactionnel 2.51 : accusé de santé au redémarrage, nettoyage de la sauvegarde et retour automatique en cas d’échec.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.0/Aria-2.51.0-Apple-Silicon.dmg",
-      "sha256": "207dfb8ef4281efed5f860001db7d06050710a664530325f45620324b0ea739a",
-      "size": 150808351
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg",
+      "sha256": "ebeee85899fc94bdf936be3a4f7e6545150c6754eb90ffd56caa6d3b8609569a",
+      "size": 150781360
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.0/Aria-2.51.0-Intel.dmg",
-      "sha256": "a063909528aabdb997732f0719acb4d051045745a509945e20320ac69b5043af",
-      "size": 158604026
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg",
+      "sha256": "a027e91eb2b84adbde3803954a9da7b6d492a6ae8f6f3a8910fa074be75eaf76",
+      "size": 158610089
     }
   }
 }
