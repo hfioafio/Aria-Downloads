@@ -2,28 +2,30 @@
 
 **Parlez. Le texte s’écrit dans l’app où vous êtes.**
 
-[Page](https://hfioafio.github.io/Aria-Downloads/) · [English](https://hfioafio.github.io/Aria-Downloads/en.html) · [v2.51.1](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.51.1)
+[Page](https://hfioafio.github.io/Aria-Downloads/) · [English](https://hfioafio.github.io/Aria-Downloads/en.html) · [v2.60.2-preview.78](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.60.2-preview.78)
 
 Aria reste dans la barre des menus. Un raccourci, votre voix, et la phrase arrive dans Mail, Messages, Notes ou n’importe quel champ — pas dans une fenêtre à part à recopier.
 
+![Choix du mode local ou en ligne dans Aria](docs/aria-setup-preview.png)
+
 La version publique actuelle est une app **Electron** pour macOS 11+. Ce n’est pas une app Swift.
 
-Le moteur local (Parakeet) garde l’audio et la transcription sur le Mac. Les moteurs cloud sont optionnels et utilisent **votre** clé. Gratuit : 2 000 mots par semaine. Aria Pro : 5 € une fois, trois Mac, pas d’abonnement.
+Le mode local garde l’audio et la transcription sur le Mac. Pendant la bêta, le mode Groq fonctionne aussi sans clé à saisir grâce à un relais Aria limité ; ni l’audio ni le texte ne sont conservés par ce relais. Gratuit : 2 000 mots par semaine. Aria Pro : 5 € une fois, trois Mac, pas d’abonnement.
 
-## Télécharger — bêta 2.51.1
+## Télécharger — bêta 2.60.2-preview.78
 
 | Mac | Fichier |
 | --- | --- |
-| Apple Silicon (M1, M2, M3, M4 et suivants) | [Aria-2.51.1-Apple-Silicon.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg) |
-| Intel | [Aria-2.51.1-Intel.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg) |
+| Apple Silicon (M1, M2, M3, M4 et suivants) | [Aria-2.60.2-preview.78-Apple-Silicon.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg) |
+| Intel | [Aria-2.60.2-preview.78-Intel.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Intel.dmg) |
 
-Empreintes : [SHA-256 Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg.sha256) · [SHA-256 Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg.sha256)
+Empreintes : [SHA-256 Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg.sha256) · [SHA-256 Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Intel.dmg.sha256)
 
 Ne mélangez pas les deux : le fichier Apple Silicon n’est pas fait pour Rosetta.
 
 ## Première ouverture
 
-Cette bêta est signée avec une identité Apple stable, mais **pas encore notarisée**. Après avoir glissé Aria dans Applications :
+Cette bêta possède une identité de signature stable, mais **n’est pas encore notarisée par Apple**. Après avoir glissé Aria dans Applications :
 
 1. Essayez de l’ouvrir une fois.
 2. Si macOS la bloque : **Réglages Système → Confidentialité et sécurité → Ouvrir quand même**.
@@ -40,15 +42,15 @@ Speak. Aria types into Mail, Messages, Notes, or whatever app has the cursor.
 
 Current public build is **Electron**, not Swift.
 
-- [Apple Silicon DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg)
-- [Intel DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg)
+- [Apple Silicon DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg)
+- [Intel DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Intel.dmg)
 - [English page](https://hfioafio.github.io/Aria-Downloads/en.html)
 
-Local engine available. Cloud engines use your own API key. Public beta is signed but not notarized yet: first launch may need **System Settings → Privacy & Security → Open Anyway**.
+Local mode keeps audio and text on the Mac. During the beta, Groq online mode also works without entering a key through a limited Aria relay; the relay stores neither audio nor transcripts. The public beta is signed but not notarized yet: first launch may need **System Settings → Privacy & Security → Open Anyway**.
 
 ## Confidentialité
 
-Les clés API restent dans le Trousseau macOS. Les données de l’application restent sur le Mac. Avec un modèle local, aucun audio n’est envoyé à un fournisseur de transcription. Avec un modèle API, seul l’audio à transcrire part vers le fournisseur que vous avez choisi.
+Les clés API personnelles restent dans le Trousseau macOS. Les données de l’application restent sur le Mac. Avec un modèle local, aucun audio n’est envoyé. Avec le mode Groq fourni pendant la bêta, l’audio passe par le relais Aria vers Groq puis est immédiatement abandonné ; le relais ne stocke ni l’audio ni le texte. Des compteurs pseudonymes et bornés protègent seulement le quota partagé.
 
 Cette page et ce dépôt ne portent pas de publicité ni de traceur tiers.
 

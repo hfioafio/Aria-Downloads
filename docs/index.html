@@ -15,13 +15,14 @@
   <link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/">
   <link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html">
   <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aria — Parlez au Mac. Aria écrit partout.">
   <meta name="twitter:description" content="Une dictée macOS rapide, fidèle et privée. Directement dans l’app où vous travaillez.">
   <link rel="icon" href="favicon.png">
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aria","applicationCategory":"ProductivityApplication","operatingSystem":"macOS 11+","description":"Dictée et transcription vocale pour macOS, avec traitement local et insertion directe dans l’application active.","url":"https://hfioafio.github.io/Aria-Downloads/","downloadUrl":"https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg","offers":[{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Aria Free"},{"@type":"Offer","price":"5","priceCurrency":"EUR","name":"Aria Pro"}]}
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aria","applicationCategory":"ProductivityApplication","operatingSystem":"macOS 11+","description":"Dictée et transcription vocale pour macOS, avec traitement local et insertion directe dans l’application active.","url":"https://hfioafio.github.io/Aria-Downloads/","downloadUrl":"https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg","offers":[{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Aria Free"},{"@type":"Offer","price":"5","priceCurrency":"EUR","name":"Aria Pro"}]}
   </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aria traduit-elle automatiquement l’anglais ?","acceptedAnswer":{"@type":"Answer","text":"Non. La transcription conserve la langue parlée."}},{"@type":"Question","name":"Faut-il une connexion Internet ?","acceptedAnswer":{"@type":"Answer","text":"Le moteur local traite l’audio sur le Mac. Aria Free a seulement besoin d’une brève connexion pour le quota hebdomadaire."}},{"@type":"Question","name":"Le paiement de 5 € est-il un abonnement ?","acceptedAnswer":{"@type":"Answer","text":"Non. C’est un achat unique, à vie, sur trois Mac."}}]}
@@ -160,6 +161,10 @@
       overflow:hidden; min-height:590px; border:1px solid var(--line-strong); border-radius:28px;
       background:var(--surface); box-shadow:var(--shadow);
     }
+    .real-app-section { padding:76px 0 24px }
+    .real-app-shot { margin:0; overflow:hidden; border:1px solid var(--line-strong); border-radius:28px; background:#10141b; box-shadow:var(--shadow) }
+    .real-app-shot img { display:block; width:100%; height:auto }
+    .real-app-shot figcaption { padding:14px 18px; color:var(--ink-3); background:var(--surface); font-size:12px; text-align:center }
     .demo-bar { display:flex; align-items:center; gap:8px; height:50px; padding:0 17px; border-bottom:1px solid var(--line); background:color-mix(in srgb,var(--surface-2) 60%,var(--surface)) }
     .dots { display:flex; gap:7px }
     .dots i { width:11px; height:11px; border-radius:50% }
@@ -569,6 +574,15 @@
       </div>
     </div>
 
+    <section class="real-app-section" aria-label="Capture réelle d’Aria">
+      <div class="shell">
+        <figure class="real-app-shot reveal">
+          <img src="aria-setup-preview.png" width="2160" height="1440" loading="lazy" alt="Écran réel d’Aria proposant le mode local privé et le mode Groq en ligne">
+          <figcaption>Capture réelle de la bêta — l’interface suit la langue du Mac.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section id="experience">
       <div class="shell">
         <div class="intro reveal">
@@ -683,7 +697,7 @@
         </div>
         <div class="privacy-list">
           <div class="privacy-row reveal"><small>01</small><b>Local signifie local</b><p>Avec Parakeet, ni l’audio ni la transcription ne quittent votre ordinateur.</p></div>
-          <div class="privacy-row reveal"><small>02</small><b>Vos propres clés</b><p>Les clés API sont chiffrées dans le Trousseau macOS et jamais intégrées au site.</p></div>
+          <div class="privacy-row reveal"><small>02</small><b>Clé serveur jamais embarquée</b><p>Le mode Groq fourni utilise une clé conservée sur le serveur. Vos clés optionnelles restent chiffrées dans le Trousseau macOS.</p></div>
           <div class="privacy-row reveal"><small>03</small><b>Historique réglable</b><p>Gardez-le, limitez-le ou désactivez-le selon le niveau de confidentialité recherché.</p></div>
           <div class="privacy-row reveal"><small>04</small><b>Contexte facultatif</b><p>La lecture d’écran locale pour les noms propres peut être désactivée à tout moment.</p></div>
           <div class="privacy-row reveal"><small>05</small><b>Mesure facultative</b><p>Les statistiques pseudonymisées de diffusion et d’usage sont désactivées par défaut. Si vous les acceptez, seuls des compteurs et un identifiant aléatoire sont partagés : jamais d’audio, de texte, d’e-mail, de nom ou d’identifiant matériel. Le retrait demande l’effacement des agrégats associés.</p></div>
@@ -738,19 +752,19 @@
     <section class="beta" id="telecharger">
       <div class="shell">
         <div class="beta-card reveal">
-          <p class="eyebrow">Bêta publique · version 2.51.1</p>
+          <p class="eyebrow">Bêta publique · version 2.60.2-preview.78</p>
           <h2>Installez. Parlez.<br>Aria écrit.</h2>
           <p class="lede">Choisissez votre Mac. Le DMG contient seulement l’application compilée, ses ressources et les instructions d’installation — jamais le dépôt de développement.</p>
           <div class="download-grid" aria-label="Téléchargements Aria pour macOS">
             <article class="download-card recommended" data-download-card="arm64">
               <div class="download-top"><div><small>Mac récents · M1 à M4+</small><h3>Apple Silicon</h3></div><span class="download-badge">Recommandé</span></div>
               <p>Version native arm64 pour MacBook, iMac, Mac mini, Mac Studio et Mac Pro équipés d’une puce Apple.</p>
-              <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg" data-download="arm64">Télécharger le DMG</a>
+              <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg" data-download="arm64">Télécharger le DMG</a>
             </article>
             <article class="download-card" data-download-card="x64">
               <div class="download-top"><div><small>Mac Intel</small><h3>Intel</h3></div><span class="download-badge" hidden>Votre Mac</span></div>
               <p>Version x64 distincte pour les Mac commercialisés avant la transition vers les puces Apple.</p>
-              <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg" data-download="x64">Télécharger le DMG</a>
+              <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Intel.dmg" data-download="x64">Télécharger le DMG</a>
             </article>
           </div>
           <div class="install-guide">
@@ -761,11 +775,11 @@
               <div class="install-step">Essayez d’ouvrir Aria une fois.</div>
               <div class="install-step">Si macOS bloque : Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</div>
             </div>
-            <p class="install-warning"><span>⚠︎</span><span><b>Avertissement attendu :</b> cette bêta est contrôlée par SHA-256 et possède une identité Apple stable, mais elle n’est pas encore notarisée. Ne contournez Gatekeeper que pour le téléchargement venant de ce site et du dépôt GitHub officiel.</span></p>
+            <p class="install-warning"><span>⚠︎</span><span><b>Avertissement attendu :</b> cette bêta est contrôlée par SHA-256 et possède une identité de signature stable, mais elle n’est pas encore notarisée par Apple. Ne contournez Gatekeeper que pour le téléchargement venant de ce site et du dépôt GitHub officiel.</span></p>
             <div class="checksum-links">
-              <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg.sha256">SHA-256 Apple Silicon</a>
-              <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg.sha256">SHA-256 Intel</a>
-              <a href="https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.51.1">Voir la release GitHub</a>
+              <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg.sha256">SHA-256 Apple Silicon</a>
+              <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Intel.dmg.sha256">SHA-256 Intel</a>
+              <a href="https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.60.2-preview.78">Voir la release GitHub</a>
             </div>
           </div>
           <p class="beta-meta">macOS 11+ · téléchargement par architecture · mises à jour vérifiées dans Aria</p>
@@ -777,7 +791,7 @@
       <div class="shell faq">
         <h2>Questions fréquentes.</h2>
         <details><summary>Aria traduit-elle automatiquement l’anglais ?</summary><p>Non. La transcription conserve la langue parlée. Les transformations comme E-mail ou Points clés ne s’appliquent que lorsque vous les choisissez.</p></details>
-        <details><summary>Faut-il une connexion Internet ?</summary><p>Le moteur local traite toujours l’audio sur le Mac. Aria Free a seulement besoin d’une brève connexion pour vérifier le quota hebdomadaire ; Aria Pro conserve un accès hors ligne durable entre ses validations de licence. Groq et les autres moteurs cloud utilisent la connexion et la clé API de votre propre compte fournisseur.</p></details>
+        <details><summary>Faut-il une connexion Internet ?</summary><p>Non avec le mode local : l’audio reste sur le Mac. Pendant la bêta, le mode Groq peut fonctionner sans clé à saisir ; l’audio passe alors par un relais Aria limité vers Groq, sans stockage de l’audio ni du texte. Une clé personnelle reste possible pour les autres services optionnels.</p></details>
         <details><summary>Comment fonctionne la limite gratuite ?</summary><p>Aria Free comprend 2 000 mots par semaine et se remet à zéro chaque lundi selon l’heure du serveur. Une brève connexion est nécessaire pour vérifier le compteur ; réinstaller l’app ou changer l’horloge du Mac ne recrée pas un nouveau quota.</p></details>
         <details><summary>Le paiement de 5 € est-il un abonnement ?</summary><p>Non. C’est un achat unique donnant accès à Aria Pro à vie sur trois Mac, sans limite de mots, avec les futures mises à jour incluses.</p></details>
         <details><summary>Que se passe-t-il pendant une longue dictée ?</summary><p>Le délai cloud augmente avec la durée enregistrée. Deux minutes de parole disposent d’un délai bien supérieur à une phrase courte avant que le secours local soit envisagé.</p></details>

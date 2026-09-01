@@ -14,6 +14,7 @@
   <meta property="og:title" content="Aria — Speak to your Mac. Aria writes everywhere.">
   <meta property="og:description" content="macOS dictation that types where you already work. Local engine available.">
   <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/en.html">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.png">
   <style>
@@ -36,6 +37,7 @@
     .primary { color:#fff; background:var(--blue) }
     .quiet { border:1px solid var(--line-strong); background:var(--surface) }
     .meta { display:flex; flex-wrap:wrap; gap:16px; margin-top:18px; color:var(--ink-3); font-size:12px }
+    .product-shot { display:block; width:100%; height:auto; margin-top:34px; border:1px solid var(--line-strong); border-radius:20px; box-shadow:0 24px 70px rgba(16,17,24,.14) }
     section { padding:42px 0 }
     h2 { font-size:28px; letter-spacing:-.04em }
     ul { margin-top:16px; padding-left:18px; color:var(--ink-2) }
@@ -74,32 +76,33 @@
       <span>Keeps the language you spoke</span>
       <span>Apple Silicon and Intel</span>
     </div>
+    <img class="product-shot" src="aria-setup-preview.png" width="2160" height="1440" alt="Aria setup with private local and ready-to-use online transcription modes">
     <section>
       <h2>What it actually does</h2>
       <ul>
         <li>Inserts text in the frontmost app, then gets out of the way.</li>
-        <li>Parakeet keeps audio and transcription on the Mac. Cloud engines use your own API key.</li>
+        <li>Local mode keeps audio and transcription on the Mac. During the beta, Groq online mode also works without entering a key through a limited Aria relay that stores neither audio nor text.</li>
         <li>Free: 2,000 words a week, reset every Monday. Pro is €5 once, three Macs, no subscription.</li>
         <li>Updates are checked, hashed, and rolled back if the new build fails to start.</li>
       </ul>
     </section>
     <section id="download">
-      <h2>Public beta 2.51.1</h2>
+      <h2>Public beta 2.60.2-preview.78</h2>
       <div class="downloads">
         <article class="card">
           <small>M1 to M4+</small>
           <h3>Apple Silicon</h3>
           <p>Native arm64 build. This is the one to pick on a recent Mac.</p>
-          <a class="button primary" data-download="arm64" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg">Download the DMG</a>
+          <a class="button primary" data-download="arm64" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Apple-Silicon.dmg">Download the DMG</a>
         </article>
         <article class="card">
           <small>Intel Macs</small>
           <h3>Intel</h3>
           <p>Separate x64 build. Do not run the Apple Silicon file through Rosetta.</p>
-          <a class="button quiet" data-download="x64" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg">Download the DMG</a>
+          <a class="button quiet" data-download="x64" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.78/Aria-2.60.2-preview.78-Intel.dmg">Download the DMG</a>
         </article>
       </div>
-      <p class="note">This beta is signed with a stable Apple identity but is not notarized yet. First launch may need System Settings → Privacy &amp; Security → Open Anyway. Later updates keep Microphone, Accessibility and Keychain.</p>
+      <p class="note">This beta has a stable signing identity but is not notarized by Apple yet. First launch may need System Settings → Privacy &amp; Security → Open Anyway. Later updates keep Microphone, Accessibility and Keychain.</p>
     </section>
     <footer>Aria for macOS. No ads, no third-party trackers on this page.
       <a href="https://github.com/hfioafio/Aria-Downloads/issues/new">Open an issue</a>
