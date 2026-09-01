@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Page officielle
+    url: https://hfioafio.github.io/Aria-Downloads/
+    about: Présentation, téléchargements Apple Silicon et Intel.
+  - name: English page
+    url: https://hfioafio.github.io/Aria-Downloads/en.html
+    about: Short English download page.

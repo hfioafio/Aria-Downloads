@@ -1,0 +1,46 @@
+name: Question ou installation
+description: Gatekeeper, micro, mise à jour, licence. Sans clé API ni dictée.
+title: "[Aria] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci. Ne collez pas de clé API, de transcription, de capture d’écran personnelle
+        ni d’identifiant de licence.
+  - type: dropdown
+    id: chip
+    attributes:
+      label: Puce du Mac
+      options:
+        - Apple Silicon (M1, M2, M3, M4…)
+        - Intel
+        - Je ne sais pas
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: Version de macOS
+      placeholder: "par exemple 15.6"
+    validations:
+      required: true
+  - type: input
+    id: aria
+    attributes:
+      label: Version d’Aria
+      placeholder: "Réglages → version, par exemple 2.51.1"
+    validations:
+      required: true
+  - type: textarea
+    id: happens
+    attributes:
+      label: Ce qui se passe
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ce que vous attendiez
+    validations:
+      required: false

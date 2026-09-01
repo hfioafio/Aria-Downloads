@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/"/>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>
