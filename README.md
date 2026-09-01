@@ -2,19 +2,13 @@
 
 **Parlez. Le texte s’écrit dans l’app où vous êtes.**
 
-[![Dernière version](https://img.shields.io/github/v/release/hfioafio/Aria-Downloads)](https://github.com/hfioafio/Aria-Downloads/releases/latest)
-[![Téléchargements](https://img.shields.io/github/downloads/hfioafio/Aria-Downloads/total)](https://github.com/hfioafio/Aria-Downloads/releases)
-[![macOS 11+](https://img.shields.io/badge/macOS-11%2B-black)](https://hfioafio.github.io/Aria-Downloads/)
-
-[Page officielle](https://hfioafio.github.io/Aria-Downloads/) · [English](https://hfioafio.github.io/Aria-Downloads/en.html) · [Dernière release](https://github.com/hfioafio/Aria-Downloads/releases/latest)
-
-<p align="center">
-  <img src="docs/og-image-v4.png" alt="Aria — Parlez au Mac. Aria écrit partout." width="800">
-</p>
+[Page](https://hfioafio.github.io/Aria-Downloads/) · [English](https://hfioafio.github.io/Aria-Downloads/en.html) · [v2.51.1](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.51.1)
 
 Aria reste dans la barre des menus. Un raccourci, votre voix, et la phrase arrive dans Mail, Messages, Notes ou n’importe quel champ — pas dans une fenêtre à part à recopier.
 
-Le moteur local (Parakeet) garde l’audio et la transcription sur le Mac. Les moteurs cloud sont optionnels et utilisent **votre** clé. La version gratuite donne 2 000 mots par semaine. Aria Pro coûte 5 € une seule fois, pour trois Mac, sans abonnement.
+La version publique actuelle est une app **Electron** pour macOS 11+. Ce n’est pas une app Swift.
+
+Le moteur local (Parakeet) garde l’audio et la transcription sur le Mac. Les moteurs cloud sont optionnels et utilisent **votre** clé. Gratuit : 2 000 mots par semaine. Aria Pro : 5 € une fois, trois Mac, pas d’abonnement.
 
 ## Télécharger — bêta 2.51.1
 
@@ -43,6 +37,8 @@ Aria consulte ce dépôt au démarrage, puis toutes les six heures. Avant d’in
 ## English
 
 Speak. Aria types into Mail, Messages, Notes, or whatever app has the cursor.
+
+Current public build is **Electron**, not Swift.
 
 - [Apple Silicon DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Apple-Silicon.dmg)
 - [Intel DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.51.1/Aria-2.51.1-Intel.dmg)
