@@ -700,7 +700,7 @@
           <div class="privacy-row reveal"><small>02</small><b>Clé serveur jamais embarquée</b><p>Le mode Groq fourni utilise une clé conservée sur le serveur. Vos clés optionnelles restent chiffrées dans le Trousseau macOS.</p></div>
           <div class="privacy-row reveal"><small>03</small><b>Historique réglable</b><p>Gardez-le, limitez-le ou désactivez-le selon le niveau de confidentialité recherché.</p></div>
           <div class="privacy-row reveal"><small>04</small><b>Contexte facultatif</b><p>La lecture d’écran locale pour les noms propres peut être désactivée à tout moment.</p></div>
-          <div class="privacy-row reveal"><small>05</small><b>Mesure facultative</b><p>Les statistiques pseudonymisées de diffusion et d’usage sont désactivées par défaut. Si vous les acceptez, seuls des compteurs et un identifiant aléatoire sont partagés : jamais d’audio, de texte, d’e-mail, de nom ou d’identifiant matériel. Le retrait demande l’effacement des agrégats associés.</p></div>
+          <div class="privacy-row reveal"><small>05</small><b>Mesure facultative</b><p>Les statistiques pseudonymisées de diffusion et d’usage sont désactivées par défaut. Si vous les acceptez, seuls des compteurs et un identifiant aléatoire sont partagés : jamais d’audio, de texte, d’e-mail, de nom ou d’identifiant matériel. Le retrait demande l’effacement des agrégats associés. Cette page-ci compte séparément les visites et les clics de téléchargement, sans cookie, sans identifiant conservé et sans profil : l’identifiant est tiré au hasard à chaque chargement et n’est écrit nulle part.</p></div>
         </div>
       </div>
     </section>
@@ -961,5 +961,61 @@
       }
     })();
   </script>
+<!-- aria-beacon:start -->
+<script>
+/* aria-beacon : compte les visites et les clics de téléchargement de la vitrine publique.
+   Aucun cookie, aucun identifiant conservé, aucune donnée personnelle : l'identifiant est
+   tiré au hasard à chaque chargement et n'est écrit nulle part sur la machine du visiteur. */
+(function () {
+  var API = 'https://aria-dictee-mac.buggbrr.chatgpt.site/api/v1/analytics/site';
+  var SOURCES = ['direct', 'x', 'linkedin', 'reddit', 'youtube', 'newsletter', 'press', 'producthunt', 'hackernews', 'github', 'directories'];
+  try {
+    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+  } catch (_) { return; }
+
+  function token() {
+    try {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID();
+    } catch (_) {}
+    var hex = '';
+    for (var i = 0; i < 32; i++) hex += Math.floor(Math.random() * 16).toString(16);
+    return hex;
+  }
+
+  var visitor = token();
+  var params = new URLSearchParams(location.search);
+  var source = String(params.get('utm_source') || '').toLowerCase();
+  if (SOURCES.indexOf(source) < 0) source = 'direct';
+  var campaign = String(params.get('utm_campaign') || '').toLowerCase().slice(0, 32);
+  if (!/^[a-z0-9_-]{1,32}$/.test(campaign)) campaign = '';
+
+  function send(eventType, platform) {
+    var body = JSON.stringify({
+      eventId: token().replace(/-/g, '') + Date.now().toString(36),
+      visitorId: visitor,
+      eventType: eventType,
+      platform: platform,
+      source: source,
+      campaign: campaign
+    });
+    try {
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(API, new Blob([body], { type: 'text/plain' }));
+        return;
+      }
+      fetch(API, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'content-type': 'text/plain' }, body: body }).catch(function () {});
+    } catch (_) {}
+  }
+
+  send('page_view', 'unknown');
+
+  document.addEventListener('click', function (event) {
+    var target = event.target && event.target.closest ? event.target.closest('a[href$=".dmg"]') : null;
+    if (!target) return;
+    send('download_click', /Apple-Silicon/i.test(target.getAttribute('href') || '') ? 'arm64' : 'x64');
+  }, true);
+})();
+</script>
+<!-- aria-beacon:end -->
 </body>
 </html>

@@ -104,9 +104,65 @@
       </div>
       <p class="note">This beta has a stable signing identity but is not notarized by Apple yet. First launch may need System Settings → Privacy &amp; Security → Open Anyway. Later updates keep Microphone, Accessibility and Keychain.</p>
     </section>
-    <footer>Aria for macOS. No ads, no third-party trackers on this page.
+    <footer>Aria for macOS. No ads and no third-party trackers. This page counts visits and download clicks only, with no cookie and no stored identifier.
       <a href="https://github.com/hfioafio/Aria-Downloads/issues/new">Open an issue</a>
     </footer>
   </div>
+<!-- aria-beacon:start -->
+<script>
+/* aria-beacon : compte les visites et les clics de téléchargement de la vitrine publique.
+   Aucun cookie, aucun identifiant conservé, aucune donnée personnelle : l'identifiant est
+   tiré au hasard à chaque chargement et n'est écrit nulle part sur la machine du visiteur. */
+(function () {
+  var API = 'https://aria-dictee-mac.buggbrr.chatgpt.site/api/v1/analytics/site';
+  var SOURCES = ['direct', 'x', 'linkedin', 'reddit', 'youtube', 'newsletter', 'press', 'producthunt', 'hackernews', 'github', 'directories'];
+  try {
+    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+  } catch (_) { return; }
+
+  function token() {
+    try {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID();
+    } catch (_) {}
+    var hex = '';
+    for (var i = 0; i < 32; i++) hex += Math.floor(Math.random() * 16).toString(16);
+    return hex;
+  }
+
+  var visitor = token();
+  var params = new URLSearchParams(location.search);
+  var source = String(params.get('utm_source') || '').toLowerCase();
+  if (SOURCES.indexOf(source) < 0) source = 'direct';
+  var campaign = String(params.get('utm_campaign') || '').toLowerCase().slice(0, 32);
+  if (!/^[a-z0-9_-]{1,32}$/.test(campaign)) campaign = '';
+
+  function send(eventType, platform) {
+    var body = JSON.stringify({
+      eventId: token().replace(/-/g, '') + Date.now().toString(36),
+      visitorId: visitor,
+      eventType: eventType,
+      platform: platform,
+      source: source,
+      campaign: campaign
+    });
+    try {
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(API, new Blob([body], { type: 'text/plain' }));
+        return;
+      }
+      fetch(API, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'content-type': 'text/plain' }, body: body }).catch(function () {});
+    } catch (_) {}
+  }
+
+  send('page_view', 'unknown');
+
+  document.addEventListener('click', function (event) {
+    var target = event.target && event.target.closest ? event.target.closest('a[href$=".dmg"]') : null;
+    if (!target) return;
+    send('download_click', /Apple-Silicon/i.test(target.getAttribute('href') || '') ? 'arm64' : 'x64');
+  }, true);
+})();
+</script>
+<!-- aria-beacon:end -->
 </body>
 </html>
