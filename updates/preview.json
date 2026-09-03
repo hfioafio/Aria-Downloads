@@ -1,18 +1,18 @@
 {
-  "version": "2.60.2-preview.83",
-  "releaseDate": "2026-09-02",
+  "version": "2.60.2-preview.85",
+  "releaseDate": "2026-09-03",
   "minimumVersion": "2.48.1",
-  "notes": "Preview automatique 2.60.2-preview.83. Modifications validées par les tests et le build GitHub Actions.",
+  "notes": "Preview automatique 2.60.2-preview.85. Modifications validées par les tests et le build GitHub Actions.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.83/Aria-2.60.2-preview.83-Apple-Silicon.dmg",
-      "sha256": "38ddebf4985581f14adfcc7235fa0f1e74010b8e765beffcb20613a56f5436b4",
-      "size": 158827844
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.85/Aria-2.60.2-preview.85-Apple-Silicon.dmg",
+      "sha256": "e9d8cab9ab618eba744093c0d0fc4c3548693c9742b0f7e7a3a38de17281dcf7",
+      "size": 158866729
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.83/Aria-2.60.2-preview.83-Intel.dmg",
-      "sha256": "64976287a0ecc79e84fa843e846fe3f112c111b2d6e37b5f8061e87e0406e396",
-      "size": 168045028
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2-preview.85/Aria-2.60.2-preview.85-Intel.dmg",
+      "sha256": "1c576bb39fa4266838984913c5878fb56899f34f2720f4bff0b01e0f8d40d261",
+      "size": 168036545
     }
   }
 }
