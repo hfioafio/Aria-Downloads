@@ -10,9 +10,9 @@ Aria reste dans la barre des menus. Un raccourci, votre voix, et la phrase arriv
 
 La version publique actuelle est une app **Electron** pour macOS 11+. Ce n’est pas une app Swift.
 
-Le mode local garde l’audio et la transcription sur le Mac. Pendant la bêta, le mode Groq fonctionne aussi sans clé à saisir grâce à un relais Aria limité ; ni l’audio ni le texte ne sont conservés par ce relais. Gratuit : 2 000 mots par semaine. Aria Pro : 5 € une fois, trois Mac, pas d’abonnement.
+Le mode local garde l’audio et la transcription sur le Mac. Pour l’instant, le mode Groq fonctionne aussi sans clé à saisir grâce à un relais Aria limité ; ni l’audio ni le texte ne sont conservés par ce relais. Gratuit : 2 000 mots par semaine. Aria Pro : 5 € une fois, trois Mac, pas d’abonnement.
 
-## Télécharger — bêta 2.60.2
+## Télécharger — version 2.60.2
 
 | Mac | Fichier |
 | --- | --- |
@@ -25,7 +25,7 @@ Ne mélangez pas les deux : le fichier Apple Silicon n’est pas fait pour Roset
 
 ## Première ouverture
 
-Cette bêta possède une identité de signature stable, mais **n’est pas encore notarisée par Apple**. Après avoir glissé Aria dans Applications :
+Cette version possède une identité de signature stable, mais **n’est pas encore notarisée par Apple**. Après avoir glissé Aria dans Applications :
 
 1. Essayez de l’ouvrir une fois.
 2. Si macOS la bloque : **Réglages Système → Confidentialité et sécurité → Ouvrir quand même**.
@@ -46,7 +46,7 @@ Current public build is **Electron**, not Swift.
 - [Intel DMG](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.2/Aria-2.60.2-Intel.dmg)
 - [English page](https://hfioafio.github.io/Aria-Downloads/en.html)
 
-Local mode keeps audio and text on the Mac. During the beta, Groq online mode also works without entering a key through a limited Aria relay; the relay stores neither audio nor transcripts. The public beta is signed but not notarized yet: first launch may need **System Settings → Privacy & Security → Open Anyway**.
+Local mode keeps audio and text on the Mac. For now, Groq online mode also works without entering a key through a limited Aria relay; the relay stores neither audio nor transcripts. The public beta is signed but not notarized yet: first launch may need **System Settings → Privacy & Security → Open Anyway**.
 
 ## Confidentialité
 
