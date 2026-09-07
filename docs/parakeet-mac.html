@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <meta name="color-scheme" content="light dark">
+  <title>NVIDIA Parakeet on Mac: Offline Dictation App</title>
+  <meta name="description" content="Run NVIDIA Parakeet TDT V3 locally on Apple Silicon for dictation into any app. No Python, no install script, no cloud. Free up to 2,000 words a week.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aria">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="NVIDIA Parakeet on Mac: Offline Dictation App">
+  <meta property="og:description" content="Run NVIDIA Parakeet TDT V3 locally on Apple Silicon for dictation into any app. No Python, no install script, no cloud. Free up to 2,000 words a week.">
+  <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NVIDIA Parakeet on Mac: Offline Dictation App">
+  <meta name="twitter:description" content="Run NVIDIA Parakeet TDT V3 locally on Apple Silicon for dictation into any app. No Python, no install script, no cloud. Free up to 2,000 words a week.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="pages.css">
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to install Python, conda or anything else?", "acceptedAnswer": {"@type": "Answer", "text": "No. The runtime is bundled in the app. Install the DMG, download the model from inside Aria, and dictate."}}, {"@type": "Question", "name": "Does it really work with no internet?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, once the 487 MB model is downloaded. Only the free plan's weekly word counter needs a brief connection; Pro removes that."}}, {"@type": "Question", "name": "Which languages does Parakeet TDT V3 cover?", "acceptedAnswer": {"@type": "Answer", "text": "25 European languages, and Aria keeps the language you spoke rather than translating it to English."}}, {"@type": "Question", "name": "Can I use Whisper instead?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Whisper variants are available locally, and cloud engines are available with your own key."}}, {"@type": "Question", "name": "Does it run on an Intel Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There is a separate Intel build. It is slower than on Apple Silicon but it works."}}]}
+  </script>
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="nav">
+    <div class="shell nav-in">
+      <a class="brand" href="en.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <div class="nav-links">
+        <a href="en.html">Home</a>
+        <a href="./" hreflang="fr">FR</a>
+        <a class="button" href="en.html#download">Download</a>
+      </div>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="shell">
+      <p class="crumb"><a href="en.html">Aria</a> · Parakeet on Mac</p>
+      <p class="eyebrow">Local model</p>
+      <h1>NVIDIA Parakeet on a Mac, without the Python</h1>
+      <p class="lede">Parakeet TDT V3 is one of the better open speech models you can run on your own machine. Aria ships it as a 487 MB download inside a normal Mac app — no conda environment, no install script, no terminal, no cloud.</p>
+
+      <h2>What you actually get</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td><strong>Model</strong></td><td>NVIDIA Parakeet TDT V3</td></tr>
+            <tr><td><strong>Download size</strong></td><td>487 MB, fetched once from inside the app</td></tr>
+            <tr><td><strong>Languages</strong></td><td>25 European languages</td></tr>
+            <tr><td><strong>Runs on</strong></td><td>Apple Silicon and Intel, macOS 11 or later</td></tr>
+            <tr><td><strong>Runtime</strong></td><td>sherpa-onnx, bundled — no Python and no separate install</td></tr>
+            <tr><td><strong>Network use while dictating</strong></td><td class="yes">None</td></tr>
+            <tr><td><strong>Price</strong></td><td>Free up to 2,000 words a week, €5 once for unlimited</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Why Parakeet rather than Whisper</h2>
+      <p>Whisper is the model everyone knows, and Aria can run it too. For live dictation, though, Parakeet has a practical edge: it is fast enough on a Mac's CPU that the sentence is ready roughly when you stop talking, and it handles the short, clipped utterances that dictation is actually made of — a subject line, a Slack reply, one sentence in a form. Whisper's large variants are excellent on long, messy audio, and slower.</p>
+      <p>Aria's rule of thumb: Parakeet for dictating all day, a Whisper variant or a cloud engine when one specific recording deserves the extra accuracy.</p>
+
+      <h2>The part that is usually the hard bit</h2>
+      <p>Running a local ASR model is the easy half. The hard half is everything around it, and that is what an app is for:</p>
+      <ul>
+        <li><strong>Getting the text into the app you are in.</strong> Aria types at the cursor in Mail, Slack, Notes, a browser, an editor, so there is no window to copy out of.</li>
+        <li><strong>Not losing the first or last word.</strong> Recording starts before the meter appears on screen, and the tail of the sentence is captured rather than cut at the moment you release the key.</li>
+        <li><strong>Microphone changes.</strong> AirPods that disconnect mid-sentence fall back to the built-in mic without interrupting the dictation.</li>
+        <li><strong>Vocabulary.</strong> Correct a name once and it is added to a personal dictionary, instead of being wrong forever.</li>
+        <li><strong>Not melting your battery.</strong> The engine is released when you stop, rather than sitting resident and warm.</li>
+      </ul>
+
+      <h2>What it costs you in machine terms</h2>
+      <p>487 MB of disk, once. Memory is claimed while transcribing and released afterwards. Everything happens on the CPU, so there is no driver, no GPU requirement and no compatibility matrix — an Intel Mac from before the Apple Silicon transition runs the same model, just more slowly.</p>
+
+      <div class="honest">
+        <p><strong>Where a cloud engine still wins.</strong> A heavy accent, a bad phone recording, background music, or rare proper nouns — a large hosted model is still better at those. Aria lets you switch per engine and use your own API key with OpenAI, Groq, Deepgram, Soniox, ElevenLabs or Mistral, so the local model is a default, not a cage.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Do I need to install Python, conda or anything else?</summary><p>No. The runtime is bundled in the app. Install the DMG, download the model from inside Aria, and dictate.</p></details>
+      <details><summary>Does it really work with no internet?</summary><p>Yes, once the 487 MB model is downloaded. Only the free plan's weekly word counter needs a brief connection; Pro removes that.</p></details>
+      <details><summary>Which languages does Parakeet TDT V3 cover?</summary><p>25 European languages, and Aria keeps the language you spoke rather than translating it to English.</p></details>
+      <details><summary>Can I use Whisper instead?</summary><p>Yes. Whisper variants are available locally, and cloud engines are available with your own key.</p></details>
+      <details><summary>Does it run on an Intel Mac?</summary><p>Yes. There is a separate Intel build. It is slower than on Apple Silicon but it works.</p></details>
+
+      <div class="cta">
+        <h2>Parakeet, in a normal Mac app</h2>
+        <p>Free up to 2,000 words a week. €5 once for unlimited, on three Macs.</p>
+        <div class="cta-actions">
+          <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg">Download for Apple Silicon</a>
+          <a class="button button-quiet" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Intel.dmg">Intel Mac</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="en.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Voice dictation and transcription for macOS.</span>
+      <div class="footer-links">
+        <a href="en.html">Home</a>
+        <a href="en.html#privacy">Privacy</a>
+        <a href="./" hreflang="fr">FR</a>
+        <a href="en.html#download">Download</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

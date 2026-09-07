@@ -5,40 +5,32 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/en.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://hfioafio.github.io/Aria-Downloads/alternative-wispr-flow.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/alternative-wispr-flow.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/wispr-flow-alternative.html"/>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/wispr-flow-alternative.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/wispr-flow-alternative.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/alternative-wispr-flow.html"/>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-sans-abonnement.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-sans-abonnement.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/mac-dictation-no-subscription.html"/>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://hfioafio.github.io/Aria-Downloads/alternative-wispr-flow.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/alternative-wispr-flow.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/wispr-flow-alternative.html"/>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -46,19 +38,67 @@
     <loc>https://hfioafio.github.io/Aria-Downloads/mac-dictation-no-subscription.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/mac-dictation-no-subscription.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-sans-abonnement.html"/>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-sans-abonnement.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-sans-abonnement.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/mac-dictation-no-subscription.html"/>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/superwhisper-alternative.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/meeting-transcription-mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/meeting-transcription-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/transcrire-reunion-mac.html"/>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/transcrire-reunion-mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/transcrire-reunion-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/meeting-transcription-mac.html"/>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/apple-dictation-alternative.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/macwhisper-alternative.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-hors-ligne.html</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <meta name="color-scheme" content="light dark">
+  <title>Transcrire une réunion sur Mac, hors ligne</title>
+  <meta name="description" content="Transformez l'enregistrement d'une réunion en transcription avec chaque locuteur identifié, entièrement sur votre Mac. Aucun bot dans l'appel, aucun compte, aucun envoi.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/transcrire-reunion-mac.html">
+  <link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/transcrire-reunion-mac.html">
+  <link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/meeting-transcription-mac.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aria">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Transcrire une réunion sur Mac, hors ligne">
+  <meta property="og:description" content="Transformez l'enregistrement d'une réunion en transcription avec chaque locuteur identifié, entièrement sur votre Mac. Aucun bot dans l'appel, aucun compte, aucun envoi.">
+  <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/transcrire-reunion-mac.html">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Transcrire une réunion sur Mac, hors ligne">
+  <meta name="twitter:description" content="Transformez l'enregistrement d'une réunion en transcription avec chaque locuteur identifié, entièrement sur votre Mac. Aucun bot dans l'appel, aucun compte, aucun envoi.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="pages.css">
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Aria rejoint-elle mon appel Zoom, Teams ou Meet ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Aria transcrit un enregistrement que vous lui donnez. Utilisez l'enregistrement de votre outil de visio, puis déposez ce fichier dans Aria."}}, {"@type": "Question", "name": "Peut-elle enregistrer le son qui sort du Mac ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Aria enregistre depuis le microphone : elle capte bien une salle, mais pas l'audio de vos haut-parleurs."}}, {"@type": "Question", "name": "L'identification des locuteurs se fait-elle en local ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, par défaut. Une diarisation par API reste possible si vous la préférez et fournissez votre clé."}}, {"@type": "Question", "name": "Quels formats puis-je déposer ?", "acceptedAnswer": {"@type": "Answer", "text": "MP3, WAV, M4A, FLAC, OGG, MP4 et MOV."}}, {"@type": "Question", "name": "Quelle durée d'enregistrement ?", "acceptedAnswer": {"@type": "Answer", "text": "Les longs enregistrements fonctionnent, ils prennent simplement plus de temps avec le moteur local. L'offre gratuite décompte les mots transcrits de ses 2 000 par semaine : une réunion entière demande en général Pro."}}]}
+  </script>
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content">Aller au contenu</a>
+  <nav class="nav">
+    <div class="shell nav-in">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <div class="nav-links">
+        <a href="./">Accueil</a>
+        <a href="meeting-transcription-mac.html" hreflang="en">EN</a>
+        <a class="button" href="./#telecharger">Télécharger</a>
+      </div>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="shell">
+      <p class="crumb"><a href="./">Aria</a> · Transcrire une réunion</p>
+      <p class="eyebrow">Cas d'usage</p>
+      <h1>Transcrire une réunion sur Mac, avec les locuteurs identifiés</h1>
+      <p class="lede">Déposez un enregistrement dans Aria et récupérez une transcription où chaque voix est étiquetée — Locuteur 1, Locuteur 2, Locuteur 3. Tout se passe sur votre Mac : rien n'est téléversé, aucun robot ne rejoint l'appel, personne n'a de compte à créer.</p>
+
+      <div class="card">
+        <p><strong>Disons tout de suite ce que ce n'est pas.</strong> Aria transcrit un audio que vous lui donnez : un fichier que vous avez enregistré, ou la salle captée par le micro du Mac. Elle ne rejoint <em>pas</em> votre réunion Zoom ou Teams et ne capte pas le son qui sort de vos haut-parleurs. Pour un appel à distance, utilisez l'enregistrement que votre outil de visio produit déjà, puis déposez ce fichier.</p>
+      </div>
+
+      <h2>Comment ça se passe</h2>
+      <ol>
+        <li>Enregistrez la réunion — l'enregistrement de votre outil de visio pour un appel à distance, ou le micro du Mac pour une réunion en salle.</li>
+        <li>Déposez le fichier dans Aria : MP3, WAV, M4A, FLAC, OGG, MP4 ou MOV.</li>
+        <li>Activez l'identification des locuteurs. Aria sépare les voix et étiquette chaque passage.</li>
+        <li>Relisez, corrigez, copiez ou exportez. Vos corrections alimentent le dictionnaire personnel : un nom qui revient souvent cesse de sortir de travers.</li>
+      </ol>
+
+      <h2>Pourquoi le faire sur la machine</h2>
+      <p>Les services de compte rendu automatique sont pratiques, et ce sont aussi le plus gros tas de paroles de votre entreprise stocké sur le serveur de quelqu'un d'autre. Une discussion de salaire, la feuille de route d'un client, un rendez-vous médical, un appel avec un avocat : une fois téléversé, l'enregistrement dépend de leur politique de conservation, de leurs sous-traitants, et de leur prochain changement de conditions.</p>
+      <p>Avec le moteur local d'Aria, le fichier ne quitte pas le Mac. La diarisation — la partie qui détermine qui a parlé quand — s'exécute aussi en local. Aucun compte à créer, aucun compteur à la minute qui tourne.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&nbsp;</th><th>Aria, en local</th><th>Un service de compte rendu</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Où va l'audio</strong></td><td class="yes">Nulle part — il reste sur le Mac</td><td>Sur leurs serveurs et chez leurs sous-traitants</td></tr>
+            <tr><td><strong>Un robot apparaît dans l'appel</strong></td><td class="yes">Non</td><td>Le plus souvent oui</td></tr>
+            <tr><td><strong>Compte obligatoire</strong></td><td class="yes">Non</td><td>Oui</td></tr>
+            <tr><td><strong>Étiquettes de locuteurs</strong></td><td class="yes">Oui, calculées en local</td><td class="yes">Oui</td></tr>
+            <tr><td><strong>Rejoint l'appel toute seule</strong></td><td class="no">Non — vous fournissez l'enregistrement</td><td class="yes">Oui</td></tr>
+            <tr><td><strong>Notes en direct pendant l'appel</strong></td><td class="no">Non</td><td class="yes">Oui</td></tr>
+            <tr><td><strong>Prix</strong></td><td>Gratuit jusqu'à 2 000 mots/sem., 5 € une fois</td><td>En général un abonnement par personne</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>La précision, sans enjoliver</h2>
+      <p>L'audio de réunion est plus difficile que la dictée : les gens se coupent, sont à des distances différentes du micro, toussent. La séparation des voix est bonne sur un enregistrement propre à deux ou trois, et se dégrade dans une salle bruyante à six. Prévoyez de corriger quelques étiquettes à la main. Un meilleur micro change davantage les choses qu'un meilleur modèle.</p>
+      <p>Si l'enregistrement compte et n'est pas confidentiel, Aria peut aussi l'envoyer à un moteur cloud — Soniox, Deepgram, ElevenLabs — avec votre propre clé. C'est votre décision, prise fichier par fichier.</p>
+
+      <h2>Questions</h2>
+      <details><summary>Aria rejoint-elle mon appel Zoom, Teams ou Meet ?</summary><p>Non. Aria transcrit un enregistrement que vous lui donnez. Utilisez l'enregistrement de votre outil de visio, puis déposez ce fichier dans Aria.</p></details>
+      <details><summary>Peut-elle enregistrer le son qui sort du Mac ?</summary><p>Non. Aria enregistre depuis le microphone : elle capte bien une salle, mais pas l'audio de vos haut-parleurs.</p></details>
+      <details><summary>L'identification des locuteurs se fait-elle en local ?</summary><p>Oui, par défaut. Une diarisation par API reste possible si vous la préférez et fournissez votre clé.</p></details>
+      <details><summary>Quels formats puis-je déposer ?</summary><p>MP3, WAV, M4A, FLAC, OGG, MP4 et MOV.</p></details>
+      <details><summary>Quelle durée d'enregistrement ?</summary><p>Les longs enregistrements fonctionnent, ils prennent simplement plus de temps avec le moteur local. L'offre gratuite décompte les mots transcrits de ses 2 000 par semaine : une réunion entière demande en général Pro.</p></details>
+
+      <div class="cta">
+        <h2>Garder la réunion sur son Mac</h2>
+        <p>Gratuit jusqu'à 2 000 mots par semaine. 5 € une fois pour l'illimité, sur trois Mac.</p>
+        <div class="cta-actions">
+          <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg">Télécharger pour Apple Silicon</a>
+          <a class="button button-quiet" href="./">Voir tout ce que fait Aria</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Dictée et transcription pour macOS.</span>
+      <div class="footer-links">
+        <a href="./">Accueil</a>
+        <a href="./#confidentialite">Confidentialité</a>
+        <a href="meeting-transcription-mac.html" hreflang="en">EN</a>
+        <a href="./#telecharger">Télécharger</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

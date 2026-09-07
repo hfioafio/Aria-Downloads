@@ -4,7 +4,7 @@
 Chaque page est décrite dans PAGES ; son corps HTML vit dans tools/pages/<slug>.html.
 Lancer : python3 tools/build_pages.py  (depuis la racine du dépôt)
 """
-import io, json, os, re, sys
+import datetime, io, json, os, re, sys
 
 BASE = "https://hfioafio.github.io/Aria-Downloads/"
 VERSION = "2.60.3"
@@ -98,7 +98,7 @@ PAGES = [
          crumb="Wispr Flow alternative", pair="alternative-wispr-flow"),
     dict(slug="alternative-wispr-flow", lang="fr",
          title="Alternative à Wispr Flow sur Mac : 5 € une fois",
-         description="Wispr Flow Pro coûte 15 $ par mois et passe par le cloud. Aria dicte hors ligne sur votre Mac, avec les mêmes 2 000 mots gratuits par semaine, et Pro est à 5 € une seule fois.",
+         description="Wispr Flow Pro coûte 15 $ par mois et passe par le cloud. Aria dicte hors ligne sur votre Mac, mêmes 2 000 mots gratuits par semaine, Pro à 5 € une fois.",
          crumb="Alternative à Wispr Flow", pair="wispr-flow-alternative"),
     dict(slug="mac-dictation-no-subscription", lang="en",
          title="Mac Dictation With No Subscription — €5 Once",
@@ -112,6 +112,30 @@ PAGES = [
          title="Superwhisper Alternative: Local Dictation, €5 Once",
          description="Superwhisper Pro is $8.49 a month. Aria runs the same kind of local model on your Mac — Parakeet, Whisper — for €5 once, with a free tier of 2,000 words a week.",
          crumb="Superwhisper alternative", pair=None),
+    dict(slug="meeting-transcription-mac", lang="en",
+         title="Transcribe a Meeting on Mac, With Speaker Names",
+         description="Turn a meeting recording into a transcript with each speaker labelled, entirely on your Mac. No bot in the call, no account, no upload.",
+         crumb="Meeting transcription", pair="transcrire-reunion-mac"),
+    dict(slug="transcrire-reunion-mac", lang="fr",
+         title="Transcrire une réunion sur Mac, hors ligne",
+         description="Transformez l'enregistrement d'une réunion en transcription avec chaque locuteur identifié, entièrement sur votre Mac. Aucun bot dans l'appel, aucun compte, aucun envoi.",
+         crumb="Transcrire une réunion", pair="meeting-transcription-mac"),
+    dict(slug="apple-dictation-alternative", lang="en",
+         title="Apple Dictation Not Working? Fixes, Then Options",
+         description="Missing punctuation, accuracy that collapses, dictation that stops on its own: the real fixes for macOS dictation, and what to use when they are not enough.",
+         crumb="Apple Dictation", pair=None),
+    dict(slug="parakeet-mac", lang="en",
+         title="NVIDIA Parakeet on Mac: Offline Dictation App",
+         description="Run NVIDIA Parakeet TDT V3 locally on Apple Silicon for dictation into any app. No Python, no install script, no cloud. Free up to 2,000 words a week.",
+         crumb="Parakeet on Mac", pair=None),
+    dict(slug="macwhisper-alternative", lang="en",
+         title="MacWhisper Alternative for Live Mac Dictation",
+         description="MacWhisper Pro is €64 and built around audio files. Aria does live dictation into any app plus file transcription, for €5 once. Honest comparison.",
+         crumb="MacWhisper alternative", pair=None),
+    dict(slug="dictee-vocale-mac-hors-ligne", lang="fr",
+         title="Dictée vocale Mac hors ligne : ce qui marche",
+         description="Dicter sur Mac sans connexion et sans compte : la dictée d'Apple, Whisper en local, Parakeet. Ce que chacune sait faire, et où elle s'arrête.",
+         crumb="Dictée hors ligne", pair=None),
     dict(slug="dictee-vocale-mac", lang="fr",
          title="Dictée vocale Mac : quelle app choisir en 2026",
          description="Comparatif des applications de dictée vocale sur Mac en 2026 : dictée d'Apple, Wispr Flow, Superwhisper, MacWhisper, Aria. Prix réels, hors ligne ou non, langues.",
@@ -157,6 +181,38 @@ def build():
         written.append(out)
     return written
 
+def sitemap():
+    """Le sitemap est déduit de PAGES : il ne peut pas diverger des pages réellement produites."""
+    today = datetime.date.today().isoformat()
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+           'xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+
+    def block(loc, alts, prio):
+        out.append("  <url>")
+        out.append(f"    <loc>{loc}</loc>")
+        for hl, href in alts:
+            out.append(f'    <xhtml:link rel="alternate" hreflang="{hl}" href="{href}"/>')
+        out.append(f"    <lastmod>{today}</lastmod>")
+        out.append("    <changefreq>weekly</changefreq>")
+        out.append(f"    <priority>{prio}</priority>")
+        out.append("  </url>")
+
+    home = [("fr", BASE), ("en", BASE + "en.html"), ("x-default", BASE + "en.html")]
+    block(BASE, home, "1.0")
+    block(BASE + "en.html", home, "1.0")
+    for p in PAGES:
+        alts = []
+        if p.get("pair"):
+            other = "en" if p["lang"] == "fr" else "fr"
+            alts = [(p["lang"], BASE + p["slug"] + ".html"), (other, BASE + p["pair"] + ".html")]
+        block(BASE + p["slug"] + ".html", alts, "0.8" if p.get("pair") else "0.7")
+    out.append("</urlset>")
+    io.open(os.path.join("docs", "sitemap.xml"), "w", encoding="utf-8").write("\n".join(out) + "\n")
+    return len(PAGES) + 2
+
+
 if __name__ == "__main__":
     for f in build():
         print("écrit", f)
+    print("sitemap.xml :", sitemap(), "URL")

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <meta name="color-scheme" content="light dark">
+  <title>Apple Dictation Not Working? Fixes, Then Options</title>
+  <meta name="description" content="Missing punctuation, accuracy that collapses, dictation that stops on its own: the real fixes for macOS dictation, and what to use when they are not enough.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/apple-dictation-alternative.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aria">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Apple Dictation Not Working? Fixes, Then Options">
+  <meta property="og:description" content="Missing punctuation, accuracy that collapses, dictation that stops on its own: the real fixes for macOS dictation, and what to use when they are not enough.">
+  <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/apple-dictation-alternative.html">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apple Dictation Not Working? Fixes, Then Options">
+  <meta name="twitter:description" content="Missing punctuation, accuracy that collapses, dictation that stops on its own: the real fixes for macOS dictation, and what to use when they are not enough.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="pages.css">
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does Apple Dictation stop after a sentence or two?", "acceptedAnswer": {"@type": "Answer", "text": "Most often the wrong microphone is selected, or the language pack has not finished downloading so it is falling back to the network path. Check Sound → Input, then re-add your language in Keyboard → Dictation and toggle dictation off and on."}}, {"@type": "Question", "name": "Why is there no punctuation?", "acceptedAnswer": {"@type": "Answer", "text": "Automatic punctuation is a setting, and it only covers some languages. If yours is not supported you have to say the punctuation out loud. Aria restores capitals and full stops locally without being asked."}}, {"@type": "Question", "name": "Does dictation work without an internet connection?", "acceptedAnswer": {"@type": "Answer", "text": "Apple's does on Apple Silicon once the language is downloaded. Aria's local engine does too, on both Apple Silicon and Intel."}}, {"@type": "Question", "name": "Can I improve accuracy on names and jargon?", "acceptedAnswer": {"@type": "Answer", "text": "Not meaningfully with the built-in feature. Aria adds the words you correct to a personal dictionary, so the same fix does not have to be made twice."}}]}
+  </script>
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="nav">
+    <div class="shell nav-in">
+      <a class="brand" href="en.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <div class="nav-links">
+        <a href="en.html">Home</a>
+        <a href="./" hreflang="fr">FR</a>
+        <a class="button" href="en.html#download">Download</a>
+      </div>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="shell">
+      <p class="crumb"><a href="en.html">Aria</a> · Apple Dictation</p>
+      <p class="eyebrow">Troubleshooting</p>
+      <h1>Apple Dictation not working? Fixes first, options after</h1>
+      <p class="lede">macOS has dictation built in, it is free, and when it misbehaves the problem is usually fixable in two minutes. Start here. If none of it helps, the last section is honest about when the built-in feature is simply not the right tool.</p>
+
+      <h2>The five fixes worth trying, in order</h2>
+      <h3>1. Check that the right language is selected — and downloaded</h3>
+      <p>Open System Settings → Keyboard → Dictation. The language list there is what actually decides recognition quality. If you speak French but the list says English (US), everything you say is being forced through the wrong model. Adding a language may trigger a download; on Apple Silicon that download is what enables on-device dictation, which is both more private and more reliable than the network path.</p>
+      <h3>2. Check which microphone macOS is really using</h3>
+      <p>System Settings → Sound → Input. A Bluetooth headset that connected for a call, a webcam mic across the room, or a monitor's built-in microphone will all quietly win over the good one. Speak and watch the input level move. If it barely moves, dictation is not going to work no matter which app you use.</p>
+      <h3>3. Turn dictation off and on again</h3>
+      <p>Genuinely. Toggling the Dictation switch in System Settings forces macOS to re-initialise the service and re-check its language assets. This clears a surprising share of "it stopped listening after one sentence" cases.</p>
+      <h3>4. Sort out the punctuation setting</h3>
+      <p>Recent macOS versions insert punctuation automatically for supported languages, and there is a toggle for it in the Dictation settings. If you are getting a single unbroken sentence, that toggle is off — or your language is not one of the supported ones, in which case you have to say "comma" and "period" out loud. If instead you are getting commas you never asked for, that same toggle being on is the cause.</p>
+      <h3>5. Restart, then check Screen Time and MDM</h3>
+      <p>A restart clears a stuck dictation daemon. If dictation is greyed out entirely, look at Screen Time content restrictions, and — on a work Mac — at whether your employer's device management has disabled it. That last one you cannot fix yourself.</p>
+
+      <h2>What Apple Dictation will not do, however you configure it</h2>
+      <p>These are design limits, not bugs, and no amount of settings-fiddling changes them:</p>
+      <ul>
+        <li><strong>It does not learn your vocabulary.</strong> A colleague's name, a product name, an industry term — it will get them wrong today and wrong again next month.</li>
+        <li><strong>It will not transcribe a file.</strong> There is no way to hand it an existing recording of a meeting or an interview.</li>
+        <li><strong>It keeps no history.</strong> If the text lands in the wrong window or an app rejects it, it is gone.</li>
+        <li><strong>You cannot choose the engine.</strong> When accuracy matters more than speed, there is no lever to pull.</li>
+        <li><strong>No speaker separation.</strong> For anything with more than one voice, it is the wrong tool entirely.</li>
+      </ul>
+
+      <h2>Where Aria comes in</h2>
+      <p>Aria is a paid-once dictation app that keeps what is good about the built-in feature — a keyboard shortcut, text typed straight at the cursor, offline operation — and fills those five gaps. The default engine is NVIDIA Parakeet TDT V3 running on your Mac, so like Apple's on-device dictation, nothing is uploaded.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&nbsp;</th><th>Apple Dictation</th><th>Aria</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Price</strong></td><td class="yes">Free, built in</td><td>Free to 2,000 words / week, then €5 once</td></tr>
+            <tr><td><strong>Works offline</strong></td><td class="yes">Yes, on Apple Silicon</td><td class="yes">Yes, local engine</td></tr>
+            <tr><td><strong>Types at the cursor</strong></td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td><strong>Learns your vocabulary</strong></td><td class="no">No</td><td class="yes">Yes, from your own corrections</td></tr>
+            <tr><td><strong>Transcribes audio and video files</strong></td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td><strong>Speaker identification</strong></td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td><strong>Searchable history</strong></td><td class="no">No</td><td class="yes">Yes, on the device</td></tr>
+            <tr><td><strong>Choice of engine</strong></td><td class="no">No</td><td class="yes">Local, or cloud with your own key</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="honest">
+        <p><strong>When you should just stay with Apple's.</strong> If you dictate a few sentences a day into Messages and it works, installing anything is a waste of your time and money. Aria earns its place when dictation is part of how you work — long emails, notes all day, names it keeps mangling, recordings to transcribe.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Why does Apple Dictation stop after a sentence or two?</summary><p>Most often the wrong microphone is selected, or the language pack has not finished downloading so it is falling back to the network path. Check Sound → Input, then re-add your language in Keyboard → Dictation and toggle dictation off and on.</p></details>
+      <details><summary>Why is there no punctuation?</summary><p>Automatic punctuation is a setting, and it only covers some languages. If yours is not supported you have to say the punctuation out loud. Aria restores capitals and full stops locally without being asked.</p></details>
+      <details><summary>Does dictation work without an internet connection?</summary><p>Apple's does on Apple Silicon once the language is downloaded. Aria's local engine does too, on both Apple Silicon and Intel.</p></details>
+      <details><summary>Can I improve accuracy on names and jargon?</summary><p>Not meaningfully with the built-in feature. Aria adds the words you correct to a personal dictionary, so the same fix does not have to be made twice.</p></details>
+
+      <div class="cta">
+        <h2>When the built-in one is not enough</h2>
+        <p>Local dictation into any Mac app, with a dictionary that learns. Free to start, €5 once.</p>
+        <div class="cta-actions">
+          <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg">Download Aria</a>
+          <a class="button button-quiet" href="mac-dictation-no-subscription.html">Compare every Mac dictation price</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="en.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Voice dictation and transcription for macOS.</span>
+      <div class="footer-links">
+        <a href="en.html">Home</a>
+        <a href="en.html#privacy">Privacy</a>
+        <a href="./" hreflang="fr">FR</a>
+        <a href="en.html#download">Download</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

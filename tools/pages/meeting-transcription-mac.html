@@ -1,0 +1,54 @@
+      <p class="eyebrow">Use case</p>
+      <h1>Transcribe a meeting on your Mac, with speaker names</h1>
+      <p class="lede">Drop a recording into Aria and get a transcript where each voice is labelled — Speaker 1, Speaker 2, Speaker 3. It runs on your Mac, so nothing is uploaded, no bot joins the call, and nobody has to create an account.</p>
+
+      <div class="card">
+        <p><strong>Be clear about what this is.</strong> Aria transcribes audio you already have: a file you recorded, or the room captured through your Mac's microphone. It does <em>not</em> join your Zoom or Teams call and it does not capture the audio playing on your Mac. For a remote call, use the recording your meeting tool already produces, then drop that file in.</p>
+      </div>
+
+      <h2>How it works</h2>
+      <ol>
+        <li>Record the meeting — your meeting tool's own recording for a remote call, or Aria's microphone capture for a room.</li>
+        <li>Drop the file into Aria: MP3, WAV, M4A, FLAC, OGG, MP4 or MOV.</li>
+        <li>Turn on speaker identification. Aria separates the voices and labels each passage.</li>
+        <li>Read, correct, copy or export the transcript. Corrections you make feed the personal dictionary, so a recurring name stops coming out wrong next time.</li>
+      </ol>
+
+      <h2>Why people want this on the machine</h2>
+      <p>Meeting transcription services are convenient and they are also the single largest pile of your company's spoken word sitting on someone else's server. A salary discussion, a client's roadmap, a medical appointment, a legal call — once uploaded, the recording is subject to that vendor's retention policy, their subprocessors, and their next change of terms.</p>
+      <p>With Aria's local engine, the audio file never leaves your Mac. Diarisation — the part that works out who spoke when — also runs locally. There is no account to create and no per-minute meter running.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&nbsp;</th><th>Aria, local</th><th>A meeting-notes service</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Where the audio goes</strong></td><td class="yes">Nowhere — it stays on the Mac</td><td>Their servers and subprocessors</td></tr>
+            <tr><td><strong>A bot appears in the call</strong></td><td class="yes">No</td><td>Usually yes</td></tr>
+            <tr><td><strong>Account needed</strong></td><td class="yes">No</td><td>Yes</td></tr>
+            <tr><td><strong>Speaker labels</strong></td><td class="yes">Yes, computed locally</td><td class="yes">Yes</td></tr>
+            <tr><td><strong>Joins the call itself</strong></td><td class="no">No — you supply the recording</td><td class="yes">Yes</td></tr>
+            <tr><td><strong>Live notes during the call</strong></td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td><strong>Cost</strong></td><td>Free to 2,000 words / week, €5 once</td><td>Typically a monthly seat</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Accuracy, honestly</h2>
+      <p>Meeting audio is harder than dictation: people talk over each other, sit at different distances from the mic, and cough. Speaker separation is good on a clean two- or three-person recording and degrades on a noisy room with six people. Expect to fix a few labels by hand. A better microphone changes more than a better model does.</p>
+      <p>If the recording matters and it is not confidential, Aria can also send it to a cloud engine — Soniox, Deepgram, ElevenLabs — with your own API key. That is your call, made per file.</p>
+
+      <h2>Questions</h2>
+      <details><summary>Does Aria join my Zoom, Teams or Meet call?</summary><p>No. Aria transcribes a recording you give it. Use your meeting tool's own recording, then drop that file into Aria.</p></details>
+      <details><summary>Can it record what is playing on my Mac?</summary><p>No. Aria records from the microphone, so it captures a room well, but it does not capture the audio coming out of your speakers.</p></details>
+      <details><summary>Is the speaker identification done locally?</summary><p>Yes, by default. Cloud diarisation through an API is available if you prefer it and provide your own key.</p></details>
+      <details><summary>What file formats can I drop in?</summary><p>MP3, WAV, M4A, FLAC, OGG, MP4 and MOV.</p></details>
+      <details><summary>How long can a recording be?</summary><p>Long recordings work; they simply take longer on the local engine. The free plan counts the transcribed words against its 2,000-a-week limit, so a full meeting will usually want Pro.</p></details>
+
+      <div class="cta">
+        <h2>Keep the meeting on your Mac</h2>
+        <p>Free up to 2,000 words a week. €5 once for unlimited, on three Macs.</p>
+        <div class="cta-actions">
+          <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg">Download for Apple Silicon</a>
+          <a class="button button-quiet" href="en.html">See everything Aria does</a>
+        </div>
+      </div>
