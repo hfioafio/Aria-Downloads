@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aria — qui télécharge vraiment</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<style>
+:root{
+  --page:#f6f6f3;--surface:#fff;--surface-2:#ededeb;--ink:#101114;--ink-2:#55565d;--ink-3:#8a8b91;
+  --line:rgba(16,17,20,.10);--line-strong:rgba(16,17,20,.17);--blue:#0878f9;--green:#26a760;--voice:#ff655c;
+  --shadow:0 15px 45px rgba(16,17,24,.08);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --page:#08090b;--surface:#121318;--surface-2:#1a1c22;--ink:#f5f5f7;--ink-2:#b2b3ba;--ink-3:#73747d;
+  --line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.15);--blue:#2997ff;--green:#35c46d;--voice:#ff7169;
+  --shadow:0 18px 50px rgba(0,0,0,.26);color-scheme:dark;}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.55;font-size:16px;padding:0 0 60px}
+.shell{width:min(calc(100% - 36px),980px);margin-inline:auto}
+header{padding:34px 0 22px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.top{display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between}
+h1{font-size:26px;letter-spacing:-.02em;font-weight:640}
+h2{font-size:18px;font-weight:620;margin:34px 0 12px;letter-spacing:-.01em}
+.sub{color:var(--ink-3);font-size:14px}
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:22px}
+.big{font-size:clamp(44px,9vw,72px);line-height:1;font-weight:660;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.big.zero{color:var(--ink-3)}
+.hero p{color:var(--ink-2);margin-top:10px;max-width:62ch}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.card b{display:block;font-size:30px;font-weight:640;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.card span{display:block;color:var(--ink-3);font-size:13.5px;margin-top:4px}
+.card small{display:block;color:var(--ink-3);font-size:12.5px;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+thead th{color:var(--ink);font-weight:620;background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:0}
+td.n{font-variant-numeric:tabular-nums;text-align:right}
+td strong{color:var(--ink)}
+button{font:inherit;cursor:pointer;border-radius:999px;padding:9px 17px;font-size:14px;font-weight:560;
+  background:var(--ink);color:var(--page);border:1px solid transparent}
+button.quiet{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+button:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+a{color:var(--blue)}
+.note{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line-strong);
+  border-radius:14px;padding:18px 20px;color:var(--ink-2);font-size:15px;margin-top:14px}
+.note strong{color:var(--ink)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:7px;vertical-align:1px}
+.dot.stale{background:var(--voice)}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.chart svg{display:block;width:100%;height:150px;overflow:visible}
+.muted{color:var(--ink-3);font-size:13.5px}
+@media (max-width:560px){th,td{padding:9px 11px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="top">
+      <div>
+        <h1>Aria — qui télécharge vraiment</h1>
+        <p class="sub" id="freshness">Chargement…</p>
+      </div>
+      <div class="row" style="margin:0">
+        <button class="quiet" id="refresh">Actualiser</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="big zero" id="realCount">—</div>
+    <p id="realLabel">téléchargements depuis votre point de référence.</p>
+    <p id="realHelp" class="muted" style="margin-top:12px"></p>
+    <div class="row">
+      <button id="setBaseline">Repartir de zéro maintenant</button>
+      <button class="quiet" id="clearBaseline">Retirer la référence</button>
+    </div>
+    <p class="muted" style="margin-top:12px">Vos propres essais gonflent le compteur. « Repartir de zéro » enregistre les chiffres actuels comme point de départ : ensuite, seuls les téléchargements qui arrivent après comptent. Après un test de votre côté, recliquez.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card"><b id="total">—</b><span>téléchargements, tous temps</span><small>essais internes compris</small></div>
+    <div class="card"><b id="arm">—</b><span>Apple Silicon</span><small id="armPct"></small></div>
+    <div class="card"><b id="x64">—</b><span>Intel</span><small id="x64Pct"></small></div>
+    <div class="card"><b id="stars">—</b><span>étoiles GitHub</span><small id="watchers"></small></div>
+  </div>
+
+  <h2>Ce que ça donne dans le temps</h2>
+  <div class="chart">
+    <svg id="chart" viewBox="0 0 700 150" preserveAspectRatio="none" aria-label="Évolution du total de téléchargements"></svg>
+    <p class="muted" id="chartNote" style="margin-top:10px"></p>
+  </div>
+
+  <h2>Par version</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Version</th><th>Publiée</th><th class="n">Apple Silicon</th><th class="n">Intel</th><th class="n">Total</th></tr></thead>
+      <tbody id="versions"><tr><td colspan="5" style="color:var(--ink-3)">Chargement…</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Visites du site et usage réel de l'app</h2>
+  <div class="note">
+    <p>Ces chiffres-là existent déjà, mais ils vivent sur le service d'Aria et pas ici : visites, <strong>visiteurs uniques</strong>, clics sur les boutons de téléchargement, source de chaque visite (Reddit, Hacker News, presse…), installations, lancements, dictées, et surtout le nombre de <strong>Mac réellement vus par le service de quota</strong> — le seul chiffre qui dit qu'une personne se sert vraiment d'Aria.</p>
+    <p style="margin-top:12px">Ils s'ouvrent ici, avec votre jeton d'administration :<br>
+      <a href="https://aria-dictee-mac.buggbrr.chatgpt.site/admin" target="_blank" rel="noopener">aria-dictee-mac.buggbrr.chatgpt.site/admin</a></p>
+    <p style="margin-top:12px">Pourquoi ce n'est pas fusionné dans cette page : le service refuse d'être lu depuis une autre adresse et d'être affiché dans un cadre. Corriger ça demande de redéployer le service, ce qui passe par votre compte d'hébergement. Une fois fait, tout tiendra sur une seule page.</p>
+  </div>
+
+  <h2>À savoir pour lire ces chiffres</h2>
+  <div class="note">
+    <p><strong>Les téléchargements GitHub comptent les robots.</strong> Les moteurs de recherche et les scanners de sécurité téléchargent les fichiers. Un chiffre qui monte de un ou deux sans visite correspondante sur le site est probablement une machine.</p>
+    <p style="margin-top:12px"><strong>Télécharger n'est pas utiliser.</strong> Beaucoup de gens téléchargent, voient l'avertissement de macOS et referment. L'écart entre les téléchargements ici et les Mac vus par le quota est exactement la mesure de ce déchet.</p>
+    <p style="margin-top:12px"><strong>Les statistiques dans l'app sont désactivées par défaut</strong> et le resteront tant que l'utilisateur ne les active pas. Les colonnes « lancements » et « dictées » de la page d'administration ne se rempliront donc que pour les gens qui l'acceptent : ce n'est pas une panne.</p>
+    <p style="margin-top:12px" class="muted" id="rate"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var REPO = 'hfioafio/Aria-Downloads';
+  var KEY_BASE = 'aria-stats-baseline';
+  var KEY_HIST = 'aria-stats-history';
+  var state = null;
+
+  function store(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} }
+  function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (_) { return d; } }
+  function fmt(n) { return Number(n).toLocaleString('fr-FR'); }
+  function el(id) { return document.getElementById(id); }
+
+  function dmgTotals(releases) {
+    var total = 0, arm = 0, x64 = 0, rows = [];
+    releases.forEach(function (r) {
+      var a = 0, x = 0;
+      (r.assets || []).forEach(function (asset) {
+        if (!/\.dmg$/i.test(asset.name)) return;          // les .sha256 ne sont pas des installations
+        var c = Number(asset.download_count || 0);
+        if (/Apple-Silicon|arm64/i.test(asset.name)) a += c; else x += c;
+      });
+      if (a + x === 0 && !(r.assets || []).some(function (s) { return /\.dmg$/i.test(s.name); })) return;
+      arm += a; x64 += x; total += a + x;
+      rows.push({ tag: r.tag_name, date: r.published_at, arm: a, x64: x, total: a + x });
+    });
+    return { total: total, arm: arm, x64: x64, rows: rows };
+  }
+
+  function drawChart(history) {
+    var svg = el('chart');
+    var note = el('chartNote');
+    if (history.length < 2) {
+      svg.innerHTML = '';
+      note.textContent = history.length
+        ? 'Un seul relevé pour l’instant. Rouvrez cette page de temps en temps : la courbe se construit toute seule, sur votre Mac.'
+        : 'Aucun relevé pour l’instant.';
+      return;
+    }
+    var W = 700, H = 150;
+    var xs = history.map(function (p) { return p.t; });
+    var ys = history.map(function (p) { return p.total; });
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
+    var y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    if (y1 === y0) { y1 = y0 + 1; }
+    if (x1 === x0) { x1 = x0 + 1; }
+    var pts = history.map(function (p) {
+      return [((p.t - x0) / (x1 - x0)) * W, H - ((p.total - y0) / (y1 - y0)) * (H - 12) - 6];
+    });
+    var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' ');
+    var area = d + ' L' + W + ' ' + H + ' L0 ' + H + ' Z';
+    svg.innerHTML =
+      '<path d="' + area + '" fill="currentColor" opacity=".07"/>' +
+      '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    svg.style.color = 'var(--blue)';
+    var days = Math.max(1, Math.round((x1 - x0) / 86400000));
+    note.textContent = history.length + ' relevés sur ' + days + ' jour' + (days > 1 ? 's' : '') +
+      ' · de ' + fmt(y0) + ' à ' + fmt(y1) + ' téléchargements. Cette courbe est construite localement, à chaque ouverture de la page.';
+  }
+
+  function renderBaseline() {
+    var base = load(KEY_BASE, null);
+    var big = el('realCount'), label = el('realLabel'), help = el('realHelp');
+    if (!state) return;
+    if (!base) {
+      big.textContent = fmt(state.total);
+      big.classList.toggle('zero', state.total === 0);
+      label.textContent = 'téléchargements au total, vos essais compris.';
+      help.textContent = 'Cliquez sur « Repartir de zéro » pour que vos propres téléchargements cessent d’être comptés.';
+      el('clearBaseline').disabled = true;
+      return;
+    }
+    var since = state.total - base.total;
+    if (since < 0) since = 0;
+    big.textContent = fmt(since);
+    big.classList.toggle('zero', since === 0);
+    var d = new Date(base.t);
+    label.textContent = 'téléchargements depuis le ' + d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) +
+      ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.';
+    help.textContent = since === 0
+      ? 'Personne n’a téléchargé depuis ce point de référence.'
+      : 'Dont ' + fmt(Math.max(0, state.arm - base.arm)) + ' sur Apple Silicon et ' + fmt(Math.max(0, state.x64 - base.x64)) + ' sur Intel.';
+    el('clearBaseline').disabled = false;
+  }
+
+  function render(data, repo, rate) {
+    state = data;
+    el('total').textContent = fmt(data.total);
+    el('arm').textContent = fmt(data.arm);
+    el('x64').textContent = fmt(data.x64);
+    var pct = function (n) { return data.total ? Math.round((n / data.total) * 100) + ' % du total' : ''; };
+    el('armPct').textContent = pct(data.arm);
+    el('x64Pct').textContent = pct(data.x64);
+    el('stars').textContent = fmt(repo.stargazers_count || 0);
+    el('watchers').textContent = fmt(repo.subscribers_count || 0) + ' abonnés · ' + fmt(repo.forks_count || 0) + ' forks';
+
+    var tb = el('versions');
+    tb.innerHTML = '';
+    if (!data.rows.length) {
+      tb.innerHTML = '<tr><td colspan="5" style="color:var(--ink-3)">Aucune version avec un DMG.</td></tr>';
+    }
+    data.rows.slice(0, 25).forEach(function (r) {
+      var tr = document.createElement('tr');
+      var when = r.date ? new Date(r.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+      tr.innerHTML = '<td><strong>' + r.tag + '</strong></td><td>' + when + '</td>' +
+        '<td class="n">' + fmt(r.arm) + '</td><td class="n">' + fmt(r.x64) + '</td>' +
+        '<td class="n"><strong>' + fmt(r.total) + '</strong></td>';
+      tb.appendChild(tr);
+    });
+
+    var hist = load(KEY_HIST, []);
+    var last = hist[hist.length - 1];
+    if (!last || last.total !== data.total || Date.now() - last.t > 3600000) {
+      hist.push({ t: Date.now(), total: data.total });
+      if (hist.length > 500) hist = hist.slice(-500);
+      store(KEY_HIST, hist);
+    }
+    drawChart(hist);
+    renderBaseline();
+
+    el('freshness').innerHTML = '<span class="dot"></span>Chiffres GitHub relevés à ' +
+      new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) +
+      ' · actualisation automatique toutes les 2 minutes';
+    el('rate').textContent = rate ? 'Quota de lecture GitHub : ' + rate + ' requêtes restantes cette heure (limite de 60 sans authentification).' : '';
+  }
+
+  function fail(message) {
+    el('freshness').innerHTML = '<span class="dot stale"></span>' + message;
+  }
+
+  function refresh() {
+    var opts = { headers: { accept: 'application/vnd.github+json' }, cache: 'no-store' };
+    Promise.all([
+      fetch('https://api.github.com/repos/' + REPO + '/releases?per_page=100', opts),
+      fetch('https://api.github.com/repos/' + REPO, opts)
+    ]).then(function (res) {
+      if (!res[0].ok || !res[1].ok) {
+        throw new Error(res[0].status === 403 ? 'Quota GitHub atteint, réessayez dans une heure.' : 'GitHub a répondu ' + res[0].status + '.');
+      }
+      var rate = res[0].headers.get('x-ratelimit-remaining');
+      return Promise.all([res[0].json(), res[1].json()]).then(function (j) {
+        render(dmgTotals(j[0]), j[1], rate);
+      });
+    }).catch(function (e) { fail(e.message || 'Lecture impossible.'); });
+  }
+
+  el('refresh').addEventListener('click', refresh);
+  el('setBaseline').addEventListener('click', function () {
+    if (!state) return;
+    store(KEY_BASE, { t: Date.now(), total: state.total, arm: state.arm, x64: state.x64 });
+    renderBaseline();
+  });
+  el('clearBaseline').addEventListener('click', function () {
+    try { localStorage.removeItem(KEY_BASE); } catch (_) {}
+    renderBaseline();
+  });
+
+  refresh();
+  setInterval(refresh, 120000);
+})();
+</script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /stats.html
 
 Sitemap: https://hfioafio.github.io/Aria-Downloads/sitemap.xml
