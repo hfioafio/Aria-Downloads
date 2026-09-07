@@ -4,110 +4,968 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
-  <title>Aria — Speak to your Mac. Aria writes everywhere.</title>
-  <meta name="description" content="macOS dictation that types into Mail, Messages, Notes and any other app. Local engine available. €5 lifetime, no subscription.">
+  <meta name="color-scheme" content="light dark">
+  <title>Voice Dictation for Mac — Offline Speech to Text | Aria</title>
+  <meta name="description" content="Aria is a macOS dictation app: hold one key, speak, and the text lands in Mail, Slack, Notes or any text field. Runs fully offline with a local model. Free plan, €5 one-time Pro, no subscription.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Aria">
+  <meta property="og:title" content="Voice Dictation for Mac — Offline Speech to Text | Aria">
+  <meta property="og:description" content="Hold a key, speak, and your words appear in the app you are already using. Local Parakeet model, no subscription, Apple Silicon and Intel.">
   <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/en.html">
   <link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html">
   <link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Aria — Speak to your Mac. Aria writes everywhere.">
-  <meta property="og:description" content="macOS dictation that types where you already work. Local engine available.">
+  <link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/en.html">
   <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/en.html">
   <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
+  <meta property="og:locale:alternate" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Voice Dictation for Mac — Offline Speech to Text | Aria">
+  <meta name="twitter:description" content="Hold a key, speak, and your words appear in the app you are already using. Local model, no subscription.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-setup-preview.png">
   <link rel="icon" href="favicon.png">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aria","alternateName":"Aria Dictation","applicationCategory":"ProductivityApplication","applicationSubCategory":"Speech recognition","operatingSystem":"macOS 11 or later","description":"Voice dictation and transcription for macOS. Hold a shortcut, speak, and the text is inserted into the active app. Works fully offline with a local speech model, or with your own API key for cloud engines.","url":"https://hfioafio.github.io/Aria-Downloads/en.html","downloadUrl":"https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg","softwareVersion":"2.60.3","featureList":["Hold-to-talk dictation into any macOS app","Fully offline transcription with NVIDIA Parakeet TDT V3","Audio and video file transcription","Meeting mode with speaker identification","Personal dictionary for names and jargon","Local, searchable transcript history"],"offers":[{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Aria Free","description":"2,000 words per week, resets every Monday"},{"@type":"Offer","price":"5","priceCurrency":"EUR","name":"Aria Pro","description":"One-time purchase, unlimited words, three Macs, updates included"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Aria work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. With the local Parakeet engine, audio and transcript never leave the Mac. Aria Free only needs a brief connection to check the weekly word counter."}},{"@type":"Question","name":"Does Aria translate what I say into English?","acceptedAnswer":{"@type":"Answer","text":"No. The transcript keeps the language you spoke. Transformations such as Email or Key points only run when you ask for them."}},{"@type":"Question","name":"Is the €5 for Aria Pro a subscription?","acceptedAnswer":{"@type":"Answer","text":"No. It is a one-time purchase for lifetime access on three Macs, with all future updates included."}},{"@type":"Question","name":"Does Aria work in any Mac app?","acceptedAnswer":{"@type":"Answer","text":"Yes. Aria types at the cursor, so it works in Mail, Messages, Notes, Slack, browsers and any standard text field on macOS."}},{"@type":"Question","name":"Why does macOS warn me when opening Aria?","acceptedAnswer":{"@type":"Answer","text":"Aria is signed with a stable identity but not yet notarised by Apple. After a first open attempt, use System Settings, Privacy and Security, Open Anyway."}}]}
+  </script>
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.documentElement.dataset.themeChoice = choice;
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
   <style>
     :root {
-      --page:#f6f6f3; --surface:#fff; --ink:#101114; --ink-2:#55565d; --ink-3:#8a8b91;
-      --line:rgba(16,17,20,.10); --line-strong:rgba(16,17,20,.17); --blue:#0878f9;
+      --page:#f6f6f3;
+      --surface:#ffffff;
+      --surface-2:#ededeb;
+      --ink:#101114;
+      --ink-2:#55565d;
+      --ink-3:#8a8b91;
+      --line:rgba(16,17,20,.10);
+      --line-strong:rgba(16,17,20,.17);
+      --blue:#0878f9;
+      --aqua:#35cdea;
+      --voice:#ff655c;
+      --green:#26a760;
+      --dark:#0b0c0f;
+      --dark-2:#15171c;
+      --white:#f8f8fa;
+      --shadow:0 30px 90px rgba(16,17,24,.12),0 3px 16px rgba(16,17,24,.07);
+      --shadow-soft:0 15px 45px rgba(16,17,24,.08);
+      --max:1240px;
       --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+      color-scheme:light;
+    }
+    :root[data-theme="dark"] {
+      --page:#08090b;
+      --surface:#121318;
+      --surface-2:#1a1c22;
+      --ink:#f5f5f7;
+      --ink-2:#b2b3ba;
+      --ink-3:#73747d;
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(255,255,255,.15);
+      --blue:#2997ff;
+      --aqua:#49d9f1;
+      --voice:#ff7169;
+      --green:#35c46d;
+      --shadow:0 34px 100px rgba(0,0,0,.45),0 5px 22px rgba(0,0,0,.28);
+      --shadow-soft:0 18px 50px rgba(0,0,0,.26);
+      color-scheme:dark;
     }
     * { box-sizing:border-box; margin:0; padding:0 }
-    body { min-width:320px; background:var(--page); color:var(--ink); font:16px/1.5 var(--sans); -webkit-font-smoothing:antialiased }
+    html { scroll-behavior:smooth }
+    body {
+      min-width:320px;
+      overflow-x:hidden;
+      background:var(--page);
+      color:var(--ink);
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+    }
+    button,input { font:inherit }
+    button,a { -webkit-tap-highlight-color:transparent }
     a { color:inherit; text-decoration:none }
-    .shell { width:min(calc(100% - 44px),760px); margin-inline:auto }
-    header { padding:28px 0 8px; display:flex; justify-content:space-between; align-items:center }
-    .brand { font-size:18px; font-weight:690 }
-    .lang { color:var(--ink-2); font-size:14px }
-    h1 { margin-top:54px; font-size:clamp(44px,8vw,72px); letter-spacing:-.05em; line-height:.95; font-weight:725 }
-    .lede { max-width:560px; margin-top:22px; color:var(--ink-2); font-size:19px; line-height:1.55 }
-    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px }
-    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 21px; border-radius:14px; font-size:15px; font-weight:630 }
-    .primary { color:#fff; background:var(--blue) }
-    .quiet { border:1px solid var(--line-strong); background:var(--surface) }
-    .meta { display:flex; flex-wrap:wrap; gap:16px; margin-top:18px; color:var(--ink-3); font-size:12px }
-    .product-shot { display:block; width:100%; height:auto; margin-top:34px; border:1px solid var(--line-strong); border-radius:20px; box-shadow:0 24px 70px rgba(16,17,24,.14) }
-    section { padding:42px 0 }
-    h2 { font-size:28px; letter-spacing:-.04em }
-    ul { margin-top:16px; padding-left:18px; color:var(--ink-2) }
-    li { margin:8px 0 }
-    .downloads { display:grid; gap:12px; margin-top:22px }
-    .card { padding:22px; border:1px solid var(--line-strong); border-radius:18px; background:var(--surface) }
-    .card small { color:var(--ink-3); font-size:12px }
-    .card h3 { margin-top:4px; font-size:20px }
-    .card p { margin:10px 0 16px; color:var(--ink-2); font-size:14px }
-    .note { margin-top:18px; color:var(--ink-3); font-size:13px; line-height:1.5 }
-    footer { padding:28px 0 48px; color:var(--ink-3); font-size:13px }
-    .consent { position:fixed; right:16px; bottom:16px; z-index:20; display:grid; gap:10px; width:min(420px,calc(100% - 32px)); padding:16px; border:1px solid var(--line-strong); border-radius:16px; background:var(--surface) }
-    .consent[hidden] { display:none }
-    .consent b { font-size:13px }
-    .consent p { margin-top:4px; color:var(--ink-2); font-size:12px }
-    .consent-actions { display:flex; gap:8px; justify-content:flex-end }
-    .consent-actions button { min-height:44px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); cursor:pointer; font:inherit }
-    .consent-actions .primary { border-color:var(--blue); background:var(--blue); color:#fff }
-    @media (max-width:420px) { .actions .button { width:100% } }
+    .shell { width:min(calc(100% - 44px),var(--max)); margin-inline:auto }
+    .skip { position:fixed; z-index:500; top:-70px; left:16px; padding:10px 14px; border-radius:10px; background:var(--ink); color:var(--page); transition:top .15s }
+    .skip:focus { top:16px }
+    .mark {
+      display:flex; align-items:center; justify-content:center; gap:2px; width:35px; height:35px;
+      border-radius:11px; background:linear-gradient(150deg,#292a30,#08090b);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 7px 17px rgba(0,0,0,.24);
+    }
+    .mark i,.wave i { display:block; width:2px; border-radius:99px; background:#f7f7f8 }
+    .mark i:nth-child(1),.mark i:nth-child(5){height:7px}
+    .mark i:nth-child(2),.mark i:nth-child(4){height:15px}
+    .mark i:nth-child(3){height:22px}
+    .brand { display:flex; align-items:center; gap:10px; font-size:18px; font-weight:690; letter-spacing:-.02em }
+    .nav { position:fixed; z-index:150; inset:0 0 auto; transition:background .25s,border-color .25s }
+    .nav.scrolled { background:color-mix(in srgb,var(--page) 78%,transparent); border-bottom:1px solid var(--line); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%) }
+    .nav-in { height:70px; display:flex; align-items:center; gap:24px }
+    .nav-links { display:flex; align-items:center; gap:28px; margin-left:auto }
+    .nav-links>a:not(.button) { color:var(--ink-2); font-size:14px; font-weight:530 }
+    .nav-links>a:hover { color:var(--ink) }
+    .theme { display:flex; gap:2px; height:36px; padding:3px; border:1px solid var(--line); border-radius:12px; background:var(--surface-2) }
+    .theme button { min-width:29px; height:28px; padding:0 7px; border:0; border-radius:9px; background:transparent; color:var(--ink-3); cursor:pointer; font-size:12px; font-weight:650 }
+    .theme button.on { background:var(--surface); color:var(--ink); box-shadow:0 2px 8px rgba(0,0,0,.11) }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 21px; border:1px solid transparent; border-radius:14px; cursor:pointer; font-size:15px; font-weight:630; transition:transform .15s,opacity .15s,background .15s }
+    .button:active { transform:scale(.975) }
+    .button-primary { color:#fff; background:var(--blue); box-shadow:0 11px 28px color-mix(in srgb,var(--blue) 26%,transparent) }
+    .button-primary:hover { opacity:.88 }
+    .button-quiet { border-color:var(--line-strong); background:var(--surface); color:var(--ink); box-shadow:var(--shadow-soft) }
+    .button-quiet:hover { background:var(--surface-2) }
+    .nav .button { min-height:38px; padding:0 16px; border-radius:11px; font-size:14px }
+    .eyebrow { color:var(--blue); font-size:12px; font-weight:750; letter-spacing:.09em; text-transform:uppercase }
+    h1,h2,h3 { letter-spacing:-.045em }
+    h1 { font-size:clamp(58px,7.4vw,108px); line-height:.91; font-weight:725 }
+    h2 { font-size:clamp(43px,5.6vw,76px); line-height:.98; font-weight:700 }
+    h3 { font-size:24px; line-height:1.12; font-weight:660 }
+    .lede { color:var(--ink-2); font-size:19px; line-height:1.58 }
+
+    .hero {
+      position:relative;
+      min-height:100vh;
+      padding:132px 0 70px;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(90deg,transparent 0 49.93%,var(--line) 50%,transparent 50.07%),
+        linear-gradient(var(--line) 1px,transparent 1px);
+      background-size:100% 100%,100% 120px;
+    }
+    .hero::before {
+      content:""; position:absolute; z-index:-1; width:1px; height:42%; right:6%; top:0;
+      background:linear-gradient(transparent,var(--line-strong),transparent);
+    }
+    .hero-layout { display:grid; grid-template-columns:.86fr 1.14fr; gap:64px; align-items:center }
+    .hero-copy { padding-bottom:12px }
+    .hero-kicker { display:flex; align-items:center; gap:9px; color:var(--ink-2); font-size:13px; font-weight:590 }
+    .hero-kicker i { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 5px color-mix(in srgb,var(--green) 12%,transparent) }
+    .hero h1 { margin-top:25px; max-width:650px }
+    .hero h1 .accent { color:var(--blue) }
+    .hero .lede { max-width:590px; margin-top:27px }
+    .hero-actions { display:flex; gap:11px; flex-wrap:wrap; margin-top:29px }
+    .hero-meta { display:flex; gap:18px; flex-wrap:wrap; margin-top:20px; color:var(--ink-3); font-size:12px }
+    .hero-meta span { display:flex; align-items:center; gap:7px }
+    .hero-meta i { width:4px; height:4px; border-radius:50%; background:currentColor }
+
+    .demo-wrap { position:relative; padding:36px 0 48px }
+    .demo-glow { position:absolute; inset:auto 10% 7% 10%; z-index:-1; height:28px; border-radius:50%; background:rgba(0,0,0,.18); filter:blur(24px); opacity:.55 }
+    .demo {
+      overflow:hidden; min-height:590px; border:1px solid var(--line-strong); border-radius:28px;
+      background:var(--surface); box-shadow:var(--shadow);
+    }
+    .real-app-section { padding:76px 0 24px }
+    .real-app-shot { margin:0; overflow:hidden; border:1px solid var(--line-strong); border-radius:28px; background:#10141b; box-shadow:var(--shadow) }
+    .real-app-shot img { display:block; width:100%; height:auto }
+    .real-app-shot figcaption { padding:14px 18px; color:var(--ink-3); background:var(--surface); font-size:12px; text-align:center }
+    .demo-bar { display:flex; align-items:center; gap:8px; height:50px; padding:0 17px; border-bottom:1px solid var(--line); background:color-mix(in srgb,var(--surface-2) 60%,var(--surface)) }
+    .dots { display:flex; gap:7px }
+    .dots i { width:11px; height:11px; border-radius:50% }
+    .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+    .demo-apps { display:flex; gap:4px; margin-left:auto }
+    .demo-apps button { height:30px; padding:0 10px; border:0; border-radius:9px; background:transparent; color:var(--ink-3); cursor:pointer; font-size:11px; font-weight:640 }
+    .demo-apps button.on { background:var(--surface); color:var(--ink); box-shadow:0 2px 8px rgba(0,0,0,.10) }
+    .compose { min-height:470px; padding:34px 38px 100px }
+    .compose-top { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:25px; border-bottom:1px solid var(--line) }
+    .compose-person { display:flex; align-items:center; gap:12px }
+    .avatar { display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--surface-2); color:var(--ink-2); font-size:12px; font-weight:720 }
+    .compose-person strong { display:block; font-size:13px }
+    .compose-person span { color:var(--ink-3); font-size:11px }
+    .compose-status { padding:5px 9px; border-radius:999px; background:color-mix(in srgb,var(--green) 11%,transparent); color:var(--green); font-size:10px; font-weight:740 }
+    .field-label { margin-top:28px; color:var(--ink-3); font-size:11px; font-weight:690; letter-spacing:.05em; text-transform:uppercase }
+    .subject { margin-top:8px; padding-bottom:20px; border-bottom:1px solid var(--line); font-size:17px; font-weight:640 }
+    .inserted { position:relative; min-height:150px; margin-top:29px; color:var(--ink); font-size:clamp(19px,2vw,26px); line-height:1.58; letter-spacing:-.018em }
+    .inserted.empty::before { content:"Le texte apparaît ici…"; color:var(--ink-3) }
+    .cursor { display:inline-block; width:2px; height:1.15em; margin-left:2px; vertical-align:-.14em; background:var(--blue); animation:blink .9s step-end infinite }
+    @keyframes blink { 50%{opacity:0} }
+    .demo-hint { position:absolute; right:20px; bottom:18px; color:var(--ink-3); font-size:11px }
+    .voice-pill {
+      position:absolute; z-index:4; left:50%; bottom:0; transform:translate(-50%,50%);
+      display:flex; align-items:center; gap:12px; width:min(390px,calc(100% - 34px)); height:62px;
+      padding:0 13px; border:1px solid rgba(255,255,255,.12); border-radius:19px;
+      background:rgba(13,14,17,.94); color:#fff; box-shadow:0 22px 48px rgba(0,0,0,.34);
+      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    }
+    .pill-state { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:13px; background:rgba(255,255,255,.07) }
+    .wave { display:flex; align-items:center; gap:2px; height:19px }
+    .wave i { width:2px; animation:speak .8s ease-in-out infinite }
+    .wave i:nth-child(1),.wave i:nth-child(7){height:5px;animation-delay:-.4s}
+    .wave i:nth-child(2),.wave i:nth-child(6){height:10px;animation-delay:-.2s}
+    .wave i:nth-child(3),.wave i:nth-child(5){height:15px;animation-delay:-.6s}
+    .wave i:nth-child(4){height:19px}
+    @keyframes speak { 0%,100%{transform:scaleY(.45);opacity:.55}50%{transform:scaleY(1);opacity:1} }
+    .pill-copy { min-width:0; flex:1 }
+    .pill-copy b { display:block; font-size:13px; font-weight:650 }
+    .pill-copy span { display:block; overflow:hidden; color:rgba(255,255,255,.48); font-size:11px; text-overflow:ellipsis; white-space:nowrap }
+    .replay { width:36px; height:36px; border:0; border-radius:11px; background:rgba(255,255,255,.08); color:#fff; cursor:pointer; font-size:16px }
+    .replay:hover { background:rgba(255,255,255,.14) }
+
+    .proof { border-block:1px solid var(--line); background:var(--surface) }
+    .proof-in { display:grid; grid-template-columns:repeat(4,1fr) }
+    .proof-item { position:relative; padding:27px 24px 27px 58px; border-right:1px solid var(--line) }
+    .proof-item:last-child { border-right:0 }
+    .proof-item small { position:absolute; left:24px; top:28px; color:var(--blue); font-size:10px; font-weight:760; letter-spacing:.07em }
+    .proof-item b { display:block; font-size:14px }
+    .proof-item span { display:block; margin-top:4px; color:var(--ink-3); font-size:12px }
+    .trust-line { border-bottom:1px solid var(--line); background:color-mix(in srgb,var(--surface) 70%,var(--page)) }
+    .trust-in { min-height:74px; display:flex; align-items:center; justify-content:center; gap:34px; color:var(--ink-3); font-size:12px; font-weight:610; letter-spacing:.01em }
+    .trust-in span { display:flex; align-items:center; gap:9px; white-space:nowrap }
+    .trust-in i { width:5px; height:5px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 5px color-mix(in srgb,var(--blue) 9%,transparent) }
+
+    section { padding:126px 0 }
+    .intro { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; margin-bottom:62px }
+    .intro .lede { max-width:670px }
+    .intro h2 { margin-top:16px }
+    .story { display:grid; gap:22px }
+    .story-row {
+      min-height:430px; display:grid; grid-template-columns:1fr 1fr; align-items:stretch;
+      overflow:hidden; border:1px solid var(--line); border-radius:30px; background:var(--surface); box-shadow:var(--shadow-soft);
+    }
+    .story-row:nth-child(even) .story-copy { order:2 }
+    .story-row:nth-child(even) .story-visual { order:1 }
+    .story-copy { display:flex; flex-direction:column; justify-content:center; padding:54px }
+    .story-copy h3 { font-size:clamp(29px,3.4vw,46px) }
+    .story-copy p { max-width:470px; margin-top:16px; color:var(--ink-2); font-size:16px; line-height:1.6 }
+    .story-copy .mini { margin-bottom:18px; color:var(--blue); font-size:11px; font-weight:760; letter-spacing:.08em; text-transform:uppercase }
+    .story-visual { position:relative; display:flex; align-items:center; justify-content:center; min-height:430px; padding:38px; background:var(--surface-2) }
+    .fidelity-card { width:min(100%,450px); padding:27px; border:1px solid var(--line); border-radius:22px; background:var(--surface); box-shadow:var(--shadow-soft) }
+    .fidelity-card small { color:var(--ink-3); font-size:10px; font-weight:720; letter-spacing:.06em }
+    .fidelity-card p { margin-top:18px; font-size:20px; line-height:1.55; letter-spacing:-.02em }
+    .fidelity-foot { display:flex; align-items:center; gap:8px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line); color:var(--green); font-size:11px; font-weight:660 }
+    .fidelity-foot i { width:7px; height:7px; border-radius:50%; background:var(--green) }
+    .language-stack { position:relative; width:min(100%,430px); height:270px }
+    .lang-card { position:absolute; width:82%; padding:20px 22px; border:1px solid var(--line); border-radius:18px; background:var(--surface); box-shadow:var(--shadow-soft) }
+    .lang-card:nth-child(1){top:0;left:0;transform:rotate(-3deg)}
+    .lang-card:nth-child(2){top:74px;right:0;transform:rotate(2deg)}
+    .lang-card:nth-child(3){bottom:0;left:7%;transform:rotate(-1deg)}
+    .lang-card b { display:block; font-size:13px }
+    .lang-card p { margin-top:6px; color:var(--ink-2); font-size:13px }
+    .lang-chip { float:right; padding:3px 7px; border-radius:999px; background:color-mix(in srgb,var(--blue) 10%,transparent); color:var(--blue); font-size:9px; font-weight:720 }
+    .learn-card { width:min(100%,450px); padding:25px; border:1px solid var(--line); border-radius:22px; background:var(--surface); box-shadow:var(--shadow-soft) }
+    .learn-title { color:var(--ink-3); font-size:10px; font-weight:720; letter-spacing:.06em; text-transform:uppercase }
+    .learn-change { display:grid; grid-template-columns:1fr 34px 1fr; gap:10px; align-items:center; margin-top:22px }
+    .learn-word { padding:17px; border:1px solid var(--line); border-radius:15px; background:var(--surface-2); font-size:22px; font-weight:680; text-align:center }
+    .learn-word.wrong { color:var(--ink-3); text-decoration:line-through }
+    .learn-word.right { border-color:color-mix(in srgb,var(--green) 30%,var(--line)); color:var(--ink); background:color-mix(in srgb,var(--green) 7%,var(--surface)) }
+    .learn-arrow { color:var(--blue); font-size:18px; text-align:center }
+    .learn-saved { display:flex; align-items:center; gap:9px; margin-top:18px; padding:13px 14px; border-radius:13px; background:color-mix(in srgb,var(--green) 8%,var(--surface)); color:var(--green); font-size:11px; font-weight:660 }
+    .learn-saved i { width:7px; height:7px; border-radius:50%; background:var(--green) }
+
+    .switch-section { overflow:hidden; background:var(--dark); color:var(--white) }
+    .switch-section .eyebrow { color:#62dcf2 }
+    .switch-section .lede { color:rgba(255,255,255,.56) }
+    .route { position:relative; display:grid; grid-template-columns:1fr 100px 1fr 100px 1fr; align-items:center; gap:12px; margin-top:64px }
+    .route-node { min-height:230px; display:flex; flex-direction:column; justify-content:space-between; padding:28px; border:1px solid rgba(255,255,255,.10); border-radius:24px; background:rgba(255,255,255,.055) }
+    .route-node.local { border-color:rgba(53,196,109,.30); background:rgba(53,196,109,.07) }
+    .route-node small { color:rgba(255,255,255,.40); font-size:10px; font-weight:720; letter-spacing:.07em; text-transform:uppercase }
+    .route-node h3 { margin-top:40px; font-size:27px }
+    .route-node p { margin-top:9px; color:rgba(255,255,255,.50); font-size:13px }
+    .route-state { display:flex; align-items:center; gap:7px; margin-top:26px; color:#77e4a1; font-size:11px; font-weight:670 }
+    .route-state i { width:7px; height:7px; border-radius:50%; background:#51d883; box-shadow:0 0 0 5px rgba(81,216,131,.10) }
+    .route-arrow { position:relative; height:1px; background:rgba(255,255,255,.20) }
+    .route-arrow::after { content:""; position:absolute; right:-1px; top:-4px; width:7px; height:7px; border-top:1px solid rgba(255,255,255,.45); border-right:1px solid rgba(255,255,255,.45); transform:rotate(45deg) }
+    .route-arrow span { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); color:rgba(255,255,255,.34); font-size:9px; white-space:nowrap }
+    .adaptive { margin-top:24px; padding:20px 22px; border:1px solid rgba(255,255,255,.08); border-radius:17px; background:rgba(255,255,255,.035); color:rgba(255,255,255,.57); font-size:13px; text-align:center }
+    .adaptive strong { color:#fff }
+
+    .models-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:start }
+    .models-copy { position:sticky; top:115px }
+    .models-copy h2 { margin-top:16px }
+    .models-copy .lede { margin-top:22px }
+    .model-list { border-top:1px solid var(--line) }
+    .model { width:100%; display:grid; grid-template-columns:28px 1fr auto; gap:15px; align-items:start; padding:26px 4px; border:0; border-bottom:1px solid var(--line); background:transparent; color:var(--ink); text-align:left; cursor:pointer }
+    .radio { width:19px; height:19px; margin-top:2px; border:1.5px solid var(--ink-3); border-radius:50% }
+    .model.active .radio { border:5px solid var(--blue) }
+    .model strong { font-size:17px; font-weight:660 }
+    .model p { margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
+    .model-meta { padding:5px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-3); font-size:9px; font-weight:740; letter-spacing:.05em; text-transform:uppercase }
+    .model.active .model-meta { background:color-mix(in srgb,var(--blue) 11%,transparent); color:var(--blue) }
+    .model-detail { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:0 0 18px 43px; max-height:0; overflow:hidden; opacity:0; transition:max-height .3s,opacity .25s,margin-top .3s }
+    .model.active + .model-detail { max-height:100px; opacity:1; margin-top:18px }
+    .metric { padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--surface) }
+    .metric span { display:block; color:var(--ink-3); font-size:10px }
+    .metric b { display:block; margin-top:5px; font-size:13px }
+
+    .devices { background:var(--surface) }
+    .device-layout { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center }
+    .device-copy h2 { margin-top:16px }
+    .device-copy .lede { margin-top:22px }
+    .device-copy ul { display:grid; gap:13px; margin-top:28px; list-style:none }
+    .device-copy li { display:flex; gap:11px; color:var(--ink-2); font-size:14px }
+    .device-copy li::before { content:""; width:7px; height:7px; margin-top:7px; border-radius:50%; background:var(--green); flex:none }
+    .device-panel { padding:24px; border:1px solid var(--line); border-radius:28px; background:var(--page); box-shadow:var(--shadow-soft) }
+    .device-title { padding:5px 4px 20px; color:var(--ink-3); font-size:11px; font-weight:710; letter-spacing:.06em; text-transform:uppercase }
+    .device-row { display:flex; align-items:center; gap:14px; padding:16px; border:1px solid transparent; border-radius:16px }
+    .device-row + .device-row { margin-top:6px }
+    .device-row.on { border-color:color-mix(in srgb,var(--blue) 32%,var(--line)); background:var(--surface) }
+    .device-dot { display:grid; place-items:center; width:39px; height:39px; border-radius:13px; background:var(--surface-2); color:var(--ink-2); font-size:13px; font-weight:720 }
+    .device-row.on .device-dot { background:color-mix(in srgb,var(--blue) 12%,transparent); color:var(--blue) }
+    .device-row b { display:block; font-size:14px }
+    .device-row span { color:var(--ink-3); font-size:11px }
+    .check { margin-left:auto; width:18px; height:18px; border-radius:50%; border:1px solid var(--line-strong) }
+    .device-row.on .check { border:5px solid var(--blue) }
+
+    .privacy { text-align:center }
+    .privacy h2 { max-width:900px; margin:16px auto 0 }
+    .privacy .lede { max-width:700px; margin:22px auto 0 }
+    .privacy-list { max-width:940px; margin:58px auto 0; border-top:1px solid var(--line); text-align:left }
+    .privacy-row { display:grid; grid-template-columns:90px 1fr 1.25fr; gap:22px; padding:25px 0; border-bottom:1px solid var(--line); align-items:start }
+    .privacy-row small { color:var(--blue); font-size:11px; font-weight:750; letter-spacing:.08em }
+    .privacy-row b { font-size:16px }
+    .privacy-row p { color:var(--ink-2); font-size:14px; line-height:1.55 }
+    .quote { padding:104px 0; border-bottom:1px solid var(--line); background:var(--surface) }
+    .quote-card { display:grid; grid-template-columns:.7fr 1.3fr; gap:70px; align-items:end; padding:64px; border:1px solid var(--line); border-radius:32px; background:linear-gradient(135deg,color-mix(in srgb,var(--blue) 7%,var(--surface)),var(--surface) 42%); box-shadow:var(--shadow-soft) }
+    .quote-card blockquote { max-width:850px; font-size:clamp(31px,4vw,55px); line-height:1.08; font-weight:640; letter-spacing:-.045em }
+    .quote-card p { color:var(--ink-2); font-size:14px; line-height:1.65 }
+
+    .beta { padding-top:40px }
+    .beta-card { position:relative; overflow:hidden; padding:80px 48px; border-radius:32px; background:var(--dark); color:#fff; text-align:center; box-shadow:var(--shadow) }
+    .beta-card::before { content:""; position:absolute; width:128px; height:3px; left:50%; top:0; transform:translateX(-50%); background:linear-gradient(90deg,transparent,var(--blue),transparent) }
+    .beta-card>* { position:relative; z-index:1 }
+    .beta-card .eyebrow { color:#70caff }
+    .beta-card h2 { max-width:850px; margin:15px auto 0 }
+    .beta-card .lede { max-width:650px; margin:20px auto 0; color:rgba(255,255,255,.57) }
+    .download-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:780px; margin:34px auto 0; text-align:left }
+    .download-card { display:flex; flex-direction:column; min-height:230px; padding:25px; border:1px solid rgba(255,255,255,.12); border-radius:20px; background:rgba(255,255,255,.055) }
+    .download-card.recommended { border-color:rgba(41,151,255,.48); background:rgba(41,151,255,.10); box-shadow:0 14px 40px rgba(0,0,0,.18) }
+    .download-top { display:flex; align-items:start; justify-content:space-between; gap:10px }
+    .download-card small { color:rgba(255,255,255,.42); font-size:10px; font-weight:720; letter-spacing:.07em; text-transform:uppercase }
+    .download-card h3 { margin-top:9px; color:#fff; font-size:25px }
+    .download-card p { margin-top:9px; color:rgba(255,255,255,.52); font-size:13px; line-height:1.55 }
+    .download-badge { padding:5px 8px; border-radius:999px; background:rgba(41,151,255,.18); color:#79bdff; font-size:9px; font-weight:760; letter-spacing:.04em; text-transform:uppercase }
+    .download-card .button { width:100%; margin-top:auto; border:0; background:#fff; color:#111216; box-shadow:none }
+    .download-card.recommended .button { background:var(--blue); color:#fff }
+    .install-guide { max-width:780px; margin:14px auto 0; padding:22px 25px; border:1px solid rgba(255,255,255,.10); border-radius:20px; background:rgba(255,255,255,.035); text-align:left }
+    .install-guide h3 { font-size:17px; letter-spacing:-.02em }
+    .install-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:17px; counter-reset:install }
+    .install-step { color:rgba(255,255,255,.52); font-size:12px; line-height:1.5 }
+    .install-step::before { counter-increment:install; content:counter(install); display:grid; place-items:center; width:25px; height:25px; margin-bottom:9px; border-radius:8px; background:rgba(255,255,255,.09); color:#fff; font-size:11px; font-weight:730 }
+    .install-warning { display:flex; align-items:flex-start; gap:9px; margin-top:18px; padding-top:17px; border-top:1px solid rgba(255,255,255,.09); color:rgba(255,255,255,.42); font-size:11px; line-height:1.55 }
+    .install-warning b { color:rgba(255,255,255,.75) }
+    .checksum-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; color:rgba(255,255,255,.40); font-size:10px }
+    .checksum-links a { text-decoration:underline; text-underline-offset:3px }
+    .beta-meta { margin-top:23px; color:rgba(255,255,255,.36); font-size:11px }
+
+    .pricing { padding-top:40px }
+    .pricing-head { max-width:760px; margin:0 auto 42px; text-align:center }
+    .pricing-head .lede { margin:20px auto 0 }
+    .plans { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:900px; margin:0 auto }
+    .plan { display:flex; flex-direction:column; min-height:390px; padding:34px; border:1px solid var(--line); border-radius:28px; background:var(--surface); box-shadow:var(--shadow-soft) }
+    .plan.pro { border-color:color-mix(in srgb,var(--blue) 42%,var(--line)); background:linear-gradient(150deg,color-mix(in srgb,var(--blue) 8%,var(--surface)),var(--surface) 52%) }
+    .plan-badge { width:max-content; padding:6px 9px; border-radius:999px; background:color-mix(in srgb,var(--blue) 12%,transparent); color:var(--blue); font-size:10px; font-weight:760; letter-spacing:.06em; text-transform:uppercase }
+    .plan h3 { margin-top:20px; font-size:28px }
+    .price { margin-top:14px; font-size:46px; font-weight:720; letter-spacing:-.055em }
+    .price small { color:var(--ink-3); font-size:13px; font-weight:520; letter-spacing:0 }
+    .plan ul { display:grid; gap:12px; margin:26px 0 30px; list-style:none }
+    .plan li { display:flex; gap:10px; color:var(--ink-2); font-size:14px; line-height:1.45 }
+    .plan li::before { content:"✓"; color:var(--green); font-weight:760 }
+    .plan .button { width:100%; margin-top:auto }
+    .payment-note { min-height:22px; margin-top:12px; color:var(--ink-3); font-size:12px; text-align:center }
+
+    .contact-wrap { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start }
+    .contact-form { display:grid; gap:14px; padding:30px; border:1px solid var(--line); border-radius:28px; background:var(--surface); box-shadow:var(--shadow-soft) }
+    .contact-form label { display:grid; gap:7px; color:var(--ink-2); font-size:12px; font-weight:650 }
+    .contact-form input,.contact-form textarea { width:100%; border:1px solid var(--line-strong); border-radius:12px; background:var(--page); color:var(--ink); font:inherit; padding:12px 13px }
+    .contact-form textarea { min-height:140px; resize:vertical }
+    .contact-form small { color:var(--ink-3); line-height:1.5 }
+    .contact-status { min-height:20px; color:var(--ink-2); font-size:13px }
+
+    .faq { max-width:850px; margin-inline:auto }
+    .faq h2 { margin-bottom:42px; text-align:center }
+    details { border-bottom:1px solid var(--line) }
+    summary { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:21px 0; cursor:pointer; list-style:none; font-size:17px; font-weight:590 }
+    summary::-webkit-details-marker { display:none }
+    summary::after { content:"＋"; color:var(--ink-3); font-size:21px; transition:transform .2s }
+    details[open] summary::after { transform:rotate(45deg) }
+    details p { max-width:730px; padding:0 0 21px; color:var(--ink-2); font-size:15px; line-height:1.6 }
+
+    footer { padding:38px 0; border-top:1px solid var(--line) }
+    .footer-in { display:flex; align-items:center; gap:22px; color:var(--ink-3); font-size:13px }
+    .footer-in .brand { color:var(--ink); font-size:15px }
+    .footer-links { display:flex; gap:4px 20px; margin-left:auto }
+    .footer-links a:hover,.footer-links button:hover { color:var(--ink) }
+    .footer-links a,.footer-links button { display:flex; min-height:44px; align-items:center }
+    .footer-links button { border:0; padding:0; background:transparent; color:var(--ink-3); cursor:pointer; font:inherit; font-size:13px }
+    .analytics-consent { position:fixed; z-index:300; right:22px; bottom:22px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; width:min(620px,calc(100% - 44px)); padding:19px 20px; border:1px solid var(--line-strong); border-radius:18px; background:color-mix(in srgb,var(--surface) 92%,transparent); box-shadow:var(--shadow); backdrop-filter:blur(22px) saturate(160%); -webkit-backdrop-filter:blur(22px) saturate(160%) }
+    .analytics-consent[hidden] { display:none }
+    .analytics-consent b { display:block; font-size:13px }
+    .analytics-consent p { margin-top:5px; color:var(--ink-2); font-size:12px; line-height:1.45 }
+    .analytics-consent-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end }
+    .analytics-consent-actions button { min-height:44px; padding:0 13px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); cursor:pointer; font-size:12px; font-weight:650; white-space:nowrap }
+    .analytics-consent-actions button.primary { border-color:var(--blue); background:var(--blue); color:#fff }
+    .site-notice { position:sticky; z-index:140; top:70px; display:none; padding:12px 0; border-bottom:1px solid var(--line-strong); background:color-mix(in srgb,var(--surface) 92%,transparent); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px) }
+    .site-notice.visible { display:block }
+    .site-notice p { width:min(calc(100% - 44px),var(--max)); margin-inline:auto; color:var(--ink); font-size:14px; line-height:1.45 }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease,transform .6s ease }
+    .reveal.seen { opacity:1; transform:none }
+    :focus-visible { outline:3px solid color-mix(in srgb,var(--blue) 42%,transparent); outline-offset:3px }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto }
+      *,*::before,*::after { animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important }
+      .reveal { opacity:1; transform:none }
+    }
+    @media (max-width:1020px) {
+      .hero { min-height:auto }
+      .hero-layout { grid-template-columns:1fr; gap:30px }
+      .hero-copy { max-width:800px; text-align:center; margin-inline:auto }
+      .hero h1 { max-width:840px }
+      .hero .lede { margin-inline:auto }
+      .hero-actions,.hero-meta,.hero-kicker { justify-content:center }
+      .demo-wrap { width:min(100%,820px); margin-inline:auto }
+      .intro,.models-layout,.device-layout,.quote-card,.contact-wrap { grid-template-columns:1fr; gap:42px }
+      .models-copy { position:static }
+      .route { grid-template-columns:1fr 60px 1fr 60px 1fr }
+      .route-node { min-height:210px; padding:20px }
+      .proof-in { grid-template-columns:1fr 1fr }
+      .proof-item:nth-child(2) { border-right:0 }
+      .proof-item:nth-child(-n+2) { border-bottom:1px solid var(--line) }
+    }
+    @media (max-width:780px) {
+      .shell { width:min(calc(100% - 28px),var(--max)) }
+      .nav-in { height:62px; gap:12px }
+      .nav-links>a:not(.button) { display:none }
+      .nav-links { gap:8px }
+      .nav .button { display:none }
+      .hero { padding:116px 0 68px; background-size:100% 100%,100% 92px }
+      h1 { font-size:clamp(52px,15vw,78px) }
+      h2 { font-size:clamp(40px,12vw,60px) }
+      section { padding:90px 0 }
+      .demo { min-height:520px; border-radius:22px }
+      .demo-bar { height:auto; min-height:54px; padding:10px 13px; align-items:flex-start }
+      .dots { margin-top:10px }
+      .demo-apps { flex-wrap:wrap; justify-content:flex-end }
+      .demo-apps button { padding-inline:7px }
+      .compose { min-height:415px; padding:25px 22px 95px }
+      .compose-top { padding-bottom:18px }
+      .inserted { font-size:19px }
+      .voice-pill { height:58px }
+      .intro { margin-bottom:38px }
+      .story-row { grid-template-columns:1fr; min-height:0 }
+      .story-row:nth-child(even) .story-copy,.story-row:nth-child(even) .story-visual { order:initial }
+      .story-copy { padding:38px 26px }
+      .story-visual { min-height:340px; padding:26px }
+      .route { grid-template-columns:1fr; gap:13px }
+      .route-arrow { width:1px; height:48px; margin-inline:auto; background:rgba(255,255,255,.20) }
+      .route-arrow::after { right:-3px; top:auto; bottom:0; transform:rotate(135deg) }
+      .route-arrow span { left:16px; bottom:17px; transform:none }
+      .privacy-row { grid-template-columns:56px 1fr }
+      .privacy-row p { grid-column:2 }
+      .trust-in { justify-content:flex-start; overflow-x:auto; padding-block:20px }
+      .quote-card { padding:38px 26px }
+      .beta-card { padding:60px 22px }
+      .download-grid { grid-template-columns:1fr }
+      .plans { grid-template-columns:1fr }
+      .install-steps { grid-template-columns:1fr 1fr }
+      .footer-in { align-items:flex-start; flex-wrap:wrap }
+      .footer-links { width:100%; margin:0; flex-wrap:wrap }
+      .analytics-consent { right:14px; bottom:14px; grid-template-columns:1fr; gap:13px; width:calc(100% - 28px); padding:16px }
+      .analytics-consent-actions { justify-content:flex-start }
+    }
+    @media (max-width:420px) {
+      .theme button:first-child { min-width:25px; padding-inline:5px; font-size:10px }
+      .brand { font-size:16px }
+      .hero-actions .button { width:100% }
+      .hero-meta { display:grid; gap:6px }
+      .proof-in { grid-template-columns:1fr }
+      .proof-item { border-right:0; border-bottom:1px solid var(--line) }
+      .proof-item:last-child { border-bottom:0 }
+      .model-detail { grid-template-columns:1fr }
+      .model.active + .model-detail { max-height:180px }
+      .learn-change { grid-template-columns:1fr 25px 1fr }
+      .learn-word { padding:14px 8px; font-size:19px }
+      .install-steps { grid-template-columns:1fr }
+    }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <header>
-      <a class="brand" href="en.html">Aria</a>
-      <a class="lang" href="index.html" hreflang="fr" lang="fr">Français</a>
-    </header>
-    <h1>Speak to your Mac.<br>Aria writes everywhere.</h1>
-    <p class="lede">Hold a shortcut, talk, and the sentence lands in Mail, Messages, Notes, or whatever app has the cursor. No extra window to copy from.</p>
-    <div class="actions">
-      <a class="button primary" href="#download">Download for Mac</a>
-      <a class="button quiet" href="index.html">Full French site</a>
-    </div>
-    <div class="meta">
-      <span>Local engine available</span>
-      <span>Keeps the language you spoke</span>
-      <span>Apple Silicon and Intel</span>
-    </div>
-    <img class="product-shot" src="aria-setup-preview.png" width="2160" height="1440" alt="Aria setup with private local and ready-to-use online transcription modes">
-    <section>
-      <h2>What it actually does</h2>
-      <ul>
-        <li>Inserts text in the frontmost app, then gets out of the way.</li>
-        <li>Local mode keeps audio and transcription on the Mac. For now, Groq online mode also works without entering a key through a limited Aria relay that stores neither audio nor text.</li>
-        <li>Free: 2,000 words a week, reset every Monday. Pro is €5 once, three Macs, no subscription.</li>
-        <li>Updates are checked, hashed, and rolled back if the new build fails to start.</li>
-      </ul>
-    </section>
-    <section id="download">
-      <h2>Version 2.60.3</h2>
-      <div class="downloads">
-        <article class="card">
-          <small>M1 to M4+</small>
-          <h3>Apple Silicon</h3>
-          <p>Native arm64 build. This is the one to pick on a recent Mac.</p>
-          <a class="button primary" data-download="arm64" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg">Download the DMG</a>
-        </article>
-        <article class="card">
-          <small>Intel Macs</small>
-          <h3>Intel</h3>
-          <p>Separate x64 build. Do not run the Apple Silicon file through Rosetta.</p>
-          <a class="button quiet" data-download="x64" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Intel.dmg">Download the DMG</a>
-        </article>
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="shell nav-in">
+      <a class="brand" href="#top" aria-label="Aria, home">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        Aria
+      </a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#models">Models</a>
+        <a href="#privacy">Privacy</a>
+        <a href="./" lang="fr" hreflang="fr">FR</a>
+        <div class="theme" role="group" aria-label="Site appearance">
+          <button type="button" data-theme-choice="auto" aria-label="Follow the Mac appearance">Auto</button>
+          <button type="button" data-theme-choice="light" aria-label="Light mode" title="Light mode">☀︎</button>
+          <button type="button" data-theme-choice="dark" aria-label="Dark mode" title="Dark mode">☾</button>
+        </div>
+        <a class="button button-primary" href="#download">Download</a>
       </div>
-      <p class="note">Aria has a stable signing identity but is not notarized by Apple yet. First launch may need System Settings → Privacy &amp; Security → Open Anyway. Later updates keep Microphone, Accessibility and Keychain.</p>
+    </div>
+  </nav>
+  <div class="site-notice" id="site-notice" hidden role="status"><p></p></div>
+
+  <main id="content">
+    <header class="hero" id="top">
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <div class="hero-kicker"><i></i> Native voice dictation for macOS</div>
+          <h1>Speak to your Mac.<br>Aria writes <span class="accent">everywhere.</span></h1>
+          <p class="lede">In Mail, Messages, Notes, Slack or any text field. One shortcut, your voice, and the sentence appears exactly where the cursor is — no window to switch to, no copy and paste.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download">Download Aria</a>
+            <a class="button button-quiet" href="#demo">Watch Aria write</a>
+          </div>
+          <div class="hero-meta">
+            <span><i></i> Offline mode available</span>
+            <span><i></i> Keeps your language</span>
+            <span><i></i> Apple Silicon + Intel</span>
+          </div>
+        </div>
+
+        <div class="demo-wrap" id="demo">
+          <div class="demo-glow" aria-hidden="true"></div>
+          <div class="demo" aria-label="Simulated demonstration of Aria inserting text">
+            <div class="demo-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <div class="demo-apps" role="tablist" aria-label="Demo application">
+                <button class="on" type="button" role="tab" aria-selected="true" data-demo="mail">Mail</button>
+                <button type="button" role="tab" aria-selected="false" data-demo="messages">Messages</button>
+                <button type="button" role="tab" aria-selected="false" data-demo="notes">Notes</button>
+              </div>
+            </div>
+            <div class="compose">
+              <div class="compose-top">
+                <div class="compose-person"><span class="avatar" id="demo-avatar">JM</span><span><strong id="demo-person">Jean Martin</strong><span id="demo-context">New message</span></span></div>
+                <span class="compose-status">Aria active</span>
+              </div>
+              <div class="field-label" id="demo-label">Subject</div>
+              <div class="subject" id="demo-subject">Revised proposal</div>
+              <p class="inserted empty" id="demo-text"><span class="cursor" aria-hidden="true"></span></p>
+              <span class="demo-hint">Simulated demo — no microphone is used</span>
+            </div>
+          </div>
+          <div class="voice-pill">
+            <span class="pill-state"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+            <span class="pill-copy"><b id="pill-title">Aria is listening</b><span id="pill-detail">Groq Precision · English kept</span></span>
+            <button class="replay" id="replay" type="button" aria-label="Replay the demo" title="Replay">↻</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="proof">
+      <div class="shell proof-in">
+        <div class="proof-item"><small>01</small><b>Double-tap</b><span>Right ⌘ by default</span></div>
+        <div class="proof-item"><small>02</small><b>Speak</b><span>Aria listens immediately</span></div>
+        <div class="proof-item"><small>03</small><b>Double-tap</b><span>Dictation stops</span></div>
+        <div class="proof-item"><small>04</small><b>Carry on</b><span>Text at the cursor · hold-to-talk also available</span></div>
+      </div>
+    </div>
+
+    <div class="trust-line">
+      <div class="shell trust-in" aria-label="Compatibility and privacy">
+        <span><i></i>Native on Apple Silicon</span><span><i></i>Intel supported</span>
+        <span><i></i>100% offline mode</span><span><i></i>Keys stored in the macOS Keychain</span>
+      </div>
+    </div>
+
+    <section class="real-app-section" aria-label="Real screenshot of Aria">
+      <div class="shell">
+        <figure class="real-app-shot reveal">
+          <img src="aria-setup-preview.png" width="2160" height="1440" loading="lazy" alt="Aria on macOS offering the private local model and the online Groq model">
+          <figcaption>A real screenshot of Aria — the interface follows the language of your Mac.</figcaption>
+        </figure>
+      </div>
     </section>
-    <footer>Aria for macOS. No ads and no third-party trackers. This page counts visits and download clicks only, with no cookie and no stored identifier.
-      <a href="https://github.com/hfioafio/Aria-Downloads/issues/new">Open an issue</a>
-    </footer>
-  </div>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="intro reveal">
+          <div><p class="eyebrow">What makes Aria different</p><h2>It writes.<br>It does not invent.</h2></div>
+          <p class="lede">Most tools want to “improve” what you said. Aria starts by respecting your words, your language and the place where you are working.</p>
+        </div>
+        <div class="story">
+          <article class="story-row reveal">
+            <div class="story-copy">
+              <p class="mini">Faithful by default</p>
+              <h3>The form gets better.<br>The meaning stays put.</h3>
+              <p>Aria can restore a capital letter or a full stop locally. It only summarises, translates or rewrites when you explicitly ask for it.</p>
+            </div>
+            <div class="story-visual">
+              <div class="fidelity-card">
+                <small>INSERTED DICTATION</small>
+                <p>Confirming our meeting tomorrow at ten. Feel free to add Lea to the invitation.</p>
+                <div class="fidelity-foot"><i></i> 13 words recognised · 13 words kept</div>
+              </div>
+            </div>
+          </article>
+          <article class="story-row reveal">
+            <div class="story-copy">
+              <p class="mini">Language preserved</p>
+              <h3>English in.<br>English out.</h3>
+              <p>Automatic detection can be guided by the languages you actually use. For an email entirely in English, you can also lock the language so nothing drifts.</p>
+            </div>
+            <div class="story-visual">
+              <div class="language-stack" aria-hidden="true">
+                <div class="lang-card"><span class="lang-chip">EN</span><b>English</b><p>Let’s move the meeting to Friday.</p></div>
+                <div class="lang-card"><span class="lang-chip">FR</span><b>Français</b><p>On se retrouve à quinze heures.</p></div>
+                <div class="lang-card"><span class="lang-chip">ES</span><b>Español</b><p>Te envío el documento esta tarde.</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="story-row reveal">
+            <div class="story-copy">
+              <p class="mini">Memory with guardrails</p>
+              <h3>Fix it once.<br>Aria remembers.</h3>
+              <p>A name, a brand or a piece of jargon that keeps coming out wrong can be learned, without giving Aria permission to rewrite everything else. “Grok” becomes “Groq” where it matters.</p>
+            </div>
+            <div class="story-visual">
+              <div class="learn-card" aria-label="Example of a learned correction">
+                <div class="learn-title">Correction confirmed</div>
+                <div class="learn-change"><div class="learn-word wrong">Grok</div><div class="learn-arrow">→</div><div class="learn-word right">Groq</div></div>
+                <div class="learn-saved"><i></i> Added to your personal dictionary</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="switch-section">
+      <div class="shell">
+        <div class="intro reveal">
+          <div><p class="eyebrow">Smart fallback</p><h2>The network drops.<br>Your sentence does not.</h2></div>
+          <p class="lede">A long dictation is not a failure. Aria gives the cloud more time when you speak for longer, and only falls back to the local engine when a real failure is likely.</p>
+        </div>
+        <div class="route reveal" aria-label="Fallback flow from cloud to local and back to cloud">
+          <div class="route-node"><small>Your choice</small><div><h3>Groq Precision</h3><p>Your engine stays selected.</p></div><span class="route-state"><i></i> Active</span></div>
+          <div class="route-arrow"><span>Real failure</span></div>
+          <div class="route-node local"><small>Temporary fallback</small><div><h3>Local Parakeet</h3><p>This dictation is saved on the Mac.</p></div><span class="route-state"><i></i> Offline</span></div>
+          <div class="route-arrow"><span>Connection back</span></div>
+          <div class="route-node"><small>Automatic return</small><div><h3>Groq Precision</h3><p>Your original choice takes over again.</p></div><span class="route-state"><i></i> Restored</span></div>
+        </div>
+        <p class="adaptive reveal"><strong>Adaptive timeout:</strong> about 20 s for a short dictation, up to 72 s for two minutes of speech — before the local fallback is even considered.</p>
+      </div>
+    </section>
+
+    <section id="models">
+      <div class="shell models-layout">
+        <div class="models-copy reveal">
+          <p class="eyebrow">Your speed, your privacy</p>
+          <h2>One engine for every moment.</h2>
+          <p class="lede">Maximum accuracy, instant response, or zero network. You choose, Aria adapts.</p>
+        </div>
+        <div class="model-list reveal" role="radiogroup" aria-label="Aria transcription engines">
+          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Precision</strong><p>Full Groq large-v3 for accents, proper nouns and rare words.</p></span><span class="model-meta">Recommended</span></button>
+          <div class="model-detail"><div class="metric"><span>Priority</span><b>Accuracy</b></div><div class="metric"><span>Network</span><b>Connection required</b></div></div>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><p>The fastest answer for everyday dictation.</p></span><span class="model-meta">Fast</span></button>
+          <div class="model-detail"><div class="metric"><span>Priority</span><b>Speed</b></div><div class="metric"><span>Network</span><b>Connection required</b></div></div>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Local Parakeet</strong><p>Speech to text directly on the Mac, even with no internet at all.</p></span><span class="model-meta">Private</span></button>
+          <div class="model-detail"><div class="metric"><span>Priority</span><b>Privacy</b></div><div class="metric"><span>Network</span><b>None</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devices">
+      <div class="shell device-layout">
+        <div class="device-panel reveal" aria-label="Microphone selection">
+          <div class="device-title">Microphone used by Aria</div>
+          <div class="device-row on"><span class="device-dot">AP</span><span><b>AirPods Pro</b><span>Connected · selected device</span></span><i class="check"></i></div>
+          <div class="device-row"><span class="device-dot">MB</span><span><b>MacBook microphone</b><span>Available</span></span><i class="check"></i></div>
+          <div class="device-row"><span class="device-dot">AU</span><span><b>Automatic (macOS)</b><span>Follows the system device</span></span><i class="check"></i></div>
+        </div>
+        <div class="device-copy reveal">
+          <p class="eyebrow">AirPods, USB, Bluetooth</p>
+          <h2>The right mic.<br>Without losing the first word.</h2>
+          <p class="lede">Aria follows macOS or your explicit choice. A device that disconnects falls back cleanly to the system microphone, without interrupting a dictation already in progress.</p>
+          <ul><li>Recording starts before the visual meter does.</li><li>The audio stream is released as soon as dictation ends.</li><li>The text stays recoverable if the target app refuses insertion.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy" id="privacy">
+      <div class="shell">
+        <div class="reveal">
+          <p class="eyebrow">Privacy you can actually read</p>
+          <h2>No small print hidden behind “AI”.</h2>
+          <p class="lede">The mode you pick states plainly what stays on the Mac and what reaches your cloud provider.</p>
+        </div>
+        <div class="privacy-list">
+          <div class="privacy-row reveal"><small>01</small><b>Local means local</b><p>With Parakeet, neither the audio nor the transcript leaves your computer.</p></div>
+          <div class="privacy-row reveal"><small>02</small><b>No server key shipped in the app</b><p>The bundled Groq mode uses a key held on the server. Your own optional keys stay encrypted in the macOS Keychain.</p></div>
+          <div class="privacy-row reveal"><small>03</small><b>Adjustable history</b><p>Keep it, cap it or switch it off, depending on how private you need to be.</p></div>
+          <div class="privacy-row reveal"><small>04</small><b>Optional screen context</b><p>Local screen reading for proper nouns can be disabled at any time.</p></div>
+          <div class="privacy-row reveal"><small>05</small><b>Optional measurement</b><p>Pseudonymous usage statistics are off by default. If you turn them on, only counters and a random identifier are shared: never audio, text, email, name or hardware identifier. Opting out deletes the related aggregates. This page counts visits and download clicks separately, with no cookie, no stored identifier and no profile: the identifier is drawn at random on every load and written nowhere.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="shell quote-card reveal">
+        <p><span class="eyebrow">A tool that disappears</span><br><br>Aria lives in the menu bar. It steps in on the shortcut, writes at the cursor, and hands you straight back to the app you were working in.</p>
+        <blockquote>“Good dictation should never force you to change application.”</blockquote>
+      </div>
+    </section>
+
+    <section class="pricing" id="pro">
+      <div class="shell">
+        <div class="pricing-head reveal">
+          <p class="eyebrow">Simple and final</p>
+          <h2>Try it every week.<br>Then keep Aria for life.</h2>
+          <p class="lede">The free plan resets every Monday. Pro is a one-time purchase: no monthly fee, no future price rise, all updates included.</p>
+        </div>
+        <div class="plans">
+          <article class="plan reveal">
+            <span class="plan-badge">Free</span>
+            <h3>Aria Free</h3>
+            <div class="price">€0</div>
+            <ul>
+              <li>2,000 words every week</li>
+              <li>Automatic reset on Monday</li>
+              <li>Local and cloud engines available</li>
+              <li>Synced counter, so no accidental resets</li>
+            </ul>
+            <a class="button button-quiet" href="#download">Download for free</a>
+          </article>
+          <article class="plan pro reveal">
+            <span class="plan-badge">Lifetime</span>
+            <h3>Aria Pro</h3>
+            <div class="price">€5 <small>once</small></div>
+            <ul>
+              <li>Unlimited words</li>
+              <li>Perpetual licence on three Macs</li>
+              <li>All future updates included</li>
+              <li>Restore with the key sent after payment</li>
+            </ul>
+            <a class="button button-primary" href="#download">Start for free</a>
+            <div class="payment-note">Aria Pro (€5 once, three Macs) will be activated from inside the app. Online purchase is not open on this page yet.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="beta" id="download">
+      <div class="shell">
+        <div class="beta-card reveal">
+          <p class="eyebrow">Version 2.60.3</p>
+          <h2>Install. Speak.<br>Aria writes.</h2>
+          <p class="lede">Pick your Mac. The DMG contains only the compiled app, its resources and the install instructions — never the development repository.</p>
+          <div class="download-grid" aria-label="Aria downloads for macOS">
+            <article class="download-card recommended" data-download-card="arm64">
+              <div class="download-top"><div><small>Recent Macs · M1 to M4+</small><h3>Apple Silicon</h3></div><span class="download-badge">Recommended</span></div>
+              <p>Native arm64 build for MacBook, iMac, Mac mini, Mac Studio and Mac Pro with an Apple chip.</p>
+              <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg" data-download="arm64">Download the DMG</a>
+            </article>
+            <article class="download-card" data-download-card="x64">
+              <div class="download-top"><div><small>Intel Macs</small><h3>Intel</h3></div><span class="download-badge" hidden>Your Mac</span></div>
+              <p>Separate x64 build for Macs sold before the transition to Apple chips.</p>
+              <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Intel.dmg" data-download="x64">Download the DMG</a>
+            </article>
+          </div>
+          <div class="install-guide">
+            <h3>First launch without an Apple Developer subscription</h3>
+            <div class="install-steps">
+              <div class="install-step">Open the downloaded DMG.</div>
+              <div class="install-step">Drag Aria into Applications.</div>
+              <div class="install-step">Try to open Aria once.</div>
+              <div class="install-step">If macOS blocks it: System Settings → Privacy &amp; Security → Open Anyway.</div>
+            </div>
+            <p class="install-warning"><span>⚠︎</span><span><b>Expected warning:</b> this build is checked with SHA-256 and carries a stable signing identity, but it is not notarised by Apple yet. Only bypass Gatekeeper for downloads coming from this site and the official GitHub repository.</span></p>
+            <div class="checksum-links">
+              <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Apple-Silicon.dmg.sha256">SHA-256 Apple Silicon</a>
+              <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.3/Aria-2.60.3-Intel.dmg.sha256">SHA-256 Intel</a>
+              <a href="https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.60.3">See the GitHub release</a>
+            </div>
+          </div>
+          <p class="beta-meta">macOS 11+ · one download per architecture · updates verified inside Aria</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell faq">
+        <h2>Frequently asked questions.</h2>
+        <details><summary>Does Aria work offline?</summary><p>Yes. With the local engine the audio stays on the Mac and nothing is sent anywhere. Aria Free still needs a brief connection to check the weekly word counter.</p></details>
+        <details><summary>Does Aria translate my speech into English?</summary><p>No. The transcript keeps the language you spoke. Transformations such as Email or Key points only apply when you choose them.</p></details>
+        <details><summary>Which Mac apps does it work in?</summary><p>Aria types at the cursor, so it works in Mail, Messages, Notes, Slack, Teams, browsers, code editors and any standard macOS text field.</p></details>
+        <details><summary>Do I need an internet connection?</summary><p>Not with the local mode. For now the Groq mode can run with no key to enter; the audio then travels through a rate-limited Aria relay to Groq, with no storage of audio or text. A personal key remains possible for the other optional services.</p></details>
+        <details><summary>How does the free limit work?</summary><p>Aria Free includes 2,000 words per week and resets every Monday on server time. A brief connection is needed to check the counter; reinstalling the app or changing the Mac clock does not create a new quota.</p></details>
+        <details><summary>Is the €5 a subscription?</summary><p>No. It is a one-time purchase giving lifetime access to Aria Pro on three Macs, with unlimited words and all future updates included.</p></details>
+        <details><summary>What happens during a long dictation?</summary><p>The cloud timeout grows with the recorded duration. Two minutes of speech gets a far longer allowance than a short sentence before the local fallback is even considered.</p></details>
+        <details><summary>Does Aria work with AirPods?</summary><p>Yes. Aria can follow the microphone chosen in macOS, or use a device you select explicitly in its settings.</p></details>
+        <details><summary>Why does macOS show a warning?</summary><p>Aria is signed but not yet notarised by Apple. After a first open attempt, use System Settings → Privacy &amp; Security → Open Anyway. The upcoming Developer ID build removes this step.</p></details>
+        <details><summary>How do updates work?</summary><p>Aria checks the public manifest at launch and then every six hours. It resumes the download of the DMG matching your Mac when needed, checks its size, its SHA-256 and its Apple identity, then updates the app in place. If the new version fails to start, Aria restores the previous one automatically.</p></details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell contact-wrap">
+        <div class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>A question?<br>Write to us.</h2>
+          <p class="lede" style="margin-top:20px">Install, licence, refund or suggestion: your message reaches the Aria team directly.</p>
+        </div>
+        <div class="contact-form reveal">
+          <p style="color:var(--ink-2);font-size:15px;line-height:1.55">Install, licence or suggestion: open an issue on the public repository. Please do not paste an API key, a dictation or any other personal data there.</p>
+          <a class="button button-primary" href="https://github.com/hfioafio/Aria-Downloads/issues/new">Open an issue</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Voice dictation and transcription for macOS.</span>
+      <div class="footer-links"><a href="#privacy">Privacy</a><a href="#pro">Aria Pro</a><a href="#contact">Contact</a><a href="./" lang="fr" hreflang="fr">Français</a><a href="#download">Download</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var media = matchMedia('(prefers-color-scheme:dark)');
+      var themeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-theme-choice]'));
+      function applyTheme(choice, remember) {
+        if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+        var dark = choice === 'dark' || (choice === 'auto' && media.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeChoice = choice;
+        document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+        themeButtons.forEach(function (button) {
+          var active = button.dataset.themeChoice === choice;
+          button.classList.toggle('on',active);
+          button.setAttribute('aria-pressed',String(active));
+        });
+        if (remember) { try { localStorage.setItem('aria-site-theme',choice); } catch (_) {} }
+      }
+      themeButtons.forEach(function (button) {
+        button.addEventListener('click',function () { applyTheme(button.dataset.themeChoice,true); });
+      });
+      var systemChange = function () {
+        if (document.documentElement.dataset.themeChoice === 'auto') applyTheme('auto',false);
+      };
+      if (media.addEventListener) media.addEventListener('change',systemChange);
+      else if (media.addListener) media.addListener(systemChange);
+      applyTheme(document.documentElement.dataset.themeChoice || 'auto',false);
+
+      var nav = document.querySelector('.nav');
+      var updateNav = function () { nav.classList.toggle('scrolled',window.scrollY > 12); };
+      window.addEventListener('scroll',updateNav,{ passive:true });
+      updateNav();
+
+      var examples = {
+        mail:{
+          avatar:'JM',person:'Jean Martin',context:'New message',label:'Subject',subject:'Revised proposal',
+          text:'Send the revised proposal before Friday, and keep the tone concise.',
+          detail:'Groq Precision · English kept'
+        },
+        messages:{
+          avatar:'L',person:'Lea',context:'Conversation',label:'Message',subject:'Friday project',
+          text:'I’ll send you the new version tonight. Tell me if you want to review it together tomorrow morning.',
+          detail:'Groq Precision · French'
+        },
+        notes:{
+          avatar:'N',person:'Notes',context:'Personal note',label:'Title',subject:'Ideas for tomorrow',
+          text:'Call Lea, finish the deck and book the train for the ten o’clock meeting.',
+          detail:'Parakeet · 100% on-device'
+        }
+      };
+      var demoButtons = Array.prototype.slice.call(document.querySelectorAll('[data-demo]'));
+      var demoText = document.getElementById('demo-text');
+      var pillTitle = document.getElementById('pill-title');
+      var timer = null;
+      var current = 'mail';
+      var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+      function fillExample(name, animate) {
+        current = name;
+        var example = examples[name];
+        clearInterval(timer);
+        document.getElementById('demo-avatar').textContent = example.avatar;
+        document.getElementById('demo-person').textContent = example.person;
+        document.getElementById('demo-context').textContent = example.context;
+        document.getElementById('demo-label').textContent = example.label;
+        document.getElementById('demo-subject').textContent = example.subject;
+        document.getElementById('pill-detail').textContent = example.detail;
+        pillTitle.textContent = 'Aria is listening';
+        demoButtons.forEach(function (button) {
+          var active = button.dataset.demo === name;
+          button.classList.toggle('on',active);
+          button.setAttribute('aria-selected',String(active));
+        });
+        if (!animate || reduced) {
+          demoText.classList.remove('empty');
+          demoText.innerHTML = example.text + '<span class="cursor" aria-hidden="true"></span>';
+          pillTitle.textContent = 'Text inserted';
+          return;
+        }
+        var index = 0;
+        demoText.classList.add('empty');
+        demoText.innerHTML = '<span class="cursor" aria-hidden="true"></span>';
+        setTimeout(function () {
+          demoText.classList.remove('empty');
+          timer = setInterval(function () {
+            index += 1;
+            demoText.innerHTML = example.text.slice(0,index) + '<span class="cursor" aria-hidden="true"></span>';
+            if (index >= example.text.length) {
+              clearInterval(timer);
+              pillTitle.textContent = 'Text inserted';
+            }
+          },18);
+        },420);
+      }
+      demoButtons.forEach(function (button) {
+        button.addEventListener('click',function () { fillExample(button.dataset.demo,true); });
+      });
+      document.getElementById('replay').addEventListener('click',function () { fillExample(current,true); });
+      fillExample('mail',true);
+
+      var models = Array.prototype.slice.call(document.querySelectorAll('.model'));
+      models.forEach(function (model) {
+        model.addEventListener('click',function () {
+          models.forEach(function (item) {
+            var active = item === model;
+            item.classList.toggle('active',active);
+            item.setAttribute('aria-checked',String(active));
+          });
+        });
+      });
+
+      var reveal = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduced) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('seen'); observer.unobserve(entry.target); }
+          });
+        },{ threshold:.10 });
+        reveal.forEach(function (item) { observer.observe(item); });
+      } else reveal.forEach(function (item) { item.classList.add('seen'); });
+
+      // Chromium peut révéler l'architecture ; Safari ne le fait pas. Dans le doute, Apple
+      // Silicon reste recommandé et le choix Intel demeure clairement visible.
+      if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+        navigator.userAgentData.getHighEntropyValues(['architecture']).then(function (info) {
+          var intel = String(info.architecture || '').toLowerCase().indexOf('x86') >= 0;
+          if (!intel) return;
+          var arm = document.querySelector('[data-download-card="arm64"]');
+          var x64 = document.querySelector('[data-download-card="x64"]');
+          arm.classList.remove('recommended');
+          arm.querySelector('.download-badge').hidden = true;
+          x64.classList.add('recommended');
+          x64.querySelector('.download-badge').hidden = false;
+        }).catch(function () {});
+      }
+    })();
+  </script>
 <!-- aria-beacon:start -->
 <script>
 /* aria-beacon : compte les visites et les clics de téléchargement de la vitrine publique.

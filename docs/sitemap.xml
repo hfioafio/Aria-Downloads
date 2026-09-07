@@ -4,12 +4,18 @@
     <loc>https://hfioafio.github.io/Aria-Downloads/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/en.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/en.html"/>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 </urlset>
