@@ -272,7 +272,7 @@ a{color:var(--blue)}
 
     el('freshness').innerHTML = '<span class="dot"></span>Chiffres GitHub relevés à ' +
       new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) +
-      ' · actualisation automatique toutes les 2 minutes';
+      ' · actualisation automatique toutes les 5 minutes';
     el('rate').textContent = rate ? 'Quota de lecture GitHub : ' + rate + ' requêtes restantes cette heure (limite de 60 sans authentification).' : '';
   }
 
@@ -308,7 +308,7 @@ a{color:var(--blue)}
   });
 
   refresh();
-  setInterval(refresh, 120000);
+  setInterval(refresh, 300000);
 })();
 </script>
 </body>
