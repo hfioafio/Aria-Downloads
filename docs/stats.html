@@ -75,21 +75,23 @@ a{color:var(--blue)}
 
   <div class="hero">
     <div class="big zero" id="realCount">—</div>
-    <p id="realLabel">téléchargements depuis votre point de référence.</p>
+    <p id="realLabel">chargement…</p>
     <p id="realHelp" class="muted" style="margin-top:12px"></p>
     <div class="row">
       <button id="setBaseline">Repartir de zéro maintenant</button>
       <button class="quiet" id="clearBaseline">Retirer la référence</button>
     </div>
-    <p class="muted" style="margin-top:12px">Vos propres essais gonflent le compteur. « Repartir de zéro » enregistre les chiffres actuels comme point de départ : ensuite, seuls les téléchargements qui arrivent après comptent. Après un test de votre côté, recliquez.</p>
+    <p class="muted" style="margin-top:12px">Ce chiffre ne compte que la <strong>version publique actuelle</strong> — celle vers laquelle pointent le site et toutes les pages. C'est le seul nombre qui puisse ressembler à de vraies personnes. Le total historique est plus bas, avec ce qu'il contient réellement.</p>
   </div>
 
   <div class="grid">
-    <div class="card"><b id="total">—</b><span>téléchargements, tous temps</span><small>essais internes compris</small></div>
-    <div class="card"><b id="arm">—</b><span>Apple Silicon</span><small id="armPct"></small></div>
-    <div class="card"><b id="x64">—</b><span>Intel</span><small id="x64Pct"></small></div>
+    <div class="card"><b id="total">—</b><span>total historique, toutes versions</span><small>à lire avec la section du bas</small></div>
+    <div class="card"><b id="pre">—</b><span>sur des préversions</span><small>jamais annoncées publiquement</small></div>
+    <div class="card"><b id="pub">—</b><span>sur des versions publiques</span><small id="pubDetail"></small></div>
     <div class="card"><b id="stars">—</b><span>étoiles GitHub</span><small id="watchers"></small></div>
   </div>
+
+  <div class="note" id="reality"></div>
 
   <h2>Ce que ça donne dans le temps</h2>
   <div class="chart">
@@ -98,6 +100,7 @@ a{color:var(--blue)}
   </div>
 
   <h2>Par version</h2>
+  <p class="muted" style="margin:0 0 12px">Les préversions sont marquées : elles n’ont jamais été annoncées, donc leurs téléchargements ne sont pas des utilisateurs.</p>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Version</th><th>Publiée</th><th class="n">Apple Silicon</th><th class="n">Intel</th><th class="n">Total</th></tr></thead>
@@ -135,19 +138,26 @@ a{color:var(--blue)}
   function el(id) { return document.getElementById(id); }
 
   function dmgTotals(releases) {
-    var total = 0, arm = 0, x64 = 0, rows = [];
+    var total = 0, arm = 0, x64 = 0, pre = 0, pub = 0, rows = [], latest = null;
     releases.forEach(function (r) {
-      var a = 0, x = 0;
+      var a = 0, x = 0, hasDmg = false;
       (r.assets || []).forEach(function (asset) {
-        if (!/\.dmg$/i.test(asset.name)) return;          // les .sha256 ne sont pas des installations
+        if (!/\.dmg$/i.test(asset.name)) return;        // les .sha256 ne sont pas des installations
+        hasDmg = true;
         var c = Number(asset.download_count || 0);
         if (/Apple-Silicon|arm64/i.test(asset.name)) a += c; else x += c;
       });
-      if (a + x === 0 && !(r.assets || []).some(function (s) { return /\.dmg$/i.test(s.name); })) return;
+      if (!hasDmg) return;
+      var isPre = /preview|beta|rc/i.test(r.tag_name) || r.prerelease === true;
       arm += a; x64 += x; total += a + x;
-      rows.push({ tag: r.tag_name, date: r.published_at, arm: a, x64: x, total: a + x });
+      if (isPre) pre += a + x; else pub += a + x;
+      var row = { tag: r.tag_name, date: r.published_at, arm: a, x64: x, total: a + x, pre: isPre };
+      rows.push(row);
+      if (!isPre && !latest) latest = row;                // les versions arrivent de la plus récente à la plus ancienne
     });
-    return { total: total, arm: arm, x64: x64, rows: rows };
+    return { total: total, arm: arm, x64: x64, pre: pre, pub: pub, rows: rows,
+             latest: latest || { tag: '—', arm: 0, x64: 0, total: 0 },
+             releaseCount: rows.length };
   }
 
   function drawChart(history) {
@@ -182,38 +192,56 @@ a{color:var(--blue)}
   }
 
   function renderBaseline() {
-    var base = load(KEY_BASE, null);
-    var big = el('realCount'), label = el('realLabel'), help = el('realHelp');
     if (!state) return;
-    if (!base) {
-      big.textContent = fmt(state.total);
-      big.classList.toggle('zero', state.total === 0);
-      label.textContent = 'téléchargements au total, vos essais compris.';
-      help.textContent = 'Cliquez sur « Repartir de zéro » pour que vos propres téléchargements cessent d’être comptés.';
-      el('clearBaseline').disabled = true;
+    var base = load(KEY_BASE, null);
+    var now = state.latest.total;
+    var big = el('realCount'), label = el('realLabel'), help = el('realHelp');
+    if (!base || base.tag !== state.latest.tag) {
+      big.textContent = fmt(now);
+      big.classList.toggle('zero', now === 0);
+      label.innerHTML = 'téléchargement' + (now > 1 ? 's' : '') + ' de <strong>' + state.latest.tag + '</strong>, la version publique actuelle.';
+      help.textContent = base
+        ? 'Votre référence portait sur ' + base.tag + ', qui n’est plus la version en ligne : elle a été ignorée.'
+        : 'Vos propres essais et les mises à jour automatiques sont dedans. Cliquez sur « Repartir de zéro » pour ne compter que la suite.';
+      el('clearBaseline').disabled = !base;
       return;
     }
-    var since = state.total - base.total;
-    if (since < 0) since = 0;
+    var since = Math.max(0, now - base.total);
     big.textContent = fmt(since);
     big.classList.toggle('zero', since === 0);
     var d = new Date(base.t);
-    label.textContent = 'téléchargements depuis le ' + d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) +
-      ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.';
+    label.innerHTML = 'téléchargement' + (since > 1 ? 's' : '') + ' de <strong>' + state.latest.tag + '</strong> depuis le ' +
+      d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) + ' à ' +
+      d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.';
     help.textContent = since === 0
-      ? 'Personne n’a téléchargé depuis ce point de référence.'
-      : 'Dont ' + fmt(Math.max(0, state.arm - base.arm)) + ' sur Apple Silicon et ' + fmt(Math.max(0, state.x64 - base.x64)) + ' sur Intel.';
+      ? 'Personne n’a téléchargé cette version depuis ce point de référence.'
+      : 'Dont ' + fmt(Math.max(0, state.latest.arm - base.arm)) + ' sur Apple Silicon et ' +
+        fmt(Math.max(0, state.latest.x64 - base.x64)) + ' sur Intel.';
     el('clearBaseline').disabled = false;
   }
 
   function render(data, repo, rate) {
     state = data;
     el('total').textContent = fmt(data.total);
-    el('arm').textContent = fmt(data.arm);
-    el('x64').textContent = fmt(data.x64);
-    var pct = function (n) { return data.total ? Math.round((n / data.total) * 100) + ' % du total' : ''; };
-    el('armPct').textContent = pct(data.arm);
-    el('x64Pct').textContent = pct(data.x64);
+    el('pre').textContent = fmt(data.pre);
+    el('pub').textContent = fmt(data.pub);
+    el('pubDetail').textContent = 'dont ' + fmt(data.latest.total) + ' sur ' + data.latest.tag;
+
+    var avg = data.releaseCount ? (data.total / data.releaseCount) : 0;
+    var note = el('reality');
+    note.innerHTML =
+      '<p><strong>Pourquoi ' + fmt(data.total) + ' ne veut pas dire ' + fmt(data.total) + ' personnes.</strong> ' +
+      'Ce total est étalé sur ' + fmt(data.releaseCount) + ' versions, soit ' + avg.toFixed(1) + ' téléchargement' +
+      (avg >= 2 ? 's' : '') + ' par version en moyenne. De vraies personnes se concentreraient sur la dernière version ; ' +
+      'un chiffre plat sur toutes les versions est la signature de machines et d’essais internes.</p>' +
+      '<p style="margin-top:12px"><strong>' + fmt(data.pre) + ' de ces téléchargements portent sur des préversions</strong> ' +
+      '— des builds jamais annoncés, dont personne à l’extérieur ne connaissait l’existence. Ceux-là ne peuvent pas être des utilisateurs.</p>' +
+      '<p style="margin-top:12px">Trois choses gonflent le reste : vos propres installations de test ; ' +
+      '<strong>la mise à jour automatique</strong>, qui télécharge le DMG depuis cette même page de version à chaque montée de version ; ' +
+      'et les robots d’indexation et scanners de sécurité, qui récupèrent tous les fichiers de chaque version — ' +
+      'ce qui explique les téléchargements Intel réguliers alors que vous travaillez sur Apple Silicon.</p>' +
+      '<p style="margin-top:12px">Le seul chiffre à surveiller est celui du haut : <strong>' + data.latest.tag +
+      '</strong>, la version vers laquelle pointent le site et toutes les pages.</p>';
     el('stars').textContent = fmt(repo.stargazers_count || 0);
     el('watchers').textContent = fmt(repo.subscribers_count || 0) + ' abonnés · ' + fmt(repo.forks_count || 0) + ' forks';
 
@@ -225,7 +253,8 @@ a{color:var(--blue)}
     data.rows.slice(0, 25).forEach(function (r) {
       var tr = document.createElement('tr');
       var when = r.date ? new Date(r.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
-      tr.innerHTML = '<td><strong>' + r.tag + '</strong></td><td>' + when + '</td>' +
+      var mark = r.pre ? ' <span class="muted">· préversion</span>' : '';
+      tr.innerHTML = '<td><strong>' + r.tag + '</strong>' + mark + '</td><td>' + when + '</td>' +
         '<td class="n">' + fmt(r.arm) + '</td><td class="n">' + fmt(r.x64) + '</td>' +
         '<td class="n"><strong>' + fmt(r.total) + '</strong></td>';
       tb.appendChild(tr);
@@ -270,7 +299,7 @@ a{color:var(--blue)}
   el('refresh').addEventListener('click', refresh);
   el('setBaseline').addEventListener('click', function () {
     if (!state) return;
-    store(KEY_BASE, { t: Date.now(), total: state.total, arm: state.arm, x64: state.x64 });
+    store(KEY_BASE, { t: Date.now(), tag: state.latest.tag, total: state.latest.total, arm: state.latest.arm, x64: state.latest.x64 });
     renderBaseline();
   });
   el('clearBaseline').addEventListener('click', function () {
