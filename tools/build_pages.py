@@ -39,11 +39,13 @@ TEMPLATE = """<!doctype html>
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{description}">
   <meta property="og:url" content="{base}{slug}.html">
-  <meta property="og:image" content="{base}aria-setup-preview.png">
+  <meta property="og:image" content="{base}{ogimage}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="{base}aria-setup-preview.png">
+  <meta name="twitter:image" content="{base}{ogimage}">
   <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="pages.css">
 {jsonld}  <script>
@@ -185,6 +187,7 @@ def build():
             lang=lang, title=p["title"], description=p["description"], base=BASE, slug=p["slug"],
             alternates=alt, jsonld=jsonld, oglocale="fr_FR" if lang == "fr" else "en_US",
             body=body, crumb=p["crumb"], homehref="./" if lang == "fr" else "en.html",
+            ogimage="og-image.png" if lang == "fr" else "og-image-en.png",
             otherlang="en" if lang == "fr" else "fr",
             dlanchor="telecharger" if lang == "fr" else "download",
             privanchor="confidentialite" if lang == "fr" else "privacy", **loc)

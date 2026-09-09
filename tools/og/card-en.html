@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:#0a0a0c;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  position:relative;display:flex;align-items:center}
+.grain{position:absolute;inset:0;opacity:.5;
+  background:radial-gradient(120% 100% at 78% 52%, rgba(60,120,220,.16) 0%, rgba(10,10,12,0) 58%),
+             radial-gradient(90% 80% at 12% 40%, rgba(255,255,255,.045) 0%, rgba(10,10,12,0) 60%)}
+.wrap{position:relative;display:flex;align-items:center;width:100%;padding:0 74px;gap:40px}
+.left{flex:0 0 auto}
+h1{font-size:104px;letter-spacing:.20em;font-weight:300;color:#f2efe9;line-height:1;padding-left:.10em}
+p.tag{margin-top:24px;font-size:30px;color:#e8e6e1;font-weight:400;letter-spacing:-.005em}
+p.sub{margin-top:14px;font-size:20px;color:#8b8d95;font-weight:400}
+.right{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.caret{width:3px;height:52px;background:#3b8dfa;border-radius:2px;align-self:flex-end;margin-right:118px;box-shadow:0 0 16px rgba(59,141,250,.7)}
+.pill{position:relative;width:470px;height:126px;border-radius:63px;
+  background:linear-gradient(170deg,#1c1d22 0%,#0d0e11 62%);
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 0 62px rgba(48,120,225,.34), inset 0 1px 0 rgba(255,255,255,.10);
+  display:flex;align-items:center;justify-content:center;gap:6.5px}
+.pill::after{content:"";position:absolute;left:8%;right:8%;bottom:-1px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(59,141,250,0),rgba(90,170,255,.95),rgba(59,141,250,0))}
+.pill i{width:2.5px;border-radius:3px;background:#eef3fb}
+.mono{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:17px;color:#6e7078;letter-spacing:.04em;
+  text-align:right;line-height:1.65;align-self:flex-end;margin-right:26px}
+.mono b{color:#9aa0aa;font-weight:400}
+</style></head><body>
+<div class="grain"></div>
+<div class="wrap">
+  <div class="left">
+    <h1>ARIA</h1>
+    <p class="tag">Speak to your Mac. Aria writes everywhere.</p>
+    <p class="sub">Offline dictation into any app · €5 once</p>
+  </div>
+  <div class="right">
+    <div class="caret"></div>
+    <div class="pill" id="pill"></div>
+    <div class="mono"><b>A clear mind.</b><br>The right words.</div>
+  </div>
+</div>
+<script>
+// enveloppe effilée : points aux extrémités, barres hautes au centre, comme la capsule d'Aria
+var N = 45, p = document.getElementById('pill');
+var jitter = [1,.82,1,.74,.95,.68,1,.8,.9,.72,1,.86,.78,1,.9,.7,1,.84,.94,.76,1,.88,1,.8,.92,.7,1,.86,.76,1,.9,.72,1,.82,.94,.68,1,.88,.78,1,.84,.74,1,.8,1];
+for (var i = 0; i < N; i++) {
+  var x = (i - (N - 1) / 2) / ((N - 1) / 2);         // -1 … 1
+  var env = Math.pow(Math.cos(x * Math.PI / 2), 2.1); // effilé aux bords
+  var h = 3 + env * 74 * jitter[i];
+  var b = document.createElement('i');
+  b.style.height = h.toFixed(1) + 'px';
+  b.style.opacity = (0.36 + env * 0.64).toFixed(2);
+  if (h > 40) b.style.boxShadow = '0 0 9px rgba(190,220,255,.6)';
+  p.appendChild(b);
+}
+</script>
+</body></html>
