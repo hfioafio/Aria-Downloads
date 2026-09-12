@@ -27,9 +27,7 @@
   <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/og-image.png">
   <meta name="twitter:description" content="Une dictée macOS rapide, fidèle et privée. Directement dans l’app où vous travaillez.">
   <link rel="icon" href="favicon.png">
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aria","alternateName":"Aria Dictée","applicationCategory":"ProductivityApplication","applicationSubCategory":"Reconnaissance vocale","operatingSystem":"macOS 11+","softwareVersion":"2.60.5-preview.94","featureList":["Dictée au raccourci dans n’importe quelle app macOS","Transcription 100 % hors ligne avec NVIDIA Parakeet TDT V3","Transcription de fichiers audio et vidéo","Mode réunion avec identification des locuteurs","Dictionnaire personnel pour les noms propres","Historique local consultable"],"description":"Dictée et transcription vocale pour macOS, avec traitement local et insertion directe dans l’application active.","url":"https://hfioafio.github.io/Aria-Downloads/","downloadUrl":"https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.5-preview.94/Aria-2.60.5-preview.94-Apple-Silicon.dmg","offers":[{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Aria Free"},{"@type":"Offer","price":"5","priceCurrency":"EUR","name":"Aria Pro"}]}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aria","alternateName":"Aria Dictée","applicationCategory":"ProductivityApplication","applicationSubCategory":"Reconnaissance vocale","operatingSystem":"macOS 11+","softwareVersion":"2.60.5-preview.94","featureList":["Dictée au raccourci dans n’importe quelle app macOS","Transcription 100 % hors ligne avec NVIDIA Parakeet TDT V3","Transcription de fichiers audio et vidéo","Mode réunion avec identification des locuteurs","Dictionnaire personnel pour les noms propres","Historique local consultable"],"description":"Dictée et transcription vocale pour macOS, avec traitement local et insertion directe dans l’application active.","url":"https://hfioafio.github.io/Aria-Downloads/","downloadUrl":"https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.5-preview.94/Aria-2.60.5-preview.94-Apple-Silicon.dmg","offers":[{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Aria Free"},{"@type":"Offer","price":"5","priceCurrency":"EUR","name":"Aria Pro"}],"image":"https://hfioafio.github.io/Aria-Downloads/og-image.png","author":{"@type":"Organization","name":"Aria","url":"https://hfioafio.github.io/Aria-Downloads/"},"publisher":{"@type":"Organization","name":"Aria","url":"https://hfioafio.github.io/Aria-Downloads/"},"sameAs":["https://github.com/hfioafio/Aria-Downloads"],"softwareHelp":"https://github.com/hfioafio/Aria-Downloads#readme"}</script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aria traduit-elle automatiquement l’anglais ?","acceptedAnswer":{"@type":"Answer","text":"Non. La transcription conserve la langue parlée."}},{"@type":"Question","name":"Faut-il une connexion Internet ?","acceptedAnswer":{"@type":"Answer","text":"Le moteur local traite l’audio sur le Mac. Aria Free a seulement besoin d’une brève connexion pour le quota hebdomadaire."}},{"@type":"Question","name":"Le paiement de 5 € est-il un abonnement ?","acceptedAnswer":{"@type":"Answer","text":"Non. C’est un achat unique, à vie, sur trois Mac."}}]}
   </script>
@@ -583,7 +581,10 @@
     <section class="real-app-section" aria-label="Capture réelle d’Aria">
       <div class="shell">
         <figure class="real-app-shot reveal">
-          <img src="aria-setup-preview.png" width="2160" height="1440" loading="lazy" alt="Écran réel d’Aria proposant le mode local privé et le mode Groq en ligne">
+          <picture>
+            <source type="image/webp" srcset="aria-setup-preview-1200.webp 1200w, aria-setup-preview.webp 2160w" sizes="(max-width: 1040px) 100vw, 980px">
+            <img src="aria-setup-preview.png" width="2160" height="1440" loading="lazy" decoding="async" alt="Écran réel d’Aria proposant le mode local privé et le mode Groq en ligne">
+          </picture>
           <figcaption>Capture réelle d’Aria — l’interface suit la langue du Mac.</figcaption>
         </figure>
       </div>

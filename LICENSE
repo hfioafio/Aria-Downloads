@@ -1,0 +1,38 @@
+Copyright © 2026 Aria. All rights reserved.
+
+Aria is proprietary software. This repository distributes its signed macOS
+builds, its release notes and its website; it does not contain source code.
+
+WHAT YOU MAY DO
+
+You may download, install and use Aria on your own Macs, under the plan you
+have chosen — the free plan or a purchased Aria Pro licence. You may link to
+this repository and to the download pages freely.
+
+WHAT YOU MAY NOT DO
+
+No permission is granted to redistribute, republish, mirror, repackage, sell,
+modify, sublicense, reverse engineer or decompile Aria or any build published
+here, nor to create derivative works from it, except where such a restriction
+is prohibited by applicable law or where a separate written agreement
+explicitly permits it.
+
+THIRD-PARTY COMPONENTS
+
+Components bundled with Aria remain governed by their own licences. Their
+inclusion grants no rights over Aria itself. The speech models Aria can
+download are published by their respective authors under their own terms.
+
+DOCUMENTATION AND WEBSITE
+
+The README, the release notes and the pages under docs/ are published so that
+people can read them and link to them. They may be quoted with attribution and
+a link. They may not be republished in full.
+
+NO WARRANTY
+
+Aria is provided "as is", without warranty of any kind, express or implied.
+The author is not liable for any claim or damage arising from its use. This
+does not affect any statutory right you have as a consumer.
+
+Questions about these terms: https://github.com/hfioafio/Aria-Downloads/issues
