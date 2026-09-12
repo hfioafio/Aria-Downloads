@@ -46,7 +46,8 @@ TEMPLATE = """<!doctype html>
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
   <meta name="twitter:image" content="{base}{ogimage}">
-  <link rel="icon" href="favicon.png">
+  <link rel="icon" href="favicon.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="pages.css">
 {jsonld}  <script>
     (function () {{
@@ -96,7 +97,7 @@ TEMPLATE = """<!doctype html>
 PAGES = [
     dict(slug="wispr-flow-alternative", lang="en",
          title="Wispr Flow Alternative for Mac — Offline, €5 Once",
-         description="Wispr Flow Pro is $15 a month. Aria does system-wide Mac dictation offline, with the same 2,000 free words a week, and Pro is €5 once. Side-by-side comparison.",
+         description="Wispr Flow Pro is $15 a month. Aria does system-wide Mac dictation offline, same 2,000 free words a week, and Pro is €5 once. Side by side.",
          crumb="Wispr Flow alternative", pair="alternative-wispr-flow"),
     dict(slug="alternative-wispr-flow", lang="fr",
          title="Alternative à Wispr Flow sur Mac : 5 € une fois",
@@ -108,11 +109,11 @@ PAGES = [
          crumb="No subscription", pair="dictee-vocale-mac-sans-abonnement"),
     dict(slug="dictee-vocale-mac-sans-abonnement", lang="fr",
          title="Dictée vocale Mac sans abonnement : 5 € une fois",
-         description="La plupart des apps de dictée sur Mac exigent un abonnement mensuel ou 30 à 250 € d'un coup. Aria est gratuite jusqu'à 2 000 mots par semaine, puis 5 € une seule fois.",
+         description="La plupart des apps de dictée sur Mac exigent un abonnement mensuel. Aria est gratuite jusqu'à 2 000 mots par semaine, puis 5 € une seule fois.",
          crumb="Sans abonnement", pair="mac-dictation-no-subscription"),
     dict(slug="superwhisper-alternative", lang="en",
          title="Superwhisper Alternative: Local Dictation, €5 Once",
-         description="Superwhisper Pro is $8.49 a month. Aria runs the same kind of local model on your Mac — Parakeet, Whisper — for €5 once, with a free tier of 2,000 words a week.",
+         description="Superwhisper Pro is $8.49 a month. Aria runs the same kind of local model on your Mac for €5 once, with a free tier of 2,000 words a week.",
          crumb="Superwhisper alternative", pair="alternative-superwhisper"),
     dict(slug="transcribe-audio-file-mac", lang="en",
          title="Transcribe an Audio File on Mac, Offline",
@@ -128,7 +129,7 @@ PAGES = [
          crumb="For developers", pair=None),
     dict(slug="install-aria-mac", lang="en",
          title="Installing Aria on macOS: the Gatekeeper Step",
-         description="macOS says it cannot verify the developer, or that the app is damaged. What each message means, how to open Aria safely, and how to check the file is genuine.",
+         description="macOS says it cannot verify the developer, or that the app is damaged. What each message means, and how to open Aria safely.",
          crumb="Installing Aria", pair="installer-aria-mac"),
     dict(slug="installer-aria-mac", lang="fr",
          title="Installer Aria sur macOS : l'étape Gatekeeper",
@@ -140,11 +141,11 @@ PAGES = [
          crumb="Offline dictation", pair="dictee-vocale-mac-hors-ligne"),
     dict(slug="best-dictation-apps-mac", lang="en",
          title="Best Dictation Apps for Mac in 2026, Compared",
-         description="Six Mac dictation apps compared on real prices, offline support, file transcription and languages. Written by the developer of one of them, including where it loses.",
-         crumb="Best dictation apps", pair=None),
+         description="Six Mac dictation apps compared on real prices, offline support and languages — by the developer of one of them, including where it loses.",
+         crumb="Best dictation apps", pair="dictee-vocale-mac"),
     dict(slug="alternative-superwhisper", lang="fr",
          title="Alternative à Superwhisper : locale, 5 € une fois",
-         description="Superwhisper Pro coûte 8,49 $ par mois. Aria fait tourner le même type de modèle local sur votre Mac pour 5 € une seule fois, avec 2 000 mots gratuits par semaine.",
+         description="Superwhisper Pro coûte 8,49 $ par mois. Aria fait tourner le même type de modèle local sur votre Mac pour 5 € une fois, 2 000 mots gratuits par semaine.",
          crumb="Alternative à Superwhisper", pair="superwhisper-alternative"),
     dict(slug="meeting-transcription-mac", lang="en",
          title="Transcribe a Meeting on Mac, With Speaker Names",
@@ -152,11 +153,11 @@ PAGES = [
          crumb="Meeting transcription", pair="transcrire-reunion-mac"),
     dict(slug="transcrire-reunion-mac", lang="fr",
          title="Transcrire une réunion sur Mac, hors ligne",
-         description="Transformez l'enregistrement d'une réunion en transcription avec chaque locuteur identifié, entièrement sur votre Mac. Aucun bot dans l'appel, aucun compte, aucun envoi.",
+         description="Transformez l'enregistrement d'une réunion en transcription avec chaque locuteur identifié, entièrement sur votre Mac. Aucun bot, aucun compte.",
          crumb="Transcrire une réunion", pair="meeting-transcription-mac"),
     dict(slug="apple-dictation-alternative", lang="en",
          title="Apple Dictation Not Working? Fixes, Then Options",
-         description="Missing punctuation, accuracy that collapses, dictation that stops on its own: the real fixes for macOS dictation, and what to use when they are not enough.",
+         description="Missing punctuation, accuracy that collapses, dictation that stops on its own: real fixes for macOS dictation, and what to use instead.",
          crumb="Apple Dictation", pair=None),
     dict(slug="parakeet-mac", lang="en",
          title="NVIDIA Parakeet on Mac: Offline Dictation App",
@@ -172,8 +173,8 @@ PAGES = [
          crumb="Dictée hors ligne", pair="offline-dictation-mac"),
     dict(slug="dictee-vocale-mac", lang="fr",
          title="Dictée vocale Mac : quelle app choisir en 2026",
-         description="Comparatif des applications de dictée vocale sur Mac en 2026 : dictée d'Apple, Wispr Flow, Superwhisper, MacWhisper, Aria. Prix réels, hors ligne ou non, langues.",
-         crumb="Dictée vocale sur Mac", pair=None),
+         description="Comparatif des apps de dictée vocale sur Mac en 2026 : dictée d'Apple, Wispr Flow, Superwhisper, MacWhisper, Aria. Prix réels, hors ligne, langues.",
+         crumb="Dictée vocale sur Mac", pair="best-dictation-apps-mac"),
 ]
 
 def build():
@@ -190,8 +191,12 @@ def build():
         alt = ""
         if p.get("pair"):
             other = "en" if lang == "fr" else "fr"
+            # x-default désigne la version servie à qui ne parle ni français ni anglais.
+            # Sans lui, le moteur choisit seul, et son choix change d'un pays à l'autre.
+            default = p["slug"] if lang == "en" else p["pair"]
             alt = (f'  <link rel="alternate" hreflang="{lang}" href="{BASE}{p["slug"]}.html">\n'
-                   f'  <link rel="alternate" hreflang="{other}" href="{BASE}{p["pair"]}.html">\n')
+                   f'  <link rel="alternate" hreflang="{other}" href="{BASE}{p["pair"]}.html">\n'
+                   f'  <link rel="alternate" hreflang="x-default" href="{BASE}{default}.html">\n')
         # Le FAQPage est déduit des blocs <details> du corps : une seule source de vérité.
         pairs = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", body, re.S)
         # Fil d'Ariane : Google s'en sert pour afficher le chemin sous le titre du résultat.
@@ -258,7 +263,9 @@ def sitemap():
         alts = []
         if p.get("pair"):
             other = "en" if p["lang"] == "fr" else "fr"
-            alts = [(p["lang"], BASE + p["slug"] + ".html"), (other, BASE + p["pair"] + ".html")]
+            default = p["slug"] if p["lang"] == "en" else p["pair"]
+            alts = [(p["lang"], BASE + p["slug"] + ".html"), (other, BASE + p["pair"] + ".html"),
+                    ("x-default", BASE + default + ".html")]
         block(BASE + p["slug"] + ".html", alts, "0.8" if p.get("pair") else "0.7")
     out.append("</urlset>")
     io.open(os.path.join("docs", "sitemap.xml"), "w", encoding="utf-8").write("\n".join(out) + "\n")
