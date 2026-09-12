@@ -3,24 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <meta name="color-scheme" content="light dark">
   <title>Aria — page introuvable</title>
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/">
-  <link rel="icon" href="favicon.png">
-  <style>
-    body { margin:0; min-height:100vh; display:grid; place-items:center; background:#f6f6f3; color:#101114;
-      font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif; }
-    main { width:min(520px, calc(100% - 40px)); }
-    h1 { font-size:42px; letter-spacing:-.04em; line-height:1; }
-    p { margin:16px 0 28px; color:#55565d; }
-    a { color:#0878f9; font-weight:630; text-decoration:none; }
-  </style>
+  <link rel="icon" href="favicon.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="pages.css">
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
 </head>
 <body>
-  <main>
-    <h1>Cette page n’existe pas.</h1>
-    <p>Les téléchargements Aria sont sur la page d’accueil.</p>
-    <p><a href="https://hfioafio.github.io/Aria-Downloads/">Retour à Aria</a> · <a href="https://hfioafio.github.io/Aria-Downloads/en.html" lang="en">English</a></p>
+  <nav class="nav">
+    <div class="shell nav-in">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <div class="nav-links">
+        <a href="./">Accueil</a>
+        <a href="en.html" hreflang="en">EN</a>
+        <a class="button" href="./#telecharger">Télécharger</a>
+      </div>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="shell">
+      <p class="eyebrow">Erreur 404</p>
+      <h1>Cette page n'existe pas.</h1>
+      <p class="lede">Le lien est peut-être ancien, ou mal recopié. Voici où aller — en français, puis en anglais.</p>
+
+      <h2>Aria, en bref</h2>
+      <div class="related-links" style="font-size:16px">
+        <a href="./">Accueil et téléchargement</a>
+        <a href="installer-aria-mac.html">Installer : l'étape Gatekeeper</a>
+        <a href="dictee-vocale-mac.html">Quelle app de dictée choisir</a>
+        <a href="dictee-vocale-mac-sans-abonnement.html">Les prix, sans abonnement</a>
+      </div>
+
+      <h2>Par besoin</h2>
+      <div class="related-links" style="font-size:16px">
+        <a href="dictee-vocale-mac-hors-ligne.html">Dicter hors ligne</a>
+        <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier audio</a>
+        <a href="transcrire-reunion-mac.html">Transcrire une réunion</a>
+        <a href="dictee-apple-ne-fonctionne-pas.html">La dictée d'Apple ne marche pas</a>
+        <a href="dictee-vocale-developpeurs.html">Dicter quand on code</a>
+        <a href="modele-parakeet-mac.html">Le modèle Parakeet en local</a>
+      </div>
+
+      <h2>Comparatifs</h2>
+      <div class="related-links" style="font-size:16px">
+        <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
+        <a href="alternative-superwhisper.html">Alternative à Superwhisper</a>
+        <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
+      </div>
+
+      <h2 lang="en">In English</h2>
+      <div class="related-links" style="font-size:16px" lang="en">
+        <a href="en.html">Home and download</a>
+        <a href="best-dictation-apps-mac.html">Best dictation apps for Mac</a>
+        <a href="wispr-flow-alternative.html">Wispr Flow alternative</a>
+        <a href="offline-dictation-mac.html">Offline dictation</a>
+        <a href="install-aria-mac.html">Installing Aria</a>
+      </div>
+
+      <div class="cta">
+        <h2>Télécharger Aria</h2>
+        <p>Gratuit jusqu'à 2 000 mots par semaine, sans compte. macOS 11 ou plus récent.</p>
+        <div class="cta-actions">
+          <a class="button" href="./#telecharger">Aller au téléchargement</a>
+        </div>
+      </div>
+    </div>
   </main>
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Dictée et transcription pour macOS.</span>
+      <div class="footer-links">
+        <a href="./">Accueil</a>
+        <a href="en.html" hreflang="en">English</a>
+        <a href="./#telecharger">Télécharger</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,55 @@
+      <p class="eyebrow">Modèle local</p>
+      <h1>NVIDIA Parakeet sur un Mac, sans la ligne de commande</h1>
+      <p class="lede">Parakeet TDT V3 est l'un des meilleurs modèles de reconnaissance vocale exécutables sur sa propre machine. Aria le livre en 487 Mo à l'intérieur d'une application Mac ordinaire — sans environnement conda, sans script d'installation, sans terminal, sans cloud.</p>
+
+      <h2>Ce que vous obtenez concrètement</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td><strong>Modèle</strong></td><td>NVIDIA Parakeet TDT V3</td></tr>
+            <tr><td><strong>Taille du téléchargement</strong></td><td>487 Mo, une seule fois, depuis l'application</td></tr>
+            <tr><td><strong>Langues</strong></td><td>25 langues européennes</td></tr>
+            <tr><td><strong>Compatibilité</strong></td><td>Apple Silicon et Intel, macOS 11 ou plus récent</td></tr>
+            <tr><td><strong>Exécution</strong></td><td>sherpa-onnx intégré — aucun Python, aucune installation séparée</td></tr>
+            <tr><td><strong>Réseau pendant la dictée</strong></td><td class="yes">Aucun</td></tr>
+            <tr><td><strong>Prix</strong></td><td>Gratuit jusqu'à 2 000 mots par semaine, 5 € une fois pour l'illimité</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Pourquoi Parakeet plutôt que Whisper</h2>
+      <p>Whisper est le modèle que tout le monde connaît, et Aria sait aussi le faire tourner. Pour la dictée en direct, Parakeet a pourtant un avantage pratique : il est assez rapide sur le processeur d'un Mac pour que la phrase soit prête à peu près quand vous cessez de parler, et il se débrouille bien sur les énoncés courts et secs dont la dictée est réellement faite — un objet d'e-mail, une réponse Slack, une phrase dans un formulaire. Les grandes variantes de Whisper excellent sur les audios longs et difficiles, et elles sont plus lentes.</p>
+      <p>La règle simple d'Aria : Parakeet pour dicter toute la journée, une variante de Whisper ou un moteur cloud quand un enregistrement précis mérite la précision maximale.</p>
+
+      <h2>La partie qui est réellement difficile</h2>
+      <p>Faire tourner un modèle de reconnaissance vocale en local est la moitié facile. La moitié difficile est tout ce qu'il y a autour, et c'est à ça que sert une application :</p>
+      <ul>
+        <li><strong>Amener le texte dans l'app où vous êtes.</strong> Aria écrit au curseur dans Mail, Slack, Notes, un navigateur, un éditeur — aucune fenêtre à recopier.</li>
+        <li><strong>Ne perdre ni le premier ni le dernier mot.</strong> L'enregistrement démarre avant l'apparition du vumètre, et la fin de la phrase est captée au lieu d'être coupée au relâchement de la touche.</li>
+        <li><strong>Les changements de micro.</strong> Des AirPods qui se déconnectent en pleine phrase retombent sur le micro intégré sans interrompre la dictée.</li>
+        <li><strong>Le vocabulaire.</strong> Un nom corrigé une fois entre dans un dictionnaire personnel, au lieu d'être faux pour toujours.</li>
+        <li><strong>Ne pas vider la batterie.</strong> Le moteur est libéré quand vous vous arrêtez, au lieu de rester résident et tiède.</li>
+      </ul>
+
+      <h2>Ce que ça coûte à la machine</h2>
+      <p>487 Mo de disque, une fois. La mémoire est prise pendant la transcription puis rendue. Tout se passe sur le processeur : aucun pilote, aucune carte graphique exigée, aucune matrice de compatibilité — un Mac Intel d'avant la transition fait tourner le même modèle, simplement plus lentement.</p>
+
+      <div class="honest">
+        <p><strong>Là où un moteur cloud garde l'avantage.</strong> Un accent très marqué, un enregistrement téléphonique de mauvaise qualité, de la musique en fond, ou des noms propres rares : un grand modèle hébergé reste meilleur sur ces terrains. Aria laisse basculer moteur par moteur et utiliser votre propre clé chez OpenAI, Groq, Deepgram, Soniox, ElevenLabs ou Mistral. Le local est un choix par défaut, pas une prison.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Faut-il installer Python, conda ou autre chose ?</summary><p>Non. L'environnement d'exécution est intégré à l'application. Vous installez le DMG, téléchargez le modèle depuis Aria, et vous dictez.</p></details>
+      <details><summary>Ça marche vraiment sans Internet ?</summary><p>Oui, une fois les 487 Mo téléchargés. Seul le compteur hebdomadaire de l'offre gratuite demande une brève connexion ; Pro le supprime.</p></details>
+      <details><summary>Quelles langues couvre Parakeet TDT V3 ?</summary><p>25 langues européennes, et Aria conserve la langue parlée au lieu de traduire en anglais.</p></details>
+      <details><summary>Puis-je utiliser Whisper à la place ?</summary><p>Oui, des variantes de Whisper sont disponibles en local, et les moteurs cloud le sont avec votre propre clé.</p></details>
+      <details><summary>Ça tourne sur un Mac Intel ?</summary><p>Oui, il existe une version Intel distincte. Elle est plus lente que sur Apple Silicon, mais elle fonctionne.</p></details>
+
+      <div class="cta">
+        <h2>Parakeet, dans une app Mac normale</h2>
+        <p>Gratuit jusqu'à 2 000 mots par semaine. 5 € une fois pour l'illimité, sur trois Mac.</p>
+        <div class="cta-actions">
+          <a class="button" href="./#telecharger">Télécharger Aria</a>
+          <a class="button button-quiet" href="dictee-vocale-mac-hors-ligne.html">La dictée hors ligne en pratique</a>
+        </div>
+      </div>

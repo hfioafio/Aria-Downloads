@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <meta name="color-scheme" content="light dark">
+  <title>Dictée vocale pour développeurs sur Mac</title>
+  <meta name="description" content="Dicter bat la frappe même quand on tape vite, parce que l'essentiel de ce qu'un développeur écrit n'est pas du code. Ce qui marche, et ce qui ne marche pas.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html">
+  <link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html">
+  <link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html">
+  <link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aria">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Dictée vocale pour développeurs sur Mac">
+  <meta property="og:description" content="Dicter bat la frappe même quand on tape vite, parce que l'essentiel de ce qu'un développeur écrit n'est pas du code. Ce qui marche, et ce qui ne marche pas.">
+  <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dictée vocale pour développeurs sur Mac">
+  <meta name="twitter:description" content="Dicter bat la frappe même quand on tape vite, parce que l'essentiel de ce qu'un développeur écrit n'est pas du code. Ce qui marche, et ce qui ne marche pas.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/og-image.png">
+  <link rel="icon" href="favicon.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="pages.css">
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/"}, {"@type": "ListItem", "position": 2, "name": "Pour les développeurs", "item": "https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on dicter du code ?", "acceptedAnswer": {"@type": "Answer", "text": "On peut, et on n'y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code."}}, {"@type": "Question", "name": "Ça marche dans VS Code, JetBrains, un terminal ?", "acceptedAnswer": {"@type": "Answer", "text": "Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l'insertion synthétique ; dans ce cas la transcription est conservée dans l'historique et rien n'est perdu."}}, {"@type": "Question", "name": "Quelque chose est-il envoyé quelque part ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas avec le moteur local — aucune requête réseau pendant la dictée. Les moteurs cloud sont facultatifs, moteur par moteur, avec votre propre clé."}}, {"@type": "Question", "name": "Combien ça coûte ?", "acceptedAnswer": {"@type": "Answer", "text": "Gratuit jusqu'à 2 000 mots par semaine. 5 € une fois pour l'illimité sur trois Mac, mises à jour comprises. Pas d'abonnement."}}]}
+  </script>
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content">Aller au contenu</a>
+  <nav class="nav">
+    <div class="shell nav-in">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <div class="nav-links">
+        <a href="./">Accueil</a>
+        <a href="voice-typing-for-developers.html" hreflang="en">EN</a>
+        <a class="button" href="./#telecharger">Télécharger</a>
+      </div>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="shell">
+      <p class="crumb"><a href="./">Aria</a> · Pour les développeurs</p>
+      <p class="eyebrow">Pour les développeurs</p>
+      <h1>Dicter quand on tape déjà vite</h1>
+      <p class="lede">L'objection est légitime : vous tapez 90 mots par minute, alors pourquoi parler ? Parce que l'essentiel de ce qu'un développeur écrit dans une journée n'est pas du code. C'est la description de la pull request, le compte rendu d'incident, la réponse sur Slack, le commentaire qui explique pourquoi. La prose, voilà où la dictée gagne — et elle gagne largement.</p>
+
+      <h2>Là où ça aide vraiment</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tâche</th><th>Dictée</th><th>Pourquoi</th></tr></thead>
+          <tbody>
+            <tr><td>Descriptions de pull request</td><td class="yes">Excellente</td><td>Longues, explicatives, écrites une fois. On pense à voix haute plus vite qu'on ne tape.</td></tr>
+            <tr><td>Comptes rendus d'incident</td><td class="yes">Excellente</td><td>Vous venez de le voir ; le dire à chaud vaut mieux que le mettre en forme.</td></tr>
+            <tr><td>Réponses Slack et revues de code</td><td class="yes">Excellente</td><td>Courtes, constantes, avec changement de contexte. Le raccourci bat l'aller-retour clavier.</td></tr>
+            <tr><td>Documentation et décisions d'architecture</td><td class="yes">Excellente</td><td>De la prose encore — et vous savez déjà ce que vous voulez dire.</td></tr>
+            <tr><td>Consignes à un assistant IA</td><td class="yes">Excellente</td><td>Longues, conversationnelles, jetables. Les dire est naturel.</td></tr>
+            <tr><td>Messages de commit</td><td>Variable</td><td>Bien pour le corps, pénible pour la ligne de sujet et ses conventions.</td></tr>
+            <tr><td>Du code</td><td class="no">Mauvaise</td><td>Dense en ponctuation et en symboles. Mauvais instrument ; gardez-la pour les commentaires.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Les trois choses qui font échouer la dictée chez un développeur</h2>
+      <h3>Elle réécrit vos mots</h3>
+      <p>Les outils qui « améliorent » votre texte lissent une phrase technique précise en quelque chose de plus vague. Le défaut d'Aria est la fidélité : elle rétablit une majuscule ou un point localement, et ne résume, ne traduit ni ne restyle que si vous choisissez ce mode. Si vous avez dit « idempotent », vous obtenez « idempotent ».</p>
+      <h3>Elle ignore votre vocabulaire</h3>
+      <p>Kubernetes, Postgres, le nom de vos services, celui de vos collègues, les sigles que seule votre équipe emploie : un modèle générique se trompera toujours. Corrigez-en un une fois dans Aria et il entre dans un dictionnaire personnel. Cette seule fonction sépare l'outil qu'on garde de celui qu'on désinstalle en une semaine.</p>
+      <h3>Votre voix part sur un serveur</h3>
+      <p>Dicter un compte rendu d'incident, c'est prononcer à voix haute les entrailles de votre entreprise dans l'API d'un tiers. Avec le moteur local Parakeet d'Aria, ni l'audio ni la transcription ne quittent la machine — ce qui est aussi la réponse quand on vous demande quels outils tournent sur un poste professionnel.</p>
+
+      <h2>Comment ça s'insère dans le travail</h2>
+      <ul>
+        <li>Le texte s'écrit <strong>au curseur</strong>, dans tout champ de texte macOS standard : votre éditeur, un champ de terminal, un navigateur, Slack, le formulaire de PR sur GitHub.</li>
+        <li>Le raccourci est une touche de modification que l'on tape deux fois ou que l'on maintient : les mains ne quittent pas longtemps la position de repos.</li>
+        <li>Si l'app visée refuse l'insertion — certaines applications Electron le font — la transcription reste dans l'historique au lieu de disparaître.</li>
+        <li>Le modèle occupe 487 Mo de disque, tourne sur le processeur et est libéré à l'arrêt : pas de processus résident qui mange la batterie pendant une compilation.</li>
+        <li>Votre propre clé API — OpenAI, Groq, Deepgram, Soniox, ElevenLabs, Mistral — quand vous voulez la précision du cloud sur quelque chose de précis et préférez être facturé au prix du fournisseur.</li>
+      </ul>
+
+      <div class="honest">
+        <p><strong>Soyez lucide sur la première semaine.</strong> Dicter paraît plus lent que taper pendant environ trois jours, parce que vous apprenez à composer à voix haute au lieu de penser avec vos doigts. Ceux qui abandonnent abandonnent pendant ces trois jours. Mieux vaut le savoir d'avance que d'en conclure que l'outil est mauvais.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Peut-on dicter du code ?</summary><p>On peut, et on n'y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code.</p></details>
+      <details><summary>Ça marche dans VS Code, JetBrains, un terminal ?</summary><p>Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l'insertion synthétique ; dans ce cas la transcription est conservée dans l'historique et rien n'est perdu.</p></details>
+      <details><summary>Quelque chose est-il envoyé quelque part ?</summary><p>Pas avec le moteur local — aucune requête réseau pendant la dictée. Les moteurs cloud sont facultatifs, moteur par moteur, avec votre propre clé.</p></details>
+      <details><summary>Combien ça coûte ?</summary><p>Gratuit jusqu'à 2 000 mots par semaine. 5 € une fois pour l'illimité sur trois Mac, mises à jour comprises. Pas d'abonnement.</p></details>
+
+      <div class="cta">
+        <h2>Essayez sur votre prochaine description de PR</h2>
+        <div class="cta-actions">
+          <a class="button" href="./#telecharger">Télécharger Aria</a>
+          <a class="button button-quiet" href="modele-parakeet-mac.html">Comment tourne le modèle local</a>
+        </div>
+      </div>
+      <section class="related" aria-label="À lire aussi">
+        <h2>À lire aussi</h2>
+        <div class="related-links">
+          <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
+          <a href="dictee-vocale-mac-sans-abonnement.html">Sans abonnement</a>
+          <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier</a>
+          <a href="dictee-apple-ne-fonctionne-pas.html">Dictée d'Apple</a>
+          <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
+          <a href="modele-parakeet-mac.html">Parakeet sur Mac</a>
+          <a href="installer-aria-mac.html">Installer Aria</a>
+          <a href="alternative-superwhisper.html">Alternative à Superwhisper</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Dictée et transcription pour macOS.</span>
+      <div class="footer-links">
+        <a href="./">Accueil</a>
+        <a href="./#confidentialite">Confidentialité</a>
+        <a href="voice-typing-for-developers.html" hreflang="en">EN</a>
+        <a href="./#telecharger">Télécharger</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

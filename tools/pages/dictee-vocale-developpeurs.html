@@ -1,0 +1,54 @@
+      <p class="eyebrow">Pour les développeurs</p>
+      <h1>Dicter quand on tape déjà vite</h1>
+      <p class="lede">L'objection est légitime : vous tapez 90 mots par minute, alors pourquoi parler ? Parce que l'essentiel de ce qu'un développeur écrit dans une journée n'est pas du code. C'est la description de la pull request, le compte rendu d'incident, la réponse sur Slack, le commentaire qui explique pourquoi. La prose, voilà où la dictée gagne — et elle gagne largement.</p>
+
+      <h2>Là où ça aide vraiment</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tâche</th><th>Dictée</th><th>Pourquoi</th></tr></thead>
+          <tbody>
+            <tr><td>Descriptions de pull request</td><td class="yes">Excellente</td><td>Longues, explicatives, écrites une fois. On pense à voix haute plus vite qu'on ne tape.</td></tr>
+            <tr><td>Comptes rendus d'incident</td><td class="yes">Excellente</td><td>Vous venez de le voir ; le dire à chaud vaut mieux que le mettre en forme.</td></tr>
+            <tr><td>Réponses Slack et revues de code</td><td class="yes">Excellente</td><td>Courtes, constantes, avec changement de contexte. Le raccourci bat l'aller-retour clavier.</td></tr>
+            <tr><td>Documentation et décisions d'architecture</td><td class="yes">Excellente</td><td>De la prose encore — et vous savez déjà ce que vous voulez dire.</td></tr>
+            <tr><td>Consignes à un assistant IA</td><td class="yes">Excellente</td><td>Longues, conversationnelles, jetables. Les dire est naturel.</td></tr>
+            <tr><td>Messages de commit</td><td>Variable</td><td>Bien pour le corps, pénible pour la ligne de sujet et ses conventions.</td></tr>
+            <tr><td>Du code</td><td class="no">Mauvaise</td><td>Dense en ponctuation et en symboles. Mauvais instrument ; gardez-la pour les commentaires.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Les trois choses qui font échouer la dictée chez un développeur</h2>
+      <h3>Elle réécrit vos mots</h3>
+      <p>Les outils qui « améliorent » votre texte lissent une phrase technique précise en quelque chose de plus vague. Le défaut d'Aria est la fidélité : elle rétablit une majuscule ou un point localement, et ne résume, ne traduit ni ne restyle que si vous choisissez ce mode. Si vous avez dit « idempotent », vous obtenez « idempotent ».</p>
+      <h3>Elle ignore votre vocabulaire</h3>
+      <p>Kubernetes, Postgres, le nom de vos services, celui de vos collègues, les sigles que seule votre équipe emploie : un modèle générique se trompera toujours. Corrigez-en un une fois dans Aria et il entre dans un dictionnaire personnel. Cette seule fonction sépare l'outil qu'on garde de celui qu'on désinstalle en une semaine.</p>
+      <h3>Votre voix part sur un serveur</h3>
+      <p>Dicter un compte rendu d'incident, c'est prononcer à voix haute les entrailles de votre entreprise dans l'API d'un tiers. Avec le moteur local Parakeet d'Aria, ni l'audio ni la transcription ne quittent la machine — ce qui est aussi la réponse quand on vous demande quels outils tournent sur un poste professionnel.</p>
+
+      <h2>Comment ça s'insère dans le travail</h2>
+      <ul>
+        <li>Le texte s'écrit <strong>au curseur</strong>, dans tout champ de texte macOS standard : votre éditeur, un champ de terminal, un navigateur, Slack, le formulaire de PR sur GitHub.</li>
+        <li>Le raccourci est une touche de modification que l'on tape deux fois ou que l'on maintient : les mains ne quittent pas longtemps la position de repos.</li>
+        <li>Si l'app visée refuse l'insertion — certaines applications Electron le font — la transcription reste dans l'historique au lieu de disparaître.</li>
+        <li>Le modèle occupe 487 Mo de disque, tourne sur le processeur et est libéré à l'arrêt : pas de processus résident qui mange la batterie pendant une compilation.</li>
+        <li>Votre propre clé API — OpenAI, Groq, Deepgram, Soniox, ElevenLabs, Mistral — quand vous voulez la précision du cloud sur quelque chose de précis et préférez être facturé au prix du fournisseur.</li>
+      </ul>
+
+      <div class="honest">
+        <p><strong>Soyez lucide sur la première semaine.</strong> Dicter paraît plus lent que taper pendant environ trois jours, parce que vous apprenez à composer à voix haute au lieu de penser avec vos doigts. Ceux qui abandonnent abandonnent pendant ces trois jours. Mieux vaut le savoir d'avance que d'en conclure que l'outil est mauvais.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Peut-on dicter du code ?</summary><p>On peut, et on n'y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code.</p></details>
+      <details><summary>Ça marche dans VS Code, JetBrains, un terminal ?</summary><p>Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l'insertion synthétique ; dans ce cas la transcription est conservée dans l'historique et rien n'est perdu.</p></details>
+      <details><summary>Quelque chose est-il envoyé quelque part ?</summary><p>Pas avec le moteur local — aucune requête réseau pendant la dictée. Les moteurs cloud sont facultatifs, moteur par moteur, avec votre propre clé.</p></details>
+      <details><summary>Combien ça coûte ?</summary><p>Gratuit jusqu'à 2 000 mots par semaine. 5 € une fois pour l'illimité sur trois Mac, mises à jour comprises. Pas d'abonnement.</p></details>
+
+      <div class="cta">
+        <h2>Essayez sur votre prochaine description de PR</h2>
+        <div class="cta-actions">
+          <a class="button" href="./#telecharger">Télécharger Aria</a>
+          <a class="button button-quiet" href="modele-parakeet-mac.html">Comment tourne le modèle local</a>
+        </div>
+      </div>

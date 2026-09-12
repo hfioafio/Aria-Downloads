@@ -101,9 +101,30 @@
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/modele-parakeet-mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/modele-parakeet-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html</loc>
@@ -179,9 +200,12 @@
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/modele-parakeet-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/parakeet-mac.html"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/macwhisper-alternative.html</loc>
