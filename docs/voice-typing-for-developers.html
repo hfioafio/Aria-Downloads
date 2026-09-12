@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <meta name="color-scheme" content="light dark">
+  <title>Voice Typing for Developers on a Mac</title>
+  <meta name="description" content="Dictating prose beats typing it, even for people who type fast. What works in an editor, a terminal and a pull request — and what does not.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aria">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Voice Typing for Developers on a Mac">
+  <meta property="og:description" content="Dictating prose beats typing it, even for people who type fast. What works in an editor, a terminal and a pull request — and what does not.">
+  <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/og-image-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Voice Typing for Developers on a Mac">
+  <meta name="twitter:description" content="Dictating prose beats typing it, even for people who type fast. What works in an editor, a terminal and a pull request — and what does not.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/og-image-en.png">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="pages.css">
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/en.html"}, {"@type": "ListItem", "position": 2, "name": "For developers", "item": "https://hfioafio.github.io/Aria-Downloads/voice-typing-for-developers.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I dictate code?", "acceptedAnswer": {"@type": "Answer", "text": "You can, and you will not enjoy it. Symbols and punctuation density make speech the wrong instrument. Dictate the comment, the commit body, the PR description — type the code."}}, {"@type": "Question", "name": "Does it work in VS Code, JetBrains, a terminal?", "acceptedAnswer": {"@type": "Answer", "text": "It types at the cursor into standard macOS text fields, so yes in the editors' text areas and any terminal input field. A few apps refuse synthetic insertion; when that happens the transcript is kept in history so nothing is lost."}}, {"@type": "Question", "name": "Is anything sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "Not with the local engine — no network requests at all while dictating. Cloud engines are opt-in, per engine, with your own key."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Free up to 2,000 words a week. €5 once for unlimited on three Macs, updates included. No subscription."}}]}
+  </script>
+  <script>
+    (function () {
+      var choice = 'auto';
+      try { choice = localStorage.getItem('aria-site-theme') || 'auto'; } catch (_) {}
+      if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
+      var dark = choice === 'dark' || (choice === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="nav">
+    <div class="shell nav-in">
+      <a class="brand" href="en.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <div class="nav-links">
+        <a href="en.html">Home</a>
+        <a href="./" hreflang="fr">FR</a>
+        <a class="button" href="en.html#download">Download</a>
+      </div>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="shell">
+      <p class="crumb"><a href="en.html">Aria</a> · For developers</p>
+      <p class="eyebrow">For developers</p>
+      <h1>Voice typing when you already type fast</h1>
+      <p class="lede">The objection is fair: you type 90 words a minute, so why talk? Because most of what a developer writes all day is not code. It is the pull request description, the incident summary, the Slack reply, the comment explaining why. Prose is where dictation wins, and it wins by a lot.</p>
+
+      <h2>Where it actually helps</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Task</th><th>Dictation</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Pull request descriptions</td><td class="yes">Strong</td><td>Long, explanatory, written once. You think out loud faster than you type.</td></tr>
+            <tr><td>Incident and bug reports</td><td class="yes">Strong</td><td>You have just seen it; saying it while it is fresh beats formatting it.</td></tr>
+            <tr><td>Slack and review replies</td><td class="yes">Strong</td><td>Short, constant, context-switching. The shortcut is faster than the keyboard round trip.</td></tr>
+            <tr><td>Documentation and ADRs</td><td class="yes">Strong</td><td>Prose again — and you already know what you want to say.</td></tr>
+            <tr><td>Prompts to an AI assistant</td><td class="yes">Strong</td><td>Prompts are long, conversational and disposable. Speaking them is natural.</td></tr>
+            <tr><td>Commit messages</td><td>Mixed</td><td>Fine for the body, awkward for the subject line's conventions.</td></tr>
+            <tr><td>Actual code</td><td class="no">Weak</td><td>Punctuation-dense and symbol-heavy. Dictation is the wrong instrument; use it for comments.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The three things that break developer dictation</h2>
+      <h3>It rewrites your words</h3>
+      <p>Tools that "improve" your text will smooth a precise technical sentence into something vaguer. Aria's default is fidelity: it restores a capital or a full stop locally, and it does not summarise, translate or restyle unless you pick that mode. If you said "idempotent", you get "idempotent".</p>
+      <h3>It does not know your vocabulary</h3>
+      <p>Kubernetes, Postgres, your service names, your colleagues' names, the acronyms only your team uses — a generic model gets them wrong forever. Correct one once in Aria and it goes into a personal dictionary. That single feature is the difference between a tool you keep and one you uninstall in a week.</p>
+      <h3>Your voice goes to a server</h3>
+      <p>Dictating an incident summary means speaking your company's internals out loud into a third party's API. With Aria's local Parakeet engine, no audio and no transcript leaves the machine — which is also the answer when someone asks what tooling you run on a work laptop.</p>
+
+      <h2>How it fits the workflow</h2>
+      <ul>
+        <li>Text is typed <strong>at the cursor</strong>, in any standard macOS text field — your editor, a terminal's input box, a browser, Slack, the GitHub PR form.</li>
+        <li>The shortcut is a modifier key you double-tap or hold, so your hands never leave the keyboard's home position for long.</li>
+        <li>If the target app refuses the insertion — some Electron apps do — the transcript stays in your history instead of vanishing.</li>
+        <li>The model is 487 MB on disk, runs on the CPU, and is released when you stop, so it is not a resident process eating your battery during a build.</li>
+        <li>Bring your own API key — OpenAI, Groq, Deepgram, Soniox, ElevenLabs, Mistral — when you want cloud accuracy on something specific and you would rather be billed by the provider at cost.</li>
+      </ul>
+
+      <div class="honest">
+        <p><strong>Be realistic about the first week.</strong> Dictation feels slower than typing for about three days, because you are learning to compose out loud rather than thinking with your fingers. People who quit, quit during those three days. It is worth knowing that in advance rather than concluding the tool is bad.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Can I dictate code?</summary><p>You can, and you will not enjoy it. Symbols and punctuation density make speech the wrong instrument. Dictate the comment, the commit body, the PR description — type the code.</p></details>
+      <details><summary>Does it work in VS Code, JetBrains, a terminal?</summary><p>It types at the cursor into standard macOS text fields, so yes in the editors' text areas and any terminal input field. A few apps refuse synthetic insertion; when that happens the transcript is kept in history so nothing is lost.</p></details>
+      <details><summary>Is anything sent anywhere?</summary><p>Not with the local engine — no network requests at all while dictating. Cloud engines are opt-in, per engine, with your own key.</p></details>
+      <details><summary>What does it cost?</summary><p>Free up to 2,000 words a week. €5 once for unlimited on three Macs, updates included. No subscription.</p></details>
+
+      <div class="cta">
+        <h2>Try it on your next pull request description</h2>
+        <div class="cta-actions">
+          <a class="button" href="en.html#download">Download Aria</a>
+          <a class="button button-quiet" href="parakeet-mac.html">How the local model works</a>
+        </div>
+      </div>
+      <section class="related" aria-label="Read next">
+        <h2>Read next</h2>
+        <div class="related-links">
+          <a href="wispr-flow-alternative.html">Wispr Flow alternative</a>
+          <a href="mac-dictation-no-subscription.html">No subscription</a>
+          <a href="superwhisper-alternative.html">Superwhisper alternative</a>
+          <a href="transcribe-audio-file-mac.html">Transcribe a file</a>
+          <a href="install-aria-mac.html">Installing Aria</a>
+          <a href="offline-dictation-mac.html">Offline dictation</a>
+          <a href="best-dictation-apps-mac.html">Best dictation apps</a>
+          <a href="meeting-transcription-mac.html">Meeting transcription</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="shell footer-in">
+      <a class="brand" href="en.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <span>Voice dictation and transcription for macOS.</span>
+      <div class="footer-links">
+        <a href="en.html">Home</a>
+        <a href="en.html#privacy">Privacy</a>
+        <a href="./" hreflang="fr">FR</a>
+        <a href="en.html#download">Download</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

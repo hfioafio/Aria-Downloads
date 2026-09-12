@@ -1,0 +1,54 @@
+      <p class="eyebrow">For developers</p>
+      <h1>Voice typing when you already type fast</h1>
+      <p class="lede">The objection is fair: you type 90 words a minute, so why talk? Because most of what a developer writes all day is not code. It is the pull request description, the incident summary, the Slack reply, the comment explaining why. Prose is where dictation wins, and it wins by a lot.</p>
+
+      <h2>Where it actually helps</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Task</th><th>Dictation</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Pull request descriptions</td><td class="yes">Strong</td><td>Long, explanatory, written once. You think out loud faster than you type.</td></tr>
+            <tr><td>Incident and bug reports</td><td class="yes">Strong</td><td>You have just seen it; saying it while it is fresh beats formatting it.</td></tr>
+            <tr><td>Slack and review replies</td><td class="yes">Strong</td><td>Short, constant, context-switching. The shortcut is faster than the keyboard round trip.</td></tr>
+            <tr><td>Documentation and ADRs</td><td class="yes">Strong</td><td>Prose again — and you already know what you want to say.</td></tr>
+            <tr><td>Prompts to an AI assistant</td><td class="yes">Strong</td><td>Prompts are long, conversational and disposable. Speaking them is natural.</td></tr>
+            <tr><td>Commit messages</td><td>Mixed</td><td>Fine for the body, awkward for the subject line's conventions.</td></tr>
+            <tr><td>Actual code</td><td class="no">Weak</td><td>Punctuation-dense and symbol-heavy. Dictation is the wrong instrument; use it for comments.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The three things that break developer dictation</h2>
+      <h3>It rewrites your words</h3>
+      <p>Tools that "improve" your text will smooth a precise technical sentence into something vaguer. Aria's default is fidelity: it restores a capital or a full stop locally, and it does not summarise, translate or restyle unless you pick that mode. If you said "idempotent", you get "idempotent".</p>
+      <h3>It does not know your vocabulary</h3>
+      <p>Kubernetes, Postgres, your service names, your colleagues' names, the acronyms only your team uses — a generic model gets them wrong forever. Correct one once in Aria and it goes into a personal dictionary. That single feature is the difference between a tool you keep and one you uninstall in a week.</p>
+      <h3>Your voice goes to a server</h3>
+      <p>Dictating an incident summary means speaking your company's internals out loud into a third party's API. With Aria's local Parakeet engine, no audio and no transcript leaves the machine — which is also the answer when someone asks what tooling you run on a work laptop.</p>
+
+      <h2>How it fits the workflow</h2>
+      <ul>
+        <li>Text is typed <strong>at the cursor</strong>, in any standard macOS text field — your editor, a terminal's input box, a browser, Slack, the GitHub PR form.</li>
+        <li>The shortcut is a modifier key you double-tap or hold, so your hands never leave the keyboard's home position for long.</li>
+        <li>If the target app refuses the insertion — some Electron apps do — the transcript stays in your history instead of vanishing.</li>
+        <li>The model is 487 MB on disk, runs on the CPU, and is released when you stop, so it is not a resident process eating your battery during a build.</li>
+        <li>Bring your own API key — OpenAI, Groq, Deepgram, Soniox, ElevenLabs, Mistral — when you want cloud accuracy on something specific and you would rather be billed by the provider at cost.</li>
+      </ul>
+
+      <div class="honest">
+        <p><strong>Be realistic about the first week.</strong> Dictation feels slower than typing for about three days, because you are learning to compose out loud rather than thinking with your fingers. People who quit, quit during those three days. It is worth knowing that in advance rather than concluding the tool is bad.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Can I dictate code?</summary><p>You can, and you will not enjoy it. Symbols and punctuation density make speech the wrong instrument. Dictate the comment, the commit body, the PR description — type the code.</p></details>
+      <details><summary>Does it work in VS Code, JetBrains, a terminal?</summary><p>It types at the cursor into standard macOS text fields, so yes in the editors' text areas and any terminal input field. A few apps refuse synthetic insertion; when that happens the transcript is kept in history so nothing is lost.</p></details>
+      <details><summary>Is anything sent anywhere?</summary><p>Not with the local engine — no network requests at all while dictating. Cloud engines are opt-in, per engine, with your own key.</p></details>
+      <details><summary>What does it cost?</summary><p>Free up to 2,000 words a week. €5 once for unlimited on three Macs, updates included. No subscription.</p></details>
+
+      <div class="cta">
+        <h2>Try it on your next pull request description</h2>
+        <div class="cta-actions">
+          <a class="button" href="en.html#download">Download Aria</a>
+          <a class="button button-quiet" href="parakeet-mac.html">How the local model works</a>
+        </div>
+      </div>
