@@ -89,3 +89,10 @@ footer { margin-top:60px; border-top:1px solid var(--line); padding:26px 0 46px;
 .related ul { margin:0; padding:0; list-style:none; display:grid; gap:10px }
 .related a { color:var(--ink-2); text-decoration:none; border-bottom:1px solid transparent }
 .related a:hover { color:var(--ink); border-bottom-color:currentColor }
+.related { margin-top:54px; padding-top:26px; border-top:1px solid var(--line) }
+.related h2 { margin:0 0 14px; font-size:15px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); font-weight:600 }
+.related-links { display:flex; flex-wrap:wrap; gap:10px 24px; font-size:16px }
+.related-links a { color:var(--blue) }
+code { font-family:"SF Mono",ui-monospace,Menlo,monospace; font-size:.92em; background:var(--surface-2);
+  border:1px solid var(--line); border-radius:6px; padding:2px 6px; color:var(--ink); white-space:nowrap }
+td code { white-space:nowrap }

@@ -1,0 +1,58 @@
+      <p class="eyebrow">First launch</p>
+      <h1>Installing Aria on macOS, and the Gatekeeper step</h1>
+      <p class="lede">Aria is signed with a stable Apple identity but it is not notarised by Apple yet. On a first install, macOS will stop you once. Here is exactly what it says, why, and what to do — including how to check the file you downloaded is the real one.</p>
+
+      <div class="card">
+        <p><strong>The short version.</strong> Open the DMG, drag Aria into Applications, try to open it once and let macOS refuse. Then go to <strong>System Settings → Privacy &amp; Security</strong>, scroll to the Security section, and click <strong>Open Anyway</strong> next to Aria. You will only do this once.</p>
+      </div>
+
+      <h2>Step by step</h2>
+      <ol>
+        <li><strong>Download the right build.</strong> Apple Silicon for any M-series Mac, Intel for Macs sold before that transition. They are not interchangeable.</li>
+        <li><strong>Open the DMG</strong> and drag the Aria icon onto the Applications folder.</li>
+        <li><strong>Eject the DMG</strong> and open Aria from Applications — not from inside the mounted disk image.</li>
+        <li><strong>Let macOS refuse.</strong> This first refusal is what registers the app with the system so the next step appears.</li>
+        <li><strong>System Settings → Privacy &amp; Security.</strong> Scroll down; a line about Aria being blocked will be there, with an <strong>Open Anyway</strong> button. Click it, confirm, and authenticate.</li>
+        <li><strong>Grant Microphone and Accessibility</strong> when asked. Accessibility is what lets Aria type into other apps; without it, dictation has nowhere to put the text.</li>
+      </ol>
+
+      <h2>What the messages mean</h2>
+      <h3>“macOS cannot verify that this app is free of malware”</h3>
+      <p>This is the expected one. It means the app has a valid developer signature but has not been through Apple's notarisation service, which is a paid scanning step. It is not a virus warning and it is not a claim that anything is wrong with the file. Use the System Settings route above.</p>
+      <h3>“Aria is damaged and can't be opened. You should move it to the Trash”</h3>
+      <p>Despite the wording, this usually is not malware either — it most often means the download was <strong>incomplete or corrupted</strong>, or the app bundle was modified after signing. Do not force it open. Delete it, download again, and check the SHA-256 as described below. If the checksum matches and the message persists, tell us in an issue rather than working around it.</p>
+      <h3>“The application is from an unidentified developer”</h3>
+      <p>Older wording for the same situation as the first message.</p>
+
+      <h2>Check that the file is genuine</h2>
+      <p>Every release publishes a SHA-256 fingerprint next to each DMG. Comparing it takes ten seconds and it is the only way to be sure the file you have is the file we published:</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td><strong>In Terminal</strong></td><td><code>shasum -a 256 ~/Downloads/Aria-*.dmg</code></td></tr>
+            <tr><td><strong>Compare with</strong></td><td>the <code>.sha256</code> file published beside the DMG on the release page</td></tr>
+            <tr><td><strong>If they differ</strong></td><td>delete the file and download it again from the official page. Do not open it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Only ever bypass Gatekeeper for a file that came from <a href="en.html">this site</a> or the <a href="https://github.com/hfioafio/Aria-Downloads/releases">official GitHub releases page</a>. If you found Aria somewhere else, that copy is not ours.</p>
+
+      <h2>Why Aria is not notarised yet</h2>
+      <p>Notarisation requires a paid Apple Developer account. Aria is made by one person and priced at €5 once; that account is on the list, and when it is in place this whole page becomes unnecessary. Saying so plainly seems better than letting you discover the warning on your own.</p>
+      <p>In the meantime, three things are true and checkable: the app is signed with a stable identity, so macOS keeps your Microphone and Accessibility permissions across updates; every DMG publishes its SHA-256; and updates verify size, checksum and signing identity before installing, rolling back automatically if the new version fails to start.</p>
+
+      <h2>Questions</h2>
+      <details><summary>Is it safe to click Open Anyway?</summary><p>For a file whose SHA-256 matches the one published on the official release page, yes — you are telling macOS you trust this specific app. The habit to keep is the checking, not the clicking.</p></details>
+      <details><summary>Do I have to do this for every update?</summary><p>No. Once, on first install. Updates keep the same signing identity, so macOS stops asking and your permissions are preserved.</p></details>
+      <details><summary>Which build do I need?</summary><p>Apple menu → About This Mac. If the chip line says M1, M2, M3, M4 or later, take Apple Silicon. If it says an Intel processor, take the Intel build.</p></details>
+      <details><summary>Aria opens but types nothing. Why?</summary><p>Accessibility permission is missing. System Settings → Privacy &amp; Security → Accessibility, and switch Aria on. Without it macOS forbids any app from typing into another.</p></details>
+      <details><summary>The microphone stays silent.</summary><p>Check System Settings → Privacy &amp; Security → Microphone, then System Settings → Sound → Input to confirm the device you expect is selected and its level moves when you speak.</p></details>
+
+      <div class="cta">
+        <h2>Ready to try it</h2>
+        <p>Free up to 2,000 words a week, no account. The whole install takes under two minutes.</p>
+        <div class="cta-actions">
+          <a class="button" href="en.html#download">Download Aria</a>
+          <a class="button button-quiet" href="offline-dictation-mac.html">What it does offline</a>
+        </div>
+      </div>

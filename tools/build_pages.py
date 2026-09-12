@@ -75,7 +75,7 @@ TEMPLATE = """<!doctype html>
     <div class="shell">
       <p class="crumb"><a href="{homehref}">Aria</a> · {crumb}</p>
 {body}
-    </div>
+{related}    </div>
   </main>
   <footer>
     <div class="shell footer-in">
@@ -114,6 +114,14 @@ PAGES = [
          title="Superwhisper Alternative: Local Dictation, €5 Once",
          description="Superwhisper Pro is $8.49 a month. Aria runs the same kind of local model on your Mac — Parakeet, Whisper — for €5 once, with a free tier of 2,000 words a week.",
          crumb="Superwhisper alternative", pair="alternative-superwhisper"),
+    dict(slug="install-aria-mac", lang="en",
+         title="Installing Aria on macOS: the Gatekeeper Step",
+         description="macOS says it cannot verify the developer, or that the app is damaged. What each message means, how to open Aria safely, and how to check the file is genuine.",
+         crumb="Installing Aria", pair="installer-aria-mac"),
+    dict(slug="installer-aria-mac", lang="fr",
+         title="Installer Aria sur macOS : l'étape Gatekeeper",
+         description="macOS ne peut pas vérifier le développeur, ou dit l'app endommagée. Ce que ces messages veulent dire, comment ouvrir Aria, et vérifier le fichier.",
+         crumb="Installer Aria", pair="install-aria-mac"),
     dict(slug="offline-dictation-mac", lang="en",
          title="Offline Dictation for Mac — No Cloud, No Account",
          description="Hold a key, talk, and the sentence lands in Mail, Slack or Notes. Nothing leaves your Mac. Free up to 2,000 words a week, €5 once for unlimited.",
@@ -174,19 +182,37 @@ def build():
                    f'  <link rel="alternate" hreflang="{other}" href="{BASE}{p["pair"]}.html">\n')
         # Le FAQPage est déduit des blocs <details> du corps : une seule source de vérité.
         pairs = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", body, re.S)
-        jsonld = ""
+        # Fil d'Ariane : Google s'en sert pour afficher le chemin sous le titre du résultat.
+        crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Aria",
+             "item": BASE if lang == "fr" else BASE + "en.html"},
+            {"@type": "ListItem", "position": 2, "name": p["crumb"],
+             "item": BASE + p["slug"] + ".html"}]}
+        jsonld = ('  <script type="application/ld+json">\n    '
+                  + json.dumps(crumbs, ensure_ascii=False) + "\n  </script>\n")
         if pairs:
             strip = lambda s: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s)).strip()
             data = {"@context": "https://schema.org", "@type": "FAQPage",
                     "mainEntity": [{"@type": "Question", "name": strip(q),
                                     "acceptedAnswer": {"@type": "Answer", "text": strip(a)}}
                                    for q, a in pairs]}
-            jsonld = ('  <script type="application/ld+json">\n    '
-                      + json.dumps(data, ensure_ascii=False) + "\n  </script>\n")
+            jsonld += ('  <script type="application/ld+json">\n    '
+                       + json.dumps(data, ensure_ascii=False) + "\n  </script>\n")
+        siblings = [q for q in PAGES if q["lang"] == lang and q["slug"] != p["slug"]]
+        related = ""
+        if siblings:
+            heading = "À lire aussi" if lang == "fr" else "Read next"
+            items = "".join(
+                '          <a href="%s.html">%s</a>\n' % (q["slug"], q["crumb"])
+                for q in siblings[:8])
+            related = ('      <section class="related" aria-label="%s">\n'
+                       '        <h2>%s</h2>\n        <div class="related-links">\n%s'
+                       '        </div>\n      </section>\n') % (heading, heading, items)
+
         html = TEMPLATE.format(
             lang=lang, title=p["title"], description=p["description"], base=BASE, slug=p["slug"],
             alternates=alt, jsonld=jsonld, oglocale="fr_FR" if lang == "fr" else "en_US",
-            body=body, crumb=p["crumb"], homehref="./" if lang == "fr" else "en.html",
+            body=body, related=related, crumb=p["crumb"], homehref="./" if lang == "fr" else "en.html",
             ogimage="og-image.png" if lang == "fr" else "og-image-en.png",
             otherlang="en" if lang == "fr" else "fr",
             dlanchor="telecharger" if lang == "fr" else "download",

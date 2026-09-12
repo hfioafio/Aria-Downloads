@@ -59,6 +59,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/installer-aria-mac.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hfioafio.github.io/Aria-Downloads/installer-aria-mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/installer-aria-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/offline-dictation-mac.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/offline-dictation-mac.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-hors-ligne.html"/>
@@ -68,9 +84,6 @@
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/best-dictation-apps-mac.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/best-dictation-apps-mac.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/best-dictation-apps-mac.html"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -127,9 +140,6 @@
   </url>
   <url>
     <loc>https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/best-dictation-apps-mac.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hfioafio.github.io/Aria-Downloads/best-dictation-apps-mac.html"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

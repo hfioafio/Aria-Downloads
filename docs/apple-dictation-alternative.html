@@ -25,6 +25,9 @@
   <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="pages.css">
   <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/en.html"}, {"@type": "ListItem", "position": 2, "name": "Apple Dictation", "item": "https://hfioafio.github.io/Aria-Downloads/apple-dictation-alternative.html"}]}
+  </script>
+  <script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does Apple Dictation stop after a sentence or two?", "acceptedAnswer": {"@type": "Answer", "text": "Most often the wrong microphone is selected, or the language pack has not finished downloading so it is falling back to the network path. Check Sound → Input, then re-add your language in Keyboard → Dictation and toggle dictation off and on."}}, {"@type": "Question", "name": "Why is there no punctuation?", "acceptedAnswer": {"@type": "Answer", "text": "Automatic punctuation is a setting, and it only covers some languages. If yours is not supported you have to say the punctuation out loud. Aria restores capitals and full stops locally without being asked."}}, {"@type": "Question", "name": "Does dictation work without an internet connection?", "acceptedAnswer": {"@type": "Answer", "text": "Apple's does on Apple Silicon once the language is downloaded. Aria's local engine does too, on both Apple Silicon and Intel."}}, {"@type": "Question", "name": "Can I improve accuracy on names and jargon?", "acceptedAnswer": {"@type": "Answer", "text": "Not meaningfully with the built-in feature. Aria adds the words you correct to a personal dictionary, so the same fix does not have to be made twice."}}]}
   </script>
   <script>
@@ -37,7 +40,6 @@
       document.querySelector('meta[name="theme-color"]').content = dark ? '#08090b' : '#f6f6f3';
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Aria","item":"https://hfioafio.github.io/Aria-Downloads/en.html"},{"@type":"ListItem","position":2,"name":"Apple Dictation alternative","item":"https://hfioafio.github.io/Aria-Downloads/apple-dictation-alternative.html"}]}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -116,14 +118,19 @@
           <a class="button button-quiet" href="mac-dictation-no-subscription.html">Compare every Mac dictation price</a>
         </div>
       </div>
-      <nav class="related" aria-label="Read next">
+      <section class="related" aria-label="Read next">
         <h2>Read next</h2>
-        <ul>
-          <li><a href="best-dictation-apps-mac.html">Best Dictation Apps for Mac in 2026, Compared</a></li>
-          <li><a href="offline-dictation-mac.html">Offline Dictation for Mac — No Cloud, No Account</a></li>
-          <li><a href="wispr-flow-alternative.html">Wispr Flow Alternative for Mac — Offline, €5 Once</a></li>
-        </ul>
-      </nav>
+        <div class="related-links">
+          <a href="wispr-flow-alternative.html">Wispr Flow alternative</a>
+          <a href="mac-dictation-no-subscription.html">No subscription</a>
+          <a href="superwhisper-alternative.html">Superwhisper alternative</a>
+          <a href="install-aria-mac.html">Installing Aria</a>
+          <a href="offline-dictation-mac.html">Offline dictation</a>
+          <a href="best-dictation-apps-mac.html">Best dictation apps</a>
+          <a href="meeting-transcription-mac.html">Meeting transcription</a>
+          <a href="parakeet-mac.html">Parakeet on Mac</a>
+        </div>
+      </section>
     </div>
   </main>
   <footer>

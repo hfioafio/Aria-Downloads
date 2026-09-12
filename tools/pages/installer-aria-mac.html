@@ -1,0 +1,58 @@
+      <p class="eyebrow">Première ouverture</p>
+      <h1>Installer Aria sur macOS, et l'étape Gatekeeper</h1>
+      <p class="lede">Aria est signée avec une identité Apple stable, mais elle n'est pas encore notarisée par Apple. À la première installation, macOS vous arrête une fois. Voici exactement ce qu'il affiche, pourquoi, et quoi faire — y compris comment vérifier que le fichier téléchargé est bien le nôtre.</p>
+
+      <div class="card">
+        <p><strong>La version courte.</strong> Ouvrez le DMG, glissez Aria dans Applications, essayez de l'ouvrir une fois et laissez macOS refuser. Allez ensuite dans <strong>Réglages Système → Confidentialité et sécurité</strong>, descendez jusqu'à la section Sécurité, et cliquez sur <strong>Ouvrir quand même</strong> à côté d'Aria. Vous ne le ferez qu'une seule fois.</p>
+      </div>
+
+      <h2>Pas à pas</h2>
+      <ol>
+        <li><strong>Prenez la bonne version.</strong> Apple Silicon pour tout Mac à puce M, Intel pour les Mac vendus avant cette transition. Les deux ne sont pas interchangeables.</li>
+        <li><strong>Ouvrez le DMG</strong> et glissez l'icône d'Aria sur le dossier Applications.</li>
+        <li><strong>Éjectez le DMG</strong> et ouvrez Aria depuis Applications — pas depuis l'image disque montée.</li>
+        <li><strong>Laissez macOS refuser.</strong> Ce premier refus est ce qui enregistre l'app auprès du système, pour que l'étape suivante apparaisse.</li>
+        <li><strong>Réglages Système → Confidentialité et sécurité.</strong> Descendez : une ligne indiquant qu'Aria a été bloquée s'y trouve, avec un bouton <strong>Ouvrir quand même</strong>. Cliquez, confirmez, authentifiez-vous.</li>
+        <li><strong>Accordez Micro et Accessibilité</strong> quand c'est demandé. C'est l'Accessibilité qui permet à Aria d'écrire dans les autres applications ; sans elle, la dictée n'a nulle part où poser le texte.</li>
+      </ol>
+
+      <h2>Ce que veulent dire les messages</h2>
+      <h3>« macOS ne peut pas vérifier que cette app ne contient pas de logiciel malveillant »</h3>
+      <p>C'est le message attendu. Il signifie que l'application possède une signature de développeur valide mais qu'elle n'est pas passée par le service de notarisation d'Apple, une étape d'analyse payante. Ce n'est pas une alerte antivirus, et ce n'est pas une affirmation que le fichier est anormal. Suivez la marche à suivre ci-dessus.</p>
+      <h3>« Aria est endommagée et ne peut pas être ouverte. Placez-la dans la corbeille »</h3>
+      <p>Malgré la formulation, il ne s'agit généralement pas non plus d'un logiciel malveillant : le plus souvent, le téléchargement était <strong>incomplet ou corrompu</strong>, ou le contenu de l'application a été modifié après signature. Ne forcez pas l'ouverture. Supprimez-la, téléchargez-la de nouveau et vérifiez l'empreinte SHA-256 comme expliqué plus bas. Si l'empreinte correspond et que le message persiste, signalez-le dans une issue plutôt que de chercher à contourner.</p>
+      <h3>« L'application provient d'un développeur non identifié »</h3>
+      <p>Ancienne formulation de la même situation que le premier message.</p>
+
+      <h2>Vérifier que le fichier est authentique</h2>
+      <p>Chaque version publie une empreinte SHA-256 à côté de son DMG. La comparer prend dix secondes, et c'est le seul moyen d'être certain que le fichier que vous avez est celui que nous avons publié :</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td><strong>Dans le Terminal</strong></td><td><code>shasum -a 256 ~/Downloads/Aria-*.dmg</code></td></tr>
+            <tr><td><strong>À comparer avec</strong></td><td>le fichier <code>.sha256</code> publié à côté du DMG sur la page de version</td></tr>
+            <tr><td><strong>Si elles diffèrent</strong></td><td>supprimez le fichier et retéléchargez-le depuis la page officielle. Ne l'ouvrez pas.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Ne contournez Gatekeeper que pour un fichier venu de <a href="./">ce site</a> ou de la <a href="https://github.com/hfioafio/Aria-Downloads/releases">page officielle des versions sur GitHub</a>. Si vous avez trouvé Aria ailleurs, cette copie n'est pas la nôtre.</p>
+
+      <h2>Pourquoi Aria n'est pas encore notarisée</h2>
+      <p>La notarisation exige un compte développeur Apple payant. Aria est faite par une seule personne et vendue 5 € une fois ; ce compte est prévu, et le jour où il sera en place, cette page n'aura plus de raison d'exister. Le dire franchement vaut mieux que de vous laisser découvrir l'avertissement tout seul.</p>
+      <p>En attendant, trois choses sont vraies et vérifiables : l'application est signée avec une identité stable, donc macOS conserve vos autorisations Micro et Accessibilité d'une mise à jour à l'autre ; chaque DMG publie son empreinte SHA-256 ; et les mises à jour contrôlent la taille, l'empreinte et l'identité de signature avant d'installer, avec retour automatique à la version précédente si la nouvelle ne démarre pas.</p>
+
+      <h2>Questions</h2>
+      <details><summary>Est-ce risqué de cliquer sur « Ouvrir quand même » ?</summary><p>Pour un fichier dont l'empreinte SHA-256 correspond à celle publiée sur la page officielle, non : vous indiquez à macOS que vous faites confiance à cette application précise. L'habitude à garder, c'est la vérification, pas le clic.</p></details>
+      <details><summary>Faut-il refaire ça à chaque mise à jour ?</summary><p>Non. Une seule fois, à la première installation. Les mises à jour conservent la même identité de signature, donc macOS cesse de demander et vos autorisations sont préservées.</p></details>
+      <details><summary>Quelle version dois-je prendre ?</summary><p>Menu Pomme → À propos de ce Mac. Si la ligne puce indique M1, M2, M3, M4 ou suivante, prenez Apple Silicon. Si elle indique un processeur Intel, prenez la version Intel.</p></details>
+      <details><summary>Aria s'ouvre mais n'écrit rien.</summary><p>L'autorisation Accessibilité manque. Réglages Système → Confidentialité et sécurité → Accessibilité, puis activez Aria. Sans elle, macOS interdit à toute application d'écrire dans une autre.</p></details>
+      <details><summary>Le micro reste muet.</summary><p>Vérifiez Réglages Système → Confidentialité et sécurité → Microphone, puis Réglages Système → Son → Entrée pour confirmer que le bon périphérique est choisi et que son niveau bouge quand vous parlez.</p></details>
+
+      <div class="cta">
+        <h2>Prêt à essayer</h2>
+        <p>Gratuit jusqu'à 2 000 mots par semaine, sans compte. L'installation prend moins de deux minutes.</p>
+        <div class="cta-actions">
+          <a class="button" href="./#telecharger">Télécharger Aria</a>
+          <a class="button button-quiet" href="dictee-vocale-mac-hors-ligne.html">Ce qu'elle fait hors ligne</a>
+        </div>
+      </div>
