@@ -123,6 +123,14 @@ PAGES = [
          title="Transcrire un fichier audio sur Mac, hors ligne",
          description="Déposez un MP3, M4A, WAV ou MP4 dans Aria et récupérez le texte, sans rien téléverser. Locuteurs identifiés, et ça marche sans connexion.",
          crumb="Transcrire un fichier", pair="transcribe-audio-file-mac"),
+    dict(slug="dictee-apple-ne-fonctionne-pas", lang="fr",
+         title="La dictée d'Apple ne marche pas : solutions",
+         description="Ponctuation absente, précision qui s'effondre, dictée qui s'arrête seule. Les vraies causes sur macOS, comment les régler, et quoi faire si ça ne suffit pas.",
+         crumb="Dictée d'Apple", pair="apple-dictation-alternative"),
+    dict(slug="alternative-macwhisper", lang="fr",
+         title="Alternative à MacWhisper pour dicter en direct",
+         description="MacWhisper Pro coûte 64 € et vise les fichiers audio. Aria dicte en direct dans n'importe quelle app et transcrit aussi vos fichiers, pour 5 € une fois.",
+         crumb="Alternative à MacWhisper", pair="macwhisper-alternative"),
     dict(slug="voice-typing-for-developers", lang="en",
          title="Voice Typing for Developers on a Mac",
          description="Dictating prose beats typing it, even for people who type fast. What works in an editor, a terminal and a pull request — and what does not.",
@@ -158,7 +166,7 @@ PAGES = [
     dict(slug="apple-dictation-alternative", lang="en",
          title="Apple Dictation Not Working? Fixes, Then Options",
          description="Missing punctuation, accuracy that collapses, dictation that stops on its own: real fixes for macOS dictation, and what to use instead.",
-         crumb="Apple Dictation", pair=None),
+         crumb="Apple Dictation", pair="dictee-apple-ne-fonctionne-pas"),
     dict(slug="parakeet-mac", lang="en",
          title="NVIDIA Parakeet on Mac: Offline Dictation App",
          description="Run NVIDIA Parakeet TDT V3 locally on Apple Silicon for dictation into any app. No Python, no install script, no cloud. Free up to 2,000 words a week.",
@@ -166,7 +174,7 @@ PAGES = [
     dict(slug="macwhisper-alternative", lang="en",
          title="MacWhisper Alternative for Live Mac Dictation",
          description="MacWhisper Pro is €64 and built around audio files. Aria does live dictation into any app plus file transcription, for €5 once. Honest comparison.",
-         crumb="MacWhisper alternative", pair=None),
+         crumb="MacWhisper alternative", pair="alternative-macwhisper"),
     dict(slug="dictee-vocale-mac-hors-ligne", lang="fr",
          title="Dictée vocale Mac hors ligne : ce qui marche",
          description="Dicter sur Mac sans connexion et sans compte : la dictée d'Apple, Whisper en local, Parakeet. Ce que chacune sait faire, et où elle s'arrête.",
@@ -188,7 +196,10 @@ def build():
         loc = dict(loc)
         if p.get("pair"):
             loc["other_href"] = p["pair"] + ".html"
-        alt = ""
+        # Une page sans jumelle doit quand même se déclarer : sans hreflang, le seul signal
+        # de langue est <html lang>, et l'ensemble hreflang du site paraît incomplet.
+        alt = (f'  <link rel="alternate" hreflang="{lang}" href="{BASE}{p["slug"]}.html">\n'
+               f'  <link rel="alternate" hreflang="x-default" href="{BASE}{p["slug"]}.html">\n')
         if p.get("pair"):
             other = "en" if lang == "fr" else "fr"
             # x-default désigne la version servie à qui ne parle ni français ni anglais.

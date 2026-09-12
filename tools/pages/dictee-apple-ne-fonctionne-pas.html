@@ -1,0 +1,62 @@
+      <p class="eyebrow">Dépannage</p>
+      <h1>La dictée d'Apple ne marche pas : les vraies causes</h1>
+      <p class="lede">macOS intègre une dictée gratuite, et quand elle déraille, c'est presque toujours réparable en deux minutes. Commencez par là. La dernière section dit franchement à partir de quand la fonction intégrée n'est simplement plus le bon outil.</p>
+
+      <h2>Les cinq vérifications, dans l'ordre</h2>
+      <h3>1. La bonne langue, et téléchargée</h3>
+      <p>Réglages Système → Clavier → Dictée. La liste de langues décide de la qualité de reconnaissance. Si vous parlez français mais que la liste indique l'anglais, tout ce que vous dites passe par le mauvais modèle. Ajouter une langue déclenche un téléchargement ; sur Apple Silicon, c'est ce téléchargement qui active la dictée hors ligne, plus fiable et plus discrète que le passage par le réseau.</p>
+      <h3>2. Le micro que macOS utilise réellement</h3>
+      <p>Réglages Système → Son → Entrée. Un casque Bluetooth connecté pour un appel, une webcam à l'autre bout de la pièce ou le micro d'un écran externe prennent silencieusement le dessus sur le bon. Parlez et regardez le niveau bouger. S'il bouge à peine, aucune application de dictée ne s'en sortira.</p>
+      <h3>3. Désactiver puis réactiver la dictée</h3>
+      <p>Sérieusement. Basculer l'interrupteur dans les Réglages force macOS à réinitialiser le service et à revérifier ses ressources linguistiques. Cela règle une part surprenante des cas « elle s'arrête après une phrase ».</p>
+      <h3>4. Le réglage de ponctuation</h3>
+      <p>Les versions récentes de macOS insèrent la ponctuation automatiquement pour les langues prises en charge, avec un interrupteur dédié dans les réglages de dictée. Si vous obtenez une seule phrase sans fin, cet interrupteur est désactivé — ou votre langue n'en fait pas partie, et il faut alors dire « virgule » et « point » à voix haute. Si au contraire des virgules apparaissent sans que vous les demandiez, c'est le même réglage, activé.</p>
+      <h3>5. Redémarrer, puis regarder Temps d'écran et la gestion d'appareils</h3>
+      <p>Un redémarrage débloque un service de dictée figé. Si la dictée est carrément grisée, regardez les restrictions de contenu dans Temps d'écran, et — sur un Mac professionnel — si la gestion d'appareils de votre employeur ne l'a pas désactivée. Ce dernier cas, vous ne pouvez pas le régler vous-même.</p>
+
+      <h2>Ce que la dictée d'Apple ne fera pas, quels que soient les réglages</h2>
+      <p>Ce sont des limites de conception, pas des pannes :</p>
+      <ul>
+        <li><strong>Elle n'apprend pas votre vocabulaire.</strong> Le nom d'un collègue, d'un produit, un terme métier : mal reconnu aujourd'hui, mal reconnu le mois prochain.</li>
+        <li><strong>Elle ne transcrit pas un fichier.</strong> Aucun moyen de lui donner l'enregistrement d'une réunion ou d'un entretien.</li>
+        <li><strong>Elle ne garde aucun historique.</strong> Si le texte atterrit dans la mauvaise fenêtre, il est perdu.</li>
+        <li><strong>Le moteur n'est pas au choix.</strong> Quand la précision compte plus que la vitesse, il n'y a aucun levier.</li>
+        <li><strong>Aucune séparation des locuteurs.</strong> Dès qu'il y a plusieurs voix, ce n'est pas le bon outil.</li>
+      </ul>
+
+      <h2>Ce qu'Aria ajoute</h2>
+      <p>Aria garde ce qui fonctionne dans la fonction intégrée — un raccourci, le texte écrit au curseur, le hors-ligne — et comble ces cinq manques. Le moteur par défaut est NVIDIA Parakeet TDT V3, exécuté sur votre Mac : comme la dictée d'Apple sur puce Apple, rien n'est téléversé.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&nbsp;</th><th>Dictée d'Apple</th><th>Aria</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Prix</strong></td><td class="yes">Gratuite, intégrée</td><td>Gratuite jusqu'à 2 000 mots/sem., puis 5 € une fois</td></tr>
+            <tr><td><strong>Hors ligne</strong></td><td class="yes">Oui, sur Apple Silicon</td><td class="yes">Oui, moteur local</td></tr>
+            <tr><td><strong>Écrit au curseur</strong></td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
+            <tr><td><strong>Apprend votre vocabulaire</strong></td><td class="no">Non</td><td class="yes">Oui, depuis vos corrections</td></tr>
+            <tr><td><strong>Transcrit fichiers audio et vidéo</strong></td><td class="no">Non</td><td class="yes">Oui</td></tr>
+            <tr><td><strong>Identifie les locuteurs</strong></td><td class="no">Non</td><td class="yes">Oui</td></tr>
+            <tr><td><strong>Historique consultable</strong></td><td class="no">Non</td><td class="yes">Oui, sur l'appareil</td></tr>
+            <tr><td><strong>Choix du moteur</strong></td><td class="no">Non</td><td class="yes">Local, ou cloud avec votre clé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="honest">
+        <p><strong>Quand rester sur celle d'Apple.</strong> Si vous dictez quelques phrases par jour dans Messages et que ça marche, installer quoi que ce soit est une perte de temps et d'argent. Aria se justifie quand la dictée fait partie de votre façon de travailler : longs e-mails, notes toute la journée, noms qu'elle massacre, enregistrements à transcrire.</p>
+      </div>
+
+      <h2>Questions</h2>
+      <details><summary>Pourquoi la dictée d'Apple s'arrête après une phrase ou deux ?</summary><p>Le plus souvent, le mauvais micro est sélectionné, ou le pack de langue n'a pas fini de se télécharger et la dictée retombe sur le réseau. Vérifiez Son → Entrée, puis réajoutez votre langue dans Clavier → Dictée et basculez l'interrupteur.</p></details>
+      <details><summary>Pourquoi n'y a-t-il aucune ponctuation ?</summary><p>La ponctuation automatique est un réglage, et il ne couvre pas toutes les langues. Si la vôtre n'est pas prise en charge, il faut la dire à voix haute. Aria rétablit majuscules et points localement, sans qu'on le lui demande.</p></details>
+      <details><summary>La dictée fonctionne-t-elle sans connexion ?</summary><p>Celle d'Apple, oui sur Apple Silicon une fois la langue téléchargée. Le moteur local d'Aria aussi, sur Apple Silicon comme sur Intel.</p></details>
+      <details><summary>Peut-on améliorer la reconnaissance des noms propres ?</summary><p>Pas vraiment avec la fonction intégrée. Aria ajoute à un dictionnaire personnel les mots que vous corrigez, pour ne pas refaire deux fois la même correction.</p></details>
+
+      <div class="cta">
+        <h2>Quand l'intégrée ne suffit plus</h2>
+        <p>Dictée locale dans n'importe quelle app du Mac, avec un dictionnaire qui apprend. Gratuite pour commencer, 5 € une fois.</p>
+        <div class="cta-actions">
+          <a class="button" href="./#telecharger">Télécharger Aria</a>
+          <a class="button button-quiet" href="dictee-vocale-mac-sans-abonnement.html">Comparer les prix</a>
+        </div>
+      </div>
