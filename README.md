@@ -6,7 +6,7 @@ no copy and paste.
 
 [Website](https://hfioafio.github.io/Aria-Downloads/en.html) ·
 [Site français](https://hfioafio.github.io/Aria-Downloads/) ·
-[Latest release v2.60.7-preview.103](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.60.7-preview.103) ·
+[Latest release v2.60.11-preview.110](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.60.11-preview.110) ·
 [Report an issue](https://github.com/hfioafio/Aria-Downloads/issues/new)
 
 ![Aria on macOS, offering the private local model or the online Groq model](docs/aria-setup-preview.png)
@@ -22,11 +22,11 @@ It is a free download: **2,000 words per week**, resetting every Monday. **Aria 
 
 | Your Mac | Download |
 | --- | --- |
-| Apple Silicon (M1, M2, M3, M4 and later) | [Aria-2.60.7-preview.103-Apple-Silicon.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.7-preview.103/Aria-2.60.7-preview.103-Apple-Silicon.dmg) |
-| Intel | [Aria-2.60.7-preview.103-Intel.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.7-preview.103/Aria-2.60.7-preview.103-Intel.dmg) |
+| Apple Silicon (M1, M2, M3, M4 and later) | [Aria-2.60.11-preview.110-Apple-Silicon.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.110/Aria-2.60.11-preview.110-Apple-Silicon.dmg) |
+| Intel | [Aria-2.60.11-preview.110-Intel.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.110/Aria-2.60.11-preview.110-Intel.dmg) |
 
-Checksums: [SHA-256 Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.7-preview.103/Aria-2.60.7-preview.103-Apple-Silicon.dmg.sha256) ·
-[SHA-256 Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.7-preview.103/Aria-2.60.7-preview.103-Intel.dmg.sha256)
+Checksums: [SHA-256 Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.110/Aria-2.60.11-preview.110-Apple-Silicon.dmg.sha256) ·
+[SHA-256 Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.110/Aria-2.60.11-preview.110-Intel.dmg.sha256)
 
 Do not mix the two builds: the Apple Silicon DMG is not meant to run under Rosetta.
 
@@ -92,8 +92,8 @@ trois Mac, toutes les mises à jour incluses, pas d’abonnement.
 Elle transcrit aussi vos fichiers audio et vidéo, identifie les locuteurs en réunion, apprend vos
 noms propres dans un dictionnaire personnel et garde un historique local consultable.
 
-**Téléchargement :** [Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.7-preview.103/Aria-2.60.7-preview.103-Apple-Silicon.dmg) ·
-[Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.7-preview.103/Aria-2.60.7-preview.103-Intel.dmg) ·
+**Téléchargement :** [Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.110/Aria-2.60.11-preview.110-Apple-Silicon.dmg) ·
+[Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.110/Aria-2.60.11-preview.110-Intel.dmg) ·
 [page complète en français](https://hfioafio.github.io/Aria-Downloads/)
 
 **Première ouverture :** cette version est signée avec une identité stable mais n’est pas encore
