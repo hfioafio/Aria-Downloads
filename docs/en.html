@@ -166,6 +166,11 @@
       overflow:hidden; min-height:590px; border:1px solid var(--line-strong); border-radius:28px;
       background:var(--surface); box-shadow:var(--shadow);
     }
+    .video-section { padding:76px 0 0 }
+    .video-frame { margin:0; overflow:hidden; border:1px solid var(--line-strong); border-radius:28px; background:#0b0d12; box-shadow:var(--shadow) }
+    .video-frame video { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#0b0d12 }
+    .video-frame figcaption { padding:14px 18px; color:var(--ink-3); background:var(--surface); font-size:12px; text-align:center }
+    @media (max-width:600px) { .video-section { padding-top:48px } .video-frame { border-radius:22px; max-width:420px; margin-inline:auto } .video-frame video { aspect-ratio:9/16 } }
     .real-app-section { padding:76px 0 24px }
     .real-app-shot { margin:0; overflow:hidden; border:1px solid var(--line-strong); border-radius:28px; background:#10141b; box-shadow:var(--shadow) }
     .real-app-shot img { display:block; width:100%; height:auto }
@@ -489,6 +494,7 @@
       .install-steps { grid-template-columns:1fr }
     }
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Aria — voice dictation for Mac in 23 seconds", "description": "Speak, Aria types into every app: Mail, Slack, Notes, Word, Chrome, Notion. Native macOS dictation, local or online.", "thumbnailUrl": ["https://hfioafio.github.io/Aria-Downloads/aria-video-en.jpg"], "uploadDate": "2026-09-26", "duration": "PT23S", "contentUrl": "https://hfioafio.github.io/Aria-Downloads/aria-presentation-en-16x9.mp4", "inLanguage": "en"}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -578,6 +584,28 @@
         <span><i></i>100% offline mode</span><span><i></i>Keys stored in the macOS Keychain</span>
       </div>
     </div>
+
+    <section class="video-section" aria-label="Aria presentation video">
+      <div class="shell">
+        <figure class="video-frame reveal">
+          <video controls playsinline preload="none" poster="aria-video-en.jpg" width="1920" height="1080" aria-label="See Aria in 23 seconds">
+            <source src="aria-presentation-en-16x9.mp4" type="video/mp4">
+          </video>
+          <script>
+            (() => {
+              // Téléphone : version verticale, qui remplit l'écran au lieu d'un bandeau étroit.
+              if (!matchMedia('(max-width: 600px)').matches) return
+              const video = document.currentScript.previousElementSibling
+              video.poster = 'aria-video-en-vertical.jpg'
+              video.width = 1080; video.height = 1920
+              video.querySelector('source').src = 'aria-presentation-en-9x16.mp4'
+              video.load()
+            })()
+          </script>
+          <figcaption>23 seconds · Aria at work in your apps</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section class="real-app-section" aria-label="Real screenshot of Aria">
       <div class="shell">
