@@ -1,18 +1,18 @@
 {
-  "version": "2.60.11-preview.112",
-  "releaseDate": "2026-09-24",
+  "version": "2.60.11-preview.114",
+  "releaseDate": "2026-10-10",
   "minimumVersion": "2.48.1",
-  "notes": "Preview automatique 2.60.11-preview.112. Modifications validées par les tests et le build GitHub Actions.",
+  "notes": "Preview automatique 2.60.11-preview.114. Modifications validées par les tests et le build GitHub Actions.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.112/Aria-2.60.11-preview.112-Apple-Silicon.dmg",
-      "sha256": "032d793c44ddf2416395e716bf4d4c394ae09f5b0b93675085c3313d634f9656",
-      "size": 158902540
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.114/Aria-2.60.11-preview.114-Apple-Silicon.dmg",
+      "sha256": "7c84f0256d6773c1752af8a2d5dfca73c5a13c66da2a2106c8f923dd3127569f",
+      "size": 158916624
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.112/Aria-2.60.11-preview.112-Intel.dmg",
-      "sha256": "7d8e1fdfd7b8207da2f7cbf136502e5a1fcf512febbf47d88de4e7ccde9c15a3",
-      "size": 168104627
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.114/Aria-2.60.11-preview.114-Intel.dmg",
+      "sha256": "a092b5d489fc011adeda8793a494334df992a683e43134dc7852ea778282dd23",
+      "size": 168081405
     }
   }
 }
