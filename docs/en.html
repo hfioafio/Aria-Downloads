@@ -1018,5 +1018,47 @@
       }
     })();
   </script>
+  <!-- install-dialog:start -->
+  <dialog id="install-dialog" class="install-dialog" aria-labelledby="install-dialog-title">
+    <button class="install-dialog-close" type="button" data-close aria-label="Close">×</button>
+    <h2 id="install-dialog-title">Your download has started</h2>
+    <p class="install-dialog-sub">Three steps, only once.</p>
+    <ol class="install-dialog-steps">
+      <li><span>1</span><p><strong>Open the downloaded file</strong> and drag Aria onto the Applications folder.</p></li>
+      <li><span>2</span><p><strong>Open Aria.</strong> If macOS says it could not verify Aria, click <strong>Done</strong>.</p></li>
+      <li><span>3</span><p><strong>Open Privacy &amp; Security</strong>, scroll down, then click <strong>Open Anyway</strong>.<a class="install-dialog-link" href="x-apple.systempreferences:com.apple.preference.security?General">Open Privacy &amp; Security</a></p></li>
+    </ol>
+    <p class="install-dialog-note">Aria then guides you through the microphone and typing permissions, in a minute.</p>
+    <button class="button button-primary install-dialog-ok" type="button" data-close>Got it</button>
+  </dialog>
+  <style>
+    .install-dialog { position:fixed; inset:0; margin:auto; height:fit-content; width:min(520px,calc(100vw - 32px)); max-height:calc(100vh - 32px); overflow:auto; padding:30px 28px 24px; opacity:1; border:0; border-radius:26px; background:var(--surface,#fff); color:var(--ink); box-shadow:0 30px 80px rgba(0,0,0,.28) }
+    .install-dialog::backdrop { background:rgba(0,0,0,.38); backdrop-filter:blur(6px) }
+    .install-dialog h2 { font-size:27px; font-weight:800; letter-spacing:-.035em; line-height:1.15; padding-right:28px }
+    .install-dialog-sub { margin-top:6px; color:var(--ink-2); font-size:16px }
+    .install-dialog-steps { list-style:none; display:grid; gap:14px; margin:22px 0 0; padding:0 }
+    .install-dialog-steps li { display:grid; grid-template-columns:30px 1fr; gap:12px; align-items:start }
+    .install-dialog-steps span { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--blue); color:#fff; font-size:13px; font-weight:750 }
+    .install-dialog-steps p { margin:3px 0 0; color:var(--ink-2); font-size:15px; line-height:1.5 }
+    .install-dialog-steps strong { color:var(--ink); font-weight:650 }
+    .install-dialog-link { display:flex; width:fit-content; align-items:center; min-height:44px; margin-top:4px; color:var(--blue); font-weight:650 }
+    .install-dialog-note { margin-top:16px; padding-top:14px; border-top:1px solid var(--line,rgba(0,0,0,.08)); color:var(--ink-3); font-size:13px; line-height:1.5 }
+    .install-dialog-ok { width:100%; min-height:48px; margin-top:18px; justify-content:center }
+    .install-dialog-close { position:absolute; top:14px; right:14px; width:44px; height:44px; border:0; border-radius:50%; background:transparent; color:var(--ink-3); font-size:24px; cursor:pointer }
+    @media (prefers-reduced-motion:no-preference) { .install-dialog[open] { animation:install-in .22s ease-out } @keyframes install-in { from { opacity:0; transform:translateY(8px) scale(.98) } } }
+  </style>
+  <script>
+    (function () {
+      var dialog = document.getElementById('install-dialog');
+      if (!dialog || typeof dialog.showModal !== 'function') return;
+      // Le téléchargement part normalement ; la fenêtre explique la suite au moment où on en a besoin.
+      document.querySelectorAll('a[href$=".dmg"]').forEach(function (link) {
+        link.addEventListener('click', function () { setTimeout(function () { if (!dialog.open) dialog.showModal(); }, 150); });
+      });
+      dialog.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { dialog.close(); }); });
+      dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+    })();
+  </script>
+  <!-- install-dialog:end -->
 </body>
 </html>
