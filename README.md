@@ -6,6 +6,7 @@ no copy and paste.
 
 [Website](https://hfioafio.github.io/Aria-Downloads/en.html) ·
 [Site français](https://hfioafio.github.io/Aria-Downloads/) ·
+[Video demos (French)](https://www.youtube.com/playlist?list=PLZZLp_GlfQhs) ·
 [Latest release v2.60.11-preview.116](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.60.11-preview.116) ·
 [Report an issue](https://github.com/hfioafio/Aria-Downloads/issues/new)
 
