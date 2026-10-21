@@ -1,18 +1,18 @@
 {
-  "version": "2.60.11-preview.116",
-  "releaseDate": "2026-10-15",
+  "version": "2.61.0",
+  "releaseDate": "2026-10-21",
   "minimumVersion": "2.48.1",
-  "notes": "Preview automatique 2.60.11-preview.116. Modifications validées par les tests et le build GitHub Actions.",
+  "notes": "Aria 2.61.0 : casque Bluetooth qui garde le son, transcriptions longues reprenables, nouveau design.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.116/Aria-2.60.11-preview.116-Apple-Silicon.dmg",
-      "sha256": "57d66c9ad42712637236cf37984985bf3d9ee0c798823f64bd352cb733b2f1be",
-      "size": 143847411
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.61.0/Aria-2.61.0-Apple-Silicon.dmg",
+      "sha256": "5e1dc1f3c0665df9555db0260ba710f775f67abe44f6c8c46d7b0f0b5eda5ee6",
+      "size": 147118337
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.60.11-preview.116/Aria-2.60.11-preview.116-Intel.dmg",
-      "sha256": "df8cdc8d332b78b19ad514e10f4f746dd2ca3b038d06c0d8771f945aa043a25a",
-      "size": 151312627
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.61.0/Aria-2.61.0-Intel.dmg",
+      "sha256": "05f1517a38e9d2ebd8c9ec4a4f33f03c1a5c830ad5602048e5d47b449c327adb",
+      "size": 153039066
     }
   }
 }
