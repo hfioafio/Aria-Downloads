@@ -6,18 +6,21 @@ no copy and paste.
 
 [Website](https://hfioafio.github.io/Aria-Downloads/en.html) ·
 [Site français](https://hfioafio.github.io/Aria-Downloads/) ·
+[Video demos (English)](https://www.youtube.com/playlist?list=PLSMVwqTInESM) ·
 [Video demos (French)](https://www.youtube.com/playlist?list=PLZZLp_GlfQhs) ·
 [Latest release v2.61.0](https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.61.0) ·
 [Report an issue](https://github.com/hfioafio/Aria-Downloads/issues/new)
 
 ![Aria on macOS, offering the private local model or the online Groq model](docs/aria-setup-preview.png)
 
-Aria is a **macOS dictation app** that runs **fully offline** when you want it to. The local
-engine is NVIDIA **Parakeet TDT V3**; with it, neither the audio nor the transcript ever leaves
-your Mac. Cloud engines stay optional and use a key you control.
+Aria is a **macOS dictation app** with a **local transcription mode**. The local NVIDIA
+**Parakeet TDT V3** engine processes transcription audio on your Mac. Online engines are optional.
+An internet connection may still be required to verify the free quota.
 
-It is a free download: **2,000 words per week**, resetting every Monday. **Aria Pro is €5, once**
-— no subscription, three Macs, all future updates included.
+It is a free download: **2,000 words per week**, resetting every Monday. **Purchasing Aria Pro
+is not open yet.** Start with the free tier; the download page explains the current public beta.
+
+The linked video introductions are animations, not screen recordings or speed benchmarks.
 
 ## Download for macOS 11 or later
 
@@ -82,13 +85,12 @@ Aria est une application de **dictée vocale pour macOS**. Un raccourci, votre v
 arrive dans Mail, Messages, Notes ou n’importe quel champ de texte — pas dans une fenêtre à part
 à recopier. Elle reste dans la barre des menus.
 
-Le **mode local** (NVIDIA Parakeet TDT V3) garde l’audio et la transcription sur le Mac, sans
-connexion. Les moteurs cloud restent facultatifs, avec votre propre clé. Pour l’instant, le mode
-Groq fonctionne aussi sans clé à saisir grâce à un relais Aria limité ; ni l’audio ni le texte
-n’y sont conservés.
+Le **mode local** (NVIDIA Parakeet TDT V3) traite l’audio de transcription sur le Mac.
+Les moteurs en ligne restent facultatifs. Une connexion peut rester nécessaire pour vérifier
+le quota gratuit.
 
-**Gratuit : 2 000 mots par semaine**, remis à zéro chaque lundi. **Aria Pro : 5 € une seule fois**,
-trois Mac, toutes les mises à jour incluses, pas d’abonnement.
+**Gratuit : 2 000 mots par semaine**, remis à zéro chaque lundi. **L’achat Aria Pro n’est pas
+encore ouvert.** La page de téléchargement explique les conditions de la bêta publique.
 
 Elle transcrit aussi vos fichiers audio et vidéo, identifie les locuteurs en réunion, apprend vos
 noms propres dans un dictionnaire personnel et garde un historique local consultable.
