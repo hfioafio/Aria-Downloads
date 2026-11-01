@@ -18,13 +18,15 @@
   <meta property="og:title" content="Installing Aria on macOS: the Gatekeeper Step">
   <meta property="og:description" content="macOS says it cannot verify the developer, or that the app is damaged. What each message means, and how to open Aria safely.">
   <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html">
-  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/og-image-en.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-video-en.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Animated overview of Aria dictation in Notes on Mac">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Installing Aria on macOS: the Gatekeeper Step">
   <meta name="twitter:description" content="macOS says it cannot verify the developer, or that the app is damaged. What each message means, and how to open Aria safely.">
-  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/og-image-en.png">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-video-en.jpg">
+  <meta name="twitter:image:alt" content="Animated overview of Aria dictation in Notes on Mac">
   <link rel="icon" href="favicon.png" sizes="96x96">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="pages.css">
@@ -32,7 +34,7 @@
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/en.html"}, {"@type": "ListItem", "position": 2, "name": "Installing Aria", "item": "https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html"}]}
   </script>
   <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it safe to click Open Anyway?", "acceptedAnswer": {"@type": "Answer", "text": "For a file whose SHA-256 matches the one published on the official release page, yes — you are telling macOS you trust this specific app. The habit to keep is the checking, not the clicking."}}, {"@type": "Question", "name": "Do I have to do this for every update?", "acceptedAnswer": {"@type": "Answer", "text": "No. Once, on first install. Updates keep the same signing identity, so macOS stops asking and your permissions are preserved."}}, {"@type": "Question", "name": "Which build do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Apple menu → About This Mac. If the chip line says M1, M2, M3, M4 or later, take Apple Silicon. If it says an Intel processor, take the Intel build."}}, {"@type": "Question", "name": "Aria opens but types nothing. Why?", "acceptedAnswer": {"@type": "Answer", "text": "Accessibility permission is missing. System Settings → Privacy &amp; Security → Accessibility, and switch Aria on. Without it macOS forbids any app from typing into another."}}, {"@type": "Question", "name": "The microphone stays silent.", "acceptedAnswer": {"@type": "Answer", "text": "Check System Settings → Privacy &amp; Security → Microphone, then System Settings → Sound → Input to confirm the device you expect is selected and its level moves when you speak."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it safe to click Open Anyway?", "acceptedAnswer": {"@type": "Answer", "text": "For a file whose SHA-256 matches the one published on the official release page, yes — you are telling macOS you trust this specific app. The habit to keep is the checking, not the clicking."}}, {"@type": "Question", "name": "Do I have to do this for every update?", "acceptedAnswer": {"@type": "Answer", "text": "No. Once, on first install. Updates keep the same signing identity, so macOS stops asking and your permissions are preserved."}}, {"@type": "Question", "name": "Which build do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Apple menu → About This Mac. If the chip line says M1, M2, M3, M4 or later, take Apple Silicon. If it says an Intel processor, take the Intel build."}}, {"@type": "Question", "name": "Aria opens but types nothing. Why?", "acceptedAnswer": {"@type": "Answer", "text": "Accessibility permission is missing. System Settings → Privacy & Security → Accessibility, and switch Aria on. Without it macOS forbids any app from typing into another."}}, {"@type": "Question", "name": "The microphone stays silent.", "acceptedAnswer": {"@type": "Answer", "text": "Check System Settings → Privacy & Security → Microphone, then System Settings → Sound → Input to confirm the device you expect is selected and its level moves when you speak."}}]}
   </script>
   <script>
     (function () {
@@ -62,7 +64,7 @@
       <p class="crumb"><a href="en.html">Aria</a> · Installing Aria</p>
       <p class="eyebrow">First launch</p>
       <h1>Installing Aria on macOS, and the Gatekeeper step</h1>
-      <p class="lede">Aria is signed with a stable Apple identity but it is not notarised by Apple yet. On a first install, macOS will stop you once. Here is exactly what it says, why, and what to do — including how to check the file you downloaded is the real one.</p>
+      <p class="lede">Aria is signed with a stable identity but it is not notarised by Apple yet. On a first install, macOS will stop you once. Here is exactly what it says, why, and what to do — including how to check the file you downloaded is the real one.</p>
 
       <div class="card">
         <p><strong>The short version.</strong> Open the DMG, drag Aria into Applications, try to open it once and let macOS refuse. Then go to <strong>System Settings → Privacy &amp; Security</strong>, scroll to the Security section, and click <strong>Open Anyway</strong> next to Aria. You will only do this once.</p>
@@ -100,7 +102,7 @@
       <p>Only ever bypass Gatekeeper for a file that came from <a href="en.html">this site</a> or the <a href="https://github.com/hfioafio/Aria-Downloads/releases">official GitHub releases page</a>. If you found Aria somewhere else, that copy is not ours.</p>
 
       <h2>Why Aria is not notarised yet</h2>
-      <p>Notarisation requires a paid Apple Developer account. Aria is made by one person and priced at €5 once; that account is on the list, and when it is in place this whole page becomes unnecessary. Saying so plainly seems better than letting you discover the warning on your own.</p>
+      <p>Aria’s public beta is not yet notarised by Apple. Signing and notarisation are distinct checks; this page explains opening this beta without asking you to disable macOS protections.</p>
       <p>In the meantime, three things are true and checkable: the app is signed with a stable identity, so macOS keeps your Microphone and Accessibility permissions across updates; every DMG publishes its SHA-256; and updates verify size, checksum and signing identity before installing, rolling back automatically if the new version fails to start.</p>
 
       <h2>Questions</h2>

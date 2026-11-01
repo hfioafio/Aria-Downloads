@@ -5,9 +5,23 @@ Modifier un fragment, jamais le HTML produit, puis relancer :
 
 ```
 python3 tools/build_pages.py
+python3 tools/check_site.py
 ```
 
-Le sitemap est régénéré au passage depuis la même liste de pages : il ne peut pas diverger.
+Le sitemap est régénéré depuis la même liste de pages. Les dates des pages inchangées sont
+conservées. Les FAQ des deux accueils sont alignées sur leurs réponses visibles ; celles des
+articles sont déduites de leurs fragments, avec décodage des caractères HTML.
+
+Le contrôle vérifie les fichiers et ancres liés, les URL canoniques, les traductions, le sitemap,
+les FAQ structurées, l’offre gratuite et les liens Installer. Après déploiement GitHub Pages :
+
+```
+python3 tools/check_site.py --live
+```
+
+Cette option compare les 26 pages indexables et les ressources communes réellement servies aux
+fichiers validés. Elle ne télécharge aucun DMG et ne mesure pas des installations. Vérifier aussi
+le rendu et les interactions dans un navigateur quand celui-ci est disponible.
 
 ## Règle à ne pas casser : aucune version figée dans les pages de contenu
 

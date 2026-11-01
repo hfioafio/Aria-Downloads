@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
-  <title>Transcribe an Audio File on Mac, Offline</title>
-  <meta name="description" content="Drop an MP3, M4A, WAV or MP4 into Aria and get the text back, without uploading anything. Speaker labels included, and it works with no internet.">
+  <title>Transcribe an Audio File on Mac With a Local Engine</title>
+  <meta name="description" content="Transcribe audio or video with Aria's local engine. Export TXT, SRT or VTT and optionally identify speakers. Quota checks may need a connection.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/transcribe-audio-file-mac.html">
   <link rel="alternate" hreflang="en" href="https://hfioafio.github.io/Aria-Downloads/transcribe-audio-file-mac.html">
@@ -15,16 +15,18 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Aria">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Transcribe an Audio File on Mac, Offline">
-  <meta property="og:description" content="Drop an MP3, M4A, WAV or MP4 into Aria and get the text back, without uploading anything. Speaker labels included, and it works with no internet.">
+  <meta property="og:title" content="Transcribe an Audio File on Mac With a Local Engine">
+  <meta property="og:description" content="Transcribe audio or video with Aria's local engine. Export TXT, SRT or VTT and optionally identify speakers. Quota checks may need a connection.">
   <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/transcribe-audio-file-mac.html">
-  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/og-image-en.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-video-en.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Animated overview of Aria dictation in Notes on Mac">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Transcribe an Audio File on Mac, Offline">
-  <meta name="twitter:description" content="Drop an MP3, M4A, WAV or MP4 into Aria and get the text back, without uploading anything. Speaker labels included, and it works with no internet.">
-  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/og-image-en.png">
+  <meta name="twitter:title" content="Transcribe an Audio File on Mac With a Local Engine">
+  <meta name="twitter:description" content="Transcribe audio or video with Aria's local engine. Export TXT, SRT or VTT and optionally identify speakers. Quota checks may need a connection.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-video-en.jpg">
+  <meta name="twitter:image:alt" content="Animated overview of Aria dictation in Notes on Mac">
   <link rel="icon" href="favicon.png" sizes="96x96">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="pages.css">
@@ -32,7 +34,7 @@
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/en.html"}, {"@type": "ListItem", "position": 2, "name": "Transcribe a file", "item": "https://hfioafio.github.io/Aria-Downloads/transcribe-audio-file-mac.html"}]}
   </script>
   <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is anything uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "Not with the local engine. The file is read from disk and transcribed on the Mac. A cloud engine only sees the file if you deliberately pick one."}}, {"@type": "Question", "name": "How long can a file be?", "acceptedAnswer": {"@type": "Answer", "text": "There is no hard limit. Longer files take proportionally longer on the local engine. On the free plan the transcribed words count against the 2,000-a-week allowance, so a long recording usually wants Pro."}}, {"@type": "Question", "name": "Does it separate speakers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, locally. It is good on a clean two- or three-person recording and degrades on a noisy room with many voices; expect to fix a few labels."}}, {"@type": "Question", "name": "Can I get timestamps or subtitles?", "acceptedAnswer": {"@type": "Answer", "text": "Aria gives you the transcript with speaker labels. For subtitle files with precise timecodes, use a tool built for that."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is anything uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "Not with the local engine. The file is read from disk and transcribed on the Mac. A cloud engine only sees the file if you deliberately pick one."}}, {"@type": "Question", "name": "How long can a recording be?", "acceptedAnswer": {"@type": "Answer", "text": "Long files are processed in segments; duration and available resources affect processing time. Recognised words count towards the 2,000 free words a week. Pro purchases are closed during the beta, so do not rely on an unlimited upgrade to finish a long file."}}, {"@type": "Question", "name": "Does it separate speakers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, locally. It is good on a clean two- or three-person recording and degrades on a noisy room with many voices; expect to fix a few labels."}}, {"@type": "Question", "name": "Can I export subtitles?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, TXT, SRT and VTT exports are available. Review recognition and timestamps before publishing."}}]}
   </script>
   <script>
     (function () {
@@ -62,7 +64,7 @@
       <p class="crumb"><a href="en.html">Aria</a> · Transcribe a file</p>
       <p class="eyebrow">Use case</p>
       <h1>Transcribe an audio file on your Mac, without uploading it</h1>
-      <p class="lede">Drop the file into Aria and read the text a moment later. The transcription runs on your Mac, so an interview, a lecture, a voice memo or a call recording never leaves the machine — and there is no per-minute meter running.</p>
+      <p class="lede">Import an audio or video file to get a transcript. To process it on your Mac, download a model and choose Local. Online mode sends audio to the transcription service; check your selected mode before starting.</p>
 
       <h2>What you can drop in</h2>
       <div class="table-wrap">
@@ -72,7 +74,7 @@
             <tr><td><strong>Video</strong></td><td>MP4, MOV — the soundtrack is transcribed</td></tr>
             <tr><td><strong>Speaker labels</strong></td><td>Optional, computed on the Mac</td></tr>
             <tr><td><strong>Languages</strong></td><td>25 European languages, and the transcript keeps the language spoken</td></tr>
-            <tr><td><strong>Network</strong></td><td>None, with the local engine</td></tr>
+            <tr><td><strong>Network</strong></td><td>No audio upload in Local mode; quota/licence checks may use the network</td></tr>
           </tbody>
         </table>
       </div>
@@ -81,34 +83,34 @@
       <ol>
         <li>Open Aria and go to file transcription.</li>
         <li>Drop the file in. Long recordings work; they simply take longer.</li>
-        <li>Read, correct, copy or export. Words you fix are learned, so a name that recurs stops coming out wrong.</li>
+        <li>Read, correct, copy or export. Words you fix are learned, to help guide later recognition of recurring names.</li>
       </ol>
 
       <h2>Why do it on the machine</h2>
-      <p>Online transcription services are fast and usually cheap. They are also a copy of your recording on someone else's disk, subject to their retention policy and their next change of terms. For a client call, a medical appointment, a journalistic interview or anything under an agreement, that copy is the problem — not the price.</p>
-      <p>With Aria's local engine, the file stays where it is. No account, no upload, no queue, no minutes to buy. The trade is time: a long recording takes longer than it would on a cloud model, and your Mac's fan may tell you so.</p>
+      <p>Online transcription requires sending audio to a service. Its retention policy depends on the provider and plan. For a confidential recording, check those conditions before uploading, or choose a local engine.</p>
+      <p>In Local mode, the file is transcribed on your Mac without uploading audio for recognition. Processing time depends on the model, duration and Mac; transcribed words count towards the free allowance.</p>
 
       <h2>Getting a better transcript</h2>
       <ul>
         <li><strong>The recording matters more than the model.</strong> A phone on a table in a café will defeat any transcription tool. A microphone near each speaker changes everything.</li>
         <li><strong>Teach it the names first.</strong> Adding recurring proper nouns to the dictionary before a long file saves more editing than any setting.</li>
         <li><strong>Split very long files</strong> if you want to work through them in passes rather than waiting for the whole thing.</li>
-        <li><strong>For one difficult file</strong>, switch to a cloud engine with your own API key. You pay the provider directly, and it stays your decision, file by file.</li>
+        <li><strong>Compare a sample.</strong> The online mode supplied during the beta is another option, without a key and with limits. It uploads audio for transcription.</li>
       </ul>
 
       <div class="honest">
-        <p><strong>Where this is not the right tool.</strong> Aria transcribes files you already have — it does not join a meeting, does not record what plays through your speakers, and does not produce subtitles with timecodes for video editing. For subtitle work on long media, a dedicated tool like MacWhisper is the better fit.</p>
+        <p><strong>What the exports provide.</strong> Aria exports TXT, SRT and VTT. Subtitles use the transcript’s timestamps; review the text and segment timing before video editing. Aria does not join a meeting on your behalf.</p>
       </div>
 
       <h2>Questions</h2>
       <details><summary>Is anything uploaded?</summary><p>Not with the local engine. The file is read from disk and transcribed on the Mac. A cloud engine only sees the file if you deliberately pick one.</p></details>
-      <details><summary>How long can a file be?</summary><p>There is no hard limit. Longer files take proportionally longer on the local engine. On the free plan the transcribed words count against the 2,000-a-week allowance, so a long recording usually wants Pro.</p></details>
+      <details><summary>How long can a recording be?</summary><p>Long files are processed in segments; duration and available resources affect processing time. Recognised words count towards the 2,000 free words a week. Pro purchases are closed during the beta, so do not rely on an unlimited upgrade to finish a long file.</p></details>
       <details><summary>Does it separate speakers?</summary><p>Yes, locally. It is good on a clean two- or three-person recording and degrades on a noisy room with many voices; expect to fix a few labels.</p></details>
-      <details><summary>Can I get timestamps or subtitles?</summary><p>Aria gives you the transcript with speaker labels. For subtitle files with precise timecodes, use a tool built for that.</p></details>
+      <details><summary>Can I export subtitles?</summary><p>Yes, TXT, SRT and VTT exports are available. Review recognition and timestamps before publishing.</p></details>
 
       <div class="cta">
         <h2>Keep the recording on your Mac</h2>
-        <p>Free up to 2,000 words a week. €5 once for unlimited, on three Macs.</p>
+        <p>2,000 free words a week to try Aria. Pro purchases are closed during the current beta.</p>
         <div class="cta-actions">
           <a class="button" href="en.html#download">Download Aria</a>
           <a class="button button-quiet" href="meeting-transcription-mac.html">Transcribing a meeting</a>

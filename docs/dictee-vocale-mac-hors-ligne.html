@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
   <title>Dictée vocale Mac hors ligne : ce qui marche</title>
-  <meta name="description" content="Dicter sur Mac sans connexion et sans compte : la dictée d'Apple, Whisper en local, Parakeet. Ce que chacune sait faire, et où elle s'arrête.">
+  <meta name="description" content="Comprenez la dictée locale sur Mac : audio traité sur l'appareil, téléchargement du modèle et connexion éventuelle pour le quota ou la licence Aria.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-hors-ligne.html">
   <link rel="alternate" hreflang="fr" href="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-hors-ligne.html">
@@ -16,15 +16,17 @@
   <meta property="og:site_name" content="Aria">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Dictée vocale Mac hors ligne : ce qui marche">
-  <meta property="og:description" content="Dicter sur Mac sans connexion et sans compte : la dictée d'Apple, Whisper en local, Parakeet. Ce que chacune sait faire, et où elle s'arrête.">
+  <meta property="og:description" content="Comprenez la dictée locale sur Mac : audio traité sur l'appareil, téléchargement du modèle et connexion éventuelle pour le quota ou la licence Aria.">
   <meta property="og:url" content="https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-hors-ligne.html">
-  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://hfioafio.github.io/Aria-Downloads/aria-video-fr.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Présentation animée de la dictée Aria dans Notes sur Mac">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dictée vocale Mac hors ligne : ce qui marche">
-  <meta name="twitter:description" content="Dicter sur Mac sans connexion et sans compte : la dictée d'Apple, Whisper en local, Parakeet. Ce que chacune sait faire, et où elle s'arrête.">
-  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/og-image.png">
+  <meta name="twitter:description" content="Comprenez la dictée locale sur Mac : audio traité sur l'appareil, téléchargement du modèle et connexion éventuelle pour le quota ou la licence Aria.">
+  <meta name="twitter:image" content="https://hfioafio.github.io/Aria-Downloads/aria-video-fr.jpg">
+  <meta name="twitter:image:alt" content="Présentation animée de la dictée Aria dans Notes sur Mac">
   <link rel="icon" href="favicon.png" sizes="96x96">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="pages.css">
@@ -32,7 +34,7 @@
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/"}, {"@type": "ListItem", "position": 2, "name": "Dictée hors ligne", "item": "https://hfioafio.github.io/Aria-Downloads/dictee-vocale-mac-hors-ligne.html"}]}
   </script>
   <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on dicter sur Mac sans aucune connexion ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. La dictée d'Apple le fait sur Apple Silicon une fois la langue téléchargée, et Aria le fait avec son moteur local sur Apple Silicon comme sur Intel."}}, {"@type": "Question", "name": "Faut-il installer Python pour utiliser un modèle local ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas avec Aria : le moteur est intégré à l'application. Avec les projets Whisper en ligne de commande, oui, en général."}}, {"@type": "Question", "name": "La dictée hors ligne est-elle moins précise ?", "acceptedAnswer": {"@type": "Answer", "text": "Un peu, sur les accents marqués, les environnements bruyants et les noms rares. Sur de la dictée quotidienne dans de bonnes conditions, la différence est faible."}}, {"@type": "Question", "name": "Combien de place prend le modèle ?", "acceptedAnswer": {"@type": "Answer", "text": "487 Mo pour Parakeet TDT V3, téléchargés une seule fois depuis l'application."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on dicter sur Mac sans aucune connexion ?", "acceptedAnswer": {"@type": "Answer", "text": "Certains moteurs effectuent la reconnaissance sur le Mac. Dans Aria, Local doit être choisi après téléchargement d’un modèle ; les contrôles de quota ou de licence peuvent encore demander Internet."}}, {"@type": "Question", "name": "Faut-il installer Python pour utiliser un modèle local ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas avec Aria : le moteur est intégré à l'application. Avec les projets Whisper en ligne de commande, oui, en général."}}, {"@type": "Question", "name": "La dictée hors ligne est-elle moins précise ?", "acceptedAnswer": {"@type": "Answer", "text": "Un peu, sur les accents marqués, les environnements bruyants et les noms rares. Sur de la dictée quotidienne dans de bonnes conditions, la différence est faible."}}, {"@type": "Question", "name": "Combien de place prend le modèle ?", "acceptedAnswer": {"@type": "Answer", "text": "487 Mo pour Parakeet TDT V3, téléchargés une seule fois depuis l'application."}}]}
   </script>
   <script>
     (function () {
@@ -62,14 +64,14 @@
       <p class="crumb"><a href="./">Aria</a> · Dictée hors ligne</p>
       <p class="eyebrow">Guide</p>
       <h1>Dictée vocale Mac hors ligne : ce qui marche vraiment</h1>
-      <p class="lede">Dicter sans connexion, sans compte et sans que sa voix parte sur un serveur, c'est possible sur Mac depuis plusieurs années. Voici les trois voies réalistes, ce que chacune sait faire, et où elle s'arrête.</p>
+      <p class="lede">Un modèle local peut transformer la voix en texte sur le Mac sans envoyer l’audio à un service de transcription. Cela ne signifie pas que toute l’application fonctionne sans connexion : distinguez le calcul local des téléchargements et des contrôles de quota ou de licence.</p>
 
       <h2>Les trois voies</h2>
       <div class="table-wrap">
         <table>
           <thead><tr><th>&nbsp;</th><th>Dictée d'Apple</th><th>Whisper en local</th><th>Aria (Parakeet)</th></tr></thead>
           <tbody>
-            <tr><td><strong>Prix</strong></td><td class="yes">Gratuite</td><td class="yes">Gratuit si vous bricolez</td><td>Gratuit 2 000 mots/sem., puis 5 € une fois</td></tr>
+            <tr><td><strong>Prix</strong></td><td class="yes">Gratuite</td><td class="yes">Gratuit si vous bricolez</td><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td></tr>
             <tr><td><strong>Installation</strong></td><td class="yes">Aucune</td><td class="no">Terminal, Python ou une app tierce</td><td class="yes">Un DMG, puis un modèle de 487 Mo</td></tr>
             <tr><td><strong>Écrit au curseur</strong></td><td class="yes">Oui</td><td>Selon l'outil</td><td class="yes">Oui, dans n'importe quelle app</td></tr>
             <tr><td><strong>Apprend vos noms propres</strong></td><td class="no">Non</td><td class="no">Non</td><td class="yes">Oui</td></tr>
@@ -87,25 +89,25 @@
       <p>Le modèle d'OpenAI tourne très bien sur un Mac, et plusieurs projets libres le rendent utilisable. C'est la voie la plus flexible et la moins confortable : il faut installer un environnement, choisir une taille de modèle, et souvent copier le texte depuis une fenêtre séparée au lieu de l'obtenir directement là où se trouve le curseur. Pour de la transcription de fichiers occasionnelle, c'est excellent. Pour dicter quarante fois par jour, la friction gagne.</p>
 
       <h2>3. Aria — le moteur local dans une app normale</h2>
-      <p>Aria embarque NVIDIA <strong>Parakeet TDT V3</strong>, 487 Mo téléchargés une fois depuis l'application, 25 langues européennes, aucun Python à installer. On tape deux fois la touche ⌘ droite, on parle, et le texte s'écrit au curseur. Avec ce moteur, la dictée ne fait aucune requête réseau : ni l'audio ni la transcription ne quittent le Mac.</p>
+      <p>Aria permet de télécharger NVIDIA <strong>Parakeet TDT V3</strong> depuis l’application. Choisissez ensuite Local et utilisez le raccourci affiché dans Aria : la voix et la transcription sont traitées sur le Mac.</p>
       <p>Ce qu'elle ajoute par rapport aux deux autres voies : elle apprend les mots que vous corrigez, garde un historique local consultable, transcrit vos fichiers audio et vidéo avec identification des locuteurs, et retombe proprement sur le micro système si vos AirPods se déconnectent en pleine phrase.</p>
 
       <div class="card">
-        <p><strong>Ce que « hors ligne » veut dire ici, précisément.</strong> Le fichier du modèle est sur votre disque. Une dictée avec le moteur local ne fait aucun appel réseau. L'historique est une base locale. Seule l'offre gratuite a besoin d'une brève connexion, une fois par semaine, pour son compteur de mots — Aria Pro supprime même cette étape.</p>
+        <p><strong>Ce que « local » veut dire ici.</strong> Le modèle et l’historique restent sur le Mac. Les contrôles de quota ou de licence peuvent demander une connexion ; l’achat Pro est fermé pendant la bêta actuelle.</p>
       </div>
 
       <h2>Ce que le hors ligne coûte, honnêtement</h2>
-      <p>Un modèle local est plus faible qu'un gros modèle hébergé sur trois terrains : les accents très marqués, les enregistrements bruyants, et les noms propres rares. Pour de la dictée quotidienne dans une pièce calme avec un micro correct, l'écart est faible. Pour un enregistrement difficile, il devient visible. C'est pourquoi Aria garde les moteurs cloud disponibles avec votre propre clé : le local est un choix par défaut, pas une prison.</p>
+      <p>Le résultat dépend du modèle, de la langue et de l’enregistrement. Comparez un extrait représentatif plutôt que de supposer qu’un moteur est toujours meilleur. Le mode Automatique utilise le service en ligne fourni par Aria pendant la bêta, sans clé et avec des limites.</p>
 
       <h2>Questions</h2>
-      <details><summary>Peut-on dicter sur Mac sans aucune connexion ?</summary><p>Oui. La dictée d'Apple le fait sur Apple Silicon une fois la langue téléchargée, et Aria le fait avec son moteur local sur Apple Silicon comme sur Intel.</p></details>
+      <details><summary>Peut-on dicter sur Mac sans aucune connexion ?</summary><p>Certains moteurs effectuent la reconnaissance sur le Mac. Dans Aria, Local doit être choisi après téléchargement d’un modèle ; les contrôles de quota ou de licence peuvent encore demander Internet.</p></details>
       <details><summary>Faut-il installer Python pour utiliser un modèle local ?</summary><p>Pas avec Aria : le moteur est intégré à l'application. Avec les projets Whisper en ligne de commande, oui, en général.</p></details>
       <details><summary>La dictée hors ligne est-elle moins précise ?</summary><p>Un peu, sur les accents marqués, les environnements bruyants et les noms rares. Sur de la dictée quotidienne dans de bonnes conditions, la différence est faible.</p></details>
       <details><summary>Combien de place prend le modèle ?</summary><p>487 Mo pour Parakeet TDT V3, téléchargés une seule fois depuis l'application.</p></details>
 
       <div class="cta">
         <h2>Dicter sans que rien ne parte</h2>
-        <p>Gratuit jusqu'à 2 000 mots par semaine. 5 € une fois pour l'illimité, sur trois Mac.</p>
+        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
         <div class="cta-actions">
           <a class="button" href="./#telecharger">Télécharger Aria</a>
           <a class="button button-quiet" href="dictee-vocale-mac.html">Comparer les apps de dictée Mac</a>
