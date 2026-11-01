@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+import ssl
 import sys
 from collections import Counter
 from html.parser import HTMLParser
@@ -131,11 +132,19 @@ def check(live=False):
     print(f"OK : {len(pages)} fichiers HTML, {len(indexed)} pages indexables, {references} références ; FAQ, langues, sitemap et installateurs cohérents.")
     if live:
         checked = 0
+        # Python installé séparément sur macOS n’a pas toujours son propre magasin de CA.
+        # Utiliser les certificats système disponibles en conservant la vérification TLS.
+        system_ca = Path("/etc/ssl/cert.pem")
+        context = ssl.create_default_context(cafile=str(system_ca) if system_ca.is_file() else None)
         for name in indexed + ["sitemap.xml", "pages.css", "aria-video-fr.jpg", "aria-video-en.jpg"]:
             url = BASE + ("" if name == "index.html" else name)
             request = Request(url, headers={"Cache-Control": "no-cache"})
-            with urlopen(request, timeout=25) as response:
-                content = response.read()
+            try:
+                with urlopen(request, timeout=25, context=context) as response:
+                    content = response.read()
+            except OSError as error:
+                print(f"Vérification HTTPS impossible pour {name} : {error}", file=sys.stderr)
+                return 1
             if content != (DOCS / name).read_bytes():
                 print(f"Publication différente du fichier validé : {name}", file=sys.stderr)
                 return 1
