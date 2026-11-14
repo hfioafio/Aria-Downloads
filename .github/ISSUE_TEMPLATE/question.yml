@@ -1,5 +1,5 @@
-name: Question ou installation
-description: Gatekeeper, micro, mise à jour, licence. Sans clé API ni dictée.
+name: Question ou installation · Question or install
+description: Gatekeeper, micro, mise à jour, licence. Sans clé API ni dictée. · No API key, no dictation.
 title: "[Aria] "
 labels: []
 body:
@@ -7,40 +7,43 @@ body:
     attributes:
       value: |
         Merci. Ne collez pas de clé API, de transcription, de capture d’écran personnelle
-        ni d’identifiant de licence.
+        ni d’identifiant de licence : les issues sont publiques.
+
+        Thank you. Please do not paste an API key, a transcript, a personal screenshot or a
+        licence identifier: issues are public. You can write in English.
   - type: dropdown
     id: chip
     attributes:
-      label: Puce du Mac
+      label: Puce du Mac · Mac chip
       options:
         - Apple Silicon (M1, M2, M3, M4…)
         - Intel
-        - Je ne sais pas
+        - Je ne sais pas · I don’t know
     validations:
       required: true
   - type: input
     id: macos
     attributes:
-      label: Version de macOS
-      placeholder: "par exemple 15.6"
+      label: Version de macOS · macOS version
+      placeholder: "par exemple 15.6 · e.g. 15.6"
     validations:
       required: true
   - type: input
     id: aria
     attributes:
-      label: Version d’Aria
-      placeholder: "Réglages → version, par exemple 2.51.1"
+      label: Version d’Aria · Aria version
+      placeholder: "Réglages → version · Settings → version"
     validations:
       required: true
   - type: textarea
     id: happens
     attributes:
-      label: Ce qui se passe
+      label: Ce qui se passe · What happens
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Ce que vous attendiez
+      label: Ce que vous attendiez · What you expected
     validations:
       required: false
