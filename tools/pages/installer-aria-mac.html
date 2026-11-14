@@ -26,12 +26,12 @@
 
       <h2>Vérifier que le fichier est authentique</h2>
       <p>Chaque version publie une empreinte SHA-256 à côté de son DMG. La comparer prend dix secondes, et c'est le seul moyen d'être certain que le fichier que vous avez est celui que nous avons publié :</p>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Vérifier que le fichier est authentique">
         <table>
           <tbody>
-            <tr><td><strong>Dans le Terminal</strong></td><td><code>shasum -a 256 ~/Downloads/Aria-*.dmg</code></td></tr>
-            <tr><td><strong>À comparer avec</strong></td><td>le fichier <code>.sha256</code> publié à côté du DMG sur la page de version</td></tr>
-            <tr><td><strong>Si elles diffèrent</strong></td><td>supprimez le fichier et retéléchargez-le depuis la page officielle. Ne l'ouvrez pas.</td></tr>
+            <tr><th scope="row"><strong>Dans le Terminal</strong></th><td><code>shasum -a 256 ~/Downloads/Aria-*.dmg</code></td></tr>
+            <tr><th scope="row"><strong>À comparer avec</strong></th><td>le fichier <code>.sha256</code> publié à côté du DMG sur la page de version</td></tr>
+            <tr><th scope="row"><strong>Si elles diffèrent</strong></th><td>supprimez le fichier et retéléchargez-le depuis la page officielle. Ne l'ouvrez pas.</td></tr>
           </tbody>
         </table>
       </div>

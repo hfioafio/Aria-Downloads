@@ -26,12 +26,12 @@
 
       <h2>Check that the file is genuine</h2>
       <p>Every release publishes a SHA-256 fingerprint next to each DMG. Comparing it takes ten seconds and it is the only way to be sure the file you have is the file we published:</p>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Check that the file is genuine">
         <table>
           <tbody>
-            <tr><td><strong>In Terminal</strong></td><td><code>shasum -a 256 ~/Downloads/Aria-*.dmg</code></td></tr>
-            <tr><td><strong>Compare with</strong></td><td>the <code>.sha256</code> file published beside the DMG on the release page</td></tr>
-            <tr><td><strong>If they differ</strong></td><td>delete the file and download it again from the official page. Do not open it.</td></tr>
+            <tr><th scope="row"><strong>In Terminal</strong></th><td><code>shasum -a 256 ~/Downloads/Aria-*.dmg</code></td></tr>
+            <tr><th scope="row"><strong>Compare with</strong></th><td>the <code>.sha256</code> file published beside the DMG on the release page</td></tr>
+            <tr><th scope="row"><strong>If they differ</strong></th><td>delete the file and download it again from the official page. Do not open it.</td></tr>
           </tbody>
         </table>
       </div>
