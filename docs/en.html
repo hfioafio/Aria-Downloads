@@ -296,7 +296,7 @@
     .radio { width:19px; height:19px; margin-top:2px; border:1.5px solid var(--ink-3); border-radius:50% }
     .model.active .radio { border:5px solid var(--blue) }
     .model strong { font-size:17px; font-weight:660 }
-    .model p { margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
+    .model-desc { display:block; margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
     .model-meta { padding:5px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); font-size:10px; font-weight:740; letter-spacing:.05em; text-transform:uppercase }
     .model.active .model-meta { background:color-mix(in srgb,var(--blue) 6%,transparent); color:var(--blue) }
     .model-detail { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:0 0 18px 43px; max-height:0; overflow:hidden; opacity:0; transition:max-height .3s,opacity .25s,margin-top .3s }
@@ -394,6 +394,11 @@
     .contact-form p { color:var(--ink-2); font-size:15px; line-height:1.55 }
     .contact-form p a, .video-frame figcaption a { color:var(--blue); text-decoration:underline; text-underline-offset:3px }
 
+    .read-next-in { padding-top:34px; border-top:1px solid var(--line) }
+    .read-next h2.eyebrow { line-height:1.4 }
+    .read-next-links { display:flex; flex-wrap:wrap; gap:12px 26px; margin-top:14px; font-size:16px }
+    .read-next-links a { color:var(--blue) }
+    .read-next-links a:hover { text-decoration:underline; text-underline-offset:3px }
     .faq { max-width:850px; margin-inline:auto }
     .faq h2 { margin-bottom:42px; text-align:center }
     details { border-bottom:1px solid var(--line) }
@@ -584,14 +589,16 @@
     <section class="video-section" id="video" aria-label="Aria presentation video">
       <div class="shell">
         <figure class="video-frame">
-          <video controls playsinline preload="none" poster="aria-video-en.jpg" width="1920" height="1080" aria-label="See Aria in 23 seconds">
+          <video controls playsinline preload="none" width="1920" height="1080" aria-label="See Aria in 23 seconds">
             <source src="aria-presentation-en-16x9.mp4" type="video/mp4">
           </video>
           <script>
             (() => {
               // Téléphone : version verticale, qui remplit l'écran au lieu d'un bandeau étroit.
-              if (!matchMedia('(max-width: 600px)').matches) return
+              // L'affiche est posée ici et non en attribut : sinon le navigateur téléchargeait
+              // l'affiche horizontale (31 Ko) avant que ce script ne la remplace.
               const video = document.currentScript.previousElementSibling
+              if (!matchMedia('(max-width: 600px)').matches) { video.poster = 'aria-video-en.jpg'; return }
               video.poster = 'aria-video-en-vertical.jpg'
               video.width = 1080; video.height = 1920
               video.querySelector('source').src = 'aria-presentation-en-9x16.mp4'
@@ -693,11 +700,11 @@
           <p class="lede">An online engine or on-device audio processing. Choose what suits your needs.</p>
         </div>
         <div class="model-list reveal" role="radiogroup" aria-label="Aria transcription engines">
-          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Precision</strong><p>Full Groq large-v3 for accents, proper nouns and rare words.</p></span><span class="model-meta">Recommended</span></button>
+          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Precision</strong><span class="model-desc">Full Groq large-v3 for accents, proper nouns and rare words.</span></span><span class="model-meta">Recommended</span></button>
           <div class="model-detail"><div class="metric"><span>Priority</span><b>Accuracy</b></div><div class="metric"><span>Network</span><b>Connection required</b></div></div>
-          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><p>The fastest answer for everyday dictation.</p></span><span class="model-meta">Fast</span></button>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><span class="model-desc">The fastest answer for everyday dictation.</span></span><span class="model-meta">Fast</span></button>
           <div class="model-detail"><div class="metric"><span>Priority</span><b>Speed</b></div><div class="metric"><span>Network</span><b>Connection required</b></div></div>
-          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Local Parakeet</strong><p>Speech to text on the Mac: the audio is sent nowhere.</p></span><span class="model-meta">Private</span></button>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Local Parakeet</strong><span class="model-desc">Speech to text on the Mac: the audio is sent nowhere.</span></span><span class="model-meta">Private</span></button>
           <div class="model-detail"><div class="metric"><span>Priority</span><b>Privacy</b></div><div class="metric"><span>Audio</span><b>On this Mac</b></div></div>
         </div>
       </div>
@@ -850,22 +857,22 @@
         </div>
       </div>
     </section>
-    <section aria-label="Comparisons">
-      <div class="shell" style="border-top:1px solid var(--line);padding-top:34px">
-        <p class="eyebrow">Read next</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:14px;font-size:16px">
-          <a href="best-dictation-apps-mac.html" style="color:var(--blue)">Best dictation apps for Mac, compared</a>
-          <a href="wispr-flow-alternative.html" style="color:var(--blue)">Wispr Flow alternative</a>
-          <a href="superwhisper-alternative.html" style="color:var(--blue)">Superwhisper alternative</a>
-          <a href="macwhisper-alternative.html" style="color:var(--blue)">MacWhisper alternative</a>
-          <a href="mac-dictation-no-subscription.html" style="color:var(--blue)">Mac dictation with no subscription</a>
-          <a href="offline-dictation-mac.html" style="color:var(--blue)">Offline dictation for Mac</a>
-          <a href="meeting-transcription-mac.html" style="color:var(--blue)">Transcribe a meeting</a>
-          <a href="apple-dictation-alternative.html" style="color:var(--blue)">Apple Dictation not working?</a>
-          <a href="parakeet-mac.html" style="color:var(--blue)">NVIDIA Parakeet on a Mac</a>
-          <a href="install-aria-mac.html" style="color:var(--blue)">Installing Aria: the Gatekeeper step</a>
-          <a href="transcribe-audio-file-mac.html" style="color:var(--blue)">Transcribe an audio file</a>
-          <a href="voice-typing-for-developers.html" style="color:var(--blue)">Voice typing for developers</a>
+    <section class="read-next" aria-labelledby="read-next">
+      <div class="shell read-next-in">
+        <h2 class="eyebrow" id="read-next">Read next</h2>
+        <div class="read-next-links">
+          <a href="best-dictation-apps-mac.html">Best dictation apps for Mac, compared</a>
+          <a href="wispr-flow-alternative.html">Wispr Flow alternative</a>
+          <a href="superwhisper-alternative.html">Superwhisper alternative</a>
+          <a href="macwhisper-alternative.html">MacWhisper alternative</a>
+          <a href="mac-dictation-no-subscription.html">Mac dictation with no subscription</a>
+          <a href="offline-dictation-mac.html">Offline dictation for Mac</a>
+          <a href="meeting-transcription-mac.html">Transcribe a meeting</a>
+          <a href="apple-dictation-alternative.html">Apple Dictation not working?</a>
+          <a href="parakeet-mac.html">NVIDIA Parakeet on a Mac</a>
+          <a href="install-aria-mac.html">Installing Aria: the Gatekeeper step</a>
+          <a href="transcribe-audio-file-mac.html">Transcribe an audio file</a>
+          <a href="voice-typing-for-developers.html">Voice typing for developers</a>
         </div>
       </div>
     </section>
@@ -946,6 +953,10 @@
         document.getElementById('demo-context').textContent = example.context;
         document.getElementById('demo-label').textContent = example.label;
         document.getElementById('demo-subject').textContent = example.subject;
+        // Langue du passage (WCAG 3.1.2) : l'exemple Mail de la page française est en anglais.
+        var exampleLang = example.lang || document.documentElement.lang;
+        document.getElementById('demo-subject').lang = exampleLang;
+        demoText.lang = exampleLang;
         document.getElementById('pill-detail').textContent = example.detail;
         pillTitle.textContent = 'Aria is listening';
         demoButtons.forEach(function (button) {

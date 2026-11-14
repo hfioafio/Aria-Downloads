@@ -296,7 +296,7 @@
     .radio { width:19px; height:19px; margin-top:2px; border:1.5px solid var(--ink-3); border-radius:50% }
     .model.active .radio { border:5px solid var(--blue) }
     .model strong { font-size:17px; font-weight:660 }
-    .model p { margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
+    .model-desc { display:block; margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
     .model-meta { padding:5px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); font-size:10px; font-weight:740; letter-spacing:.05em; text-transform:uppercase }
     .model.active .model-meta { background:color-mix(in srgb,var(--blue) 6%,transparent); color:var(--blue) }
     .model-detail { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:0 0 18px 43px; max-height:0; overflow:hidden; opacity:0; transition:max-height .3s,opacity .25s,margin-top .3s }
@@ -394,6 +394,11 @@
     .contact-form p { color:var(--ink-2); font-size:15px; line-height:1.55 }
     .contact-form p a, .video-frame figcaption a { color:var(--blue); text-decoration:underline; text-underline-offset:3px }
 
+    .read-next-in { padding-top:34px; border-top:1px solid var(--line) }
+    .read-next h2.eyebrow { line-height:1.4 }
+    .read-next-links { display:flex; flex-wrap:wrap; gap:12px 26px; margin-top:14px; font-size:16px }
+    .read-next-links a { color:var(--blue) }
+    .read-next-links a:hover { text-decoration:underline; text-underline-offset:3px }
     .faq { max-width:850px; margin-inline:auto }
     .faq h2 { margin-bottom:42px; text-align:center }
     details { border-bottom:1px solid var(--line) }
@@ -551,8 +556,8 @@
                 <span class="compose-status">Aria active</span>
               </div>
               <div class="field-label" id="demo-label">Objet</div>
-              <div class="subject" id="demo-subject">Revised proposal</div>
-              <p class="inserted empty" id="demo-text"><span class="cursor" aria-hidden="true"></span></p>
+              <div class="subject" id="demo-subject" lang="en">Revised proposal</div>
+              <p class="inserted empty" id="demo-text" lang="en"><span class="cursor" aria-hidden="true"></span></p>
               <span class="demo-hint">Démonstration simulée — aucun micro utilisé</span>
             </div>
           </div>
@@ -584,14 +589,16 @@
     <section class="video-section" id="video" aria-label="Vidéo de présentation d’Aria">
       <div class="shell">
         <figure class="video-frame">
-          <video controls playsinline preload="none" poster="aria-video-fr.jpg" width="1920" height="1080" aria-label="Voir Aria en 23 secondes">
+          <video controls playsinline preload="none" width="1920" height="1080" aria-label="Voir Aria en 23 secondes">
             <source src="aria-presentation-fr-16x9.mp4" type="video/mp4">
           </video>
           <script>
             (() => {
               // Téléphone : version verticale, qui remplit l'écran au lieu d'un bandeau étroit.
-              if (!matchMedia('(max-width: 600px)').matches) return
+              // L'affiche est posée ici et non en attribut : sinon le navigateur téléchargeait
+              // l'affiche horizontale (31 Ko) avant que ce script ne la remplace.
               const video = document.currentScript.previousElementSibling
+              if (!matchMedia('(max-width: 600px)').matches) { video.poster = 'aria-video-fr.jpg'; return }
               video.poster = 'aria-video-fr-vertical.jpg'
               video.width = 1080; video.height = 1920
               video.querySelector('source').src = 'aria-presentation-fr-9x16.mp4'
@@ -639,7 +646,7 @@
           <article class="story-row reveal">
             <div class="story-copy">
               <p class="mini">Langue préservée</p>
-              <h3>English in.<br>English out.</h3>
+              <h3 lang="en">English in.<br>English out.</h3>
               <p>La détection automatique peut être guidée par vos langues habituelles. Pour un mail entièrement anglais, vous pouvez aussi verrouiller la langue.</p>
             </div>
             <div class="story-visual">
@@ -693,11 +700,11 @@
           <p class="lede">Un moteur en ligne ou un traitement audio local. Choisissez selon vos besoins.</p>
         </div>
         <div class="model-list reveal" role="radiogroup" aria-label="Moteurs de transcription Aria">
-          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Précision</strong><p>Groq large-v3 complet pour les accents, noms propres et mots rares.</p></span><span class="model-meta">Recommandé</span></button>
+          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Précision</strong><span class="model-desc">Groq large-v3 complet pour les accents, noms propres et mots rares.</span></span><span class="model-meta">Recommandé</span></button>
           <div class="model-detail"><div class="metric"><span>Priorité</span><b>Précision</b></div><div class="metric"><span>Réseau</span><b>Connexion requise</b></div></div>
-          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><p>La réponse la plus rapide pour la dictée quotidienne.</p></span><span class="model-meta">Rapide</span></button>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><span class="model-desc">La réponse la plus rapide pour la dictée quotidienne.</span></span><span class="model-meta">Rapide</span></button>
           <div class="model-detail"><div class="metric"><span>Priorité</span><b>Vitesse</b></div><div class="metric"><span>Réseau</span><b>Connexion requise</b></div></div>
-          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Parakeet local</strong><p>Transcription sur le Mac : l’audio n’est envoyé nulle part.</p></span><span class="model-meta">Privé</span></button>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Parakeet local</strong><span class="model-desc">Transcription sur le Mac : l’audio n’est envoyé nulle part.</span></span><span class="model-meta">Privé</span></button>
           <div class="model-detail"><div class="metric"><span>Priorité</span><b>Vie privée</b></div><div class="metric"><span>Audio</span><b>Sur le Mac</b></div></div>
         </div>
       </div>
@@ -850,22 +857,22 @@
         </div>
       </div>
     </section>
-    <section aria-label="Comparatifs">
-      <div class="shell" style="border-top:1px solid var(--line);padding-top:34px">
-        <p class="eyebrow">À lire aussi</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:14px;font-size:16px">
-          <a href="alternative-wispr-flow.html" style="color:var(--blue)">Alternative à Wispr Flow</a>
-          <a href="alternative-superwhisper.html" style="color:var(--blue)">Alternative à Superwhisper</a>
-          <a href="dictee-vocale-mac-sans-abonnement.html" style="color:var(--blue)">Dictée vocale Mac sans abonnement</a>
-          <a href="dictee-vocale-mac.html" style="color:var(--blue)">Quelle app de dictée choisir en 2026</a>
-          <a href="transcrire-reunion-mac.html" style="color:var(--blue)">Transcrire une réunion sur Mac</a>
-          <a href="dictee-vocale-mac-hors-ligne.html" style="color:var(--blue)">Dicter hors ligne : ce qui marche</a>
-          <a href="installer-aria-mac.html" style="color:var(--blue)">Installer Aria : l’étape Gatekeeper</a>
-          <a href="transcrire-fichier-audio-mac.html" style="color:var(--blue)">Transcrire un fichier audio</a>
-          <a href="dictee-apple-ne-fonctionne-pas.html" style="color:var(--blue)">La dictée d’Apple ne marche pas</a>
-          <a href="alternative-macwhisper.html" style="color:var(--blue)">Alternative à MacWhisper</a>
-          <a href="modele-parakeet-mac.html" style="color:var(--blue)">Le modèle Parakeet en local</a>
-          <a href="dictee-vocale-developpeurs.html" style="color:var(--blue)">Dicter quand on code</a>
+    <section class="read-next" aria-labelledby="lire-aussi">
+      <div class="shell read-next-in">
+        <h2 class="eyebrow" id="lire-aussi">À lire aussi</h2>
+        <div class="read-next-links">
+          <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
+          <a href="alternative-superwhisper.html">Alternative à Superwhisper</a>
+          <a href="dictee-vocale-mac-sans-abonnement.html">Dictée vocale Mac sans abonnement</a>
+          <a href="dictee-vocale-mac.html">Quelle app de dictée choisir en 2026</a>
+          <a href="transcrire-reunion-mac.html">Transcrire une réunion sur Mac</a>
+          <a href="dictee-vocale-mac-hors-ligne.html">Dicter hors ligne : ce qui marche</a>
+          <a href="installer-aria-mac.html">Installer Aria : l’étape Gatekeeper</a>
+          <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier audio</a>
+          <a href="dictee-apple-ne-fonctionne-pas.html">La dictée d’Apple ne marche pas</a>
+          <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
+          <a href="modele-parakeet-mac.html">Le modèle Parakeet en local</a>
+          <a href="dictee-vocale-developpeurs.html">Dicter quand on code</a>
         </div>
       </div>
     </section>
@@ -916,7 +923,7 @@
         mail:{
           avatar:'JM',person:'Jean Martin',context:'Nouveau message',label:'Objet',subject:'Revised proposal',
           text:'Send the revised proposal before Friday, and keep the tone concise.',
-          detail:'Groq Précision · anglais conservé'
+          detail:'Groq Précision · anglais conservé', lang:'en'
         },
         messages:{
           avatar:'L',person:'Léa',context:'Conversation',label:'Message',subject:'Projet de vendredi',
@@ -946,6 +953,10 @@
         document.getElementById('demo-context').textContent = example.context;
         document.getElementById('demo-label').textContent = example.label;
         document.getElementById('demo-subject').textContent = example.subject;
+        // Langue du passage (WCAG 3.1.2) : l'exemple Mail de la page française est en anglais.
+        var exampleLang = example.lang || document.documentElement.lang;
+        document.getElementById('demo-subject').lang = exampleLang;
+        demoText.lang = exampleLang;
         document.getElementById('pill-detail').textContent = example.detail;
         pillTitle.textContent = 'Aria écoute';
         demoButtons.forEach(function (button) {
