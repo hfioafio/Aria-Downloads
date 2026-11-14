@@ -1,18 +1,18 @@
 {
-  "version": "2.61.0",
-  "releaseDate": "2026-10-21",
+  "version": "2.62.1",
+  "releaseDate": "2026-11-14",
   "minimumVersion": "2.48.1",
-  "notes": "Aria 2.61.0 : casque Bluetooth qui garde le son, transcriptions longues reprenables, nouveau design.",
+  "notes": "Aria 2.62.1 : pause des transcriptions corrigée, premier lancement vérifié et copie récente préservée.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.61.0/Aria-2.61.0-Apple-Silicon.dmg",
-      "sha256": "5e1dc1f3c0665df9555db0260ba710f775f67abe44f6c8c46d7b0f0b5eda5ee6",
-      "size": 147118337
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-2.62.1-Apple-Silicon.dmg",
+      "sha256": "8ecf3bd2d17bfec5f5bd76ea89007de4e243243dbe662b6d896f5aaf3d5a794d",
+      "size": 147150577
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.61.0/Aria-2.61.0-Intel.dmg",
-      "sha256": "05f1517a38e9d2ebd8c9ec4a4f33f03c1a5c830ad5602048e5d47b449c327adb",
-      "size": 153039066
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-2.62.1-Intel.dmg",
+      "sha256": "946d119ce9cc53f2b30e9326586ddf03d7e1586f4005cafaba5229420fcceaba",
+      "size": 153057740
     }
   }
 }
