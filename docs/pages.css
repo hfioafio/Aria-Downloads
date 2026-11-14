@@ -1,19 +1,21 @@
 :root {
   --page:#f6f6f3; --surface:#ffffff; --surface-2:#ededeb;
-  --ink:#101114; --ink-2:#55565d; --ink-3:#8a8b91;
+  --ink:#101114; --ink-2:#55565d; --ink-3:#696a70;
   --line:rgba(16,17,20,.10); --line-strong:rgba(16,17,20,.17);
-  --blue:#0878f9; --green:#26a760; --voice:#ff655c;
+  --blue:#0066d6; --green:#1a7f45; --voice:#c9302a;
   --shadow-soft:0 15px 45px rgba(16,17,24,.08);
+  --scroll-hint:rgba(16,17,20,.22);
   --max:820px;
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
   color-scheme:light;
 }
 :root[data-theme="dark"] {
   --page:#08090b; --surface:#121318; --surface-2:#1a1c22;
-  --ink:#f5f5f7; --ink-2:#b2b3ba; --ink-3:#73747d;
+  --ink:#f5f5f7; --ink-2:#b2b3ba; --ink-3:#8a8b93;
   --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.15);
   --blue:#2997ff; --green:#35c46d; --voice:#ff7169;
   --shadow-soft:0 18px 50px rgba(0,0,0,.26);
+  --scroll-hint:rgba(255,255,255,.2);
   color-scheme:dark;
 }
 * { box-sizing:border-box; margin:0; padding:0 }
@@ -21,6 +23,10 @@ body { min-width:320px; background:var(--page); color:var(--ink); font-family:va
   -webkit-font-smoothing:antialiased; line-height:1.62; font-size:17px }
 a { color:var(--blue); text-decoration:none }
 a:hover { text-decoration:underline }
+:focus-visible { outline:3px solid color-mix(in srgb,var(--blue) 55%,transparent); outline-offset:3px; border-radius:4px }
+/* Un lien dans un paragraphe ne doit pas se distinguer par la seule couleur (WCAG 1.4.1). */
+main p a:not(.button), main li a:not(.button), main td a:not(.button) { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px }
+.visually-hidden { position:absolute !important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0 }
 .shell { width:min(calc(100% - 40px),var(--max)); margin-inline:auto }
 .skip { position:fixed; z-index:500; top:-70px; left:16px; padding:10px 14px; border-radius:10px; background:var(--ink); color:var(--page) }
 .skip:focus { top:16px }
@@ -37,6 +43,7 @@ a:hover { text-decoration:underline }
 .mark i:nth-child(3) { height:16px }
 .nav-links { display:flex; align-items:center; gap:18px; font-size:14px }
 .nav-links a { color:var(--ink-2) }
+.nav-links a.button { color:var(--page) }
 .button { display:inline-block; padding:11px 20px; border-radius:999px; font-size:15px; font-weight:560;
   background:var(--ink); color:var(--page); border:1px solid transparent }
 .button:hover { text-decoration:none; opacity:.9 }
@@ -51,12 +58,21 @@ p { margin:0 0 16px; color:var(--ink-2) }
 strong { color:var(--ink); font-weight:600 }
 ul,ol { margin:0 0 18px 22px; color:var(--ink-2) }
 li { margin-bottom:8px }
-.table-wrap { overflow-x:auto; margin:22px 0 26px; border:1px solid var(--line); border-radius:14px; background:var(--surface) }
+/* Sur téléphone, le tableau défile horizontalement. Les ombres de bord (qui suivent le défilement)
+   signalent qu'il reste des colonnes à voir ; sans elles, la colonne du concurrent passait inaperçue. */
+.table-wrap { overflow-x:auto; margin:22px 0 26px; border:1px solid var(--line); border-radius:14px;
+  background:
+    linear-gradient(to right,var(--surface) 30%,transparent) left center / 40px 100% no-repeat local,
+    linear-gradient(to left,var(--surface) 30%,transparent) right center / 40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,var(--scroll-hint),transparent) left center / 14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%,var(--scroll-hint),transparent) right center / 14px 100% no-repeat scroll,
+    var(--surface) }
 table { border-collapse:collapse; width:100%; min-width:520px; font-size:15px }
 th,td { text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top }
 thead th { color:var(--ink); font-weight:620; background:var(--surface-2); white-space:nowrap }
-tbody tr:last-child td { border-bottom:0 }
-td strong { color:var(--ink) }
+tbody th { color:var(--ink); font-weight:600 }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom:0 }
+td strong, th strong { color:var(--ink) }
 .yes { color:var(--green); font-weight:600 }
 .no { color:var(--voice); font-weight:600 }
 .card { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin:26px 0; box-shadow:var(--shadow-soft) }
@@ -78,21 +94,18 @@ footer { margin-top:60px; border-top:1px solid var(--line); padding:26px 0 46px;
 .footer-in { display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; justify-content:space-between }
 .footer-links { display:flex; flex-wrap:wrap; gap:16px }
 .footer-links a { color:var(--ink-3) }
-@media (max-width:620px) { main { padding-top:34px } .nav-links a:not(.button) { display:none } }
+/* Sur téléphone, « Accueil » double le logo ; le lien de langue reste, sinon il n'existe plus qu'en pied de page. */
+@media (max-width:620px) { main { padding-top:34px } .nav-links a:not(.button):not([hreflang]) { display:none } .nav-links { gap:14px } }
 @media (prefers-reduced-motion:reduce) { * { animation:none !important; transition:none !important } }
 
-/* À lire aussi — les pages de comparaison ne se liaient qu'à l'accueil et à leur traduction.
-   Un lecteur arrivé par une recherche précise repartait donc sans rien d'autre à lire, et un
-   robot n'avait aucun chemin latéral à suivre. Trois liens, même langue, choisis un par un. */
-.related { margin:40px 0 8px; padding:22px 24px; border:1px solid var(--line); border-radius:18px; background:var(--surface) }
-.related h2 { margin:0 0 12px; font-size:17px }
-.related ul { margin:0; padding:0; list-style:none; display:grid; gap:10px }
-.related a { color:var(--ink-2); text-decoration:none; border-bottom:1px solid transparent }
-.related a:hover { color:var(--ink); border-bottom-color:currentColor }
-.related { margin-top:54px; padding-top:26px; border-top:1px solid var(--line) }
+/* À lire aussi — sans ces liens, un lecteur arrivé par une recherche précise repartait sans rien
+   d'autre à lire, et un robot n'avait aucun chemin latéral à suivre. Huit liens, même langue,
+   produits par build_pages.py. (Les deux jeux de règles qui se chevauchaient ici sont fusionnés,
+   au rendu identique.) */
+.related { margin:54px 0 8px; padding:26px 24px 22px; border:1px solid var(--line); border-radius:18px; background:var(--surface) }
 .related h2 { margin:0 0 14px; font-size:15px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); font-weight:600 }
 .related-links { display:flex; flex-wrap:wrap; gap:10px 24px; font-size:16px }
-.related-links a { color:var(--blue) }
+.related-links a { color:var(--blue); padding:2px 0 }
 code { font-family:"SF Mono",ui-monospace,Menlo,monospace; font-size:.92em; background:var(--surface-2);
   border:1px solid var(--line); border-radius:6px; padding:2px 6px; color:var(--ink); white-space:nowrap }
 td code { white-space:nowrap }
