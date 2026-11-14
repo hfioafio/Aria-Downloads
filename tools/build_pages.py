@@ -22,10 +22,16 @@ L = {
                dl_arm="Download for Apple Silicon", dl_x64="Intel Mac"),
 }
 
+# Politique de sécurité : aucune requête sortante possible (connect-src 'none'), donc aucune
+# mesure d'audience, même ajoutée par erreur ; scripts et styles en ligne autorisés (le site en
+# dépend), ressources limitées au site. stats.html, qui lit l'API GitHub, n'en a pas.
+CSP = """default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"""
+
 TEMPLATE = """<!doctype html>
 <html lang="{lang}">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -326,6 +332,7 @@ def build():
                        '        </div>\n      </section>\n') % (heading, heading, items)
 
         html = TEMPLATE.format(
+            csp=CSP,
             lang=lang, title=p["title"], description=p["description"], base=BASE, slug=p["slug"],
             alternates=alt, jsonld=jsonld, oglocale="fr_FR" if lang == "fr" else "en_US",
             body=body, related=related, crumb=p["crumb"], homehref="./" if lang == "fr" else "en.html",

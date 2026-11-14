@@ -146,6 +146,12 @@ def check(live=False):
     for tag, href in pages["404.html"].refs:
         require(re.match(r"(https?:|/|#)", href) is not None, f"404.html : chemin relatif {href}, cassé sur une URL imbriquée")
 
+    # La vitrine promet de ne transmettre « aucune visite ni aucun clic » : la politique de
+    # sécurité le garantit (aucune requête sortante possible depuis ces pages).
+    for name in indexed + ["404.html"]:
+        csp = re.search(r'<meta http-equiv="Content-Security-Policy" content="([^"]*)"', sources[name])
+        require(csp is not None and "connect-src 'none'" in csp.group(1), f"{name}: politique de sécurité absente ou autorisant des requêtes sortantes")
+
     for name, source in sources.items():
         for wrap in re.findall(r'<div class="table-wrap"[^>]*>', source):
             require('tabindex="0"' in wrap, f"{name}: tableau défilant inaccessible au clavier")
