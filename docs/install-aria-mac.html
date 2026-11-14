@@ -83,7 +83,7 @@
 
       <h2>What the messages mean</h2>
       <h3>“macOS cannot verify that this app is free of malware”</h3>
-      <p>This is the expected one. It means the app has a valid developer signature but has not been through Apple's notarisation service, which is a paid scanning step. It is not a virus warning and it is not a claim that anything is wrong with the file. Use the System Settings route above.</p>
+      <p>This is the expected one. It means Apple could not check the app: it is signed, but not notarised. Notarisation is an automated Apple scan reserved for apps signed with a Developer ID certificate, which in turn requires Apple's paid developer programme. It is not a virus warning and it is not a claim that anything is wrong with the file. Use the System Settings route above.</p>
       <h3>“Aria is damaged and can't be opened. You should move it to the Trash”</h3>
       <p>Despite the wording, this usually is not malware either — it most often means the download was <strong>incomplete or corrupted</strong>, or the app bundle was modified after signing. Do not force it open. Delete it, download again, and check the SHA-256 as described below. If the checksum matches and the message persists, tell us in an issue rather than working around it.</p>
       <h3>“The application is from an unidentified developer”</h3>
@@ -103,7 +103,7 @@
       <p>Only ever bypass Gatekeeper for a file that came from <a href="en.html">this site</a> or the <a href="https://github.com/hfioafio/Aria-Downloads/releases">official GitHub releases page</a>. If you found Aria somewhere else, that copy is not ours.</p>
 
       <h2>Why Aria is not notarised yet</h2>
-      <p>Aria’s public beta is not yet notarised by Apple. Signing and notarisation are distinct checks; this page explains opening this beta without asking you to disable macOS protections.</p>
+      <p>Aria’s public beta is not yet notarised by Apple: notarisation requires a Developer ID certificate, and therefore a membership of Apple’s paid developer programme, which the team does not have yet. Signing and notarisation are distinct checks; this page explains opening this beta without asking you to disable macOS protections.</p>
       <p>In the meantime, three things are true and checkable: the app is signed with a stable identity, so macOS keeps your Microphone and Accessibility permissions across updates; every DMG publishes its SHA-256; and updates verify size, checksum and signing identity before installing, rolling back automatically if the new version fails to start.</p>
 
       <h2>Questions</h2>

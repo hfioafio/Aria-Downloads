@@ -83,7 +83,7 @@
 
       <h2>Ce que veulent dire les messages</h2>
       <h3>« macOS ne peut pas vérifier que cette app ne contient pas de logiciel malveillant »</h3>
-      <p>C'est le message attendu. Il signifie que l'application possède une signature de développeur valide mais qu'elle n'est pas passée par le service de notarisation d'Apple, une étape d'analyse payante. Ce n'est pas une alerte antivirus, et ce n'est pas une affirmation que le fichier est anormal. Suivez la marche à suivre ci-dessus.</p>
+      <p>C'est le message attendu. Il signifie qu'Apple n'a pas pu vérifier l'application : elle est signée, mais pas notarisée. La notarisation est une analyse automatique d'Apple, réservée aux applications signées avec un certificat Developer ID, donc aux membres de son programme développeur payant. Ce n'est pas une alerte antivirus, et ce n'est pas une affirmation que le fichier est anormal. Suivez la marche à suivre ci-dessus.</p>
       <h3>« Aria est endommagée et ne peut pas être ouverte. Placez-la dans la corbeille »</h3>
       <p>Malgré la formulation, il ne s'agit généralement pas non plus d'un logiciel malveillant : le plus souvent, le téléchargement était <strong>incomplet ou corrompu</strong>, ou le contenu de l'application a été modifié après signature. Ne forcez pas l'ouverture. Supprimez-la, téléchargez-la de nouveau et vérifiez l'empreinte SHA-256 comme expliqué plus bas. Si l'empreinte correspond et que le message persiste, signalez-le dans une issue plutôt que de chercher à contourner.</p>
       <h3>« L'application provient d'un développeur non identifié »</h3>
@@ -103,7 +103,7 @@
       <p>Ne contournez Gatekeeper que pour un fichier venu de <a href="./">ce site</a> ou de la <a href="https://github.com/hfioafio/Aria-Downloads/releases">page officielle des versions sur GitHub</a>. Si vous avez trouvé Aria ailleurs, cette copie n'est pas la nôtre.</p>
 
       <h2>Pourquoi Aria n'est pas encore notarisée</h2>
-      <p>La bêta publique d’Aria n’est pas encore notarisée par Apple. La signature et la notarisation sont deux contrôles distincts ; cette page explique l’étape d’ouverture de cette bêta, sans demander de désactiver les protections de macOS.</p>
+      <p>La bêta publique d’Aria n’est pas encore notarisée par Apple : la notarisation exige un certificat Developer ID, et donc l’adhésion au programme développeur payant d’Apple, que l’équipe n’a pas encore. La signature et la notarisation sont deux contrôles distincts ; cette page explique l’étape d’ouverture de cette bêta, sans demander de désactiver les protections de macOS.</p>
       <p>En attendant, trois choses sont vraies et vérifiables : l'application est signée avec une identité stable, donc macOS conserve vos autorisations Micro et Accessibilité d'une mise à jour à l'autre ; chaque DMG publie son empreinte SHA-256 ; et les mises à jour contrôlent la taille, l'empreinte et l'identité de signature avant d'installer, avec retour automatique à la version précédente si la nouvelle ne démarre pas.</p>
 
       <h2>Questions</h2>
