@@ -58,7 +58,10 @@ Aria into Applications:
 1. Try to open it once.
 2. If macOS blocks it: **System Settings → Privacy & Security → Open Anyway**.
 
-Only do this for a file downloaded from **this repository** or from the official site.
+Only do this for a file downloaded from **this repository** or from the official site. To check
+the file first, run `shasum -a 256 ~/Downloads/Aria-Installer-*.dmg` in Terminal: the value must
+match the SHA-256 file of your build. If it does not, delete the DMG without opening it.
+[Install guide](https://hfioafio.github.io/Aria-Downloads/install-aria-mac.html)
 
 ## Updates
 
@@ -72,6 +75,11 @@ Personal API keys stay in the macOS Keychain. Application data stays on the Mac.
 model no audio is sent anywhere. With the bundled Groq mode, audio passes through a rate-limited
 Aria relay to Groq and is dropped immediately; the relay stores neither audio nor text. Only
 pseudonymous, bounded counters protect the shared quota.
+
+Since 2.61.0, Aria downloads an empty file from this repository on install, on each new version
+and once per week of use, so that GitHub's public download total shows how many Macs run it. No
+identifier, text or setting is sent; the counter can be turned off in Settings → Data. Detailed
+usage statistics stay off unless you turn them on.
 
 This page and this repository carry no advertising and no third-party tracker.
 
@@ -102,6 +110,8 @@ noms propres dans un dictionnaire personnel et garde un historique local consult
 **Première ouverture :** cette version est signée avec une identité stable mais n’est pas encore
 notarisée par Apple. Essayez de l’ouvrir une fois, puis **Réglages Système → Confidentialité et
 sécurité → Ouvrir quand même**. Ne faites cette étape que pour un fichier venu de ce dépôt.
+Pour le vérifier avant : `shasum -a 256 ~/Downloads/Aria-Installer-*.dmg` doit afficher l’empreinte
+du fichier SHA-256 de votre Mac ; sinon, supprimez le DMG sans l’ouvrir.
 
 **Aide :** ouvrez une [issue](https://github.com/hfioafio/Aria-Downloads/issues/new). N’y collez
 pas de clé API, de dictée, ni d’autre donnée personnelle.
