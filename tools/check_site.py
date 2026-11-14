@@ -118,6 +118,44 @@ def check(live=False):
         require(len(links) == 2 and all("/Aria-Installer-" in href for href in links), f"{name}: deux installateurs distincts attendus")
         versions.append(set(re.findall(r"releases/download/v([^/]+)/", " ".join(links))))
     require(len(versions[0]) == 1 and versions[0] == versions[1], "Versions FR/EN des installateurs incohérentes")
+    site_version = next(iter(versions[0]), None)
+
+    # Sécurité du téléchargement : chaque DMG proposé a son empreinte, au même nom, et tout
+    # désigne la même version (le robot de publication remplace les numéros un par un).
+    for name in ("index.html", "en.html"):
+        links = {href for tag, href in pages[name].refs if tag == "a"}
+        for dmg in [h for h in links if h.endswith(".dmg")]:
+            require(dmg + ".sha256" in links, f"{name}: empreinte SHA-256 absente pour {dmg.rsplit('/', 1)[-1]}")
+        apps = [data for data in pages[name].jsonld if data.get("@type") == "SoftwareApplication"]
+        require(apps and apps[0].get("softwareVersion") == site_version, f"{name}: softwareVersion différente des liens de téléchargement")
+        require(f"releases/tag/v{site_version}" in sources[name], f"{name}: lien vers la page de version absent ou périmé")
+
+    manifest = json.loads((ROOT / "updates" / "preview.json").read_text(encoding="utf-8"))
+    require(manifest.get("version") == site_version, f"updates/preview.json ({manifest.get('version')}) ≠ version proposée sur le site ({site_version})")
+    for arch, entry in manifest.get("downloads", {}).items():
+        require(f"/releases/download/v{manifest.get('version')}/" in entry.get("url", ""), f"preview.json : URL {arch} hors de la version annoncée")
+        require(re.fullmatch(r"[0-9a-f]{64}", entry.get("sha256", "")) is not None, f"preview.json : SHA-256 {arch} invalide")
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    readme_dmg = re.findall(r"\((https://github\.com/[^)]+?\.dmg)\)", readme)
+    readme_sha = set(re.findall(r"\((https://github\.com/[^)]+?\.dmg\.sha256)\)", readme))
+    require(readme_dmg and all(f"/releases/download/v{site_version}/" in url for url in readme_dmg), "README : liens de téléchargement d'une autre version que le site")
+    require(all(url + ".sha256" in readme_sha for url in set(readme_dmg)), "README : empreinte SHA-256 absente pour un DMG")
+
+    # GitHub Pages sert 404.html pour toute URL absente, même imbriquée : rien de relatif.
+    for tag, href in pages["404.html"].refs:
+        require(re.match(r"(https?:|/|#)", href) is not None, f"404.html : chemin relatif {href}, cassé sur une URL imbriquée")
+
+    for name, source in sources.items():
+        for wrap in re.findall(r'<div class="table-wrap"[^>]*>', source):
+            require('tabindex="0"' in wrap, f"{name}: tableau défilant inaccessible au clavier")
+
+    # Avertissements : ne bloquent pas, mais signalent ce qu'un humain doit vérifier.
+    warnings = []
+    for name, source in sorted(sources.items()):
+        for playlist in sorted(set(re.findall(r"youtube\.com/playlist\?list=([\w-]+)", source))):
+            if not re.fullmatch(r"PL[\w-]{16}|PL[\w-]{32}", playlist):
+                warnings.append(f"{name}: identifiant de playlist YouTube inhabituel ({playlist}, {len(playlist)} caractères) : lien probablement tronqué")
 
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     sitemap = ET.parse(DOCS / "sitemap.xml").getroot()
@@ -125,6 +163,8 @@ def check(live=False):
     expected = {BASE + ("" if name == "index.html" else name) for name in indexed}
     require(len(urls) == len(expected) and set(urls) == expected, "Sitemap différent des pages indexables")
 
+    for message in warnings:
+        print("Avertissement : " + message, file=sys.stderr)
     if errors:
         for message in errors:
             print(message, file=sys.stderr)
@@ -149,7 +189,21 @@ def check(live=False):
                 print(f"Publication différente du fichier validé : {name}", file=sys.stderr)
                 return 1
             checked += 1
-        print(f"OK : {checked} fichiers réellement servis identiques aux fichiers validés ; aucun DMG téléchargé.")
+        # Les fichiers .sha256 proposés aux visiteurs doivent porter l'empreinte du manifeste de mise à
+        # jour (les DMG « Installer » et ceux de la mise à jour sont identiques). Quelques octets chacun.
+        for arch, label in (("arm64", "Apple-Silicon"), ("x64", "Intel")):
+            url = next(href for tag, href in pages["index.html"].refs if tag == "a" and href.endswith(f"-{label}.dmg.sha256"))
+            try:
+                with urlopen(Request(url), timeout=25, context=context) as response:
+                    published = response.read(4096).decode("utf-8", "replace").split()[0].lower()
+            except (OSError, IndexError) as error:
+                print(f"Empreinte publiée illisible ({label}) : {error}", file=sys.stderr)
+                return 1
+            if published != manifest["downloads"][arch]["sha256"]:
+                print(f"Empreinte {label} publiée ≠ manifeste de mise à jour", file=sys.stderr)
+                return 1
+            checked += 1
+        print(f"OK : {checked} fichiers réellement servis identiques aux fichiers validés, empreintes publiées conformes au manifeste ; aucun DMG téléchargé.")
     return 0
 
 
