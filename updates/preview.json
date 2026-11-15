@@ -1,18 +1,18 @@
 {
-  "version": "2.62.1",
-  "releaseDate": "2026-11-14",
+  "version": "2.62.2",
+  "releaseDate": "2026-11-15",
   "minimumVersion": "2.48.1",
-  "notes": "Aria 2.62.1 : pause des transcriptions corrigée, premier lancement vérifié et copie récente préservée.",
+  "notes": "Aria 2.62.2 : pause des transcriptions corrigée, premier lancement vérifié et copie récente préservée.",
   "downloads": {
     "arm64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-2.62.1-Apple-Silicon.dmg",
-      "sha256": "8ecf3bd2d17bfec5f5bd76ea89007de4e243243dbe662b6d896f5aaf3d5a794d",
-      "size": 147150577
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-2.62.2-Apple-Silicon.dmg",
+      "sha256": "4780c871bb07edd97c27ba9adee87770095675dfa60f2236dd198891fb9b5e70",
+      "size": 147174859
     },
     "x64": {
-      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-2.62.1-Intel.dmg",
-      "sha256": "946d119ce9cc53f2b30e9326586ddf03d7e1586f4005cafaba5229420fcceaba",
-      "size": 153057740
+      "url": "https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-2.62.2-Intel.dmg",
+      "sha256": "ada7154b0185eccd352b6462338e961d3afa84faf62e4a48d8a7d6add93d7535",
+      "size": 153091577
     }
   }
 }
