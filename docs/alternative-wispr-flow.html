@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -63,12 +64,12 @@
     <div class="shell">
       <p class="crumb"><a href="./">Aria</a> · Alternative à Wispr Flow</p>
       <p class="eyebrow">Comparatif</p>
-      <h1>Alternative à Wispr Flow sur Mac : un mode local au choix</h1>
-      <p class="lede">Vous voulez dicter dans vos applications Mac tout en choisissant où la voix est traitée ? Aria propose un mode Local après téléchargement d’un modèle et un mode Automatique en ligne. Comparez cette approche avec le service et les offres actuels de Wispr Flow.</p>
+      <h1>Alternative à Wispr Flow sur Mac : un mode local au choix</h1>
+      <p class="lede">Vous voulez dicter dans vos applications Mac tout en choisissant où la voix est traitée ? Aria propose un mode Local après téléchargement d’un modèle et un mode Automatique en ligne. Comparez cette approche avec le service et les offres actuels de Wispr Flow.</p>
 
       <div class="cta">
         <h2 style="margin-top:0">Essayer Aria gratuitement</h2>
-        <p>2 000 mots gratuits par semaine pour essayer la dictée et la transcription. L’achat Pro est fermé pendant la bêta actuelle.</p>
+        <p>2 000 mots gratuits par semaine pour essayer la dictée et la transcription. L’achat Pro est fermé pendant la bêta actuelle.</p>
         <div class="cta-actions">
           <a class="button" href="./#telecharger">Télécharger Aria</a>
         </div>
@@ -76,23 +77,23 @@
       </div>
 
       <h2>Le tableau, sans détour</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Le tableau, sans détour">
         <table>
-          <thead><tr><th>&nbsp;</th><th>Aria</th><th>Wispr Flow</th></tr></thead>
+          <thead><tr><th scope="col"><span class="visually-hidden">Critère</span></th><th scope="col">Aria</th><th scope="col">Wispr Flow</th></tr></thead>
           <tbody>
-            <tr><td><strong>Offre gratuite</strong></td><td>2 000 mots / semaine</td><td>Consulter le quota actuel sur le site officiel</td></tr>
-            <tr><td><strong>Offre payante</strong></td><td>Achat Pro fermé pendant la bêta</td><td>Consulter les tarifs officiels</td></tr>
-            <tr><td><strong>Avant de choisir</strong></td><td>Essayer le quota gratuit</td><td>Vérifier formule et facturation</td></tr>
-            <tr><td><strong>Traitement local de la voix</strong></td><td class="yes">Oui, avec un modèle téléchargé ; contrôles de quota/licence possibles en ligne</td><td class="no">Vérifier les conditions réseau du service</td></tr>
-            <tr><td><strong>Où l’audio est traité</strong></td><td>Sur le Mac en Local ; par le service fourni par Aria en Automatique</td><td>Consulter la politique de confidentialité actuelle</td></tr>
-            <tr><td><strong>Écrit dans n'importe quelle app</strong></td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
-            <tr><td><strong>Option en ligne</strong></td><td class="yes">Automatique, fourni pendant la bêta sans clé, avec limites</td><td class="no">Service intégré ; voir les offres actuelles</td></tr>
-            <tr><td><strong>Transcription de fichiers audio et vidéo</strong></td><td class="yes">Oui</td><td>Notes de réunion, pas des fichiers quelconques</td></tr>
-            <tr><td><strong>Identification des locuteurs</strong></td><td class="yes">Oui, en local</td><td>Dans les notes de réunion</td></tr>
-            <tr><td><strong>Dictionnaire personnel</strong></td><td class="yes">Oui, appris de vos corrections</td><td class="yes">Oui</td></tr>
-            <tr><td><strong>Plateformes</strong></td><td>macOS uniquement</td><td>macOS, Windows, iOS, Android</td></tr>
-            <tr><td><strong>Compte obligatoire</strong></td><td>Aucun compte pour installer et dicter</td><td>Oui</td></tr>
-            <tr><td><strong>Fonctions équipe et conformité</strong></td><td class="no">Non</td><td class="yes">SSO, SOC 2, HIPAA</td></tr>
+            <tr><th scope="row"><strong>Offre gratuite</strong></th><td>2 000 mots / semaine</td><td>Consulter le quota actuel sur le site officiel</td></tr>
+            <tr><th scope="row"><strong>Offre payante</strong></th><td>Achat Pro fermé pendant la bêta</td><td>Consulter les tarifs officiels</td></tr>
+            <tr><th scope="row"><strong>Avant de choisir</strong></th><td>Essayer le quota gratuit</td><td>Vérifier formule et facturation</td></tr>
+            <tr><th scope="row"><strong>Traitement local de la voix</strong></th><td class="yes">Oui, avec un modèle téléchargé ; contrôles de quota/licence possibles en ligne</td><td class="no">Vérifier les conditions réseau du service</td></tr>
+            <tr><th scope="row"><strong>Où l’audio est traité</strong></th><td>Sur le Mac en Local ; par le service fourni par Aria en Automatique</td><td>Consulter la politique de confidentialité actuelle</td></tr>
+            <tr><th scope="row"><strong>Écrit dans n'importe quelle app</strong></th><td class="yes">Oui</td><td class="yes">Oui</td></tr>
+            <tr><th scope="row"><strong>Option en ligne</strong></th><td class="yes">Automatique, fourni pendant la bêta sans clé, avec limites</td><td class="no">Service intégré ; voir les offres actuelles</td></tr>
+            <tr><th scope="row"><strong>Transcription de fichiers audio et vidéo</strong></th><td class="yes">Oui</td><td>Notes de réunion, pas des fichiers quelconques</td></tr>
+            <tr><th scope="row"><strong>Identification des locuteurs</strong></th><td class="yes">Oui, en local</td><td>Dans les notes de réunion</td></tr>
+            <tr><th scope="row"><strong>Dictionnaire personnel</strong></th><td class="yes">Oui, appris de vos corrections</td><td class="yes">Oui</td></tr>
+            <tr><th scope="row"><strong>Plateformes</strong></th><td>macOS uniquement</td><td>macOS, Windows, iOS, Android</td></tr>
+            <tr><th scope="row"><strong>Compte obligatoire</strong></th><td>Aucun compte pour installer et dicter</td><td>Oui</td></tr>
+            <tr><th scope="row"><strong>Fonctions équipe et conformité</strong></th><td class="no">Non</td><td class="yes">SSO, SOC 2, HIPAA</td></tr>
           </tbody>
         </table>
       </div>
@@ -100,48 +101,48 @@
 
       <h2>Comparer l’offre réellement disponible</h2>
       <p>Comparez le quota gratuit, les conditions de l’offre payante et les fonctions utiles à votre travail. Un ancien prix mensuel ou un coût calculé sur plusieurs années ne remplace pas la lecture des conditions actuelles.</p>
-      <p>L’offre gratuite d’Aria permet de tester la dictée dans vos propres applications. Elle n’offre pas de mots illimités : la limite est de 2 000 mots par semaine, pour la dictée et la transcription.</p>
+      <p>L’offre gratuite d’Aria permet de tester la dictée dans vos propres applications. Elle n’offre pas de mots illimités : la limite est de 2 000 mots par semaine, pour la dictée et la transcription.</p>
 
       <h2>Choisir où la voix est traitée</h2>
       <p>Le lieu de traitement compte si vous dictez des informations confidentielles. Pour chaque service, vérifiez la politique de confidentialité et les conditions réseau au lieu de déduire le traitement de son seul nom commercial.</p>
       <p>Aria permet de télécharger un modèle comme <strong>NVIDIA Parakeet TDT V3</strong>, puis de choisir Local. Avec ce mode, l’audio et la transcription sont traités sur le Mac. Le mode Automatique proposé au premier lancement utilise le service en ligne fourni par Aria pendant la bêta, sans clé à saisir et avec des limites.</p>
       <div class="card">
-        <p><strong>Ce que « local » veut dire, concrètement.</strong> Le modèle et l’historique restent sur le Mac. La reconnaissance locale ne transmet pas l’audio pour le transcrire ; des vérifications de quota ou de licence peuvent cependant nécessiter une connexion.</p>
+        <p><strong>Ce que « local » veut dire, concrètement.</strong> Le modèle et l’historique restent sur le Mac. La reconnaissance locale ne transmet pas l’audio pour le transcrire ; des vérifications de quota ou de licence peuvent cependant nécessiter une connexion.</p>
       </div>
 
       <h2>Elle écrit ce que vous avez dit</h2>
-      <p>Aria conserve les mots reconnus dans sa mise en page fidèle. Les transformations comme E-mail ou Points clés sont optionnelles. La reconnaissance d’une langue, d’un nom ou d’un changement de langue peut se tromper : relisez le résultat et choisissez une langue explicite si nécessaire.</p>
+      <p>Aria conserve les mots reconnus dans sa mise en page fidèle. Les transformations comme E-mail ou Points clés sont optionnelles. La reconnaissance d’une langue, d’un nom ou d’un changement de langue peut se tromper : relisez le résultat et choisissez une langue explicite si nécessaire.</p>
       <p>Le dictionnaire personnel permet de garder vos corrections de noms et de vocabulaire pour guider la reconnaissance suivante. Il aide le moteur sans garantir qu’un terme sera toujours reconnu correctement.</p>
 
       <h2>Quand Wispr Flow reste le bon choix</h2>
       <div class="honest">
-        <p>Cette page ne vaudrait rien si elle prétendait qu'Aria gagne partout. Prenez Wispr Flow si :</p>
+        <p>Cette page ne vaudrait rien si elle prétendait qu'Aria gagne partout. Prenez Wispr Flow si :</p>
         <ul>
           <li><strong>Vous n'êtes pas uniquement sur Mac.</strong> Wispr Flow existe sur Windows, iOS et Android. Aria est macOS uniquement, sans application téléphone.</li>
-          <li><strong>Il vous faut des documents de conformité.</strong> SSO, SOC 2 Type II, HIPAA : Aria n'a rien de tout ça et ne prétendra pas le contraire.</li>
-          <li><strong>Vous cherchez un service pour une équipe.</strong> Comparez les conditions de support et d’administration ; Aria est une application indépendante en bêta.</li>
-          <li><strong>Vous voulez un installeur entièrement notarisé aujourd'hui.</strong> Aria est signée avec une identité stable mais pas encore notarisée par Apple : la première ouverture demande un passage par Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</li>
+          <li><strong>Il vous faut des documents de conformité.</strong> SSO, SOC 2 Type II, HIPAA : Aria n'a rien de tout ça et ne prétendra pas le contraire.</li>
+          <li><strong>Vous cherchez un service pour une équipe.</strong> Comparez les conditions de support et d’administration ; Aria est une application indépendante en bêta.</li>
+          <li><strong>Vous voulez un installeur entièrement notarisé aujourd'hui.</strong> Aria est signée avec une identité stable mais pas encore notarisée par Apple : la première ouverture demande un passage par Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</li>
         </ul>
       </div>
 
       <h2>Essayer sur un premier message</h2>
       <ol>
         <li>Téléchargez le DMG adapté à votre Mac et glissez Aria dans Applications.</li>
-        <li>Ouvrez-la une fois ; si macOS bloque, autorisez-la dans Réglages Système → Confidentialité et sécurité.</li>
+        <li>Ouvrez-la une fois ; si macOS bloque, autorisez-la dans Réglages Système → Confidentialité et sécurité.</li>
         <li>Accordez Micro et Accessibilité — c'est l'Accessibilité qui permet à Aria d'écrire dans les autres apps.</li>
-        <li>Pour un traitement local, téléchargez un modèle et choisissez Local ; utilisez ensuite le raccourci affiché dans Aria pour dicter.</li>
+        <li>Pour un traitement local, téléchargez un modèle et choisissez Local ; utilisez ensuite le raccourci affiché dans Aria pour dicter.</li>
       </ol>
 
       <h2>Les questions qu'on nous pose vraiment</h2>
-      <details><summary>Aria est-elle réellement utilisable sans aucune connexion ?</summary><p>Le modèle local produit le texte sur le Mac après téléchargement. Des contrôles de quota ou de licence peuvent demander Internet ; cela ne garantit pas un fonctionnement entièrement déconnecté.</p></details>
-      <details><summary>Peut-on acheter Aria Pro ?</summary><p>L’achat Pro est fermé pendant la bêta actuelle. Seule l’offre gratuite de 2 000 mots par semaine est disponible.</p></details>
-      <details><summary>Puis-je utiliser un mode en ligne ?</summary><p>Oui. Le mode Automatique utilise le service Groq fourni par Aria pendant la bêta, sans clé à saisir et avec des limites. L’audio est alors envoyé pour être transcrit en ligne.</p></details>
-      <details><summary>Est-ce que ça marche dans Slack, Notion, VS Code, un navigateur ?</summary><p>Oui. Aria écrit au curseur : tout champ de texte macOS standard fonctionne — Mail, Messages, Notes, Slack, Teams, navigateurs, éditeurs de code.</p></details>
-      <details><summary>Pourquoi macOS affiche-t-il un avertissement à la première ouverture ?</summary><p>Aria est signée avec une identité stable mais pas encore notarisée par Apple. Essayez de l'ouvrir une fois, puis Réglages Système → Confidentialité et sécurité → Ouvrir quand même. Ne le faites que pour un fichier venu de ce site ou du dépôt GitHub officiel.</p></details>
+      <details><summary>Aria est-elle réellement utilisable sans aucune connexion ?</summary><p>Le modèle local produit le texte sur le Mac après téléchargement. Des contrôles de quota ou de licence peuvent demander Internet ; cela ne garantit pas un fonctionnement entièrement déconnecté.</p></details>
+      <details><summary>Peut-on acheter Aria Pro ?</summary><p>L’achat Pro est fermé pendant la bêta actuelle. Seule l’offre gratuite de 2 000 mots par semaine est disponible.</p></details>
+      <details><summary>Puis-je utiliser un mode en ligne ?</summary><p>Oui. Le mode Automatique utilise le service Groq fourni par Aria pendant la bêta, sans clé à saisir et avec des limites. L’audio est alors envoyé pour être transcrit en ligne.</p></details>
+      <details><summary>Est-ce que ça marche dans Slack, Notion, VS Code, un navigateur ?</summary><p>Oui. Aria écrit au curseur : tout champ de texte macOS standard fonctionne — Mail, Messages, Notes, Slack, Teams, navigateurs, éditeurs de code.</p></details>
+      <details><summary>Pourquoi macOS affiche-t-il un avertissement à la première ouverture ?</summary><p>Aria est signée avec une identité stable mais pas encore notarisée par Apple. Essayez de l'ouvrir une fois, puis Réglages Système → Confidentialité et sécurité → Ouvrir quand même. Ne le faites que pour un fichier venu de ce site ou du dépôt GitHub officiel.</p></details>
 
       <div class="cta">
         <h2>Dicter sur son Mac sans facture mensuelle</h2>
-        <p>Essayez la dictée et les fichiers avec les 2 000 mots gratuits par semaine.</p>
+        <p>Essayez la dictée et les fichiers avec les 2 000 mots gratuits par semaine.</p>
         <div class="cta-actions">
           <a class="button" href="./#telecharger">Télécharger Aria</a>
           <a class="button button-quiet" href="./">Voir tout ce que fait Aria</a>

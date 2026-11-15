@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -67,19 +68,19 @@
       <p class="lede">MacWhisper offers file transcription and dictation at the cursor in the edition distributed on its website. Aria combines dictation at the cursor in your Mac apps with audio and video file transcription. Start with the job you need to do: writing in your apps or working through recordings.</p>
 
       <h2>Compare the workflows</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Compare the workflows">
         <table>
-          <thead><tr><th>&nbsp;</th><th>Aria</th><th>MacWhisper</th></tr></thead>
+          <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">Aria</th><th scope="col">MacWhisper</th></tr></thead>
           <tbody>
-            <tr><td><strong>Built around</strong></td><td>Dictation at the cursor and file transcription</td><td>File transcription and dictation</td></tr>
-            <tr><td><strong>Offer</strong></td><td>2,000 free words/week; Pro purchases closed during the beta</td><td>See the current offers on the official site</td></tr>
-            <tr><td><strong>Types at the cursor</strong></td><td class="yes">Yes, in any macOS text field</td><td>Yes, in the edition distributed on its website</td></tr>
-            <tr><td><strong>File transcription</strong></td><td class="yes">Yes — MP3, WAV, M4A, FLAC, OGG, MP4, MOV</td><td class="yes">Yes, and it is the core of the app</td></tr>
-            <tr><td><strong>Local engine</strong></td><td class="yes">Parakeet TDT V3, plus Whisper</td><td class="yes">Whisper</td></tr>
-            <tr><td><strong>Speaker identification</strong></td><td class="yes">Yes, locally</td><td class="yes">Yes, in Pro</td></tr>
-            <tr><td><strong>Personal dictionary</strong></td><td class="yes">Learned from your corrections</td><td class="yes">Vocabulary list</td></tr>
-            <tr><td><strong>Online option</strong></td><td class="yes">Automatic mode supplied by Aria during the beta, without a key and with limits</td><td class="yes">Check the current models and options</td></tr>
-            <tr><td><strong>Notarised by Apple</strong></td><td class="no">Not yet</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row"><strong>Built around</strong></th><td>Dictation at the cursor and file transcription</td><td>File transcription and dictation</td></tr>
+            <tr><th scope="row"><strong>Offer</strong></th><td>2,000 free words/week; Pro purchases closed during the beta</td><td>See the current offers on the official site</td></tr>
+            <tr><th scope="row"><strong>Types at the cursor</strong></th><td class="yes">Yes, in any macOS text field</td><td>Yes, in the edition distributed on its website</td></tr>
+            <tr><th scope="row"><strong>File transcription</strong></th><td class="yes">Yes — MP3, WAV, M4A, FLAC, OGG, MP4, MOV</td><td class="yes">Yes, and it is the core of the app</td></tr>
+            <tr><th scope="row"><strong>Local engine</strong></th><td class="yes">Parakeet TDT V3, plus Whisper</td><td class="yes">Whisper</td></tr>
+            <tr><th scope="row"><strong>Speaker identification</strong></th><td class="yes">Yes, locally</td><td class="yes">Yes, in Pro</td></tr>
+            <tr><th scope="row"><strong>Personal dictionary</strong></th><td class="yes">Learned from your corrections</td><td class="yes">Vocabulary list</td></tr>
+            <tr><th scope="row"><strong>Online option</strong></th><td class="yes">Automatic mode supplied by Aria during the beta, without a key and with limits</td><td class="yes">Check the current models and options</td></tr>
+            <tr><th scope="row"><strong>Notarised by Apple</strong></th><td class="no">Not yet</td><td class="yes">Yes</td></tr>
           </tbody>
         </table>
       </div>

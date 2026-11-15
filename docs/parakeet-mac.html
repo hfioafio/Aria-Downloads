@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -67,16 +68,16 @@
       <p class="lede">Aria lets you download Parakeet TDT V3 from a normal Mac app, without Python or a terminal. Then choose Local to process speech and produce text on your Mac; quota or licence checks may need a connection.</p>
 
       <h2>What you actually get</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="What you actually get">
         <table>
           <tbody>
-            <tr><td><strong>Model</strong></td><td>NVIDIA Parakeet TDT V3</td></tr>
-            <tr><td><strong>Download size</strong></td><td>487 MB, fetched once from inside the app</td></tr>
-            <tr><td><strong>Languages</strong></td><td>25 European languages</td></tr>
-            <tr><td><strong>Runs on</strong></td><td>Apple Silicon and Intel, macOS 11 or later</td></tr>
-            <tr><td><strong>Runtime</strong></td><td>sherpa-onnx, bundled — no Python and no separate install</td></tr>
-            <tr><td><strong>Network</strong></td><td class="yes">No audio upload for local recognition; quota/licence checks may use the network</td></tr>
-            <tr><td><strong>Price</strong></td><td>2,000 free words a week; Pro purchases closed during the beta</td></tr>
+            <tr><th scope="row"><strong>Model</strong></th><td>NVIDIA Parakeet TDT V3</td></tr>
+            <tr><th scope="row"><strong>Download size</strong></th><td>487 MB, fetched once from inside the app</td></tr>
+            <tr><th scope="row"><strong>Languages</strong></th><td>25 European languages</td></tr>
+            <tr><th scope="row"><strong>Runs on</strong></th><td>Apple Silicon and Intel, macOS 11 or later</td></tr>
+            <tr><th scope="row"><strong>Runtime</strong></th><td>sherpa-onnx, bundled — no Python and no separate install</td></tr>
+            <tr><th scope="row"><strong>Network</strong></th><td class="yes">No audio upload for local recognition; quota/licence checks may use the network</td></tr>
+            <tr><th scope="row"><strong>Price</strong></th><td>2,000 free words a week; Pro purchases closed during the beta</td></tr>
           </tbody>
         </table>
       </div>

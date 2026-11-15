@@ -1,5 +1,9 @@
+# Les moteurs ne lisent robots.txt qu'à la racine d'un domaine (RFC 9309). Servi sous
+# /Aria-Downloads/, ce fichier est ignoré : le sitemap est déclaré dans Search Console, et
+# stats.html reste hors de l'index grâce à sa balise noindex. Ne pas la bloquer ici : un
+# Disallow empêcherait les moteurs de lire ce noindex (et visait /stats.html, le mauvais
+# chemin). Le contenu ci-dessous ne sert que si le site passe un jour à la racine d'un domaine.
 User-agent: *
 Allow: /
-Disallow: /stats.html
 
 Sitemap: https://hfioafio.github.io/Aria-Downloads/sitemap.xml

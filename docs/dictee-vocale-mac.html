@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -63,39 +64,39 @@
     <div class="shell">
       <p class="crumb"><a href="./">Aria</a> · Dictée vocale sur Mac</p>
       <p class="eyebrow">Guide 2026</p>
-      <h1>Dictée vocale sur Mac : quelle application choisir</h1>
-      <p class="lede">Six approches pour dicter sur un Mac : usage au curseur ou sur fichiers, traitement local ou en ligne, et offres à vérifier chez chaque éditeur. Cette comparaison est publiée par Aria ; elle indique aussi ses limites.</p>
+      <h1>Dictée vocale sur Mac : quelle application choisir</h1>
+      <p class="lede">Six approches pour dicter sur un Mac : usage au curseur ou sur fichiers, traitement local ou en ligne, et offres à vérifier chez chaque éditeur. Cette comparaison est publiée par Aria ; elle indique aussi ses limites.</p>
 
       <h2>Le tableau d'ensemble</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Le tableau d'ensemble">
         <table>
-          <thead><tr><th>Application</th><th>Prix</th><th>Hors ligne</th><th>Pour qui</th></tr></thead>
+          <thead><tr><th scope="col">Application</th><th scope="col">Prix</th><th scope="col">Hors ligne</th><th scope="col">Pour qui</th></tr></thead>
           <tbody>
-            <tr><td><strong>Dictée d'Apple</strong></td><td>Gratuite, intégrée</td><td class="yes">Oui</td><td>Quelques phrases, sans rien installer</td></tr>
-            <tr><td><strong>Aria</strong></td><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td><td class="yes">Oui (Parakeet local)</td><td>Dicter au curseur avec un modèle local</td></tr>
-            <tr><td><strong>MacWhisper</strong></td><td><a href="https://www.macwhisper.com/" rel="nofollow">Offres actuelles</a></td><td class="yes">Oui</td><td>Transcrire des fichiers audio longs</td></tr>
-            <tr><td><strong>VoiceInk</strong></td><td><a href="https://tryvoiceink.com/" rel="nofollow">Offres actuelles</a></td><td class="yes">Oui</td><td>Dictée locale, code ouvert</td></tr>
-            <tr><td><strong>Superwhisper</strong></td><td><a href="https://superwhisper.com/" rel="nofollow">Offres actuelles</a></td><td class="yes">Oui</td><td>Modes IA personnalisés, Windows et iPhone</td></tr>
-            <tr><td><strong>Wispr Flow</strong></td><td><a href="https://wisprflow.ai/pricing" rel="nofollow">Offres actuelles</a></td><td class="no">Non</td><td>Équipes, multi-plateforme, conformité</td></tr>
+            <tr><th scope="row"><strong>Dictée d'Apple</strong></th><td>Gratuite, intégrée</td><td class="yes">Oui</td><td>Quelques phrases, sans rien installer</td></tr>
+            <tr><th scope="row"><strong>Aria</strong></th><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td><td class="yes">Oui (Parakeet local)</td><td>Dicter au curseur avec un modèle local</td></tr>
+            <tr><th scope="row"><strong>MacWhisper</strong></th><td><a href="https://www.macwhisper.com/" rel="nofollow">Offres actuelles</a></td><td class="yes">Oui</td><td>Transcrire des fichiers audio longs</td></tr>
+            <tr><th scope="row"><strong>VoiceInk</strong></th><td><a href="https://tryvoiceink.com/" rel="nofollow">Offres actuelles</a></td><td class="yes">Oui</td><td>Dictée locale, code ouvert</td></tr>
+            <tr><th scope="row"><strong>Superwhisper</strong></th><td><a href="https://superwhisper.com/" rel="nofollow">Offres actuelles</a></td><td class="yes">Oui</td><td>Modes IA personnalisés, Windows et iPhone</td></tr>
+            <tr><th scope="row"><strong>Wispr Flow</strong></th><td><a href="https://wisprflow.ai/pricing" rel="nofollow">Offres actuelles</a></td><td class="no">Non</td><td>Équipes, multi-plateforme, conformité</td></tr>
           </tbody>
         </table>
       </div>
-      <p style="font-size:14.5px;color:var(--ink-3)">Consultez les offres actuelles sur les sites officiels : <a href="https://wisprflow.ai/pricing" rel="nofollow">Wispr Flow</a>, <a href="https://superwhisper.com/" rel="nofollow">Superwhisper</a>, <a href="https://www.macwhisper.com/" rel="nofollow">MacWhisper</a> et <a href="https://tryvoiceink.com/" rel="nofollow">VoiceInk</a>. La <a href="https://docs.macwhisper.com/article/14-how-to-use-the-dictation-feature" rel="nofollow">documentation MacWhisper</a> précise les éditions proposant la dictée.</p>
+      <p style="font-size:14.5px;color:var(--ink-3)">Consultez les offres actuelles sur les sites officiels : <a href="https://wisprflow.ai/pricing" rel="nofollow">Wispr Flow</a>, <a href="https://superwhisper.com/" rel="nofollow">Superwhisper</a>, <a href="https://www.macwhisper.com/" rel="nofollow">MacWhisper</a> et <a href="https://tryvoiceink.com/" rel="nofollow">VoiceInk</a>. La <a href="https://docs.macwhisper.com/article/14-how-to-use-the-dictation-feature" rel="nofollow">documentation MacWhisper</a> précise les éditions proposant la dictée.</p>
 
       <h2>Commencez par la dictée d'Apple</h2>
       <p>La dictée d’Apple est intégrée à macOS et gratuite. Le traitement sur l’appareil dépend du Mac et de la langue. Activez-la dans Réglages Système → Clavier → Dictée, puis utilisez le raccourci indiqué dans ces réglages. Essayez quelques phrases représentatives avant de choisir une autre app.</p>
-      <p>Les trois raisons pour lesquelles les gens la quittent, dans l'ordre : la ponctuation qu'il faut dicter à voix haute, les noms propres et le vocabulaire métier qu'elle n'apprendra jamais, et l'impossibilité de transcrire un fichier audio déjà enregistré.</p>
+      <p>Les trois raisons pour lesquelles les gens la quittent, dans l'ordre : la ponctuation qu'il faut dicter à voix haute, les noms propres et le vocabulaire métier qu'elle n'apprendra jamais, et l'impossibilité de transcrire un fichier audio déjà enregistré.</p>
 
       <h2>Ce qui distingue vraiment ces applications</h2>
       <h3>Le traitement local ou dans le cloud</h3>
-      <p>Vérifiez le mode choisi et la politique de chaque application. Dans Aria, Local traite la voix sur le Mac après téléchargement ; Automatique, proposé au premier lancement, utilise un service en ligne. Quota et licence peuvent demander une connexion même en Local.</p>
+      <p>Vérifiez le mode choisi et la politique de chaque application. Dans Aria, Local traite la voix sur le Mac après téléchargement ; Automatique, proposé au premier lancement, utilise un service en ligne. Quota et licence peuvent demander une connexion même en Local.</p>
       <h3>Dicter en direct, ou transcrire un fichier</h3>
       <p>Deux usages différents que les comparatifs mélangent souvent. MacWhisper est d'abord excellent sur les fichiers audio longs. Aria, Wispr Flow, Superwhisper et VoiceInk proposent la dictée système, celle qui écrit au curseur dans l'app ouverte. MacWhisper propose aussi la dictée dans son édition distribuée sur son site. Aria fait les deux, plus l'identification des locuteurs pour une réunion enregistrée.</p>
       <h3>L'abonnement ou l'achat unique</h3>
-      <p>Comparez les formules actuelles, la période de facturation et les fonctions incluses sur les sites officiels. L’achat Pro d’Aria est fermé pendant la bêta ; testez le quota gratuit avant de choisir.</p>
+      <p>Comparez les formules actuelles, la période de facturation et les fonctions incluses sur les sites officiels. L’achat Pro d’Aria est fermé pendant la bêta ; testez le quota gratuit avant de choisir.</p>
 
       <h2>Là où Aria est le bon choix</h2>
-      <p>Sur Mac, Aria réunit dictée au curseur, dictionnaire personnel, transcription de fichiers et historique local. Téléchargez un modèle puis choisissez Local si vous voulez traiter la voix sur le Mac ; des contrôles de quota ou de licence peuvent encore demander une connexion.</p>
+      <p>Sur Mac, Aria réunit dictée au curseur, dictionnaire personnel, transcription de fichiers et historique local. Téléchargez un modèle puis choisissez Local si vous voulez traiter la voix sur le Mac ; des contrôles de quota ou de licence peuvent encore demander une connexion.</p>
 
       <h2>Là où Aria n'est pas le bon choix</h2>
       <div class="honest">
@@ -103,14 +104,14 @@
           <li><strong>Vous n'êtes pas que sur Mac.</strong> Pas de version Windows, pas d'application iPhone. Wispr Flow et Superwhisper en ont.</li>
           <li><strong>Vous transcrivez surtout de longs fichiers.</strong> MacWhisper est plus spécialisé sur ce terrain.</li>
           <li><strong>Les transformations du texte.</strong> Comparez les modes sur vos propres textes et vérifiez les conditions du service utilisé.</li>
-          <li><strong>Il vous faut de la conformité d'entreprise.</strong> SSO, SOC 2, HIPAA : c'est Wispr Flow, pas Aria.</li>
-          <li><strong>Vous voulez zéro friction à l'installation.</strong> Aria est signée mais pas encore notarisée par Apple : la première ouverture demande un passage par Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</li>
+          <li><strong>Il vous faut de la conformité d'entreprise.</strong> SSO, SOC 2, HIPAA : c'est Wispr Flow, pas Aria.</li>
+          <li><strong>Vous voulez zéro friction à l'installation.</strong> Aria est signée mais pas encore notarisée par Apple : la première ouverture demande un passage par Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</li>
         </ul>
       </div>
 
       <div class="cta">
         <h2>Essayer Aria</h2>
-        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
+        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
         <div class="cta-actions">
           <a class="button" href="./#telecharger">Télécharger Aria</a>
           <a class="button button-quiet" href="./">Voir tout ce que fait Aria</a>
@@ -118,10 +119,10 @@
       </div>
 
       <h2>Questions fréquentes</h2>
-      <details><summary>Quelle est la meilleure dictée vocale gratuite sur Mac ?</summary><p>La dictée d'Apple si vous dictez rarement : elle est intégrée et hors ligne. Pour un usage quotidien avec ponctuation correcte, dictionnaire personnel et transcription de fichiers, Aria est gratuite jusqu'à 2 000 mots par semaine, et MacWhisper propose aussi une version gratuite orientée fichiers.</p></details>
-      <details><summary>Que faut-il vérifier pour dicter localement ?</summary><p>Vérifiez le modèle, les langues et les contrôles réseau de l’application. Aria propose des modèles locaux sur Apple Silicon et Intel ; ils ne transmettent pas l’audio pour la reconnaissance, mais quota et licence peuvent nécessiter une connexion.</p></details>
-      <details><summary>La dictée vocale fonctionne-t-elle dans toutes les applications ?</summary><p>Avec Aria, Wispr Flow, Superwhisper et VoiceInk, oui : le texte est écrit au curseur, donc dans Mail, Slack, Notes, un navigateur ou un éditeur de code. MacWhisper vise d'abord la transcription de fichiers.</p></details>
-      <details><summary>Quelle offre est disponible ?</summary><p>2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta actuelle ; aucune offre illimitée n’est disponible à l’achat.</p></details>
+      <details><summary>Quelle est la meilleure dictée vocale gratuite sur Mac ?</summary><p>La dictée d'Apple si vous dictez rarement : elle est intégrée et hors ligne. Pour un usage quotidien avec ponctuation correcte, dictionnaire personnel et transcription de fichiers, Aria est gratuite jusqu'à 2 000 mots par semaine, et MacWhisper propose aussi une version gratuite orientée fichiers.</p></details>
+      <details><summary>Que faut-il vérifier pour dicter localement ?</summary><p>Vérifiez le modèle, les langues et les contrôles réseau de l’application. Aria propose des modèles locaux sur Apple Silicon et Intel ; ils ne transmettent pas l’audio pour la reconnaissance, mais quota et licence peuvent nécessiter une connexion.</p></details>
+      <details><summary>La dictée vocale fonctionne-t-elle dans toutes les applications ?</summary><p>Avec Aria, Wispr Flow, Superwhisper et VoiceInk, oui : le texte est écrit au curseur, donc dans Mail, Slack, Notes, un navigateur ou un éditeur de code. MacWhisper vise d'abord la transcription de fichiers.</p></details>
+      <details><summary>Quelle offre est disponible ?</summary><p>2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta actuelle ; aucune offre illimitée n’est disponible à l’achat.</p></details>
       <section class="related" aria-label="À lire aussi">
         <h2>À lire aussi</h2>
         <div class="related-links">

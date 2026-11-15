@@ -3,22 +3,22 @@
       <p class="lede">Un modèle local peut transformer la voix en texte sur le Mac sans envoyer l’audio à un service de transcription. Cela ne signifie pas que toute l’application fonctionne sans connexion : distinguez le calcul local des téléchargements et des contrôles de quota ou de licence.</p>
 
       <h2>Les trois voies</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Les trois voies">
         <table>
-          <thead><tr><th>&nbsp;</th><th>Dictée d'Apple</th><th>Whisper en local</th><th>Aria (Parakeet)</th></tr></thead>
+          <thead><tr><th scope="col"><span class="visually-hidden">Critère</span></th><th scope="col">Dictée d'Apple</th><th scope="col">Whisper en local</th><th scope="col">Aria (Parakeet)</th></tr></thead>
           <tbody>
-            <tr><td><strong>Prix</strong></td><td class="yes">Gratuite</td><td class="yes">Gratuit si vous bricolez</td><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td></tr>
-            <tr><td><strong>Installation</strong></td><td class="yes">Aucune</td><td class="no">Terminal, Python ou une app tierce</td><td class="yes">Un DMG, puis un modèle de 487 Mo</td></tr>
-            <tr><td><strong>Écrit au curseur</strong></td><td class="yes">Oui</td><td>Selon l'outil</td><td class="yes">Oui, dans n'importe quelle app</td></tr>
-            <tr><td><strong>Apprend vos noms propres</strong></td><td class="no">Non</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td><strong>Transcrit un fichier</strong></td><td class="no">Non</td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
-            <tr><td><strong>Mac Intel</strong></td><td>Hors ligne surtout sur Apple Silicon</td><td class="yes">Oui, lentement</td><td class="yes">Oui, build dédié</td></tr>
+            <tr><th scope="row"><strong>Prix</strong></th><td class="yes">Gratuite</td><td class="yes">Gratuit si vous bricolez</td><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td></tr>
+            <tr><th scope="row"><strong>Installation</strong></th><td class="yes">Aucune</td><td class="no">Terminal, Python ou une app tierce</td><td class="yes">Un DMG, puis un modèle de 487 Mo</td></tr>
+            <tr><th scope="row"><strong>Écrit au curseur</strong></th><td class="yes">Oui</td><td>Selon l'outil</td><td class="yes">Oui, dans n'importe quelle app</td></tr>
+            <tr><th scope="row"><strong>Apprend vos noms propres</strong></th><td class="no">Non</td><td class="no">Non</td><td class="yes">Oui</td></tr>
+            <tr><th scope="row"><strong>Transcrit un fichier</strong></th><td class="no">Non</td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
+            <tr><th scope="row"><strong>Mac Intel</strong></th><td>Hors ligne surtout sur Apple Silicon</td><td class="yes">Oui, lentement</td><td class="yes">Oui, build dédié</td></tr>
           </tbody>
         </table>
       </div>
 
       <h2>1. La dictée d'Apple — commencez par là</h2>
-      <p>Sur un Mac Apple Silicon, une fois la langue téléchargée, la dictée d'Apple fonctionne sans connexion. Réglages Système → Clavier → Dictée, on ajoute sa langue, on attend le téléchargement, et on appuie deux fois sur Contrôle. C'est gratuit et déjà installé : essayez ça avant de payer quoi que ce soit.</p>
+      <p>Sur un Mac Apple Silicon, une fois la langue téléchargée, la dictée d'Apple fonctionne sans connexion. Réglages Système → Clavier → Dictée, on ajoute sa langue, on attend le téléchargement, puis on utilise le raccourci affiché au même endroit (la touche micro sur les claviers récents ; sinon, selon le Mac, deux appuis sur Fn ou sur Contrôle). C'est gratuit et déjà installé : essayez ça avant de payer quoi que ce soit.</p>
       <p>Ses limites sont structurelles, pas réglables : elle n'apprend pas votre vocabulaire, ne transcrit pas un fichier existant, ne garde aucun historique, et ne laisse pas choisir de moteur.</p>
 
       <h2>2. Whisper en local — puissant, à condition d'aimer bricoler</h2>

@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -63,51 +64,51 @@
     <div class="shell">
       <p class="crumb"><a href="./">Aria</a> · Dictée hors ligne</p>
       <p class="eyebrow">Guide</p>
-      <h1>Dictée vocale Mac hors ligne : ce qui marche vraiment</h1>
-      <p class="lede">Un modèle local peut transformer la voix en texte sur le Mac sans envoyer l’audio à un service de transcription. Cela ne signifie pas que toute l’application fonctionne sans connexion : distinguez le calcul local des téléchargements et des contrôles de quota ou de licence.</p>
+      <h1>Dictée vocale Mac hors ligne : ce qui marche vraiment</h1>
+      <p class="lede">Un modèle local peut transformer la voix en texte sur le Mac sans envoyer l’audio à un service de transcription. Cela ne signifie pas que toute l’application fonctionne sans connexion : distinguez le calcul local des téléchargements et des contrôles de quota ou de licence.</p>
 
       <h2>Les trois voies</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Les trois voies">
         <table>
-          <thead><tr><th>&nbsp;</th><th>Dictée d'Apple</th><th>Whisper en local</th><th>Aria (Parakeet)</th></tr></thead>
+          <thead><tr><th scope="col"><span class="visually-hidden">Critère</span></th><th scope="col">Dictée d'Apple</th><th scope="col">Whisper en local</th><th scope="col">Aria (Parakeet)</th></tr></thead>
           <tbody>
-            <tr><td><strong>Prix</strong></td><td class="yes">Gratuite</td><td class="yes">Gratuit si vous bricolez</td><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td></tr>
-            <tr><td><strong>Installation</strong></td><td class="yes">Aucune</td><td class="no">Terminal, Python ou une app tierce</td><td class="yes">Un DMG, puis un modèle de 487 Mo</td></tr>
-            <tr><td><strong>Écrit au curseur</strong></td><td class="yes">Oui</td><td>Selon l'outil</td><td class="yes">Oui, dans n'importe quelle app</td></tr>
-            <tr><td><strong>Apprend vos noms propres</strong></td><td class="no">Non</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td><strong>Transcrit un fichier</strong></td><td class="no">Non</td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
-            <tr><td><strong>Mac Intel</strong></td><td>Hors ligne surtout sur Apple Silicon</td><td class="yes">Oui, lentement</td><td class="yes">Oui, build dédié</td></tr>
+            <tr><th scope="row"><strong>Prix</strong></th><td class="yes">Gratuite</td><td class="yes">Gratuit si vous bricolez</td><td>2 000 mots gratuits par semaine ; achat Pro fermé pendant la bêta</td></tr>
+            <tr><th scope="row"><strong>Installation</strong></th><td class="yes">Aucune</td><td class="no">Terminal, Python ou une app tierce</td><td class="yes">Un DMG, puis un modèle de 487 Mo</td></tr>
+            <tr><th scope="row"><strong>Écrit au curseur</strong></th><td class="yes">Oui</td><td>Selon l'outil</td><td class="yes">Oui, dans n'importe quelle app</td></tr>
+            <tr><th scope="row"><strong>Apprend vos noms propres</strong></th><td class="no">Non</td><td class="no">Non</td><td class="yes">Oui</td></tr>
+            <tr><th scope="row"><strong>Transcrit un fichier</strong></th><td class="no">Non</td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
+            <tr><th scope="row"><strong>Mac Intel</strong></th><td>Hors ligne surtout sur Apple Silicon</td><td class="yes">Oui, lentement</td><td class="yes">Oui, build dédié</td></tr>
           </tbody>
         </table>
       </div>
 
       <h2>1. La dictée d'Apple — commencez par là</h2>
-      <p>Sur un Mac Apple Silicon, une fois la langue téléchargée, la dictée d'Apple fonctionne sans connexion. Réglages Système → Clavier → Dictée, on ajoute sa langue, on attend le téléchargement, et on appuie deux fois sur Contrôle. C'est gratuit et déjà installé : essayez ça avant de payer quoi que ce soit.</p>
-      <p>Ses limites sont structurelles, pas réglables : elle n'apprend pas votre vocabulaire, ne transcrit pas un fichier existant, ne garde aucun historique, et ne laisse pas choisir de moteur.</p>
+      <p>Sur un Mac Apple Silicon, une fois la langue téléchargée, la dictée d'Apple fonctionne sans connexion. Réglages Système → Clavier → Dictée, on ajoute sa langue, on attend le téléchargement, puis on utilise le raccourci affiché au même endroit (la touche micro sur les claviers récents ; sinon, selon le Mac, deux appuis sur Fn ou sur Contrôle). C'est gratuit et déjà installé : essayez ça avant de payer quoi que ce soit.</p>
+      <p>Ses limites sont structurelles, pas réglables : elle n'apprend pas votre vocabulaire, ne transcrit pas un fichier existant, ne garde aucun historique, et ne laisse pas choisir de moteur.</p>
 
       <h2>2. Whisper en local — puissant, à condition d'aimer bricoler</h2>
-      <p>Le modèle d'OpenAI tourne très bien sur un Mac, et plusieurs projets libres le rendent utilisable. C'est la voie la plus flexible et la moins confortable : il faut installer un environnement, choisir une taille de modèle, et souvent copier le texte depuis une fenêtre séparée au lieu de l'obtenir directement là où se trouve le curseur. Pour de la transcription de fichiers occasionnelle, c'est excellent. Pour dicter quarante fois par jour, la friction gagne.</p>
+      <p>Le modèle d'OpenAI tourne très bien sur un Mac, et plusieurs projets libres le rendent utilisable. C'est la voie la plus flexible et la moins confortable : il faut installer un environnement, choisir une taille de modèle, et souvent copier le texte depuis une fenêtre séparée au lieu de l'obtenir directement là où se trouve le curseur. Pour de la transcription de fichiers occasionnelle, c'est excellent. Pour dicter quarante fois par jour, la friction gagne.</p>
 
       <h2>3. Aria — le moteur local dans une app normale</h2>
-      <p>Aria permet de télécharger NVIDIA <strong>Parakeet TDT V3</strong> depuis l’application. Choisissez ensuite Local et utilisez le raccourci affiché dans Aria : la voix et la transcription sont traitées sur le Mac.</p>
-      <p>Ce qu'elle ajoute par rapport aux deux autres voies : elle apprend les mots que vous corrigez, garde un historique local consultable, transcrit vos fichiers audio et vidéo avec identification des locuteurs, et retombe proprement sur le micro système si vos AirPods se déconnectent en pleine phrase.</p>
+      <p>Aria permet de télécharger NVIDIA <strong>Parakeet TDT V3</strong> depuis l’application. Choisissez ensuite Local et utilisez le raccourci affiché dans Aria : la voix et la transcription sont traitées sur le Mac.</p>
+      <p>Ce qu'elle ajoute par rapport aux deux autres voies : elle apprend les mots que vous corrigez, garde un historique local consultable, transcrit vos fichiers audio et vidéo avec identification des locuteurs, et retombe proprement sur le micro système si vos AirPods se déconnectent en pleine phrase.</p>
 
       <div class="card">
-        <p><strong>Ce que « local » veut dire ici.</strong> Le modèle et l’historique restent sur le Mac. Les contrôles de quota ou de licence peuvent demander une connexion ; l’achat Pro est fermé pendant la bêta actuelle.</p>
+        <p><strong>Ce que « local » veut dire ici.</strong> Le modèle et l’historique restent sur le Mac. Les contrôles de quota ou de licence peuvent demander une connexion ; l’achat Pro est fermé pendant la bêta actuelle.</p>
       </div>
 
       <h2>Ce que le hors ligne coûte, honnêtement</h2>
       <p>Le résultat dépend du modèle, de la langue et de l’enregistrement. Comparez un extrait représentatif plutôt que de supposer qu’un moteur est toujours meilleur. Le mode Automatique utilise le service en ligne fourni par Aria pendant la bêta, sans clé et avec des limites.</p>
 
       <h2>Questions</h2>
-      <details><summary>Peut-on dicter sur Mac sans aucune connexion ?</summary><p>Certains moteurs effectuent la reconnaissance sur le Mac. Dans Aria, Local doit être choisi après téléchargement d’un modèle ; les contrôles de quota ou de licence peuvent encore demander Internet.</p></details>
-      <details><summary>Faut-il installer Python pour utiliser un modèle local ?</summary><p>Pas avec Aria : le moteur est intégré à l'application. Avec les projets Whisper en ligne de commande, oui, en général.</p></details>
-      <details><summary>La dictée hors ligne est-elle moins précise ?</summary><p>Un peu, sur les accents marqués, les environnements bruyants et les noms rares. Sur de la dictée quotidienne dans de bonnes conditions, la différence est faible.</p></details>
-      <details><summary>Combien de place prend le modèle ?</summary><p>487 Mo pour Parakeet TDT V3, téléchargés une seule fois depuis l'application.</p></details>
+      <details><summary>Peut-on dicter sur Mac sans aucune connexion ?</summary><p>Certains moteurs effectuent la reconnaissance sur le Mac. Dans Aria, Local doit être choisi après téléchargement d’un modèle ; les contrôles de quota ou de licence peuvent encore demander Internet.</p></details>
+      <details><summary>Faut-il installer Python pour utiliser un modèle local ?</summary><p>Pas avec Aria : le moteur est intégré à l'application. Avec les projets Whisper en ligne de commande, oui, en général.</p></details>
+      <details><summary>La dictée hors ligne est-elle moins précise ?</summary><p>Un peu, sur les accents marqués, les environnements bruyants et les noms rares. Sur de la dictée quotidienne dans de bonnes conditions, la différence est faible.</p></details>
+      <details><summary>Combien de place prend le modèle ?</summary><p>487 Mo pour Parakeet TDT V3, téléchargés une seule fois depuis l'application.</p></details>
 
       <div class="cta">
         <h2>Dicter sans que rien ne parte</h2>
-        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
+        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
         <div class="cta-actions">
           <a class="button" href="./#telecharger">Télécharger Aria</a>
           <a class="button button-quiet" href="dictee-vocale-mac.html">Comparer les apps de dictée Mac</a>
