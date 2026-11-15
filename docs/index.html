@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -31,7 +32,7 @@
   <link rel="icon" href="favicon.png" sizes="96x96">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aria","alternateName":"Aria Dictée","applicationCategory":"ProductivityApplication","applicationSubCategory":"Reconnaissance vocale","operatingSystem":"macOS 11+","softwareVersion":"2.62.1","featureList":["Dictée au raccourci dans n’importe quelle app macOS","Transcription audio locale avec NVIDIA Parakeet TDT V3","Transcription de fichiers audio et vidéo","Mode réunion avec identification des locuteurs","Dictionnaire personnel pour les noms propres","Historique local consultable"],"description":"Dictée dans les apps Mac et transcription audio/vidéo. Offre gratuite : 2 000 mots par semaine. Moteurs locaux et en ligne, Apple Silicon et Intel. Bêta publique.","url":"https://hfioafio.github.io/Aria-Downloads/","downloadUrl":"https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-Installer-2.62.1-Apple-Silicon.dmg","offers":[{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Aria Free","description":"2 000 mots par semaine ; la vérification du quota peut nécessiter Internet. Achat Pro non ouvert.","url":"https://hfioafio.github.io/Aria-Downloads/#telecharger"}],"image":"https://hfioafio.github.io/Aria-Downloads/aria-video-fr.jpg","author":{"@type":"Organization","name":"Aria","url":"https://hfioafio.github.io/Aria-Downloads/"},"publisher":{"@type":"Organization","name":"Aria","url":"https://hfioafio.github.io/Aria-Downloads/"},"sameAs":["https://github.com/hfioafio/Aria-Downloads","https://www.youtube.com/@aria-dictee-mac","https://www.tiktok.com/@aria.dictee.mac"],"softwareHelp":"https://github.com/hfioafio/Aria-Downloads#readme"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aria traduit-elle automatiquement l’anglais ?","acceptedAnswer":{"@type":"Answer","text":"Non. La transcription conserve la langue parlée. Les transformations comme E-mail ou Points clés ne s’appliquent que lorsque vous les choisissez."}},{"@type":"Question","name":"Faut-il une connexion Internet ?","acceptedAnswer":{"@type":"Answer","text":"Après téléchargement du modèle local, l’audio et la transcription sont traités sur le Mac. La vérification du quota et de la licence peut nécessiter une connexion. Le mode Automatique utilise le service en ligne fourni par Aria, sans clé à saisir pendant la bêta : l’audio passe par un relais limité vers Groq, sans stockage de l’audio ni du texte par ce relais."}},{"@type":"Question","name":"Comment fonctionne la limite gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Aria Free comprend 2 000 mots par semaine et se remet à zéro chaque lundi selon l’heure du serveur. Une brève connexion est nécessaire pour vérifier le compteur ; réinstaller l’app ou changer l’horloge du Mac ne recrée pas un nouveau quota."}},{"@type":"Question","name":"Le paiement de 5 € est-il un abonnement ?","acceptedAnswer":{"@type":"Answer","text":"L’achat Pro n’est pas encore ouvert. L’offre annoncée prévoit un achat unique de 5 € pour trois Mac, sans limite de mots et avec les futures mises à jour incluses. La bêta permet de commencer gratuitement avec 2 000 mots par semaine."}},{"@type":"Question","name":"Que se passe-t-il pendant une longue dictée ?","acceptedAnswer":{"@type":"Answer","text":"Le délai cloud augmente avec la durée enregistrée. Deux minutes de parole disposent d’un délai bien supérieur à une phrase courte avant que le secours local soit envisagé."}},{"@type":"Question","name":"Aria fonctionne-t-elle avec les AirPods ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vous pouvez choisir explicitement le micro du casque. En Automatique, Aria privilégie un micro intégré disponible si le micro système est Bluetooth, pour éviter la bascule du casque en mode téléphonique."}},{"@type":"Question","name":"Pourquoi macOS affiche-t-il un avertissement ?","acceptedAnswer":{"@type":"Answer","text":"Aria est signée mais pas encore notarisée par Apple. Après une première tentative d’ouverture, utilisez Réglages Système → Confidentialité et sécurité → Ouvrir quand même. La future version Developer ID supprimera cette étape."}},{"@type":"Question","name":"Comment les mises à jour fonctionnent-elles ?","acceptedAnswer":{"@type":"Answer","text":"Aria vérifie le manifeste public au démarrage puis toutes les six heures. Elle reprend si nécessaire le téléchargement du DMG adapté au Mac, contrôle sa taille, son SHA-256 et son identité Apple, puis met l’application à jour sur place. Si la nouvelle version ne démarre pas correctement, Aria restaure automatiquement la précédente. Une version minimale publiée rend cette mise à jour non reportable, sans jamais bloquer Aria hors ligne."}},{"@type":"Question","name":"Comment savez-vous si Aria est utilisée ?","acceptedAnswer":{"@type":"Answer","text":"Trois chiffres, tenus séparés. Les téléchargements du fichier « Installer » de ce dépôt comptent les téléchargements depuis le site ; ceux du fichier sans « Installer », identique, comptent les mises à jour automatiques. Pour savoir combien de Mac sont vraiment équipés, Aria télécharge un fichier vide sur GitHub à la première ouverture, à chaque nouvelle version et une fois par semaine d’utilisation : GitHub n’en publie que le total, sans identifiant, texte ni réglage. Ce comptage se coupe dans Réglages → Données. Le partage détaillé de lancements et de dictées reste désactivé tant que vous ne l’activez pas."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aria traduit-elle automatiquement l’anglais ?","acceptedAnswer":{"@type":"Answer","text":"Non. La transcription conserve la langue parlée. Les transformations comme E-mail ou Points clés ne s’appliquent que lorsque vous les choisissez."}},{"@type":"Question","name":"Dans quelles apps Aria fonctionne-t-elle ?","acceptedAnswer":{"@type":"Answer","text":"Aria écrit au curseur : elle fonctionne donc dans Mail, Messages, Notes, Slack, Teams, les navigateurs, les éditeurs de code et tout champ de texte macOS standard."}},{"@type":"Question","name":"Faut-il une connexion Internet ?","acceptedAnswer":{"@type":"Answer","text":"Après téléchargement du modèle local, l’audio et la transcription sont traités sur le Mac. La vérification du quota et de la licence peut nécessiter une connexion. Le mode Automatique utilise le service en ligne fourni par Aria, sans clé à saisir pendant la bêta : l’audio passe par un relais limité vers Groq, sans stockage de l’audio ni du texte par ce relais."}},{"@type":"Question","name":"Comment fonctionne la limite gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Aria Free comprend 2 000 mots par semaine et se remet à zéro chaque lundi selon l’heure du serveur. Une brève connexion est nécessaire pour vérifier le compteur ; réinstaller l’app ou changer l’horloge du Mac ne recrée pas un nouveau quota."}},{"@type":"Question","name":"Le paiement de 5 € est-il un abonnement ?","acceptedAnswer":{"@type":"Answer","text":"L’achat Pro n’est pas encore ouvert. L’offre annoncée prévoit un achat unique de 5 € pour trois Mac, sans limite de mots et avec les futures mises à jour incluses. La bêta permet de commencer gratuitement avec 2 000 mots par semaine."}},{"@type":"Question","name":"Que se passe-t-il pendant une longue dictée ?","acceptedAnswer":{"@type":"Answer","text":"Le délai cloud augmente avec la durée enregistrée. Deux minutes de parole disposent d’un délai bien supérieur à une phrase courte avant que le secours local soit envisagé."}},{"@type":"Question","name":"Aria fonctionne-t-elle avec les AirPods ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vous pouvez choisir explicitement le micro du casque. En Automatique, Aria privilégie un micro intégré disponible si le micro système est Bluetooth, pour éviter la bascule du casque en mode téléphonique."}},{"@type":"Question","name":"Pourquoi macOS affiche-t-il un avertissement ?","acceptedAnswer":{"@type":"Answer","text":"Aria est signée mais pas encore notarisée par Apple. Après une première tentative d’ouverture, utilisez Réglages Système → Confidentialité et sécurité → Ouvrir quand même. La future version Developer ID supprimera cette étape."}},{"@type":"Question","name":"Comment les mises à jour fonctionnent-elles ?","acceptedAnswer":{"@type":"Answer","text":"Aria vérifie le manifeste public au démarrage puis toutes les six heures. Elle reprend si nécessaire le téléchargement du DMG adapté au Mac, contrôle sa taille, son SHA-256 et son identité Apple, puis met l’application à jour sur place. Si la nouvelle version ne démarre pas correctement, Aria restaure automatiquement la précédente. Une version minimale publiée rend cette mise à jour non reportable, sans jamais bloquer Aria hors ligne."}},{"@type":"Question","name":"Comment savez-vous si Aria est utilisée ?","acceptedAnswer":{"@type":"Answer","text":"Trois chiffres, tenus séparés. Les téléchargements du fichier « Installer » de ce dépôt comptent les téléchargements depuis le site ; ceux du fichier sans « Installer », identique, comptent les mises à jour automatiques. Pour savoir combien de Mac sont vraiment équipés, Aria télécharge un fichier vide sur GitHub à la première ouverture, à chaque nouvelle version et une fois par semaine d’utilisation : GitHub n’en publie que le total, sans identifiant, texte ni réglage. Ce comptage se coupe dans Réglages → Données. Le partage détaillé de lancements et de dictées reste désactivé tant que vous ne l’activez pas."}}]}</script>
   <script>
     (function () {
       var choice = 'auto';
@@ -50,13 +51,14 @@
       --surface-2:#ededeb;
       --ink:#101114;
       --ink-2:#55565d;
-      --ink-3:#8a8b91;
+      --ink-3:#696a70;
       --line:rgba(16,17,20,.10);
       --line-strong:rgba(16,17,20,.17);
-      --blue:#0878f9;
+      --blue:#0066d6;
+      --accent:#0071e3;
       --aqua:#35cdea;
       --voice:#ff655c;
-      --green:#26a760;
+      --green:#1a7f45;
       --dark:#0b0c0f;
       --dark-2:#15171c;
       --white:#f8f8fa;
@@ -72,10 +74,11 @@
       --surface-2:#1a1c22;
       --ink:#f5f5f7;
       --ink-2:#b2b3ba;
-      --ink-3:#73747d;
+      --ink-3:#8a8b93;
       --line:rgba(255,255,255,.08);
       --line-strong:rgba(255,255,255,.15);
       --blue:#2997ff;
+      --accent:#0071e3;
       --aqua:#49d9f1;
       --voice:#ff7169;
       --green:#35c46d;
@@ -117,11 +120,11 @@
     .nav-links>a:not(.button) { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; color:var(--ink-2); font-size:14px; font-weight:530 }
     .nav-links>a:hover { color:var(--ink) }
     .theme { display:flex; gap:2px; height:52px; padding:3px; border:1px solid var(--line); border-radius:12px; background:var(--surface-2) }
-    .theme button { min-width:44px; height:44px; padding:0 7px; border:0; border-radius:9px; background:transparent; color:var(--ink-3); cursor:pointer; font-size:12px; font-weight:650 }
+    .theme button { min-width:44px; height:44px; padding:0 7px; border:0; border-radius:9px; background:transparent; color:var(--ink-2); cursor:pointer; font-size:12px; font-weight:650 }
     .theme button.on { background:var(--surface); color:var(--ink); box-shadow:0 2px 8px rgba(0,0,0,.11) }
     .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 21px; border:1px solid transparent; border-radius:14px; cursor:pointer; font-size:15px; font-weight:630; transition:transform .15s,opacity .15s,background .15s }
     .button:active { transform:scale(.975) }
-    .button-primary { color:#fff; background:var(--blue); box-shadow:0 11px 28px color-mix(in srgb,var(--blue) 26%,transparent) }
+    .button-primary { color:#fff; background:var(--accent); box-shadow:0 11px 28px color-mix(in srgb,var(--accent) 26%,transparent) }
     .button-primary:hover { opacity:.88 }
     .button-quiet { border-color:var(--line-strong); background:var(--surface); color:var(--ink); box-shadow:var(--shadow-soft) }
     .button-quiet:hover { background:var(--surface-2) }
@@ -180,7 +183,7 @@
     .dots i { width:11px; height:11px; border-radius:50% }
     .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
     .demo-apps { display:flex; gap:4px; margin-left:auto }
-    .demo-apps button { min-width:44px; height:44px; padding:0 10px; border:0; border-radius:9px; background:transparent; color:var(--ink-3); cursor:pointer; font-size:11px; font-weight:640 }
+    .demo-apps button { min-width:44px; height:44px; padding:0 10px; border:0; border-radius:9px; background:transparent; color:var(--ink-2); cursor:pointer; font-size:11px; font-weight:640 }
     .demo-apps button.on { background:var(--surface); color:var(--ink); box-shadow:0 2px 8px rgba(0,0,0,.10) }
     .compose { min-height:470px; padding:34px 38px 100px }
     .compose-top { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:25px; border-bottom:1px solid var(--line) }
@@ -188,7 +191,7 @@
     .avatar { display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--surface-2); color:var(--ink-2); font-size:12px; font-weight:720 }
     .compose-person strong { display:block; font-size:13px }
     .compose-person span { color:var(--ink-3); font-size:11px }
-    .compose-status { padding:5px 9px; border-radius:999px; background:color-mix(in srgb,var(--green) 11%,transparent); color:var(--green); font-size:10px; font-weight:740 }
+    .compose-status { padding:5px 9px; border-radius:999px; background:color-mix(in srgb,var(--green) 8%,transparent); color:var(--green); font-size:11px; font-weight:740 }
     .field-label { margin-top:28px; color:var(--ink-3); font-size:11px; font-weight:690; letter-spacing:.05em; text-transform:uppercase }
     .subject { margin-top:8px; padding-bottom:20px; border-bottom:1px solid var(--line); font-size:17px; font-weight:640 }
     .inserted { position:relative; min-height:150px; margin-top:29px; color:var(--ink); font-size:clamp(19px,2vw,26px); line-height:1.58; letter-spacing:-.018em }
@@ -257,32 +260,32 @@
     .lang-card:nth-child(3){bottom:0;left:7%;transform:rotate(-1deg)}
     .lang-card b { display:block; font-size:13px }
     .lang-card p { margin-top:6px; color:var(--ink-2); font-size:13px }
-    .lang-chip { float:right; padding:3px 7px; border-radius:999px; background:color-mix(in srgb,var(--blue) 10%,transparent); color:var(--blue); font-size:9px; font-weight:720 }
+    .lang-chip { float:right; padding:3px 7px; border-radius:999px; background:color-mix(in srgb,var(--blue) 8%,transparent); color:var(--blue); font-size:10px; font-weight:720 }
     .learn-card { width:min(100%,450px); padding:25px; border:1px solid var(--line); border-radius:22px; background:var(--surface); box-shadow:var(--shadow-soft) }
     .learn-title { color:var(--ink-3); font-size:10px; font-weight:720; letter-spacing:.06em; text-transform:uppercase }
     .learn-change { display:grid; grid-template-columns:1fr 34px 1fr; gap:10px; align-items:center; margin-top:22px }
     .learn-word { padding:17px; border:1px solid var(--line); border-radius:15px; background:var(--surface-2); font-size:22px; font-weight:680; text-align:center }
-    .learn-word.wrong { color:var(--ink-3); text-decoration:line-through }
+    .learn-word.wrong { color:var(--ink-2); text-decoration:line-through }
     .learn-word.right { border-color:color-mix(in srgb,var(--green) 30%,var(--line)); color:var(--ink); background:color-mix(in srgb,var(--green) 7%,var(--surface)) }
     .learn-arrow { color:var(--blue); font-size:18px; text-align:center }
-    .learn-saved { display:flex; align-items:center; gap:9px; margin-top:18px; padding:13px 14px; border-radius:13px; background:color-mix(in srgb,var(--green) 8%,var(--surface)); color:var(--green); font-size:11px; font-weight:660 }
+    .learn-saved { display:flex; align-items:center; gap:9px; margin-top:18px; padding:13px 14px; border-radius:13px; background:color-mix(in srgb,var(--green) 6%,var(--surface)); color:var(--green); font-size:12px; font-weight:660 }
     .learn-saved i { width:7px; height:7px; border-radius:50%; background:var(--green) }
 
     .switch-section { overflow:hidden; background:var(--dark); color:var(--white) }
     .switch-section .eyebrow { color:#62dcf2 }
-    .switch-section .lede { color:rgba(255,255,255,.56) }
+    .switch-section .lede { color:rgba(255,255,255,.68) }
     .route { position:relative; display:grid; grid-template-columns:1fr 100px 1fr 100px 1fr; align-items:center; gap:12px; margin-top:64px }
     .route-node { min-height:230px; display:flex; flex-direction:column; justify-content:space-between; padding:28px; border:1px solid rgba(255,255,255,.10); border-radius:24px; background:rgba(255,255,255,.055) }
     .route-node.local { border-color:rgba(53,196,109,.30); background:rgba(53,196,109,.07) }
-    .route-node small { color:rgba(255,255,255,.40); font-size:10px; font-weight:720; letter-spacing:.07em; text-transform:uppercase }
+    .route-node small { color:rgba(255,255,255,.64); font-size:10px; font-weight:720; letter-spacing:.07em; text-transform:uppercase }
     .route-node h3 { margin-top:40px; font-size:27px }
-    .route-node p { margin-top:9px; color:rgba(255,255,255,.50); font-size:13px }
+    .route-node p { margin-top:9px; color:rgba(255,255,255,.68); font-size:13px }
     .route-state { display:flex; align-items:center; gap:7px; margin-top:26px; color:#77e4a1; font-size:11px; font-weight:670 }
     .route-state i { width:7px; height:7px; border-radius:50%; background:#51d883; box-shadow:0 0 0 5px rgba(81,216,131,.10) }
     .route-arrow { position:relative; height:1px; background:rgba(255,255,255,.20) }
     .route-arrow::after { content:""; position:absolute; right:-1px; top:-4px; width:7px; height:7px; border-top:1px solid rgba(255,255,255,.45); border-right:1px solid rgba(255,255,255,.45); transform:rotate(45deg) }
-    .route-arrow span { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); color:rgba(255,255,255,.34); font-size:9px; white-space:nowrap }
-    .adaptive { margin-top:24px; padding:20px 22px; border:1px solid rgba(255,255,255,.08); border-radius:17px; background:rgba(255,255,255,.035); color:rgba(255,255,255,.57); font-size:13px; text-align:center }
+    .route-arrow span { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); color:rgba(255,255,255,.64); font-size:11px; white-space:nowrap }
+    .adaptive { margin-top:24px; padding:20px 22px; border:1px solid rgba(255,255,255,.08); border-radius:17px; background:rgba(255,255,255,.035); color:rgba(255,255,255,.7); font-size:13px; text-align:center }
     .adaptive strong { color:#fff }
 
     .models-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:start }
@@ -294,9 +297,9 @@
     .radio { width:19px; height:19px; margin-top:2px; border:1.5px solid var(--ink-3); border-radius:50% }
     .model.active .radio { border:5px solid var(--blue) }
     .model strong { font-size:17px; font-weight:660 }
-    .model p { margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
-    .model-meta { padding:5px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-3); font-size:9px; font-weight:740; letter-spacing:.05em; text-transform:uppercase }
-    .model.active .model-meta { background:color-mix(in srgb,var(--blue) 11%,transparent); color:var(--blue) }
+    .model-desc { display:block; margin-top:5px; color:var(--ink-2); font-size:13px; line-height:1.5 }
+    .model-meta { padding:5px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); font-size:10px; font-weight:740; letter-spacing:.05em; text-transform:uppercase }
+    .model.active .model-meta { background:color-mix(in srgb,var(--blue) 6%,transparent); color:var(--blue) }
     .model-detail { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:0 0 18px 43px; max-height:0; overflow:hidden; opacity:0; transition:max-height .3s,opacity .25s,margin-top .3s }
     .model.active + .model-detail { max-height:100px; opacity:1; margin-top:18px }
     .metric { padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--surface) }
@@ -341,27 +344,33 @@
     .beta-card>* { position:relative; z-index:1 }
     .beta-card .eyebrow { color:#70caff }
     .beta-card h2 { max-width:850px; margin:15px auto 0 }
-    .beta-card .lede { max-width:650px; margin:20px auto 0; color:rgba(255,255,255,.57) }
+    .beta-card .lede { max-width:650px; margin:20px auto 0; color:rgba(255,255,255,.7) }
     .download-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:780px; margin:34px auto 0; text-align:left }
     .download-card { display:flex; flex-direction:column; min-height:230px; padding:25px; border:1px solid rgba(255,255,255,.12); border-radius:20px; background:rgba(255,255,255,.055) }
     .download-card.recommended { border-color:rgba(41,151,255,.48); background:rgba(41,151,255,.10); box-shadow:0 14px 40px rgba(0,0,0,.18) }
     .download-top { display:flex; align-items:start; justify-content:space-between; gap:10px }
-    .download-card small { color:rgba(255,255,255,.42); font-size:10px; font-weight:720; letter-spacing:.07em; text-transform:uppercase }
+    .download-card small { color:rgba(255,255,255,.66); font-size:11px; font-weight:720; letter-spacing:.07em; text-transform:uppercase }
     .download-card h3 { margin-top:9px; color:#fff; font-size:25px }
-    .download-card p { margin-top:9px; color:rgba(255,255,255,.52); font-size:13px; line-height:1.55 }
-    .download-badge { padding:5px 8px; border-radius:999px; background:rgba(41,151,255,.18); color:#79bdff; font-size:9px; font-weight:760; letter-spacing:.04em; text-transform:uppercase }
+    .download-card p { margin-top:9px; color:rgba(255,255,255,.7); font-size:13px; line-height:1.55 }
+    .download-badge { padding:5px 8px; border-radius:999px; background:rgba(41,151,255,.18); color:#8cc7ff; font-size:10px; font-weight:760; letter-spacing:.04em; text-transform:uppercase }
     .download-card .button { width:100%; margin-top:auto; border:0; background:#fff; color:#111216; box-shadow:none }
-    .download-card.recommended .button { background:var(--blue); color:#fff }
+    .download-card.recommended .button { background:var(--accent); color:#fff }
     .install-guide { max-width:780px; margin:14px auto 0; padding:22px 25px; border:1px solid rgba(255,255,255,.10); border-radius:20px; background:rgba(255,255,255,.035); text-align:left }
     .install-guide h3 { font-size:17px; letter-spacing:-.02em }
     .install-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:17px; counter-reset:install }
-    .install-step { color:rgba(255,255,255,.52); font-size:12px; line-height:1.5 }
+    .install-step { color:rgba(255,255,255,.74); font-size:13px; line-height:1.5 }
     .install-step::before { counter-increment:install; content:counter(install); display:grid; place-items:center; width:25px; height:25px; margin-bottom:9px; border-radius:8px; background:rgba(255,255,255,.09); color:#fff; font-size:11px; font-weight:730 }
-    .install-warning { display:flex; align-items:flex-start; gap:9px; margin-top:18px; padding-top:17px; border-top:1px solid rgba(255,255,255,.09); color:rgba(255,255,255,.42); font-size:11px; line-height:1.55 }
-    .install-warning b { color:rgba(255,255,255,.75) }
-    .checksum-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; color:rgba(255,255,255,.40); font-size:10px }
-    .checksum-links a { text-decoration:underline; text-underline-offset:3px }
-    .beta-meta { margin-top:23px; color:rgba(255,255,255,.36); font-size:11px }
+    .install-warning { display:flex; align-items:flex-start; gap:9px; margin-top:18px; padding-top:17px; border-top:1px solid rgba(255,255,255,.09); color:rgba(255,255,255,.7); font-size:12px; line-height:1.55 }
+    .install-warning b { color:#fff }
+    .checksum-links { display:flex; gap:8px 18px; flex-wrap:wrap; margin-top:14px; color:rgba(255,255,255,.78); font-size:13px }
+    .checksum-links a { display:inline-flex; align-items:center; min-height:32px; text-decoration:underline; text-underline-offset:3px }
+    .checksum-links a:hover { color:#fff }
+    .verify { margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,.09); color:rgba(255,255,255,.72); font-size:13px; line-height:1.55 }
+    .verify b { color:#fff }
+    .verify code { display:block; width:fit-content; max-width:100%; margin:8px 0; padding:8px 11px; border:1px solid rgba(255,255,255,.12); border-radius:9px; background:rgba(0,0,0,.35); color:#fff; font:12.5px/1.4 "SF Mono",ui-monospace,Menlo,monospace; white-space:pre-wrap; overflow-wrap:anywhere; user-select:all }
+    .verify a { text-decoration:underline; text-underline-offset:3px }
+    .beta-meta { margin-top:23px; color:rgba(255,255,255,.66); font-size:12px }
+    .beta-meta code { color:#fff }
 
     .pricing { padding-top:40px }
     .pricing-head { max-width:760px; margin:0 auto 42px; text-align:center }
@@ -379,14 +388,18 @@
     .plan .button { width:100%; margin-top:auto }
     .payment-note { min-height:22px; margin-top:12px; color:var(--ink-3); font-size:12px; text-align:center }
 
-    .contact-wrap { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start }
+    .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start }
+    .contact-wrap h2 { font-size:clamp(40px,4.6vw,64px) }
+    .contact-wrap .lede { margin-top:20px }
     .contact-form { display:grid; gap:14px; padding:30px; border:1px solid var(--line); border-radius:28px; background:var(--surface); box-shadow:var(--shadow-soft) }
-    .contact-form label { display:grid; gap:7px; color:var(--ink-2); font-size:12px; font-weight:650 }
-    .contact-form input,.contact-form textarea { width:100%; border:1px solid var(--line-strong); border-radius:12px; background:var(--page); color:var(--ink); font:inherit; padding:12px 13px }
-    .contact-form textarea { min-height:140px; resize:vertical }
-    .contact-form small { color:var(--ink-3); line-height:1.5 }
-    .contact-status { min-height:20px; color:var(--ink-2); font-size:13px }
+    .contact-form p { color:var(--ink-2); font-size:15px; line-height:1.55 }
+    .contact-form p a, .video-frame figcaption a { color:var(--blue); text-decoration:underline; text-underline-offset:3px }
 
+    .read-next-in { padding-top:34px; border-top:1px solid var(--line) }
+    .read-next h2.eyebrow { line-height:1.4 }
+    .read-next-links { display:flex; flex-wrap:wrap; gap:12px 26px; margin-top:14px; font-size:16px }
+    .read-next-links a { color:var(--blue) }
+    .read-next-links a:hover { text-decoration:underline; text-underline-offset:3px }
     .faq { max-width:850px; margin-inline:auto }
     .faq h2 { margin-bottom:42px; text-align:center }
     details { border-bottom:1px solid var(--line) }
@@ -400,16 +413,8 @@
     .footer-in { display:flex; align-items:center; gap:22px; color:var(--ink-3); font-size:13px }
     .footer-in .brand { color:var(--ink); font-size:15px }
     .footer-links { display:flex; gap:4px 20px; margin-left:auto }
-    .footer-links a:hover,.footer-links button:hover { color:var(--ink) }
-    .footer-links a,.footer-links button { display:flex; min-height:44px; align-items:center }
-    .footer-links button { border:0; padding:0; background:transparent; color:var(--ink-3); cursor:pointer; font:inherit; font-size:13px }
-    .analytics-consent { position:fixed; z-index:300; right:22px; bottom:22px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; width:min(620px,calc(100% - 44px)); padding:19px 20px; border:1px solid var(--line-strong); border-radius:18px; background:color-mix(in srgb,var(--surface) 92%,transparent); box-shadow:var(--shadow); backdrop-filter:blur(22px) saturate(160%); -webkit-backdrop-filter:blur(22px) saturate(160%) }
-    .analytics-consent[hidden] { display:none }
-    .analytics-consent b { display:block; font-size:13px }
-    .analytics-consent p { margin-top:5px; color:var(--ink-2); font-size:12px; line-height:1.45 }
-    .analytics-consent-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end }
-    .analytics-consent-actions button { min-height:44px; padding:0 13px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); cursor:pointer; font-size:12px; font-weight:650; white-space:nowrap }
-    .analytics-consent-actions button.primary { border-color:var(--blue); background:var(--blue); color:#fff }
+    .footer-links a:hover { color:var(--ink) }
+    .footer-links a { display:flex; min-height:44px; align-items:center }
     .site-notice { position:sticky; z-index:140; top:70px; display:none; padding:12px 0; border-bottom:1px solid var(--line-strong); background:color-mix(in srgb,var(--surface) 92%,transparent); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px) }
     .site-notice.visible { display:block }
     .site-notice p { width:min(calc(100% - 44px),var(--max)); margin-inline:auto; color:var(--ink); font-size:14px; line-height:1.45 }
@@ -441,7 +446,7 @@
     @media (max-width:780px) {
       .shell { width:min(calc(100% - 28px),var(--max)) }
       .nav-in { height:62px; gap:12px }
-      .nav-links>a:not(.button) { display:none }
+      .nav-links>a:not(.button):not([hreflang]) { display:none }
       .nav-links { gap:8px }
       .nav .button { display:none }
       .hero { padding:116px 0 68px; background-size:100% 100%,100% 92px }
@@ -468,7 +473,7 @@
       .route-arrow span { left:16px; bottom:17px; transform:none }
       .privacy-row { grid-template-columns:56px 1fr }
       .privacy-row p { grid-column:2 }
-      .trust-in { justify-content:flex-start; overflow-x:auto; padding-block:20px }
+      .trust-in { flex-wrap:wrap; justify-content:center; gap:12px 22px; padding-block:20px }
       .quote-card { padding:38px 26px }
       .beta-card { padding:60px 22px }
       .download-grid { grid-template-columns:1fr }
@@ -476,13 +481,11 @@
       .install-steps { grid-template-columns:1fr 1fr }
       .footer-in { align-items:flex-start; flex-wrap:wrap }
       .footer-links { width:100%; margin:0; flex-wrap:wrap }
-      .analytics-consent { right:14px; bottom:14px; grid-template-columns:1fr; gap:13px; width:calc(100% - 28px); padding:16px }
-      .analytics-consent-actions { justify-content:flex-start }
     }
     @media (max-width:420px) {
       .brand { font-size:16px }
       .hero-actions .button { width:100% }
-      .hero-meta { display:grid; gap:6px }
+      .hero-meta { display:grid; gap:6px; justify-content:center }
       .proof-in { grid-template-columns:1fr }
       .proof-item { border-right:0; border-bottom:1px solid var(--line) }
       .proof-item:last-child { border-bottom:0 }
@@ -528,7 +531,7 @@
           <p class="lede">Dans Mail, Messages, Notes ou n’importe quel champ de texte. Un raccourci, votre voix, et la phrase apparaît là où se trouve le curseur.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#telecharger">Télécharger Aria</a>
-            <a class="button button-quiet" href="https://www.youtube.com/playlist?list=PLZZLp_GlfQhs" target="_blank" rel="noopener noreferrer">Voir Aria écrire</a>
+            <a class="button button-quiet" href="#video" data-play-video>Voir Aria écrire</a>
           </div>
           <div class="hero-meta">
             <span><i></i> Mode local disponible</span>
@@ -539,13 +542,13 @@
 
         <div class="demo-wrap" id="demo">
           <div class="demo-glow" aria-hidden="true"></div>
-          <div class="demo" aria-label="Démonstration simulée de l’insertion Aria">
+          <div class="demo" role="group" aria-label="Démonstration simulée de l’insertion Aria">
             <div class="demo-bar">
               <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <div class="demo-apps" role="tablist" aria-label="Application de démonstration">
-                <button class="on" type="button" role="tab" aria-selected="true" data-demo="mail">Mail</button>
-                <button type="button" role="tab" aria-selected="false" data-demo="messages">Messages</button>
-                <button type="button" role="tab" aria-selected="false" data-demo="notes">Notes</button>
+              <div class="demo-apps" role="group" aria-label="Application de démonstration">
+                <button class="on" type="button" aria-pressed="true" data-demo="mail">Mail</button>
+                <button type="button" aria-pressed="false" data-demo="messages">Messages</button>
+                <button type="button" aria-pressed="false" data-demo="notes">Notes</button>
               </div>
             </div>
             <div class="compose">
@@ -554,8 +557,8 @@
                 <span class="compose-status">Aria active</span>
               </div>
               <div class="field-label" id="demo-label">Objet</div>
-              <div class="subject" id="demo-subject">Revised proposal</div>
-              <p class="inserted empty" id="demo-text"><span class="cursor" aria-hidden="true"></span></p>
+              <div class="subject" id="demo-subject" lang="en">Revised proposal</div>
+              <p class="inserted empty" id="demo-text" lang="en"><span class="cursor" aria-hidden="true"></span></p>
               <span class="demo-hint">Démonstration simulée — aucun micro utilisé</span>
             </div>
           </div>
@@ -578,30 +581,32 @@
     </div>
 
     <div class="trust-line">
-      <div class="shell trust-in" aria-label="Compatibilité et confidentialité">
+      <div class="shell trust-in" role="group" aria-label="Compatibilité et confidentialité">
         <span><i></i>Apple Silicon natif</span><span><i></i>Intel compatible</span>
         <span><i></i>Traitement audio local</span><span><i></i>Clés dans le Trousseau macOS</span>
       </div>
     </div>
 
-    <section class="video-section" aria-label="Vidéo de présentation d’Aria">
+    <section class="video-section" id="video" aria-label="Vidéo de présentation d’Aria">
       <div class="shell">
         <figure class="video-frame">
-          <video controls playsinline preload="none" poster="aria-video-fr.jpg" width="1920" height="1080" aria-label="Voir Aria en 23 secondes">
+          <video controls playsinline preload="none" width="1920" height="1080" aria-label="Voir Aria en 23 secondes">
             <source src="aria-presentation-fr-16x9.mp4" type="video/mp4">
           </video>
           <script>
             (() => {
               // Téléphone : version verticale, qui remplit l'écran au lieu d'un bandeau étroit.
-              if (!matchMedia('(max-width: 600px)').matches) return
+              // L'affiche est posée ici et non en attribut : sinon le navigateur téléchargeait
+              // l'affiche horizontale (31 Ko) avant que ce script ne la remplace.
               const video = document.currentScript.previousElementSibling
+              if (!matchMedia('(max-width: 600px)').matches) { video.poster = 'aria-video-fr.jpg'; return }
               video.poster = 'aria-video-fr-vertical.jpg'
               video.width = 1080; video.height = 1920
               video.querySelector('source').src = 'aria-presentation-fr-9x16.mp4'
               video.load()
             })()
           </script>
-           <figcaption>23 secondes · Présentation animée des usages d’Aria</figcaption>
+           <figcaption>23 secondes · Présentation animée des usages d’Aria · <a href="https://www.youtube.com/playlist?list=PLZZLp_GlfQhs" target="_blank" rel="noopener noreferrer">Autres démonstrations sur YouTube</a></figcaption>
         </figure>
       </div>
     </section>
@@ -610,7 +615,7 @@
       <div class="shell">
         <figure class="real-app-shot reveal">
           <picture>
-            <source type="image/webp" srcset="aria-setup-preview-1200.webp 1200w, aria-setup-preview.webp 2160w" sizes="(max-width: 1040px) 100vw, 980px">
+            <source type="image/webp" srcset="aria-setup-preview-1200.webp 1200w, aria-setup-preview.webp 2160w" sizes="(max-width: 780px) calc(100vw - 28px), (max-width: 1284px) calc(100vw - 44px), 1240px">
             <img src="aria-setup-preview.jpg" width="1440" height="960" loading="lazy" decoding="async" alt="Écran réel d’Aria proposant le mode local privé et le mode Groq en ligne">
           </picture>
           <figcaption>Capture réelle d’Aria — l’interface suit la langue du Mac.</figcaption>
@@ -622,7 +627,7 @@
       <div class="shell">
         <div class="intro reveal">
           <div><p class="eyebrow">Ce qui rend Aria différente</p><h2>Elle écrit.<br>Elle n’invente pas.</h2></div>
-          <p class="lede">La plupart des outils veulent “améliorer” ce que vous dites. Aria commence par respecter vos mots, votre langue et l’endroit où vous travaillez.</p>
+          <p class="lede">La plupart des outils veulent « améliorer » ce que vous dites. Aria commence par respecter vos mots, votre langue et l’endroit où vous travaillez.</p>
         </div>
         <div class="story">
           <article class="story-row reveal">
@@ -642,7 +647,7 @@
           <article class="story-row reveal">
             <div class="story-copy">
               <p class="mini">Langue préservée</p>
-              <h3>English in.<br>English out.</h3>
+              <h3 lang="en">English in.<br>English out.</h3>
               <p>La détection automatique peut être guidée par vos langues habituelles. Pour un mail entièrement anglais, vous pouvez aussi verrouiller la langue.</p>
             </div>
             <div class="story-visual">
@@ -657,10 +662,10 @@
             <div class="story-copy">
               <p class="mini">Mémoire avec garde-fous</p>
               <h3>Corrigez une fois.<br>Aria s’en souvient.</h3>
-              <p>Un nom, une marque ou un terme métier mal reconnu peut être appris sans autoriser Aria à réécrire le reste. « Grok » devient « Groq » là où c’est pertinent.</p>
+              <p>Un nom, une marque ou un terme métier mal reconnu peut être appris sans autoriser Aria à réécrire le reste. « Grok » devient « Groq » là où c’est pertinent.</p>
             </div>
             <div class="story-visual">
-              <div class="learn-card" aria-label="Exemple de correction apprise">
+              <div class="learn-card" role="group" aria-label="Exemple de correction apprise">
                 <div class="learn-title">Correction confirmée</div>
                 <div class="learn-change"><div class="learn-word wrong">Grok</div><div class="learn-arrow">→</div><div class="learn-word right">Groq</div></div>
                 <div class="learn-saved"><i></i> Ajouté au dictionnaire personnel</div>
@@ -677,14 +682,14 @@
           <div><p class="eyebrow">Secours intelligent</p><h2>Internet coupe.<br>Pas votre phrase.</h2></div>
           <p class="lede">Une longue dictée n’est pas une panne. Aria laisse davantage de temps au cloud lorsque vous parlez longtemps, et n’utilise le local que face à un échec probable.</p>
         </div>
-        <div class="route reveal" aria-label="Flux de secours cloud vers local puis retour cloud">
+        <div class="route reveal" role="group" aria-label="Flux de secours cloud vers local puis retour cloud">
           <div class="route-node"><small>Choix utilisateur</small><div><h3>Groq Précision</h3><p>Votre moteur reste sélectionné.</p></div><span class="route-state"><i></i> Actif</span></div>
           <div class="route-arrow"><span>Panne réelle</span></div>
           <div class="route-node local"><small>Secours temporaire</small><div><h3>Parakeet local</h3><p>Cette dictée reste sauvée sur le Mac.</p></div><span class="route-state"><i></i> Hors ligne</span></div>
           <div class="route-arrow"><span>Connexion revenue</span></div>
           <div class="route-node"><small>Retour automatique</small><div><h3>Groq Précision</h3><p>Le choix initial reprend la main.</p></div><span class="route-state"><i></i> Rétabli</span></div>
         </div>
-        <p class="adaptive reveal"><strong>Délai adaptatif :</strong> environ 20 s pour une dictée courte, jusqu’à 72 s pour deux minutes de parole — avant d’envisager le secours local.</p>
+        <p class="adaptive reveal"><strong>Délai adaptatif :</strong> environ 20 s pour une dictée courte, jusqu’à 72 s pour deux minutes de parole — avant d’envisager le secours local.</p>
       </div>
     </section>
 
@@ -696,11 +701,11 @@
           <p class="lede">Un moteur en ligne ou un traitement audio local. Choisissez selon vos besoins.</p>
         </div>
         <div class="model-list reveal" role="radiogroup" aria-label="Moteurs de transcription Aria">
-          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Précision</strong><p>Groq large-v3 complet pour les accents, noms propres et mots rares.</p></span><span class="model-meta">Recommandé</span></button>
+          <button class="model active" type="button" role="radio" aria-checked="true"><i class="radio"></i><span><strong>Whisper v3 Précision</strong><span class="model-desc">Groq large-v3 complet pour les accents, noms propres et mots rares.</span></span><span class="model-meta">Recommandé</span></button>
           <div class="model-detail"><div class="metric"><span>Priorité</span><b>Précision</b></div><div class="metric"><span>Réseau</span><b>Connexion requise</b></div></div>
-          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><p>La réponse la plus rapide pour la dictée quotidienne.</p></span><span class="model-meta">Rapide</span></button>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Whisper v3 Turbo</strong><span class="model-desc">La réponse la plus rapide pour la dictée quotidienne.</span></span><span class="model-meta">Rapide</span></button>
           <div class="model-detail"><div class="metric"><span>Priorité</span><b>Vitesse</b></div><div class="metric"><span>Réseau</span><b>Connexion requise</b></div></div>
-          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Parakeet local</strong><p>Transcription directement sur le Mac, même sans Internet.</p></span><span class="model-meta">Privé</span></button>
+          <button class="model" type="button" role="radio" aria-checked="false"><i class="radio"></i><span><strong>Parakeet local</strong><span class="model-desc">Transcription sur le Mac : l’audio n’est envoyé nulle part.</span></span><span class="model-meta">Privé</span></button>
           <div class="model-detail"><div class="metric"><span>Priorité</span><b>Vie privée</b></div><div class="metric"><span>Audio</span><b>Sur le Mac</b></div></div>
         </div>
       </div>
@@ -708,7 +713,7 @@
 
     <section class="devices">
       <div class="shell device-layout">
-        <div class="device-panel reveal" aria-label="Sélection du microphone">
+        <div class="device-panel reveal" role="group" aria-label="Sélection du microphone">
           <div class="device-title">Microphone utilisé par Aria</div>
           <div class="device-row on"><span class="device-dot">AP</span><span><b>AirPods Pro</b><span>Connectés · périphérique choisi</span></span><i class="check"></i></div>
           <div class="device-row"><span class="device-dot">MB</span><span><b>Micro du MacBook</b><span>Disponible</span></span><i class="check"></i></div>
@@ -727,7 +732,7 @@
       <div class="shell">
         <div class="reveal">
           <p class="eyebrow">Confidentialité lisible</p>
-          <h2>Pas de petite ligne cachée derrière “IA”.</h2>
+          <h2>Pas de petite ligne cachée derrière « IA ».</h2>
           <p class="lede">Le mode choisi indique clairement ce qui reste sur le Mac et ce qui rejoint votre fournisseur cloud.</p>
         </div>
         <div class="privacy-list">
@@ -735,7 +740,7 @@
           <div class="privacy-row reveal"><small>02</small><b>Clé serveur jamais embarquée</b><p>Le mode Groq fourni utilise une clé conservée sur le serveur. Vos clés optionnelles restent chiffrées dans le Trousseau macOS.</p></div>
           <div class="privacy-row reveal"><small>03</small><b>Historique réglable</b><p>Gardez-le, limitez-le ou désactivez-le selon le niveau de confidentialité recherché.</p></div>
           <div class="privacy-row reveal"><small>04</small><b>Contexte facultatif</b><p>La lecture d’écran locale pour les noms propres peut être désactivée à tout moment.</p></div>
-          <div class="privacy-row reveal"><small>05</small><b>Mesure facultative</b><p>Les statistiques pseudonymisées d’usage dans Aria sont désactivées par défaut. Si vous les acceptez, seuls des compteurs et un identifiant aléatoire sont partagés : jamais d’audio, de texte, d’e-mail, de nom ou d’identifiant matériel. Le retrait demande l’effacement des agrégats associés. Cette vitrine ne transmet aucune visite ni aucun clic.</p></div>
+          <div class="privacy-row reveal"><small>05</small><b>Comptage anonyme, mesure facultative</b><p>Pour compter les Mac équipés, Aria télécharge un fichier vide sur GitHub à l’installation, à chaque nouvelle version et une fois par semaine d’usage ; GitHub n’en publie que le total. Ce comptage se coupe dans Réglages → Données. Les statistiques d’usage détaillées restent désactivées tant que vous ne les acceptez pas : seuls des compteurs et un identifiant aléatoire sont alors partagés, jamais d’audio, de texte, d’e-mail, de nom ou d’identifiant matériel. Le retrait demande l’effacement des agrégats associés. Cette vitrine ne transmet aucune visite ni aucun clic.</p></div>
         </div>
       </div>
     </section>
@@ -743,7 +748,7 @@
     <section class="quote">
       <div class="shell quote-card reveal">
         <p><span class="eyebrow">Un outil qui disparaît</span><br><br>Aria reste dans la barre des menus. Elle intervient au raccourci, écrit au curseur et vous rend immédiatement l’application où vous travailliez.</p>
-        <blockquote>« Une bonne dictée ne devrait pas vous obliger à changer d’application. »</blockquote>
+        <blockquote>« Une bonne dictée ne devrait pas vous obliger à changer d’application. »</blockquote>
       </div>
     </section>
 
@@ -752,15 +757,15 @@
         <div class="pricing-head reveal">
           <p class="eyebrow">Simple et définitif</p>
           <h2>Essayez chaque semaine.<br>Puis gardez Aria à vie.</h2>
-          <p class="lede">La bêta gratuite comprend 2 000 mots par semaine, renouvelés chaque lundi. L’achat Pro n’est pas encore ouvert ; l’offre annoncée prévoit un achat unique, sans abonnement.</p>
+          <p class="lede">La bêta gratuite comprend 2 000 mots par semaine, renouvelés chaque lundi. L’achat Pro n’est pas encore ouvert ; l’offre annoncée prévoit un achat unique, sans abonnement.</p>
         </div>
         <div class="plans">
           <article class="plan reveal">
             <span class="plan-badge">Gratuit</span>
             <h3>Aria Free</h3>
-            <div class="price">0 €</div>
+            <div class="price">0 €</div>
             <ul>
-              <li>2 000 mots chaque semaine</li>
+              <li>2 000 mots chaque semaine</li>
               <li>Remise à zéro automatique le lundi</li>
               <li>Moteurs locaux et cloud disponibles</li>
               <li>Compteur synchronisé pour éviter les remises à zéro accidentelles</li>
@@ -770,7 +775,7 @@
           <article class="plan pro reveal">
             <span class="plan-badge">À venir</span>
             <h3>Aria Pro</h3>
-            <div class="price">5 € <small>une seule fois</small></div>
+            <div class="price">5 € <small>une seule fois</small></div>
             <ul>
               <li>Nombre de mots illimité</li>
               <li>Licence perpétuelle sur trois Mac</li>
@@ -778,7 +783,7 @@
               <li>Restauration avec la clé reçue après paiement</li>
             </ul>
             <a class="button button-primary" href="#telecharger">Commencer gratuitement</a>
-            <div class="payment-note">Offre annoncée : 5 € une fois pour trois Mac. L’achat Pro n’est pas encore ouvert pendant la bêta. Commencez avec l’offre gratuite.</div>
+            <div class="payment-note">Offre annoncée : 5 € une fois pour trois Mac. L’achat Pro n’est pas encore ouvert pendant la bêta. Commencez avec l’offre gratuite.</div>
           </article>
         </div>
       </div>
@@ -790,7 +795,7 @@
           <p class="eyebrow">Version 2.62.1</p>
           <h2>Installez. Parlez.<br>Aria écrit.</h2>
           <p class="lede">Choisissez votre Mac. Le DMG contient seulement l’application compilée, ses ressources et les instructions d’installation — jamais le dépôt de développement.</p>
-          <div class="download-grid" aria-label="Téléchargements Aria pour macOS">
+          <div class="download-grid" role="group" aria-label="Téléchargements Aria pour macOS">
             <article class="download-card recommended" data-download-card="arm64">
               <div class="download-top"><div><small>Mac récents · M1 à M4+</small><h3>Apple Silicon</h3></div><span class="download-badge">Recommandé</span></div>
               <p>Version native arm64 pour MacBook, iMac, Mac mini, Mac Studio et Mac Pro équipés d’une puce Apple.</p>
@@ -802,21 +807,22 @@
               <a class="button" href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-Installer-2.62.1-Intel.dmg" data-download="x64">Télécharger le DMG</a>
             </article>
           </div>
-          <p class="beta-meta">Avec Homebrew : <code>brew install --cask hfioafio/aria/aria</code></p>
+          <p class="beta-meta">Avec Homebrew : <code>brew install --cask hfioafio/aria/aria</code></p>
           <div class="install-guide">
             <h3>Première ouverture sans abonnement Apple Developer</h3>
             <div class="install-steps">
               <div class="install-step">Ouvrez le DMG téléchargé.</div>
               <div class="install-step">Glissez Aria dans Applications.</div>
               <div class="install-step">Essayez d’ouvrir Aria une fois.</div>
-              <div class="install-step">Si macOS bloque : Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</div>
+              <div class="install-step">Si macOS bloque : Réglages Système → Confidentialité et sécurité → Ouvrir quand même.</div>
             </div>
-            <p class="install-warning"><span>⚠︎</span><span><b>Avertissement attendu :</b> cette version est contrôlée par SHA-256 et possède une identité de signature stable, mais elle n’est pas encore notarisée par Apple. Ne contournez Gatekeeper que pour le téléchargement venant de ce site et du dépôt GitHub officiel.</span></p>
+            <p class="install-warning"><span>⚠︎</span><span><b>Avertissement attendu :</b> cette version est contrôlée par SHA-256 et possède une identité de signature stable, mais elle n’est pas encore notarisée par Apple. Ne contournez Gatekeeper que pour le téléchargement venant de ce site et du dépôt GitHub officiel.</span></p>
             <div class="checksum-links">
               <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-Installer-2.62.1-Apple-Silicon.dmg.sha256">SHA-256 Apple Silicon</a>
               <a href="https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.1/Aria-Installer-2.62.1-Intel.dmg.sha256">SHA-256 Intel</a>
               <a href="https://github.com/hfioafio/Aria-Downloads/releases/tag/v2.62.1">Voir la release GitHub</a>
             </div>
+            <p class="verify"><b>Vérifier le fichier avant d’ouvrir Aria :</b> dans le Terminal, lancez<code>shasum -a 256 ~/Downloads/Aria-Installer-*.dmg</code>puis comparez la longue suite affichée au fichier SHA-256 de votre Mac, ci-dessus. Si elles diffèrent, supprimez le DMG sans l’ouvrir. <a href="installer-aria-mac.html">Guide d’installation complet</a></p>
           </div>
           <p class="beta-meta">macOS 11+ · téléchargement par architecture · mises à jour vérifiées dans Aria</p>
         </div>
@@ -826,15 +832,16 @@
     <section>
       <div class="shell faq">
         <h2>Questions fréquentes.</h2>
-        <details><summary>Aria traduit-elle automatiquement l’anglais ?</summary><p>Non. La transcription conserve la langue parlée. Les transformations comme E-mail ou Points clés ne s’appliquent que lorsque vous les choisissez.</p></details>
-        <details><summary>Faut-il une connexion Internet ?</summary><p>Après téléchargement du modèle local, l’audio et la transcription sont traités sur le Mac. La vérification du quota et de la licence peut nécessiter une connexion. Le mode Automatique utilise le service en ligne fourni par Aria, sans clé à saisir pendant la bêta : l’audio passe par un relais limité vers Groq, sans stockage de l’audio ni du texte par ce relais.</p></details>
-        <details><summary>Comment fonctionne la limite gratuite ?</summary><p>Aria Free comprend 2 000 mots par semaine et se remet à zéro chaque lundi selon l’heure du serveur. Une brève connexion est nécessaire pour vérifier le compteur ; réinstaller l’app ou changer l’horloge du Mac ne recrée pas un nouveau quota.</p></details>
-        <details><summary>Le paiement de 5 € est-il un abonnement ?</summary><p>L’achat Pro n’est pas encore ouvert. L’offre annoncée prévoit un achat unique de 5 € pour trois Mac, sans limite de mots et avec les futures mises à jour incluses. La bêta permet de commencer gratuitement avec 2 000 mots par semaine.</p></details>
-        <details><summary>Que se passe-t-il pendant une longue dictée ?</summary><p>Le délai cloud augmente avec la durée enregistrée. Deux minutes de parole disposent d’un délai bien supérieur à une phrase courte avant que le secours local soit envisagé.</p></details>
-        <details><summary>Aria fonctionne-t-elle avec les AirPods ?</summary><p>Oui. Vous pouvez choisir explicitement le micro du casque. En Automatique, Aria privilégie un micro intégré disponible si le micro système est Bluetooth, pour éviter la bascule du casque en mode téléphonique.</p></details>
-        <details><summary>Pourquoi macOS affiche-t-il un avertissement ?</summary><p>Aria est signée mais pas encore notarisée par Apple. Après une première tentative d’ouverture, utilisez Réglages Système → Confidentialité et sécurité → Ouvrir quand même. La future version Developer ID supprimera cette étape.</p></details>
-        <details><summary>Comment les mises à jour fonctionnent-elles ?</summary><p>Aria vérifie le manifeste public au démarrage puis toutes les six heures. Elle reprend si nécessaire le téléchargement du DMG adapté au Mac, contrôle sa taille, son SHA-256 et son identité Apple, puis met l’application à jour sur place. Si la nouvelle version ne démarre pas correctement, Aria restaure automatiquement la précédente. Une version minimale publiée rend cette mise à jour non reportable, sans jamais bloquer Aria hors ligne.</p></details>
-        <details><summary>Comment savez-vous si Aria est utilisée ?</summary><p>Trois chiffres, tenus séparés. Les téléchargements du fichier « Installer » de ce dépôt comptent les téléchargements depuis le site ; ceux du fichier sans « Installer », identique, comptent les mises à jour automatiques. Pour savoir combien de Mac sont vraiment équipés, Aria télécharge un fichier vide sur GitHub à la première ouverture, à chaque nouvelle version et une fois par semaine d’utilisation : GitHub n’en publie que le total, sans identifiant, texte ni réglage. Ce comptage se coupe dans Réglages → Données. Le partage détaillé de lancements et de dictées reste désactivé tant que vous ne l’activez pas.</p></details>
+        <details><summary>Aria traduit-elle automatiquement l’anglais ?</summary><p>Non. La transcription conserve la langue parlée. Les transformations comme E-mail ou Points clés ne s’appliquent que lorsque vous les choisissez.</p></details>
+        <details><summary>Dans quelles apps Aria fonctionne-t-elle ?</summary><p>Aria écrit au curseur : elle fonctionne donc dans Mail, Messages, Notes, Slack, Teams, les navigateurs, les éditeurs de code et tout champ de texte macOS standard.</p></details>
+        <details><summary>Faut-il une connexion Internet ?</summary><p>Après téléchargement du modèle local, l’audio et la transcription sont traités sur le Mac. La vérification du quota et de la licence peut nécessiter une connexion. Le mode Automatique utilise le service en ligne fourni par Aria, sans clé à saisir pendant la bêta : l’audio passe par un relais limité vers Groq, sans stockage de l’audio ni du texte par ce relais.</p></details>
+        <details><summary>Comment fonctionne la limite gratuite ?</summary><p>Aria Free comprend 2 000 mots par semaine et se remet à zéro chaque lundi selon l’heure du serveur. Une brève connexion est nécessaire pour vérifier le compteur ; réinstaller l’app ou changer l’horloge du Mac ne recrée pas un nouveau quota.</p></details>
+        <details><summary>Le paiement de 5 € est-il un abonnement ?</summary><p>L’achat Pro n’est pas encore ouvert. L’offre annoncée prévoit un achat unique de 5 € pour trois Mac, sans limite de mots et avec les futures mises à jour incluses. La bêta permet de commencer gratuitement avec 2 000 mots par semaine.</p></details>
+        <details><summary>Que se passe-t-il pendant une longue dictée ?</summary><p>Le délai cloud augmente avec la durée enregistrée. Deux minutes de parole disposent d’un délai bien supérieur à une phrase courte avant que le secours local soit envisagé.</p></details>
+        <details><summary>Aria fonctionne-t-elle avec les AirPods ?</summary><p>Oui. Vous pouvez choisir explicitement le micro du casque. En Automatique, Aria privilégie un micro intégré disponible si le micro système est Bluetooth, pour éviter la bascule du casque en mode téléphonique.</p></details>
+        <details><summary>Pourquoi macOS affiche-t-il un avertissement ?</summary><p>Aria est signée mais pas encore notarisée par Apple. Après une première tentative d’ouverture, utilisez Réglages Système → Confidentialité et sécurité → Ouvrir quand même. La future version Developer ID supprimera cette étape.</p></details>
+        <details><summary>Comment les mises à jour fonctionnent-elles ?</summary><p>Aria vérifie le manifeste public au démarrage puis toutes les six heures. Elle reprend si nécessaire le téléchargement du DMG adapté au Mac, contrôle sa taille, son SHA-256 et son identité Apple, puis met l’application à jour sur place. Si la nouvelle version ne démarre pas correctement, Aria restaure automatiquement la précédente. Une version minimale publiée rend cette mise à jour non reportable, sans jamais bloquer Aria hors ligne.</p></details>
+        <details><summary>Comment savez-vous si Aria est utilisée ?</summary><p>Trois chiffres, tenus séparés. Les téléchargements du fichier « Installer » de ce dépôt comptent les téléchargements depuis le site ; ceux du fichier sans « Installer », identique, comptent les mises à jour automatiques. Pour savoir combien de Mac sont vraiment équipés, Aria télécharge un fichier vide sur GitHub à la première ouverture, à chaque nouvelle version et une fois par semaine d’utilisation : GitHub n’en publie que le total, sans identifiant, texte ni réglage. Ce comptage se coupe dans Réglages → Données. Le partage détaillé de lancements et de dictées reste désactivé tant que vous ne l’activez pas.</p></details>
       </div>
     </section>
 
@@ -842,31 +849,31 @@
       <div class="shell contact-wrap">
         <div class="reveal">
           <p class="eyebrow">Nous contacter</p>
-          <h2>Une question ?<br>Écrivez-nous.</h2>
-          <p class="lede" style="margin-top:20px">Installation, licence, remboursement ou suggestion : votre message arrive directement à l’équipe Aria.</p>
+          <h2>Une question ?<br>Écrivez-nous.</h2>
+          <p class="lede">Installation, quota ou suggestion : posez votre question dans une issue GitHub. L’équipe Aria y répond publiquement, ce qui aide aussi les suivants.</p>
         </div>
         <div class="contact-form reveal">
-          <p style="color:var(--ink-2);font-size:15px;line-height:1.55">Installation, licence ou suggestion : ouvrez une issue sur le dépôt public. N’y collez pas de clé API, de dictée ni d’autre donnée personnelle.</p>
+          <p>Les issues sont publiques : n’y collez pas de clé API, de dictée ni d’autre donnée personnelle. Pour l’ouverture bloquée par macOS, le <a href="installer-aria-mac.html">guide d’installation</a> répond souvent plus vite.</p>
           <a class="button button-primary" href="https://github.com/hfioafio/Aria-Downloads/issues/new">Ouvrir une issue</a>
         </div>
       </div>
     </section>
-    <section aria-label="Comparatifs">
-      <div class="shell" style="border-top:1px solid var(--line);padding-top:34px">
-        <p class="eyebrow">À lire aussi</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:14px;font-size:16px">
-          <a href="alternative-wispr-flow.html" style="color:var(--blue)">Alternative à Wispr Flow</a>
-          <a href="alternative-superwhisper.html" style="color:var(--blue)">Alternative à Superwhisper</a>
-          <a href="dictee-vocale-mac-sans-abonnement.html" style="color:var(--blue)">Dictée vocale Mac sans abonnement</a>
-          <a href="dictee-vocale-mac.html" style="color:var(--blue)">Quelle app de dictée choisir en 2026</a>
-          <a href="transcrire-reunion-mac.html" style="color:var(--blue)">Transcrire une réunion sur Mac</a>
-          <a href="dictee-vocale-mac-hors-ligne.html" style="color:var(--blue)">Dicter hors ligne : ce qui marche</a>
-          <a href="installer-aria-mac.html" style="color:var(--blue)">Installer Aria : l’étape Gatekeeper</a>
-          <a href="transcrire-fichier-audio-mac.html" style="color:var(--blue)">Transcrire un fichier audio</a>
-          <a href="dictee-apple-ne-fonctionne-pas.html" style="color:var(--blue)">La dictée d’Apple ne marche pas</a>
-          <a href="alternative-macwhisper.html" style="color:var(--blue)">Alternative à MacWhisper</a>
-          <a href="modele-parakeet-mac.html" style="color:var(--blue)">Le modèle Parakeet en local</a>
-          <a href="dictee-vocale-developpeurs.html" style="color:var(--blue)">Dicter quand on code</a>
+    <section class="read-next" aria-labelledby="lire-aussi">
+      <div class="shell read-next-in">
+        <h2 class="eyebrow" id="lire-aussi">À lire aussi</h2>
+        <div class="read-next-links">
+          <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
+          <a href="alternative-superwhisper.html">Alternative à Superwhisper</a>
+          <a href="dictee-vocale-mac-sans-abonnement.html">Dictée vocale Mac sans abonnement</a>
+          <a href="dictee-vocale-mac.html">Quelle app de dictée choisir en 2026</a>
+          <a href="transcrire-reunion-mac.html">Transcrire une réunion sur Mac</a>
+          <a href="dictee-vocale-mac-hors-ligne.html">Dicter hors ligne : ce qui marche</a>
+          <a href="installer-aria-mac.html">Installer Aria : l’étape Gatekeeper</a>
+          <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier audio</a>
+          <a href="dictee-apple-ne-fonctionne-pas.html">La dictée d’Apple ne marche pas</a>
+          <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
+          <a href="modele-parakeet-mac.html">Le modèle Parakeet en local</a>
+          <a href="dictee-vocale-developpeurs.html">Dicter quand on code</a>
         </div>
       </div>
     </section>
@@ -884,7 +891,7 @@
   <script>
     (function () {
       var media = matchMedia('(prefers-color-scheme:dark)');
-      var themeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-theme-choice]'));
+      var themeButtons = Array.prototype.slice.call(document.querySelectorAll('button[data-theme-choice]'));
       function applyTheme(choice, remember) {
         if (['auto','light','dark'].indexOf(choice) < 0) choice = 'auto';
         var dark = choice === 'dark' || (choice === 'auto' && media.matches);
@@ -917,7 +924,7 @@
         mail:{
           avatar:'JM',person:'Jean Martin',context:'Nouveau message',label:'Objet',subject:'Revised proposal',
           text:'Send the revised proposal before Friday, and keep the tone concise.',
-          detail:'Groq Précision · anglais conservé'
+          detail:'Groq Précision · anglais conservé', lang:'en'
         },
         messages:{
           avatar:'L',person:'Léa',context:'Conversation',label:'Message',subject:'Projet de vendredi',
@@ -947,12 +954,16 @@
         document.getElementById('demo-context').textContent = example.context;
         document.getElementById('demo-label').textContent = example.label;
         document.getElementById('demo-subject').textContent = example.subject;
+        // Langue du passage (WCAG 3.1.2) : l'exemple Mail de la page française est en anglais.
+        var exampleLang = example.lang || document.documentElement.lang;
+        document.getElementById('demo-subject').lang = exampleLang;
+        demoText.lang = exampleLang;
         document.getElementById('pill-detail').textContent = example.detail;
         pillTitle.textContent = 'Aria écoute';
         demoButtons.forEach(function (button) {
           var active = button.dataset.demo === name;
           button.classList.toggle('on',active);
-          button.setAttribute('aria-selected',String(active));
+          button.setAttribute('aria-pressed',String(active));
         });
         if (!animate || reduced) {
           demoText.classList.remove('empty');
@@ -983,14 +994,32 @@
       fillExample('mail',true);
 
       var models = Array.prototype.slice.call(document.querySelectorAll('.model'));
-      models.forEach(function (model) {
-        model.addEventListener('click',function () {
-          models.forEach(function (item) {
-            var active = item === model;
-            item.classList.toggle('active',active);
-            item.setAttribute('aria-checked',String(active));
-          });
+      function selectModel(model, focus) {
+        models.forEach(function (item) {
+          var active = item === model;
+          item.classList.toggle('active',active);
+          item.setAttribute('aria-checked',String(active));
+          item.tabIndex = active ? 0 : -1;
         });
+        if (focus) model.focus();
+      }
+      models.forEach(function (model, index) {
+        model.addEventListener('click',function () { selectModel(model,false); });
+        model.addEventListener('keydown',function (event) {
+          var step = { ArrowDown:1, ArrowRight:1, ArrowUp:-1, ArrowLeft:-1 }[event.key];
+          if (!step) return;
+          event.preventDefault();
+          selectModel(models[(index + step + models.length) % models.length],true);
+        });
+      });
+      selectModel(document.querySelector('.model.active') || models[0],false);
+
+      // « Voir Aria écrire » : le lien mène à la vidéo de la page et la lance (le clic autorise le son).
+      var playLink = document.querySelector('[data-play-video]');
+      var video = document.querySelector('#video video');
+      if (playLink && video) playLink.addEventListener('click',function () {
+        var playing = video.play();
+        if (playing && playing.catch) playing.catch(function () {});
       });
 
       var reveal = document.querySelectorAll('.reveal');
@@ -1006,8 +1035,8 @@
       // Chromium peut révéler l'architecture ; Safari ne le fait pas. Dans le doute, Apple
       // Silicon reste recommandé et le choix Intel demeure clairement visible.
       if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-        navigator.userAgentData.getHighEntropyValues(['architecture']).then(function (info) {
-          var intel = String(info.architecture || '').toLowerCase().indexOf('x86') >= 0;
+        navigator.userAgentData.getHighEntropyValues(['architecture','platform']).then(function (info) {
+          var intel = info.platform === 'macOS' && String(info.architecture || '').toLowerCase().indexOf('x86') >= 0;
           if (!intel) return;
           var arm = document.querySelector('[data-download-card="arm64"]');
           var x64 = document.querySelector('[data-download-card="x64"]');
@@ -1039,7 +1068,7 @@
     .install-dialog-sub { margin-top:6px; color:var(--ink-2); font-size:16px }
     .install-dialog-steps { list-style:none; display:grid; gap:14px; margin:22px 0 0; padding:0 }
     .install-dialog-steps li { display:grid; grid-template-columns:30px 1fr; gap:12px; align-items:start }
-    .install-dialog-steps span { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--blue); color:#fff; font-size:13px; font-weight:750 }
+    .install-dialog-steps span { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:750 }
     .install-dialog-steps p { margin:3px 0 0; color:var(--ink-2); font-size:15px; line-height:1.5 }
     .install-dialog-steps strong { color:var(--ink); font-weight:650 }
     .install-dialog-link { display:flex; width:fit-content; align-items:center; min-height:44px; margin-top:4px; color:var(--blue); font-weight:650 }

@@ -22,10 +22,16 @@ L = {
                dl_arm="Download for Apple Silicon", dl_x64="Intel Mac"),
 }
 
+# Politique de sécurité : aucune requête sortante possible (connect-src 'none'), donc aucune
+# mesure d'audience, même ajoutée par erreur ; scripts et styles en ligne autorisés (le site en
+# dépend), ressources limitées au site. stats.html, qui lit l'API GitHub, n'en a pas.
+CSP = """default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"""
+
 TEMPLATE = """<!doctype html>
 <html lang="{lang}">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -195,6 +201,49 @@ PAGES = [
          crumb="Dictée vocale sur Mac", pair="best-dictation-apps-mac"),
 ]
 
+NBSP = " "
+# Texte entre balises seulement : jamais dans un script, un style, du code ou un attribut.
+_SKIP = re.compile(r"(<(script|style|code|pre|textarea)\b.*?</\2>|<[^>]+>)", re.S | re.I)
+
+
+def french_spacing(html):
+    """Espaces insécables du français, pour qu'un « ? » ou un « € » ne parte pas seul à la ligne.
+
+    Sur téléphone, « Comment fonctionne la limite gratuite ? » laissait le point d'interrogation
+    seul sur sa ligne, et « Une question ? » faisait de même dans un titre de 76 px. L'espace
+    insécable ordinaire (U+00A0) est préféré à l'espace fine : toutes les polices l'ont.
+    """
+    def fix(text):
+        text = re.sub(r"[ \t]+([?!;:»])", NBSP + r"\1", text)
+        text = re.sub(r"«[ \t]+", "«" + NBSP, text)
+        text = re.sub(r"(?<=\d) (?=\d{3}\b)", NBSP, text)          # 2 000 mots
+        text = re.sub(r"(?<=\d) (?=(?:€|%|s\b|Mo\b|Go\b|mots\b|Mac\b))", NBSP, text)
+        return text
+    parts = _SKIP.split(html)
+    out, i = [], 0
+    # re.split avec deux groupes renvoie : texte, bloc ignoré, nom de balise, texte, …
+    while i < len(parts):
+        out.append(fix(parts[i]))
+        if i + 1 < len(parts):
+            out.append(parts[i + 1])
+        i += 3
+    return "".join(out)
+
+
+def sync_french_spacing():
+    root = Path(__file__).resolve().parent.parent
+    changed = []
+    for name in ("index.html", "404.html", "stats.html"):
+        path = root / "docs" / name
+        before = path.read_text(encoding="utf-8")
+        head, sep, body = before.partition("<body")
+        after = head + sep + french_spacing(body)
+        if after != before:
+            path.write_text(after, encoding="utf-8")
+            changed.append(f"docs/{name}")
+    return changed
+
+
 def faq_entities(body):
     pairs = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", body, re.S)
     def text(value):
@@ -239,6 +288,8 @@ def build():
         lang = p["lang"]; loc = L[lang]
         src = os.path.join("tools", "pages", p["slug"] + ".html")
         body = io.open(src, encoding="utf-8").read().rstrip("\n")
+        if lang == "fr":
+            body = french_spacing(body)
         loc = dict(loc)
         if p.get("pair"):
             loc["other_href"] = p["pair"] + ".html"
@@ -281,6 +332,7 @@ def build():
                        '        </div>\n      </section>\n') % (heading, heading, items)
 
         html = TEMPLATE.format(
+            csp=CSP,
             lang=lang, title=p["title"], description=p["description"], base=BASE, slug=p["slug"],
             alternates=alt, jsonld=jsonld, oglocale="fr_FR" if lang == "fr" else "en_US",
             body=body, related=related, crumb=p["crumb"], homehref="./" if lang == "fr" else "en.html",
@@ -338,7 +390,7 @@ def sitemap(changed=()):
 
 
 if __name__ == "__main__":
-    changed = sync_home_faq() + build()
+    changed = sync_french_spacing() + sync_home_faq() + build()
     for f in changed:
         print("écrit", f)
     print("sitemap.xml :", sitemap(changed), "URL")

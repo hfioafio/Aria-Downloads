@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -64,17 +65,17 @@
       <p class="crumb"><a href="./">Aria</a> · Transcrire un fichier</p>
       <p class="eyebrow">Cas d'usage</p>
       <h1>Transcrire un fichier audio sur Mac, sans rien téléverser</h1>
-      <p class="lede">Importez un fichier audio ou vidéo pour obtenir sa transcription. Pour le traiter sur le Mac, téléchargez un modèle et choisissez Local. Le mode en ligne envoie l’audio au service de transcription ; vérifiez le mode sélectionné avant de lancer.</p>
+      <p class="lede">Importez un fichier audio ou vidéo pour obtenir sa transcription. Pour le traiter sur le Mac, téléchargez un modèle et choisissez Local. Le mode en ligne envoie l’audio au service de transcription ; vérifiez le mode sélectionné avant de lancer.</p>
 
       <h2>Ce que vous pouvez déposer</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Ce que vous pouvez déposer">
         <table>
           <tbody>
-            <tr><td><strong>Audio</strong></td><td>MP3, WAV, M4A, FLAC, OGG</td></tr>
-            <tr><td><strong>Vidéo</strong></td><td>MP4, MOV — c'est la bande son qui est transcrite</td></tr>
-            <tr><td><strong>Locuteurs</strong></td><td>Identification optionnelle, calculée sur le Mac</td></tr>
-            <tr><td><strong>Langues</strong></td><td>25 langues européennes, et la transcription garde la langue parlée</td></tr>
-            <tr><td><strong>Réseau</strong></td><td>Pas d’envoi audio en Local ; contrôles de quota/licence possibles en ligne</td></tr>
+            <tr><th scope="row"><strong>Audio</strong></th><td>MP3, WAV, M4A, FLAC, OGG</td></tr>
+            <tr><th scope="row"><strong>Vidéo</strong></th><td>MP4, MOV — c'est la bande son qui est transcrite</td></tr>
+            <tr><th scope="row"><strong>Locuteurs</strong></th><td>Identification optionnelle, calculée sur le Mac</td></tr>
+            <tr><th scope="row"><strong>Langues</strong></th><td>25 langues européennes, et la transcription garde la langue parlée</td></tr>
+            <tr><th scope="row"><strong>Réseau</strong></th><td>Pas d’envoi audio en Local ; contrôles de quota/licence possibles en ligne</td></tr>
           </tbody>
         </table>
       </div>
@@ -83,12 +84,12 @@
       <ol>
         <li>Ouvrez Aria et allez dans la transcription de fichiers.</li>
         <li>Déposez le fichier. Les longs enregistrements fonctionnent, ils prennent simplement plus de temps.</li>
-        <li>Relisez, corrigez, copiez ou exportez. Le dictionnaire personnel permet de garder les noms à mieux reconnaître ; relisez le résultat.</li>
+        <li>Relisez, corrigez, copiez ou exportez. Le dictionnaire personnel permet de garder les noms à mieux reconnaître ; relisez le résultat.</li>
       </ol>
 
       <h2>Pourquoi le faire sur la machine</h2>
       <p>La transcription en ligne demande d’envoyer l’audio à un service. Sa politique de conservation dépend du fournisseur et de l’offre utilisée. Pour un enregistrement confidentiel, vérifiez ces conditions avant l’envoi, ou choisissez un moteur local.</p>
-      <p>En Local, le fichier est transcrit sur le Mac sans envoyer l’audio pour la reconnaissance. Le temps de traitement dépend du modèle, de la durée et du Mac ; le quota gratuit s’applique aux mots transcrits.</p>
+      <p>En Local, le fichier est transcrit sur le Mac sans envoyer l’audio pour la reconnaissance. Le temps de traitement dépend du modèle, de la durée et du Mac ; le quota gratuit s’applique aux mots transcrits.</p>
 
       <h2>Obtenir une meilleure transcription</h2>
       <ul>
@@ -99,18 +100,18 @@
       </ul>
 
       <div class="honest">
-        <p><strong>Ce que donnent les exports.</strong> Aria propose TXT, SRT et VTT. Les sous-titres reprennent les horodatages de la transcription ; relisez le texte et le découpage avant un montage vidéo. Aria ne rejoint pas une réunion à votre place.</p>
+        <p><strong>Ce que donnent les exports.</strong> Aria propose TXT, SRT et VTT. Les sous-titres reprennent les horodatages de la transcription ; relisez le texte et le découpage avant un montage vidéo. Aria ne rejoint pas une réunion à votre place.</p>
       </div>
 
       <h2>Questions</h2>
-      <details><summary>Quelque chose est-il téléversé ?</summary><p>Pas avec le moteur local. Le fichier est lu depuis le disque et transcrit sur le Mac. Un moteur cloud ne le voit que si vous en choisissez un délibérément.</p></details>
-      <details><summary>Quelle durée d’enregistrement ?</summary><p>Les fichiers longs sont traités par segments ; la durée et les ressources disponibles influencent le temps de traitement. Les mots reconnus sont décomptés des 2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta : ne comptez pas sur une offre illimitée pour finir un long fichier.</p></details>
-      <details><summary>Sépare-t-elle les locuteurs ?</summary><p>Oui, en local. C'est bon sur un enregistrement propre à deux ou trois et cela se dégrade dans une salle bruyante à plusieurs voix ; prévoyez de corriger quelques étiquettes.</p></details>
-      <details><summary>Peut-on exporter des sous-titres ?</summary><p>Oui, les exports TXT, SRT et VTT sont disponibles. Vérifiez la reconnaissance et les horodatages avant publication.</p></details>
+      <details><summary>Quelque chose est-il téléversé ?</summary><p>Pas avec le moteur local. Le fichier est lu depuis le disque et transcrit sur le Mac. Un moteur cloud ne le voit que si vous en choisissez un délibérément.</p></details>
+      <details><summary>Quelle durée d’enregistrement ?</summary><p>Les fichiers longs sont traités par segments ; la durée et les ressources disponibles influencent le temps de traitement. Les mots reconnus sont décomptés des 2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta : ne comptez pas sur une offre illimitée pour finir un long fichier.</p></details>
+      <details><summary>Sépare-t-elle les locuteurs ?</summary><p>Oui, en local. C'est bon sur un enregistrement propre à deux ou trois et cela se dégrade dans une salle bruyante à plusieurs voix ; prévoyez de corriger quelques étiquettes.</p></details>
+      <details><summary>Peut-on exporter des sous-titres ?</summary><p>Oui, les exports TXT, SRT et VTT sont disponibles. Vérifiez la reconnaissance et les horodatages avant publication.</p></details>
 
       <div class="cta">
         <h2>Garder l'enregistrement sur son Mac</h2>
-        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
+        <p>2 000 mots gratuits par semaine pour essayer Aria. L’achat Pro est fermé pendant la bêta actuelle.</p>
         <div class="cta-actions">
           <a class="button" href="./#telecharger">Télécharger Aria</a>
           <a class="button button-quiet" href="transcrire-reunion-mac.html">Transcrire une réunion</a>

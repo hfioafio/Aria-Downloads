@@ -2,15 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
   <title>Aria — page introuvable</title>
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://hfioafio.github.io/Aria-Downloads/">
-  <link rel="icon" href="favicon.png" sizes="96x96">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="pages.css">
+  <link rel="icon" href="/Aria-Downloads/favicon.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/Aria-Downloads/apple-touch-icon.png">
+  <!-- GitHub Pages sert cette page pour toute URL absente, même imbriquée (/Aria-Downloads/a/b) :
+       des chemins relatifs y chercheraient pages.css au mauvais endroit. Tout est donc absolu. -->
+  <link rel="stylesheet" href="/Aria-Downloads/pages.css">
   <script>
     (function () {
       var choice = 'auto';
@@ -23,13 +26,14 @@
   </script>
 </head>
 <body>
-  <nav class="nav">
+  <a class="skip" href="#content">Aller au contenu</a>
+  <nav class="nav" aria-label="Navigation principale">
     <div class="shell nav-in">
-      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <a class="brand" href="/Aria-Downloads/"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
       <div class="nav-links">
-        <a href="./">Accueil</a>
-        <a href="en.html" hreflang="en">EN</a>
-        <a class="button" href="./#telecharger">Télécharger</a>
+        <a href="/Aria-Downloads/">Accueil</a>
+        <a href="/Aria-Downloads/en.html" hreflang="en">EN</a>
+        <a class="button" href="/Aria-Downloads/#telecharger">Télécharger</a>
       </div>
     </div>
   </nav>
@@ -41,55 +45,55 @@
 
       <h2>Aria, en bref</h2>
       <div class="related-links" style="font-size:16px">
-        <a href="./">Accueil et téléchargement</a>
-        <a href="installer-aria-mac.html">Installer : l'étape Gatekeeper</a>
-        <a href="dictee-vocale-mac.html">Quelle app de dictée choisir</a>
-        <a href="dictee-vocale-mac-sans-abonnement.html">Les prix, sans abonnement</a>
+        <a href="/Aria-Downloads/">Accueil et téléchargement</a>
+        <a href="/Aria-Downloads/installer-aria-mac.html">Installer : l'étape Gatekeeper</a>
+        <a href="/Aria-Downloads/dictee-vocale-mac.html">Quelle app de dictée choisir</a>
+        <a href="/Aria-Downloads/dictee-vocale-mac-sans-abonnement.html">Les prix, sans abonnement</a>
       </div>
 
       <h2>Par besoin</h2>
       <div class="related-links" style="font-size:16px">
-        <a href="dictee-vocale-mac-hors-ligne.html">Dicter hors ligne</a>
-        <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier audio</a>
-        <a href="transcrire-reunion-mac.html">Transcrire une réunion</a>
-        <a href="dictee-apple-ne-fonctionne-pas.html">La dictée d'Apple ne marche pas</a>
-        <a href="dictee-vocale-developpeurs.html">Dicter quand on code</a>
-        <a href="modele-parakeet-mac.html">Le modèle Parakeet en local</a>
+        <a href="/Aria-Downloads/dictee-vocale-mac-hors-ligne.html">Dicter hors ligne</a>
+        <a href="/Aria-Downloads/transcrire-fichier-audio-mac.html">Transcrire un fichier audio</a>
+        <a href="/Aria-Downloads/transcrire-reunion-mac.html">Transcrire une réunion</a>
+        <a href="/Aria-Downloads/dictee-apple-ne-fonctionne-pas.html">La dictée d'Apple ne marche pas</a>
+        <a href="/Aria-Downloads/dictee-vocale-developpeurs.html">Dicter quand on code</a>
+        <a href="/Aria-Downloads/modele-parakeet-mac.html">Le modèle Parakeet en local</a>
       </div>
 
       <h2>Comparatifs</h2>
       <div class="related-links" style="font-size:16px">
-        <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
-        <a href="alternative-superwhisper.html">Alternative à Superwhisper</a>
-        <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
+        <a href="/Aria-Downloads/alternative-wispr-flow.html">Alternative à Wispr Flow</a>
+        <a href="/Aria-Downloads/alternative-superwhisper.html">Alternative à Superwhisper</a>
+        <a href="/Aria-Downloads/alternative-macwhisper.html">Alternative à MacWhisper</a>
       </div>
 
       <h2 lang="en">In English</h2>
       <div class="related-links" style="font-size:16px" lang="en">
-        <a href="en.html">Home and download</a>
-        <a href="best-dictation-apps-mac.html">Best dictation apps for Mac</a>
-        <a href="wispr-flow-alternative.html">Wispr Flow alternative</a>
-        <a href="offline-dictation-mac.html">Offline dictation</a>
-        <a href="install-aria-mac.html">Installing Aria</a>
+        <a href="/Aria-Downloads/en.html">Home and download</a>
+        <a href="/Aria-Downloads/best-dictation-apps-mac.html">Best dictation apps for Mac</a>
+        <a href="/Aria-Downloads/wispr-flow-alternative.html">Wispr Flow alternative</a>
+        <a href="/Aria-Downloads/offline-dictation-mac.html">Offline dictation</a>
+        <a href="/Aria-Downloads/install-aria-mac.html">Installing Aria</a>
       </div>
 
       <div class="cta">
         <h2>Télécharger Aria</h2>
-        <p>Gratuit jusqu'à 2 000 mots par semaine, sans compte. macOS 11 ou plus récent.</p>
+        <p>Gratuit jusqu'à 2 000 mots par semaine, sans compte. macOS 11 ou plus récent.</p>
         <div class="cta-actions">
-          <a class="button" href="./#telecharger">Aller au téléchargement</a>
+          <a class="button" href="/Aria-Downloads/#telecharger">Aller au téléchargement</a>
         </div>
       </div>
     </div>
   </main>
   <footer>
     <div class="shell footer-in">
-      <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
+      <a class="brand" href="/Aria-Downloads/"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Aria</a>
       <span>Dictée et transcription pour macOS.</span>
       <div class="footer-links">
-        <a href="./">Accueil</a>
-        <a href="en.html" hreflang="en">English</a>
-        <a href="./#telecharger">Télécharger</a>
+        <a href="/Aria-Downloads/">Accueil</a>
+        <a href="/Aria-Downloads/en.html" hreflang="en">English</a>
+        <a href="/Aria-Downloads/#telecharger">Télécharger</a>
       </div>
     </div>
   </footer>

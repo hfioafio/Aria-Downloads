@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <meta name="color-scheme" content="light dark">
@@ -82,17 +83,17 @@
       <p>Meeting transcription services are convenient and they are also the single largest pile of your company's spoken word sitting on someone else's server. A salary discussion, a client's roadmap, a medical appointment, a legal call — once uploaded, the recording is subject to that vendor's retention policy, their subprocessors, and their next change of terms.</p>
       <p>With Aria's local engine, the audio file never leaves your Mac. Diarisation — the part that works out who spoke when — also runs locally. There is no account to create and no per-minute meter running.</p>
 
-      <div class="table-wrap">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Why people want this on the machine">
         <table>
-          <thead><tr><th>&nbsp;</th><th>Aria, local</th><th>A meeting-notes service</th></tr></thead>
+          <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">Aria, local</th><th scope="col">A meeting-notes service</th></tr></thead>
           <tbody>
-            <tr><td><strong>Where the audio goes</strong></td><td class="yes">Nowhere — it stays on the Mac</td><td>Their servers and subprocessors</td></tr>
-            <tr><td><strong>A bot appears in the call</strong></td><td class="yes">No</td><td>Usually yes</td></tr>
-            <tr><td><strong>Account needed</strong></td><td class="yes">No</td><td>Yes</td></tr>
-            <tr><td><strong>Speaker labels</strong></td><td class="yes">Yes, computed locally</td><td class="yes">Yes</td></tr>
-            <tr><td><strong>Joins the call itself</strong></td><td class="no">No — you supply the recording</td><td class="yes">Yes</td></tr>
-            <tr><td><strong>Live notes during the call</strong></td><td class="no">No</td><td class="yes">Yes</td></tr>
-            <tr><td><strong>Cost</strong></td><td>2,000 free words a week; Pro purchases closed during the beta</td><td>Typically a monthly seat</td></tr>
+            <tr><th scope="row"><strong>Where the audio goes</strong></th><td class="yes">Nowhere — it stays on the Mac</td><td>Their servers and subprocessors</td></tr>
+            <tr><th scope="row"><strong>A bot appears in the call</strong></th><td class="yes">No</td><td>Usually yes</td></tr>
+            <tr><th scope="row"><strong>Account needed</strong></th><td class="yes">No</td><td>Yes</td></tr>
+            <tr><th scope="row"><strong>Speaker labels</strong></th><td class="yes">Yes, computed locally</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row"><strong>Joins the call itself</strong></th><td class="no">No — you supply the recording</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row"><strong>Live notes during the call</strong></th><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row"><strong>Cost</strong></th><td>2,000 free words a week; Pro purchases closed during the beta</td><td>Typically a monthly seat</td></tr>
           </tbody>
         </table>
       </div>
