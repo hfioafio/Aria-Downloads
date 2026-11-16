@@ -1,0 +1,67 @@
+name: Adoption stats
+
+# Relève chaque heure les compteurs publics (téléchargements des DMG et fichiers vides de la
+# version « adoption-counter ») et garde un historique daté sur la branche « stats-data ».
+# Le site public (docs/) n'est jamais modifié par ce workflow.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/adoption-stats.yml
+      - tools/adoption_stats.mjs
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adoption-stats
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Ensure the daily counter file exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view adoption-counter --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -qx 'active-day.txt'; then
+            printf '\n' > "$RUNNER_TEMP/active-day.txt"
+            gh release upload adoption-counter "$RUNNER_TEMP/active-day.txt" --repo "$GITHUB_REPOSITORY"
+            gh release edit adoption-counter --repo "$GITHUB_REPOSITORY" --notes "Fichiers vides téléchargés par Aria pour compter les Mac équipés : install.txt une fois par installation, update.txt à chaque nouvelle version, active.txt une fois par semaine d'utilisation, active-day.txt une fois par jour avec au moins une dictée, owner-update.txt pour les mises à jour du Mac du propriétaire (compté à part). Aucun identifiant ni contenu n'est transmis ; GitHub n'expose que le nombre total de téléchargements."
+          fi
+
+      - name: Check out the history branch
+        run: |
+          if git ls-remote --exit-code --heads origin stats-data >/dev/null; then
+            git fetch --depth=1 origin stats-data
+            git worktree add data FETCH_HEAD
+            git -C data switch -c stats-data
+          else
+            git worktree add --orphan -b stats-data data
+          fi
+
+      - name: Record a snapshot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node tools/adoption_stats.mjs data/history.json data/latest.json
+
+      - name: Commit when the history changed
+        run: |
+          cd data
+          git add history.json latest.json
+          if git diff --cached --quiet -- history.json; then
+            echo "Aucun compteur n'a changé."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Relevé des compteurs $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push origin HEAD:stats-data
