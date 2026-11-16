@@ -1,0 +1,796 @@
+{
+ "at": "2026-11-16T18:01:21.943Z",
+ "day": "2026-11-16",
+ "downloads": {
+  "site": {
+   "arm": 2,
+   "intel": 2,
+   "total": 4
+  },
+  "update": {
+   "arm": 8,
+   "intel": 2,
+   "total": 10
+  },
+  "mixed": {
+   "arm": 100,
+   "intel": 63,
+   "total": 163
+  }
+ },
+ "adoption": {
+  "install": 1,
+  "update": 1,
+  "active": 1,
+  "active-day": 0,
+  "owner-update": 4
+ },
+ "latest": {
+  "tag": "v2.62.2",
+  "site": 1,
+  "update": 3,
+  "mixed": 0
+ },
+ "rows": [
+  {
+   "tag": "v2.62.2",
+   "date": "2026-11-15",
+   "pre": false,
+   "site": {
+    "arm": 1,
+    "intel": 0,
+    "total": 1
+   },
+   "update": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   },
+   "mixed": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   }
+  },
+  {
+   "tag": "v2.62.1",
+   "date": "2026-11-14",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 3,
+    "intel": 1,
+    "total": 4
+   },
+   "mixed": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   }
+  },
+  {
+   "tag": "v2.61.0",
+   "date": "2026-10-21",
+   "pre": false,
+   "site": {
+    "arm": 1,
+    "intel": 2,
+    "total": 3
+   },
+   "update": {
+    "arm": 3,
+    "intel": 0,
+    "total": 3
+   },
+   "mixed": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   }
+  },
+  {
+   "tag": "v2.60.11-preview.116",
+   "date": "2026-10-15",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 6,
+    "intel": 1,
+    "total": 7
+   }
+  },
+  {
+   "tag": "v2.60.11-preview.115",
+   "date": "2026-10-13",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 5,
+    "intel": 2,
+    "total": 7
+   }
+  },
+  {
+   "tag": "v2.60.11-preview.114",
+   "date": "2026-10-10",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.11-preview.112",
+   "date": "2026-09-24",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.11-preview.111",
+   "date": "2026-09-22",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 2,
+    "total": 4
+   }
+  },
+  {
+   "tag": "v2.60.11-preview.110",
+   "date": "2026-09-22",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 3,
+    "total": 6
+   }
+  },
+  {
+   "tag": "v2.60.7-preview.103",
+   "date": "2026-09-13",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.6-preview.102",
+   "date": "2026-09-13",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 1,
+    "intel": 1,
+    "total": 2
+   }
+  },
+  {
+   "tag": "v2.60.5-preview.96",
+   "date": "2026-09-12",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 2,
+    "total": 5
+   }
+  },
+  {
+   "tag": "v2.60.5-preview.100",
+   "date": "2026-09-12",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.5-preview.94",
+   "date": "2026-09-09",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 5,
+    "intel": 3,
+    "total": 8
+   }
+  },
+  {
+   "tag": "v2.60.5-preview.92",
+   "date": "2026-09-09",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.3",
+   "date": "2026-09-05",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 6,
+    "intel": 4,
+    "total": 10
+   }
+  },
+  {
+   "tag": "v2.60.2",
+   "date": "2026-09-04",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 6,
+    "intel": 4,
+    "total": 10
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.89",
+   "date": "2026-09-04",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 2,
+    "total": 5
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.87",
+   "date": "2026-09-04",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.86",
+   "date": "2026-09-03",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 5,
+    "intel": 4,
+    "total": 9
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.85",
+   "date": "2026-09-03",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.83",
+   "date": "2026-09-02",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 1,
+    "total": 4
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.82",
+   "date": "2026-09-02",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 1,
+    "intel": 1,
+    "total": 2
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.81",
+   "date": "2026-09-02",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.80",
+   "date": "2026-09-02",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 2,
+    "total": 5
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.79",
+   "date": "2026-09-02",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 1,
+    "intel": 1,
+    "total": 2
+   }
+  },
+  {
+   "tag": "v2.60.2-preview.78",
+   "date": "2026-09-01",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 2,
+    "total": 4
+   }
+  },
+  {
+   "tag": "v2.51.1",
+   "date": "2026-08-25",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 5,
+    "intel": 2,
+    "total": 7
+   }
+  },
+  {
+   "tag": "v2.51.0",
+   "date": "2026-08-25",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 2,
+    "total": 5
+   }
+  },
+  {
+   "tag": "v2.50.0",
+   "date": "2026-08-22",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 2,
+    "total": 4
+   }
+  },
+  {
+   "tag": "v2.48.2-preview.51",
+   "date": "2026-08-21",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 2,
+    "total": 5
+   }
+  },
+  {
+   "tag": "v2.48.2-preview.50",
+   "date": "2026-08-21",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 2,
+    "total": 4
+   }
+  },
+  {
+   "tag": "v2.48.2-preview.47",
+   "date": "2026-08-21",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.48.2-preview.28",
+   "date": "2026-08-20",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.48.2-preview.25",
+   "date": "2026-08-20",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 1,
+    "intel": 1,
+    "total": 2
+   }
+  },
+  {
+   "tag": "v2.48.2-preview.13",
+   "date": "2026-08-20",
+   "pre": true,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 2,
+    "intel": 1,
+    "total": 3
+   }
+  },
+  {
+   "tag": "v2.48.1",
+   "date": "2026-08-14",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 4,
+    "intel": 4,
+    "total": 8
+   }
+  },
+  {
+   "tag": "v2.48.0",
+   "date": "2026-08-13",
+   "pre": false,
+   "site": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "update": {
+    "arm": 0,
+    "intel": 0,
+    "total": 0
+   },
+   "mixed": {
+    "arm": 3,
+    "intel": 2,
+    "total": 5
+   }
+  }
+ ]
+}
