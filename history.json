@@ -35,6 +35,40 @@
     "update": 3,
     "mixed": 0
    }
+  },
+  {
+   "at": "2026-11-17T01:51:46.080Z",
+   "day": "2026-11-17",
+   "downloads": {
+    "site": {
+     "arm": 2,
+     "intel": 2,
+     "total": 4
+    },
+    "update": {
+     "arm": 8,
+     "intel": 2,
+     "total": 10
+    },
+    "mixed": {
+     "arm": 100,
+     "intel": 63,
+     "total": 163
+    }
+   },
+   "adoption": {
+    "install": 1,
+    "update": 1,
+    "active": 1,
+    "active-day": 0,
+    "owner-update": 4
+   },
+   "latest": {
+    "tag": "v2.62.2",
+    "site": 1,
+    "update": 3,
+    "mixed": 0
+   }
   }
  ]
 }
