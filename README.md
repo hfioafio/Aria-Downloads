@@ -38,7 +38,8 @@ Do not mix the two builds: the Apple Silicon DMG is not meant to run under Roset
 
 - **System-wide dictation.** Double-tap (or hold) the right `âŒ˜` key, speak, and the text is typed
   at the cursor in any standard macOS text field.
-- **Offline speech to text.** NVIDIA Parakeet TDT V3 runs on the Mac. No network, no upload.
+- **Offline speech to text.** NVIDIA Parakeet TDT V3 runs on the Mac, with no audio upload. A brief
+  connection may still be needed to verify the free quota.
 - **Cloud engines, your key.** OpenAI, Groq, Deepgram, Soniox, ElevenLabs and Mistral are
   optional and use your own API key, stored encrypted in the macOS Keychain.
 - **File transcription.** Drop in MP3, WAV, M4A, FLAC, OGG, MP4 or MOV and get a transcript.
@@ -83,6 +84,11 @@ identifier, text or setting is sent; the counter can be turned off in Settings â
 usage statistics stay off unless you turn them on.
 
 This page and this repository carry no advertising and no third-party tracker.
+
+## Help
+
+Open an [issue](https://github.com/hfioafio/Aria-Downloads/issues/new). Do not paste API keys,
+dictated text or any other personal data into it.
 
 ---
 

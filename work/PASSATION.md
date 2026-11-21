@@ -100,3 +100,50 @@ fichiers binaires.
 
 **Suite**
 - Inchangé : `check_site.py --live` après déploiement.
+
+---
+
+## Relecture des textes anglais — 21/11/2026, 15 h 36 (heure de Paris)
+
+- **Agent :** Claude Code (cloud), modèle Opus 5.5, réflexion standard.
+
+**Fait**
+- Relu les 12 pages EN (`tools/pages/*.html`), `en.html` et la partie anglaise du README. Pas de
+  notes de version EN (les trois fichiers sont en français). Orthographe britannique cohérente
+  (licence, notarised, recognise).
+- Promesses ramenées au vrai : « Nothing leaves the Mac » (dictée hors ligne) → « Keep speech
+  processing on your Mac », et côté FR « Dicter sans que rien ne parte » → « Garder le traitement
+  de la voix sur le Mac » (le quota et le mode Automatique passent par le réseau) ; titre réunion
+  « with speaker names » → « with speaker labels » (la FAQ dit qu’Aria n’identifie pas les vrais
+  noms) ; dictée Apple « built in and offline » → hors ligne sur Apple Silicon une fois la langue
+  téléchargée (EN et FR) ; README EN « No network, no upload » → pas d’envoi d’audio, connexion
+  possible pour le quota.
+- Anglais plus naturel : « restores a capital or a full stop » → « adds capitals and full
+  stops » (Superwhisper, développeurs, `en.html`, et FR développeurs aligné) ; lede hors ligne
+  réécrit ; « a membership of » → « membership of » ; deux h2 presque identiques sur la page
+  MacWhisper ; « optional » ajouté aux locuteurs (comme en FR).
+- Parité EN/FR : section « Fidèle par défaut » ajoutée à `alternative-superwhisper` (présente
+  seulement en EN) ; section « Help » ajoutée au README EN (présente seulement en FR).
+- `sitemap.xml` : `lastmod` de `en.html` mis au 21/11 à la main (le générateur le conserve).
+
+**Vérifié sans correction**
+- Titres ≤ 60 caractères et descriptions 110–160 sur les 24 pages générées.
+- canonical = og:url = hreflang de soi sur les 26 pages indexables ; hreflang réciproques et
+  x-default identiques dans chaque paire ; sitemap = mêmes 26 URL et mêmes alternates ; tous les
+  JSON-LD se lisent (SoftwareApplication, FAQPage, VideoObject, BreadcrumbList) ; FAQ EN/FR des
+  accueils : mêmes 10 questions, mêmes faits. robots.txt inchangé (commentaire exact).
+
+**Testé**
+- `build_pages.py` puis `check_site.py` : OK (30 fichiers, 26 indexables, 905 références).
+- Playwright Chromium, 27 pages (hors stats, non modifiée), 390 et 1440, clair et sombre,
+  axe-core WCAG 2.0–2.2 A/AA + bonnes pratiques : aucune violation, aucune erreur, aucun
+  débordement.
+
+**Suite**
+- Les paires `offline-dictation-mac` / `dictee-vocale-mac-hors-ligne` et
+  `best-dictation-apps-mac` / `dictee-vocale-mac` ne sont pas des traductions : plan et contenu
+  différents (la FR compare Apple, Whisper et Aria ; l’EN décrit Aria seul). Aucune promesse en
+  plus d’un côté, mais à harmoniser si l’on veut deux versions jumelles.
+- « Then keep Aria for life » / « Puis gardez Aria à vie » (accueils) : promesse forte alors que
+  Pro n’est pas en vente ; le paragraphe suivant le précise. À reformuler si souhaité.
+- Inchangé : `check_site.py --live` après déploiement.
