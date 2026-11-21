@@ -147,3 +147,27 @@ fichiers binaires.
 - « Then keep Aria for life » / « Puis gardez Aria à vie » (accueils) : promesse forte alors que
   Pro n’est pas en vente ; le paragraphe suivant le précise. À reformuler si souhaité.
 - Inchangé : `check_site.py --live` après déploiement.
+
+---
+
+## Promesse « à vie » reformulée — 21/11/2026, 15 h 18 (heure de Paris)
+
+- **Agent :** Claude Code (cloud), modèle Opus 5.5, réflexion standard. Tâche planifiée.
+
+**Fait**
+- Accueils, section Pro : « Simple et définitif / Essayez chaque semaine. Puis gardez Aria à vie. »
+  → « Simple, sans abonnement / Gratuit chaque semaine. Pro bientôt, en achat unique. » ;
+  EN « Simple and final / Try it every week. Then keep Aria for life. » → « Simple, no
+  subscription / Free every week. Pro soon, as a one-time purchase. ». L’achat Pro n’étant pas
+  ouvert, le titre ne promet plus ce que le paragraphe suivant corrige. Aucun lien ni URL touché.
+- `tools/README.md` : apostrophes typographiques dans la prose (code et exemple « l'app » gardés).
+
+**Testé**
+- `build_pages.py` puis `check_site.py` : OK (30 fichiers, 26 indexables, 905 références).
+- Playwright Chromium sur `index.html` et `en.html`, 390 et 1440, clair et sombre, axe-core
+  WCAG 2.0–2.2 A/AA + bonnes pratiques : aucune violation, aucune erreur console, aucun
+  débordement ; titre et sur-titre lus dans la page.
+
+**Suite**
+- Inchangé : harmoniser les paires hors ligne et comparatif EN/FR si souhaité ;
+  `check_site.py --live` après déploiement.

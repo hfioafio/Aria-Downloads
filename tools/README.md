@@ -1,6 +1,6 @@
 # Génération des pages du site
 
-`build_pages.py` produit `docs/*.html` à partir des fragments de `pages/` et d'un gabarit unique.
+`build_pages.py` produit `docs/*.html` à partir des fragments de `pages/` et d’un gabarit unique.
 Modifier un fragment, jamais le HTML produit, puis relancer :
 
 ```
@@ -27,8 +27,8 @@ téléchargement : chaque DMG proposé a son `.sha256` au même nom, `softwareVe
 de version suivent les liens, `updates/preview.json` annonce la version du site, le README
 pointe vers la même version. Il refuse les chemins relatifs dans `404.html` (servie pour des URL
 imbriquées), les tableaux défilants sans `tabindex`, et toute page publique sans politique de
-sécurité `connect-src 'none'` : c'est elle qui garantit que la vitrine n'envoie aucune mesure.
-Une ressource externe (police, script, iframe) serait bloquée : l'ajouter à la politique dans
+sécurité `connect-src 'none'` : c’est elle qui garantit que la vitrine n’envoie aucune mesure.
+Une ressource externe (police, script, iframe) serait bloquée : l’ajouter à la politique dans
 `build_pages.py` (constante `CSP`) et dans les en-têtes de `index.html`, `en.html` et `404.html`. Les identifiants de playlist YouTube de
 forme inhabituelle sont signalés en avertissement, sans bloquer. Après déploiement GitHub Pages :
 
@@ -49,7 +49,7 @@ accueils (`./#telecharger` et `en.html#download`), jamais vers une URL de DMG.
 
 La raison est concrète : une automatisation met à jour les liens de `index.html` et `en.html` à
 chaque nouvelle version. Le 11 septembre 2026, les accueils proposaient la 2.60.5-preview.94
-pendant que quinze pages de comparaison offraient encore la 2.60.3 du 5 septembre — c'est-à-dire
+pendant que quinze pages de comparaison offraient encore la 2.60.3 du 5 septembre — c’est-à-dire
 que les pages censées accueillir les visiteurs servaient une version périmée. Une seule source de
 vérité règle le problème définitivement.
 
