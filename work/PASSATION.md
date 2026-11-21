@@ -172,3 +172,25 @@ fichiers binaires.
 **Suite**
 - Inchangé : harmoniser les paires hors ligne et comparatif EN/FR si souhaité ;
   `check_site.py --live` après déploiement.
+
+---
+
+## Page hors ligne FR alignée sur l’EN — 21/11/2026, 15 h 21 (heure de Paris)
+
+- **Agent :** Claude Code (cloud), modèle Opus 5.5, réflexion standard. Tâche planifiée.
+
+**Fait** (`tools/pages/dictee-vocale-mac-hors-ligne.html`, sans refondre le plan)
+- FAQ « moins précise ? » : l’affirmation générale (« un peu, sur les accents… ») remplacée par
+  la position de la page EN : cela dépend du modèle, de la langue, du micro ; comparer sur un extrait.
+- Ajouts présents seulement en EN : FAQ « Faut-il créer un compte ? » (non), mention « signée
+  mais pas encore notarisée » dans l’encadré local, locuteurs « facultative ».
+
+**Testé**
+- `build_pages.py` + `check_site.py` : OK ; sitemap daté du 21/11 par le générateur ;
+  FAQPage JSON-LD = 5 questions = 5 `details`.
+- Playwright Chromium, cette page + deux accueils, 390/1440, clair/sombre, axe-core : 0 violation,
+  0 erreur, 0 débordement.
+
+**Suite**
+- Les plans des deux pages restent différents (FR comparatif, EN centré Aria) : refonte jumelle
+  possible si souhaitée. Idem `best-dictation-apps-mac` / `dictee-vocale-mac`.
