@@ -35,7 +35,7 @@
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/"}, {"@type": "ListItem", "position": 2, "name": "Pour les développeurs", "item": "https://hfioafio.github.io/Aria-Downloads/dictee-vocale-developpeurs.html"}]}
   </script>
   <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on dicter du code ?", "acceptedAnswer": {"@type": "Answer", "text": "On peut, et on n'y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code."}}, {"@type": "Question", "name": "Ça marche dans VS Code, JetBrains, un terminal ?", "acceptedAnswer": {"@type": "Answer", "text": "Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l'insertion synthétique ; dans ce cas la transcription est conservée dans l'historique et rien n'est perdu."}}, {"@type": "Question", "name": "Quelque chose est-il envoyé quelque part ?", "acceptedAnswer": {"@type": "Answer", "text": "En Local, l’audio et la transcription sont traités sur le Mac ; quota et licence peuvent demander une connexion. Automatique envoie l’audio au service en ligne. Vérifiez le mode choisi avant de dicter des informations confidentielles."}}, {"@type": "Question", "name": "Quelle offre est disponible ?", "acceptedAnswer": {"@type": "Answer", "text": "2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta actuelle ; aucune offre illimitée n’est disponible à l’achat."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on dicter du code ?", "acceptedAnswer": {"@type": "Answer", "text": "On peut, et on n’y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code."}}, {"@type": "Question", "name": "Ça marche dans VS Code, JetBrains, un terminal ?", "acceptedAnswer": {"@type": "Answer", "text": "Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l’insertion synthétique ; dans ce cas la transcription est conservée dans l’historique et rien n’est perdu."}}, {"@type": "Question", "name": "Quelque chose est-il envoyé quelque part ?", "acceptedAnswer": {"@type": "Answer", "text": "En Local, l’audio et la transcription sont traités sur le Mac ; quota et licence peuvent demander une connexion. Automatique envoie l’audio au service en ligne. Vérifiez le mode choisi avant de dicter des informations confidentielles."}}, {"@type": "Question", "name": "Quelle offre est disponible ?", "acceptedAnswer": {"@type": "Answer", "text": "2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta actuelle ; aucune offre illimitée n’est disponible à l’achat."}}]}
   </script>
   <script>
     (function () {
@@ -73,9 +73,9 @@
           <thead><tr><th scope="col">Tâche</th><th scope="col">Dictée</th><th scope="col">Pourquoi</th></tr></thead>
           <tbody>
             <tr><th scope="row">Descriptions de pull request</th><td class="yes">À essayer</td><td>Un texte explicatif peut se rédiger à voix haute, puis se relire.</td></tr>
-            <tr><th scope="row">Comptes rendus d'incident</th><td class="yes">Excellente</td><td>Vous venez de le voir ; le dire à chaud vaut mieux que le mettre en forme.</td></tr>
+            <tr><th scope="row">Comptes rendus d’incident</th><td class="yes">Excellente</td><td>Vous venez de le voir ; le dire à chaud vaut mieux que le mettre en forme.</td></tr>
             <tr><th scope="row">Réponses Slack et revues de code</th><td class="yes">À essayer</td><td>Le raccourci permet de dicter sans quitter le champ de texte.</td></tr>
-            <tr><th scope="row">Documentation et décisions d'architecture</th><td class="yes">Excellente</td><td>De la prose encore — et vous savez déjà ce que vous voulez dire.</td></tr>
+            <tr><th scope="row">Documentation et décisions d’architecture</th><td class="yes">Excellente</td><td>De la prose encore — et vous savez déjà ce que vous voulez dire.</td></tr>
             <tr><th scope="row">Consignes à un assistant IA</th><td class="yes">Excellente</td><td>Longues, conversationnelles, jetables. Les dire est naturel.</td></tr>
             <tr><th scope="row">Messages de commit</th><td>Variable</td><td>Bien pour le corps, pénible pour la ligne de sujet et ses conventions.</td></tr>
             <tr><th scope="row">Du code</th><td class="no">Mauvaise</td><td>Dense en ponctuation et en symboles. Mauvais instrument ; gardez-la pour les commentaires.</td></tr>
@@ -85,28 +85,28 @@
 
       <h2>Les trois choses qui font échouer la dictée chez un développeur</h2>
       <h3>Elle réécrit vos mots</h3>
-      <p>Les outils qui « améliorent » votre texte lissent une phrase technique précise en quelque chose de plus vague. Le défaut d'Aria est la fidélité : elle rétablit une majuscule ou un point localement, et ne résume, ne traduit ni ne restyle que si vous choisissez ce mode. La reconnaissance peut néanmoins se tromper sur un terme technique : relisez le résultat.</p>
+      <p>Les outils qui « améliorent » votre texte lissent une phrase technique précise en quelque chose de plus vague. Le défaut d’Aria est la fidélité : elle rétablit une majuscule ou un point localement, et ne résume, ne traduit ni ne restyle que si vous choisissez ce mode. La reconnaissance peut néanmoins se tromper sur un terme technique : relisez le résultat.</p>
       <h3>Elle ignore votre vocabulaire</h3>
-      <p>Kubernetes, Postgres, le nom de vos services, celui de vos collègues, les sigles que seule votre équipe emploie : un modèle générique peut se tromper. Corrigez-en un une fois dans Aria et il entre dans un dictionnaire personnel. Cette seule fonction sépare l'outil qu'on garde de celui qu'on désinstalle en une semaine.</p>
+      <p>Kubernetes, Postgres, le nom de vos services, celui de vos collègues, les sigles que seule votre équipe emploie : un modèle générique peut se tromper. Corrigez-en un une fois dans Aria et il entre dans un dictionnaire personnel. Cette seule fonction sépare l’outil qu’on garde de celui qu’on désinstalle en une semaine.</p>
       <h3>Votre voix part sur un serveur</h3>
-      <p>Dicter un compte rendu d'incident, c'est prononcer à voix haute les entrailles de votre entreprise dans l'API d'un tiers. Avec le moteur local Parakeet d'Aria, ni l'audio ni la transcription ne quittent la machine — ce qui est aussi la réponse quand on vous demande quels outils tournent sur un poste professionnel.</p>
+      <p>Dicter un compte rendu d’incident, c’est prononcer à voix haute les entrailles de votre entreprise dans l’API d’un tiers. Avec le moteur local Parakeet d’Aria, ni l’audio ni la transcription ne quittent la machine — ce qui est aussi la réponse quand on vous demande quels outils tournent sur un poste professionnel.</p>
 
-      <h2>Comment ça s'insère dans le travail</h2>
+      <h2>Comment ça s’insère dans le travail</h2>
       <ul>
-        <li>Le texte s'écrit <strong>au curseur</strong>, dans tout champ de texte macOS standard : votre éditeur, un champ de terminal, un navigateur, Slack, le formulaire de PR sur GitHub.</li>
-        <li>Le raccourci est une touche de modification que l'on tape deux fois ou que l'on maintient : les mains ne quittent pas longtemps la position de repos.</li>
-        <li>Si l'app visée refuse l'insertion — certaines applications Electron le font — la transcription reste dans l'historique au lieu de disparaître.</li>
+        <li>Le texte s’écrit <strong>au curseur</strong>, dans tout champ de texte macOS standard : votre éditeur, un champ de terminal, un navigateur, Slack, le formulaire de PR sur GitHub.</li>
+        <li>Le raccourci est une touche de modification que l’on tape deux fois ou que l’on maintient : les mains ne quittent pas longtemps la position de repos.</li>
+        <li>Si l’app visée refuse l’insertion — certaines applications Electron le font — la transcription reste dans l’historique au lieu de disparaître.</li>
         <li>Un modèle local utilise le disque, la mémoire et le processeur du Mac. Sa consommation dépend du modèle et de l’enregistrement ; il peut rester chargé entre deux transcriptions.</li>
         <li>Le mode Automatique fourni par Aria pendant la bêta utilise le service en ligne sans clé à saisir, avec des limites. Pour traiter la voix sur le Mac, téléchargez un modèle et choisissez Local.</li>
       </ul>
 
       <div class="honest">
-        <p><strong>Soyez lucide sur la première semaine.</strong> Dicter paraît plus lent que taper pendant environ trois jours, parce que vous apprenez à composer à voix haute au lieu de penser avec vos doigts. Ceux qui abandonnent abandonnent pendant ces trois jours. Mieux vaut le savoir d'avance que d'en conclure que l'outil est mauvais.</p>
+        <p><strong>Soyez lucide sur la première semaine.</strong> Dicter paraît plus lent que taper pendant environ trois jours, parce que vous apprenez à composer à voix haute au lieu de penser avec vos doigts. Ceux qui abandonnent abandonnent pendant ces trois jours. Mieux vaut le savoir d’avance que d’en conclure que l’outil est mauvais.</p>
       </div>
 
       <h2>Questions</h2>
-      <details><summary>Peut-on dicter du code ?</summary><p>On peut, et on n'y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code.</p></details>
-      <details><summary>Ça marche dans VS Code, JetBrains, un terminal ?</summary><p>Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l'insertion synthétique ; dans ce cas la transcription est conservée dans l'historique et rien n'est perdu.</p></details>
+      <details><summary>Peut-on dicter du code ?</summary><p>On peut, et on n’y prend aucun plaisir. La densité de symboles et de ponctuation fait de la parole le mauvais instrument. Dictez le commentaire, le corps du commit, la description de la PR — tapez le code.</p></details>
+      <details><summary>Ça marche dans VS Code, JetBrains, un terminal ?</summary><p>Le texte est écrit au curseur dans les champs macOS standard, donc oui dans les zones de texte des éditeurs et dans un champ de terminal. Quelques applications refusent l’insertion synthétique ; dans ce cas la transcription est conservée dans l’historique et rien n’est perdu.</p></details>
       <details><summary>Quelque chose est-il envoyé quelque part ?</summary><p>En Local, l’audio et la transcription sont traités sur le Mac ; quota et licence peuvent demander une connexion. Automatique envoie l’audio au service en ligne. Vérifiez le mode choisi avant de dicter des informations confidentielles.</p></details>
       <details><summary>Quelle offre est disponible ?</summary><p>2 000 mots gratuits par semaine. L’achat Pro est fermé pendant la bêta actuelle ; aucune offre illimitée n’est disponible à l’achat.</p></details>
 
@@ -123,7 +123,7 @@
           <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
           <a href="dictee-vocale-mac-sans-abonnement.html">Sans abonnement</a>
           <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier</a>
-          <a href="dictee-apple-ne-fonctionne-pas.html">Dictée d'Apple</a>
+          <a href="dictee-apple-ne-fonctionne-pas.html">Dictée d’Apple</a>
           <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
           <a href="modele-parakeet-mac.html">Parakeet sur Mac</a>
           <a href="installer-aria-mac.html">Installer Aria</a>

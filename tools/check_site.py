@@ -27,6 +27,12 @@ class Page(HTMLParser):
         self.canonical = []
         self.alternates = {}
         self.h1 = 0
+        self.lang = None
+        self.title = None
+        self.description = None
+        self.images_without_alt = 0
+        self.in_title = False
+        self.json_errors = []
         self.jsonld = []
         self.json_text = None
         self.feed(source)
@@ -37,6 +43,16 @@ class Page(HTMLParser):
             self.ids.append(attrs["id"])
         if tag == "h1":
             self.h1 += 1
+        if tag == "html":
+            self.lang = attrs.get("lang")
+        if tag == "title":
+            self.title = ""
+            self.in_title = True
+        if tag == "meta" and attrs.get("name") == "description":
+            self.description = attrs.get("content", "")
+        # alt="" reste permis (image décorative) ; son absence est une erreur d'accessibilité.
+        if tag == "img" and "alt" not in attrs:
+            self.images_without_alt += 1
         if tag == "meta" and attrs.get("property", attrs.get("name", "")) in ("og:image", "twitter:image"):
             self.refs.append(("image", attrs.get("content", "")))
         for key in ("href", "src", "poster"):
@@ -53,11 +69,18 @@ class Page(HTMLParser):
     def handle_data(self, value):
         if self.json_text is not None:
             self.json_text += value
+        if self.in_title:
+            self.title += value
 
     def handle_endtag(self, tag):
         if tag == "script" and self.json_text is not None:
-            self.jsonld.append(json.loads(self.json_text))
+            try:
+                self.jsonld.append(json.loads(self.json_text))
+            except json.JSONDecodeError as error:
+                self.json_errors.append(str(error))
             self.json_text = None
+        if tag == "title":
+            self.in_title = False
 
 
 def check(live=False):
@@ -72,6 +95,8 @@ def check(live=False):
             errors.append(message)
 
     for name, page in pages.items():
+        require(not page.json_errors, f"{name}: données structurées JSON-LD illisibles : {page.json_errors}")
+        require(page.images_without_alt == 0, f"{name}: {page.images_without_alt} image(s) sans attribut alt")
         require(not [key for key, n in Counter(page.ids).items() if n > 1], f"{name}: identifiants répétés")
         for tag, href in page.refs:
             references += 1
@@ -95,6 +120,9 @@ def check(live=False):
         page = pages[name]
         canonical = BASE + ("" if name == "index.html" else name)
         require(page.h1 == 1, f"{name}: attendu un seul titre principal")
+        require(page.lang in ("fr", "en"), f"{name}: langue de la page (<html lang>) absente")
+        require(bool(page.title and page.title.strip()), f"{name}: <title> absent ou vide")
+        require(bool(page.description), f"{name}: meta description absente")
         require(page.canonical == [canonical], f"{name}: URL canonique incorrecte")
         require(set(page.alternates) == {"fr", "en", "x-default"}, f"{name}: traductions incomplètes")
         faqs = [data for data in page.jsonld if data.get("@type") == "FAQPage"]
@@ -158,6 +186,12 @@ def check(live=False):
 
     # Avertissements : ne bloquent pas, mais signalent ce qu'un humain doit vérifier.
     warnings = []
+    for name in indexed:
+        title, description = (pages[name].title or "").strip(), pages[name].description or ""
+        if len(title) > 70:
+            warnings.append(f"{name}: titre de {len(title)} caractères, souvent tronqué dans les résultats de recherche")
+        if not 50 <= len(description) <= 170:
+            warnings.append(f"{name}: meta description de {len(description)} caractères (50 à 170 conseillés)")
     for name, source in sorted(sources.items()):
         for playlist in sorted(set(re.findall(r"youtube\.com/playlist\?list=([\w-]+)", source))):
             if not re.fullmatch(r"PL[\w-]{16}|PL[\w-]{32}", playlist):

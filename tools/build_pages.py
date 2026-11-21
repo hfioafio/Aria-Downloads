@@ -206,6 +206,15 @@ NBSP = " "
 _SKIP = re.compile(r"(<(script|style|code|pre|textarea)\b.*?</\2>|<[^>]+>)", re.S | re.I)
 
 
+def apostrophes(text):
+    """Apostrophe typographique du français (« l’app » et non « l'app »).
+
+    Les fragments mêlaient les deux formes, parfois dans la même phrase. Seule une apostrophe
+    entre deux lettres est remplacée : ni les guillemets droits ni le code ne sont touchés.
+    """
+    return re.sub(r"(?<=[^\W\d_])'(?=[^\W\d_])", "’", text)
+
+
 def french_spacing(html):
     """Espaces insécables du français, pour qu'un « ? » ou un « € » ne parte pas seul à la ligne.
 
@@ -214,6 +223,7 @@ def french_spacing(html):
     insécable ordinaire (U+00A0) est préféré à l'espace fine : toutes les polices l'ont.
     """
     def fix(text):
+        text = apostrophes(text)
         text = re.sub(r"[ \t]+([?!;:»])", NBSP + r"\1", text)
         text = re.sub(r"«[ \t]+", "«" + NBSP, text)
         text = re.sub(r"(?<=\d) (?=\d{3}\b)", NBSP, text)          # 2 000 mots
@@ -290,6 +300,8 @@ def build():
         body = io.open(src, encoding="utf-8").read().rstrip("\n")
         if lang == "fr":
             body = french_spacing(body)
+            p = {k: apostrophes(v) if k in ("title", "description", "crumb") else v
+                 for k, v in p.items()}
         loc = dict(loc)
         if p.get("pair"):
             loc["other_href"] = p["pair"] + ".html"
@@ -325,7 +337,8 @@ def build():
         if siblings:
             heading = "À lire aussi" if lang == "fr" else "Read next"
             items = "".join(
-                '          <a href="%s.html">%s</a>\n' % (q["slug"], q["crumb"])
+                '          <a href="%s.html">%s</a>\n'
+                % (q["slug"], apostrophes(q["crumb"]) if lang == "fr" else q["crumb"])
                 for q in siblings[:8])
             related = ('      <section class="related" aria-label="%s">\n'
                        '        <h2>%s</h2>\n        <div class="related-links">\n%s'

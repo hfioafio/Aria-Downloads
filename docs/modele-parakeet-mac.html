@@ -35,7 +35,7 @@
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aria", "item": "https://hfioafio.github.io/Aria-Downloads/"}, {"@type": "ListItem", "position": 2, "name": "Parakeet sur Mac", "item": "https://hfioafio.github.io/Aria-Downloads/modele-parakeet-mac.html"}]}
   </script>
   <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Faut-il installer Python, conda ou autre chose ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. L'environnement d'exécution est intégré à l'application. Vous installez le DMG, téléchargez le modèle depuis Aria, et vous dictez."}}, {"@type": "Question", "name": "Que signifie le traitement local ?", "acceptedAnswer": {"@type": "Answer", "text": "Après téléchargement et sélection de Local, l’audio et sa transcription sont traités sur le Mac. Les contrôles de quota ou de licence peuvent nécessiter Internet ; aucun fonctionnement entièrement déconnecté n’est garanti."}}, {"@type": "Question", "name": "Quelles langues couvre Parakeet TDT V3 ?", "acceptedAnswer": {"@type": "Answer", "text": "25 langues européennes. Choisissez une langue explicite si la détection automatique se trompe ; les changements de langue peuvent demander une relecture."}}, {"@type": "Question", "name": "Puis-je utiliser Whisper à la place ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, Whisper est également disponible en local. Pour un traitement en ligne, le mode Automatique utilise le service fourni par Aria pendant la bêta, sans clé à saisir et avec des limites."}}, {"@type": "Question", "name": "Ça tourne sur un Mac Intel ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, il existe une version Intel distincte. Elle est plus lente que sur Apple Silicon, mais elle fonctionne."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Faut-il installer Python, conda ou autre chose ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. L’environnement d’exécution est intégré à l’application. Vous installez le DMG, téléchargez le modèle depuis Aria, et vous dictez."}}, {"@type": "Question", "name": "Que signifie le traitement local ?", "acceptedAnswer": {"@type": "Answer", "text": "Après téléchargement et sélection de Local, l’audio et sa transcription sont traités sur le Mac. Les contrôles de quota ou de licence peuvent nécessiter Internet ; aucun fonctionnement entièrement déconnecté n’est garanti."}}, {"@type": "Question", "name": "Quelles langues couvre Parakeet TDT V3 ?", "acceptedAnswer": {"@type": "Answer", "text": "25 langues européennes. Choisissez une langue explicite si la détection automatique se trompe ; les changements de langue peuvent demander une relecture."}}, {"@type": "Question", "name": "Puis-je utiliser Whisper à la place ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, Whisper est également disponible en local. Pour un traitement en ligne, le mode Automatique utilise le service fourni par Aria pendant la bêta, sans clé à saisir et avec des limites."}}, {"@type": "Question", "name": "Ça tourne sur un Mac Intel ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, il existe une version Intel distincte. Elle est plus lente que sur Apple Silicon, mais elle fonctionne."}}]}
   </script>
   <script>
     (function () {
@@ -72,7 +72,7 @@
         <table>
           <tbody>
             <tr><th scope="row"><strong>Modèle</strong></th><td>NVIDIA Parakeet TDT V3</td></tr>
-            <tr><th scope="row"><strong>Taille du téléchargement</strong></th><td>487 Mo, une seule fois, depuis l'application</td></tr>
+            <tr><th scope="row"><strong>Taille du téléchargement</strong></th><td>487 Mo, une seule fois, depuis l’application</td></tr>
             <tr><th scope="row"><strong>Langues</strong></th><td>25 langues européennes</td></tr>
             <tr><th scope="row"><strong>Compatibilité</strong></th><td>Apple Silicon et Intel, macOS 11 ou plus récent</td></tr>
             <tr><th scope="row"><strong>Exécution</strong></th><td>sherpa-onnx intégré — aucun Python, aucune installation séparée</td></tr>
@@ -87,10 +87,10 @@
       <p>Le mode Automatique utilise le service en ligne fourni par Aria pendant la bêta, sans clé et avec des limites. Il ne remplace pas le choix explicite de Local après téléchargement du modèle.</p>
 
       <h2>La partie qui est réellement difficile</h2>
-      <p>Faire tourner un modèle de reconnaissance vocale en local est la moitié facile. La moitié difficile est tout ce qu'il y a autour, et c'est à ça que sert une application :</p>
+      <p>Faire tourner un modèle de reconnaissance vocale en local est la moitié facile. La moitié difficile est tout ce qu’il y a autour, et c’est à ça que sert une application :</p>
       <ul>
-        <li><strong>Amener le texte dans l'app où vous êtes.</strong> Aria écrit au curseur dans Mail, Slack, Notes, un navigateur, un éditeur — aucune fenêtre à recopier.</li>
-        <li><strong>Ne perdre ni le premier ni le dernier mot.</strong> L'enregistrement démarre avant l'apparition du vumètre, et la fin de la phrase est captée au lieu d'être coupée au relâchement de la touche.</li>
+        <li><strong>Amener le texte dans l’app où vous êtes.</strong> Aria écrit au curseur dans Mail, Slack, Notes, un navigateur, un éditeur — aucune fenêtre à recopier.</li>
+        <li><strong>Ne perdre ni le premier ni le dernier mot.</strong> L’enregistrement démarre avant l’apparition du vumètre, et la fin de la phrase est captée au lieu d’être coupée au relâchement de la touche.</li>
         <li><strong>Les changements de micro.</strong> Des AirPods qui se déconnectent en pleine phrase retombent sur le micro intégré sans interrompre la dictée.</li>
         <li><strong>Le vocabulaire.</strong> Un nom corrigé une fois entre dans un dictionnaire personnel, pour guider les reconnaissances suivantes.</li>
         <li><strong>Un moteur adapté au Mac.</strong> Le calcul local utilise les ressources de la machine ; sa consommation dépend du modèle et de la durée des enregistrements.</li>
@@ -104,7 +104,7 @@
       </div>
 
       <h2>Questions</h2>
-      <details><summary>Faut-il installer Python, conda ou autre chose ?</summary><p>Non. L'environnement d'exécution est intégré à l'application. Vous installez le DMG, téléchargez le modèle depuis Aria, et vous dictez.</p></details>
+      <details><summary>Faut-il installer Python, conda ou autre chose ?</summary><p>Non. L’environnement d’exécution est intégré à l’application. Vous installez le DMG, téléchargez le modèle depuis Aria, et vous dictez.</p></details>
       <details><summary>Que signifie le traitement local ?</summary><p>Après téléchargement et sélection de Local, l’audio et sa transcription sont traités sur le Mac. Les contrôles de quota ou de licence peuvent nécessiter Internet ; aucun fonctionnement entièrement déconnecté n’est garanti.</p></details>
       <details><summary>Quelles langues couvre Parakeet TDT V3 ?</summary><p>25 langues européennes. Choisissez une langue explicite si la détection automatique se trompe ; les changements de langue peuvent demander une relecture.</p></details>
       <details><summary>Puis-je utiliser Whisper à la place ?</summary><p>Oui, Whisper est également disponible en local. Pour un traitement en ligne, le mode Automatique utilise le service fourni par Aria pendant la bêta, sans clé à saisir et avec des limites.</p></details>
@@ -124,7 +124,7 @@
           <a href="alternative-wispr-flow.html">Alternative à Wispr Flow</a>
           <a href="dictee-vocale-mac-sans-abonnement.html">Sans abonnement</a>
           <a href="transcrire-fichier-audio-mac.html">Transcrire un fichier</a>
-          <a href="dictee-apple-ne-fonctionne-pas.html">Dictée d'Apple</a>
+          <a href="dictee-apple-ne-fonctionne-pas.html">Dictée d’Apple</a>
           <a href="alternative-macwhisper.html">Alternative à MacWhisper</a>
           <a href="dictee-vocale-developpeurs.html">Pour les développeurs</a>
           <a href="installer-aria-mac.html">Installer Aria</a>

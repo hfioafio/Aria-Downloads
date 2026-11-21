@@ -13,10 +13,15 @@ conservées. Les FAQ des deux accueils sont alignées sur leurs réponses visibl
 articles sont déduites de leurs fragments, avec décodage des caractères HTML.
 
 Le générateur pose aussi les espaces insécables du français (avant « ? ! ; : », dans « 2 000 »,
-devant « € ») sur les fragments FR, `index.html`, `404.html` et `stats.html` : écrire avec des
-espaces ordinaires, la sortie est corrigée.
+devant « € ») et l’apostrophe typographique (« l’app » plutôt que « l'app ») sur les fragments
+FR, `index.html`, `404.html` et `stats.html`, ainsi que sur les titres, descriptions et fils
+d’Ariane français de `PAGES` : écrire avec des espaces et des apostrophes ordinaires, la sortie
+est corrigée. Le contenu des balises `script`, `style`, `code` et `pre` et les attributs des fragments ne
+sont jamais modifiés.
 
-Le contrôle vérifie les fichiers et ancres liés, les URL canoniques, les traductions, le sitemap,
+Le contrôle vérifie la langue, le titre et la meta description de chaque page indexable, la
+présence d’un attribut `alt` sur chaque image, la lisibilité des données JSON-LD, les fichiers et
+ancres liés, les URL canoniques, les traductions, le sitemap,
 les FAQ structurées, l’offre gratuite et les liens Installer, ainsi que la chaîne de
 téléchargement : chaque DMG proposé a son `.sha256` au même nom, `softwareVersion` et la page
 de version suivent les liens, `updates/preview.json` annonce la version du site, le README
