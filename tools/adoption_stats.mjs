@@ -7,7 +7,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 
 const REPO = process.env.GITHUB_REPOSITORY || 'hfioafio/Aria-Downloads'
 const ADOPTION_TAG = 'adoption-counter'
-const ADOPTION_KINDS = ['install', 'update', 'active', 'active-day', 'owner-update']
+const ADOPTION_KINDS = ['install', 'update', 'active', 'active-day', 'owner-update', 'owner-download']
 
 const [historyPath, latestPath] = process.argv.slice(2)
 if (!historyPath || !latestPath) {

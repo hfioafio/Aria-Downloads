@@ -2,365 +2,362 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aria — qui télécharge vraiment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aria — audience réelle</title>
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://api.github.com https://raw.githubusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 :root{
-  --page:#f6f6f3;--surface:#fff;--surface-2:#ededeb;--ink:#101114;--ink-2:#55565d;--ink-3:#696a70;
-  --line:rgba(16,17,20,.10);--line-strong:rgba(16,17,20,.17);--blue:#0066d6;--green:#1a7f45;--voice:#c9302a;
-  --shadow:0 15px 45px rgba(16,17,24,.08);
-  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  --page:#f5f5f2;--surface:#fff;--surface-2:#efefec;--ink:#111214;--ink-2:#4f5057;--ink-3:#7c7d84;
+  --line:rgba(17,18,20,.10);--line-strong:rgba(17,18,20,.18);
+  --blue:#0a6fe0;--green:#1d8a4e;--amber:#a35f00;--owner:#6b4fd8;
+  --shadow:0 12px 36px rgba(16,17,24,.07);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root{
-  --page:#08090b;--surface:#121318;--surface-2:#1a1c22;--ink:#f5f5f7;--ink-2:#b2b3ba;--ink-3:#8a8b93;
-  --line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.15);--blue:#2997ff;--green:#35c46d;--voice:#ff7169;
-  --shadow:0 18px 50px rgba(0,0,0,.26);color-scheme:dark;}}
+  --page:#0a0b0d;--surface:#141519;--surface-2:#1c1e23;--ink:#f4f4f6;--ink-2:#b4b5bc;--ink-3:#868790;
+  --line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.17);
+  --blue:#4ea3ff;--green:#3fc47a;--amber:#f0a73a;--owner:#a892ff;
+  --shadow:0 16px 44px rgba(0,0,0,.3);color-scheme:dark;}}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--page);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.55;font-size:16px;padding:0 0 60px}
-.shell{width:min(calc(100% - 36px),980px);margin-inline:auto}
-header{padding:34px 0 22px;border-bottom:1px solid var(--line);margin-bottom:28px}
-.top{display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between}
-h1{font-size:26px;letter-spacing:-.02em;font-weight:640}
-h2{font-size:18px;font-weight:620;margin:34px 0 12px;letter-spacing:-.01em}
-.sub{color:var(--ink-3);font-size:14px}
-.hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:22px}
-.big{font-size:clamp(44px,9vw,72px);line-height:1;font-weight:660;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.big.zero{color:var(--ink-3)}
-.hero p{color:var(--ink-2);margin-top:10px;max-width:62ch}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
-.card b{display:block;font-size:30px;font-weight:640;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.card span{display:block;color:var(--ink-3);font-size:13.5px;margin-top:4px}
-.card small{display:block;color:var(--ink-3);font-size:12.5px;margin-top:8px}
-table{border-collapse:collapse;width:100%;font-size:14.5px}
-.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
-th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
-thead th{color:var(--ink);font-weight:620;background:var(--surface-2)}
-tbody tr:last-child td{border-bottom:0}
-td.n{font-variant-numeric:tabular-nums;text-align:right}
-td strong{color:var(--ink)}
-button{font:inherit;cursor:pointer;border-radius:999px;padding:9px 17px;font-size:14px;font-weight:560;
-  background:var(--ink);color:var(--page);border:1px solid transparent}
-button.quiet{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-button:disabled{opacity:.45;cursor:default}
-.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
-a{color:var(--blue)}
-.note{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line-strong);
-  border-radius:14px;padding:18px 20px;color:var(--ink-2);font-size:15px;margin-top:14px}
-.note strong{color:var(--ink)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:7px;vertical-align:1px}
-.dot.stale{background:var(--voice)}
-.chart{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
-.chart svg{display:block;width:100%;height:150px;overflow:visible}
-.muted{color:var(--ink-3);font-size:13.5px}
-.table-wrap:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 55%,transparent);outline-offset:3px}
-@media (max-width:560px){th,td{padding:9px 11px}}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--page);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5;font-size:16px;padding-bottom:56px}
+.shell{width:min(calc(100% - 32px),1040px);margin-inline:auto}
+header{padding:28px 0 18px}
+.top{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between}
+h1{font-size:clamp(24px,4vw,30px);letter-spacing:-.02em;font-weight:680}
+h2{font-size:18px;font-weight:650;letter-spacing:-.01em;margin:36px 0 6px}
+.lead{color:var(--ink-2);font-size:15px;max-width:62ch;margin-top:6px}
+.fresh{display:flex;align-items:center;gap:8px;color:var(--ink-3);font-size:13px;margin-top:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
+.dot.stale{background:var(--amber)}
+button{font:inherit;font-size:15px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;min-height:44px;padding:0 16px;cursor:pointer}
+button:hover{border-color:var(--ink-3)}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.sub{color:var(--ink-3);font-size:14px;max-width:70ch}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}
+@media (min-width:860px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.card .n{display:block;font-size:clamp(30px,6vw,40px);font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.card .n.zero{color:var(--ink-3)}
+.card .k{display:block;font-size:14px;font-weight:600;margin-top:6px}
+.card .d{display:block;font-size:13px;color:var(--ink-3);margin-top:4px}
+.card .delta{display:inline-block;font-size:13px;font-weight:600;color:var(--green);margin-top:6px}
+.card .delta.flat{color:var(--ink-3);font-weight:500}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-top:14px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink-2);margin-bottom:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{fill:var(--ink-3);font-size:11px;font-family:var(--sans)}
+.note{font-size:13px;color:var(--ink-3);margin-top:10px}
+.owner{border-color:color-mix(in srgb,var(--owner) 35%,transparent)}
+.owner .n{color:var(--owner)}
+.tabwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--ink-2);font-size:13px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.muted{color:var(--ink-3)}
+details{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:4px 16px}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+details ul{padding:0 0 14px 18px;color:var(--ink-2);font-size:14px}
+details li{margin:6px 0}
+@media (prefers-reduced-motion:no-preference){.card,.panel{transition:border-color .2s}}
 </style>
 </head>
 <body>
 <div class="shell">
-  <header>
-    <div class="top">
-      <div>
-        <h1>Aria — qui télécharge vraiment</h1>
-        <p class="sub" id="freshness">Chargement…</p>
-      </div>
-      <div class="row" style="margin:0">
-        <button class="quiet" id="refresh">Actualiser</button>
-      </div>
-    </div>
-  </header>
+<header>
+  <div class="top">
+    <h1>Aria — audience réelle</h1>
+    <button id="refresh" type="button">Actualiser</button>
+  </div>
+  <p class="lead">Les personnes qui téléchargent et utilisent Aria. Ton Mac, tes mises à jour et les lancements de test automatiques sont retirés à la source : ils n’apparaissent dans aucun chiffre ci-dessous.</p>
+  <p class="fresh" id="fresh" role="status" aria-live="polite"><span class="dot stale"></span>Lecture des compteurs…</p>
+</header>
 
-  <main>
-  <div class="hero">
-    <div class="big zero" id="realCount">—</div>
-    <p id="realLabel">chargement…</p>
-    <p id="realHelp" class="muted" style="margin-top:12px"></p>
-    <div class="row">
-      <button id="setBaseline">Repartir de zéro maintenant</button>
-      <button class="quiet" id="clearBaseline">Retirer la référence</button>
-    </div>
-    <p class="muted" style="margin-top:12px">Ce chiffre ne compte que la <strong>version publique actuelle</strong> — celle vers laquelle pointent le site et toutes les pages — et, depuis la 2.61.0, seulement son fichier <strong>« Installer »</strong> : les téléchargements lancés depuis le site ou la page de version. Les mises à jour automatiques téléchargent le fichier sans « Installer » et sont comptées à part. Le total historique est plus bas, avec ce qu'il contient réellement.</p>
+<main>
+  <h2>Utilisateurs</h2>
+  <p class="sub">Signaux envoyés par l’app elle-même, sans identifiant. Un Mac n’est compté actif que s’il a vraiment transcrit quelque chose.</p>
+  <div class="grid" id="people"></div>
+
+  <h2>Téléchargements</h2>
+  <p class="sub">Fichiers DMG récupérés sur GitHub. Un téléchargement n’est pas une personne : robots et essais en font partie.</p>
+  <div class="grid" id="downloads"></div>
+
+  <h2>Évolution jour par jour</h2>
+  <div class="panel">
+    <div class="legend" id="legend"></div>
+    <svg class="chart" id="chart" viewBox="0 0 720 200" role="img" aria-label="Évolution quotidienne"></svg>
+    <p class="note" id="chartNote"></p>
   </div>
 
-  <div class="grid">
-    <div class="card"><b id="total">—</b><span>total historique, toutes versions</span><small>à lire avec la section du bas</small></div>
-    <div class="card"><b id="pre">—</b><span>sur des préversions</span><small>jamais annoncées publiquement</small></div>
-    <div class="card"><b id="pub">—</b><span>sur des versions publiques</span><small id="pubDetail"></small></div>
-    <div class="card"><b id="stars">—</b><span>étoiles GitHub</span><small id="watchers"></small></div>
-  </div>
-
-  <div class="note" id="reality"></div>
-
-  <h2>Mac réellement équipés</h2>
-  <p class="muted" style="margin:0 0 12px">Comptage anonyme d’Aria (version GitHub « adoption-counter ») : l’app télécharge un fichier vide, sans identifiant, actif par défaut depuis la 2.61.0 et désactivable dans Réglages → Données. Seuls les totaux existent.</p>
-  <div class="grid" id="adoption"><div class="card"><b>—</b><span>chargement…</span></div></div>
-
-  <h2>Ce que ça donne dans le temps</h2>
-  <div class="chart">
-    <svg id="chart" viewBox="0 0 700 150" preserveAspectRatio="none" aria-label="Évolution du total de téléchargements"></svg>
-    <p class="muted" id="chartNote" style="margin-top:10px"></p>
-  </div>
+  <h2>Ton Mac, compté à part</h2>
+  <p class="sub">Ces nombres ne sont additionnés à rien : ils servent seulement à retirer tes propres téléchargements.</p>
+  <div class="grid" id="owner"></div>
 
   <h2>Par version</h2>
-  <p class="muted" style="margin:0 0 12px">Les préversions sont marquées : elles n’ont jamais été annoncées, donc leurs téléchargements ne sont pas des utilisateurs.</p>
-  <div class="table-wrap" role="region" tabindex="0" aria-label="Téléchargements par version">
+  <div class="tabwrap">
     <table>
-      <thead><tr><th scope="col">Version</th><th scope="col">Publiée</th><th scope="col" class="n">Apple Silicon</th><th scope="col" class="n">Intel</th><th scope="col" class="n">Depuis le site</th><th scope="col" class="n">Total</th></tr></thead>
-      <tbody id="versions"><tr><td colspan="6" style="color:var(--ink-3)">Chargement…</td></tr></tbody>
+      <thead><tr><th scope="col">Version</th><th scope="col">Publiée</th><th scope="col" class="num">Depuis le site</th><th scope="col" class="num">Mises à jour</th><th scope="col" class="num">Anciens DMG</th><th scope="col" class="num">Total</th></tr></thead>
+      <tbody id="versions"><tr><td colspan="6" class="muted">Chargement…</td></tr></tbody>
     </table>
   </div>
 
-  <h2>Usage réel de l'app</h2>
-  <div class="note">
-    <p><strong>La vitrine ne mesure plus aucune visite ni aucun clic</strong> depuis le 12 septembre 2026 (retrait du script de mesure, « Ne rien mesurer sans consentement ») : il n'existe donc plus de chiffres de visites, de visiteurs uniques ni de sources de trafic. Ce qui reste vit sur le service d'Aria : le nombre de <strong>Mac vus par le service de quota</strong>, et les lancements et dictées des personnes qui ont accepté la mesure dans l'app.</p>
-    <p style="margin-top:12px">Ils s'ouvrent ici, avec votre jeton d'administration :<br>
-      <a href="https://aria-dictee-mac.buggbrr.chatgpt.site/admin" target="_blank" rel="noopener">aria-dictee-mac.buggbrr.chatgpt.site/admin</a></p>
-    <p style="margin-top:12px">Pourquoi ce n'est pas fusionné dans cette page : le service refuse d'être lu depuis une autre adresse et d'être affiché dans un cadre. Corriger ça demande de redéployer le service, ce qui passe par votre compte d'hébergement. Une fois fait, tout tiendra sur une seule page.</p>
-  </div>
-
-  <h2>À savoir pour lire ces chiffres</h2>
-  <div class="note">
-    <p><strong>Les téléchargements GitHub comptent les robots.</strong> Les moteurs de recherche et les scanners de sécurité téléchargent les fichiers. Un chiffre qui monte de un ou deux sans visite correspondante sur le site est probablement une machine.</p>
-    <p style="margin-top:12px"><strong>Télécharger n'est pas utiliser.</strong> Beaucoup de gens téléchargent, voient l'avertissement de macOS et referment. L'écart entre les téléchargements ici et les Mac vus par le quota est exactement la mesure de ce déchet.</p>
-    <p style="margin-top:12px"><strong>Les statistiques détaillées dans l'app sont désactivées par défaut</strong> et le resteront tant que l'utilisateur ne les active pas. Les colonnes « lancements » et « dictées » de la page d'administration ne se rempliront donc que pour les gens qui l'acceptent : ce n'est pas une panne. Le comptage anonyme de la section « Mac réellement équipés », lui, est actif par défaut.</p>
-    <p style="margin-top:12px" class="muted" id="rate"></p>
-  </div>
-  </main>
+  <details>
+    <summary>Comment ces chiffres sont obtenus</summary>
+    <ul>
+      <li><strong>Installations neuves</strong> : la première ouverture d’Aria sur un Mac sans données Aria. Une mise à jour n’est jamais comptée comme installation.</li>
+      <li><strong>Macs actifs</strong> : chaque Mac compte au plus une fois par semaine, et seulement s’il a transcrit un texte. Les jours d’usage comptent au plus une fois par jour et par Mac.</li>
+      <li><strong>Ton Mac</strong> : Aria reconnaît le Mac du propriétaire ; il n’envoie que ses propres signaux, dans des fichiers à part. Chaque DMG qu’il télécharge (mise à jour intégrée ou script d’installation) est signalé et retranché des mises à jour.</li>
+      <li><strong>Tests</strong> : les lancements de contrôle (GitHub, banc local) et les copies de développement n’envoient rien.</li>
+      <li><strong>Historique</strong> : un relevé automatique des compteurs publics est fait chaque heure sur GitHub, sans rien collecter d’autre. Le retranchement de tes DMG commence le 21 novembre 2026 ; avant, ils restent mêlés aux mises à jour.</li>
+      <li><strong>Aucune donnée personnelle</strong> : ni texte, ni adresse, ni identifiant. GitHub n’expose qu’un total par fichier. Une réponse réseau perdue peut rejouer un signal : ce sont des ordres de grandeur fiables, pas un registre nominatif.</li>
+    </ul>
+  </details>
+</main>
 </div>
 
 <script>
 (function () {
+  'use strict';
   var REPO = 'hfioafio/Aria-Downloads';
-  var KEY_BASE = 'aria-stats-baseline';
-  var KEY_HIST = 'aria-stats-history';
-  var state = null;
+  var HISTORY = 'https://raw.githubusercontent.com/' + REPO + '/stats-data/history.json';
+  var OWNER_COUNTER_SINCE = '2026-11-21';
+  var DAY = 86400000;
+  var el = function (id) { return document.getElementById(id); };
+  var nf = new Intl.NumberFormat('fr-FR');
+  var fmt = function (n) { return nf.format(n); };
+  var parisDayFmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' });
+  function parisDay(date) { return parisDayFmt.format(date); }
+  function count(asset) { var v = Number(asset && asset.download_count); return isFinite(v) && v > 0 ? v : 0; }
+  function arm(name) { return /Apple-Silicon|arm64/i.test(name); }
 
-  function store(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} }
-  function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (_) { return d; } }
-  function fmt(n) { return Number(n).toLocaleString('fr-FR'); }
-  function el(id) { return document.getElementById(id); }
-
-  function dmgTotals(releases) {
-    var total = 0, arm = 0, x64 = 0, pre = 0, pub = 0, rows = [], latest = null, adoption = null;
+  function summarize(releases) {
+    var downloads = { site: 0, update: 0, mixed: 0, siteArm: 0, siteIntel: 0 };
+    var rows = [];
+    var adoption = {};
     releases.forEach(function (r) {
-      if (r.tag_name === 'adoption-counter') { adoption = r.assets || []; return; }
-      var a = 0, x = 0, sa = 0, sx = 0, hasDmg = false, hasInstaller = false;
-      (r.assets || []).forEach(function (asset) {
-        if (!/\.dmg$/i.test(asset.name)) return;        // les .sha256 ne sont pas des installations
-        hasDmg = true;
-        var c = Number(asset.download_count || 0);
-        var arm64 = /Apple-Silicon|arm64/i.test(asset.name);
-        if (arm64) a += c; else x += c;
-        // Depuis la 2.61.0 : « Aria-Installer-… » = téléchargé depuis le site ou la page de version ;
-        // le fichier identique sans « Installer » = mise à jour automatique.
-        if (/-Installer-/i.test(asset.name)) { hasInstaller = true; if (arm64) sa += c; else sx += c; }
+      var assets = r.assets || [];
+      if (r.tag_name === 'adoption-counter') {
+        assets.forEach(function (a) { adoption[a.name.replace(/\.txt$/, '')] = count(a); });
+        return;
+      }
+      var dmg = assets.filter(function (a) { return /\.dmg$/i.test(a.name || ''); });
+      if (!dmg.length) return;
+      var hasInstaller = dmg.some(function (a) { return /^Aria-Installer-/.test(a.name); });
+      var row = { tag: r.tag_name, date: String(r.published_at || '').slice(0, 10), pre: r.prerelease === true || /preview|beta|rc/i.test(r.tag_name || ''), site: 0, update: 0, mixed: 0 };
+      dmg.forEach(function (a) {
+        var n = count(a);
+        if (!hasInstaller) { row.mixed += n; downloads.mixed += n; }
+        else if (/^Aria-Installer-/.test(a.name)) { row.site += n; downloads.site += n; if (arm(a.name)) downloads.siteArm += n; else downloads.siteIntel += n; }
+        else { row.update += n; downloads.update += n; }
       });
-      if (!hasDmg) return;
-      var isPre = /preview|beta|rc/i.test(r.tag_name) || r.prerelease === true;
-      arm += a; x64 += x; total += a + x;
-      if (isPre) pre += a + x; else pub += a + x;
-      var row = { tag: r.tag_name, date: r.published_at, arm: a, x64: x, total: a + x, pre: isPre,
-                  hasInstaller: hasInstaller, siteArm: sa, siteX64: sx, site: sa + sx };
       rows.push(row);
-      if (!isPre && !latest) latest = row;                // les versions arrivent de la plus récente à la plus ancienne
     });
-    latest = latest || { tag: '—', arm: 0, x64: 0, total: 0, hasInstaller: false, site: 0, siteArm: 0, siteX64: 0 };
-    // Le grand chiffre : les téléchargements depuis le site quand la version les distingue, sinon tout.
-    var headline = latest.hasInstaller
-      ? { tag: latest.tag, metric: 'site', total: latest.site, arm: latest.siteArm, x64: latest.siteX64, updates: latest.total - latest.site }
-      : { tag: latest.tag, metric: 'all', total: latest.total, arm: latest.arm, x64: latest.x64, updates: null };
-    return { total: total, arm: arm, x64: x64, pre: pre, pub: pub, rows: rows,
-             latest: latest, headline: headline, adoption: adoption,
-             releaseCount: rows.length };
+    rows.sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+    ['install', 'update', 'active', 'active-day', 'owner-update', 'owner-download'].forEach(function (k) { if (!(k in adoption)) adoption[k] = 0; });
+    return { downloads: downloads, adoption: adoption, rows: rows };
   }
 
-  function renderAdoption(assets) {
-    var box = el('adoption');
-    if (!assets) { box.innerHTML = '<div class="card"><b>—</b><span>version « adoption-counter » introuvable</span></div>'; return; }
-    var known = {
-      'install.txt': 'installations (une par Mac)',
-      'update.txt': 'mises à jour installées',
-      'active.txt': 'semaines d’usage cumulées (une par Mac actif et par semaine)'
+  /* Valeur d'un compteur à la fin d'un jour de Paris : dernier relevé de ce jour ou d'avant. */
+  function seriesValue(snapshots, day, pick) {
+    var value = null;
+    for (var i = 0; i < snapshots.length; i++) {
+      if (snapshots[i].day <= day) value = pick(snapshots[i]);
+      else break;
+    }
+    return value;
+  }
+
+  function flatten(snapshot) {
+    var a = snapshot.adoption || {}, d = snapshot.downloads || {};
+    return {
+      day: snapshot.day,
+      install: a.install || 0, active: a.active || 0, activeDay: a['active-day'] || 0,
+      update: a.update || 0, ownerDownload: a['owner-download'] || 0, ownerUpdate: a['owner-update'] || 0,
+      site: (d.site && d.site.total) || 0, updateDmg: (d.update && d.update.total) || 0
     };
-    var order = ['install.txt', 'update.txt', 'active.txt'];
-    var sorted = assets.slice().sort(function (a, b) {
-      var ia = order.indexOf(a.name), ib = order.indexOf(b.name);
-      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-    });
-    box.innerHTML = '';
-    sorted.forEach(function (asset) {
-      var card = document.createElement('div');
-      card.className = 'card';
-      var b = document.createElement('b'); b.textContent = fmt(asset.download_count || 0);
-      var span = document.createElement('span'); span.textContent = known[asset.name] || 'autre compteur (non décrit dans la version)';
-      var small = document.createElement('small'); small.textContent = asset.name;
-      card.appendChild(b); card.appendChild(span); card.appendChild(small);
-      box.appendChild(card);
-    });
   }
 
-  function drawChart(history) {
-    var svg = el('chart');
-    var note = el('chartNote');
-    if (history.length < 2) {
-      svg.innerHTML = '';
-      note.textContent = history.length
-        ? 'Un seul relevé pour l’instant. Rouvrez cette page de temps en temps : la courbe se construit toute seule, sur votre Mac.'
-        : 'Aucun relevé pour l’instant.';
-      return;
-    }
-    var W = 700, H = 150;
-    var xs = history.map(function (p) { return p.t; });
-    var ys = history.map(function (p) { return p.total; });
-    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
-    var y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
-    if (y1 === y0) { y1 = y0 + 1; }
-    if (x1 === x0) { x1 = x0 + 1; }
-    var pts = history.map(function (p) {
-      return [((p.t - x0) / (x1 - x0)) * W, H - ((p.total - y0) / (y1 - y0)) * (H - 12) - 6];
-    });
-    var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' ');
-    var area = d + ' L' + W + ' ' + H + ' L0 ' + H + ' Z';
-    svg.innerHTML =
-      '<path d="' + area + '" fill="currentColor" opacity=".07"/>' +
-      '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
-    svg.style.color = 'var(--blue)';
-    var days = Math.max(1, Math.round((x1 - x0) / 86400000));
-    note.textContent = history.length + ' relevés sur ' + days + ' jour' + (days > 1 ? 's' : '') +
-      ' · de ' + fmt(y0) + ' à ' + fmt(y1) + ' téléchargements. Cette courbe est construite localement, à chaque ouverture de la page.';
+  function dayList(fromDay, toDay) {
+    var out = [];
+    var t = Date.parse(fromDay + 'T12:00:00Z'), end = Date.parse(toDay + 'T12:00:00Z');
+    while (t <= end && out.length < 400) { out.push(new Date(t).toISOString().slice(0, 10)); t += DAY; }
+    return out;
   }
 
-  function renderBaseline() {
-    if (!state) return;
-    var base = load(KEY_BASE, null);
-    var head = state.headline;
-    var now = head.total;
-    var big = el('realCount'), label = el('realLabel'), help = el('realHelp');
-    var what = head.metric === 'site' ? ' depuis le site' : '';
-    // Une référence prise avant la séparation site / mises à jour ne mesure pas la même chose.
-    if (base && (base.metric || 'all') !== head.metric) base = null;
-    if (!base || base.tag !== head.tag) {
-      big.textContent = fmt(now);
-      big.classList.toggle('zero', now === 0);
-      label.innerHTML = 'téléchargement' + (now > 1 ? 's' : '') + what + ' de <strong>' + head.tag + '</strong>, la version publique actuelle.';
-      help.textContent = (base
-        ? 'Votre référence portait sur ' + base.tag + ', qui n’est plus la version en ligne : elle a été ignorée. '
-        : (head.metric === 'site' ? 'Vos propres essais sont dedans. ' : 'Vos propres essais et les mises à jour automatiques sont dedans. ') +
-          'Cliquez sur « Repartir de zéro » pour ne compter que la suite.') +
-        (head.updates !== null ? ' Mises à jour automatiques vers cette version, comptées à part : ' + fmt(head.updates) + '.' : '');
-      el('clearBaseline').disabled = !base;
-      return;
-    }
-    var since = Math.max(0, now - base.total);
-    big.textContent = fmt(since);
-    big.classList.toggle('zero', since === 0);
-    var d = new Date(base.t);
-    label.innerHTML = 'téléchargement' + (since > 1 ? 's' : '') + what + ' de <strong>' + head.tag + '</strong> depuis le ' +
-      d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) + ' à ' +
-      d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.';
-    help.textContent = since === 0
-      ? 'Personne n’a téléchargé cette version depuis ce point de référence.'
-      : 'Dont ' + fmt(Math.max(0, head.arm - base.arm)) + ' sur Apple Silicon et ' +
-        fmt(Math.max(0, head.x64 - base.x64)) + ' sur Intel.';
-    el('clearBaseline').disabled = false;
+  function weekStartDay(now) {
+    var d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+    var weekday = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() - (weekday - 1));
+    return d.toISOString().slice(0, 10);
   }
 
-  function render(data, repo, rate) {
-    state = data;
-    el('total').textContent = fmt(data.total);
-    el('pre').textContent = fmt(data.pre);
-    el('pub').textContent = fmt(data.pub);
-    el('pubDetail').textContent = 'dont ' + fmt(data.latest.total) + ' sur ' + data.latest.tag;
+  function shift(day, days) { return new Date(Date.parse(day + 'T12:00:00Z') + days * DAY).toISOString().slice(0, 10); }
 
-    var avg = data.releaseCount ? (data.total / data.releaseCount) : 0;
-    var note = el('reality');
-    note.innerHTML =
-      '<p><strong>Pourquoi ' + fmt(data.total) + ' ne veut pas dire ' + fmt(data.total) + ' personnes.</strong> ' +
-      'Ce total est étalé sur ' + fmt(data.releaseCount) + ' versions, soit ' + avg.toFixed(1) + ' téléchargement' +
-      (avg >= 2 ? 's' : '') + ' par version en moyenne. De vraies personnes se concentreraient sur la dernière version ; ' +
-      'un chiffre plat sur toutes les versions est la signature de machines et d’essais internes.</p>' +
-      '<p style="margin-top:12px"><strong>' + fmt(data.pre) + ' de ces téléchargements portent sur des préversions</strong> ' +
-      '— des builds jamais annoncés, dont personne à l’extérieur ne connaissait l’existence. Ceux-là ne peuvent pas être des utilisateurs.</p>' +
-      '<p style="margin-top:12px">Trois choses gonflent le reste : vos propres installations de test ; ' +
-      '<strong>la mise à jour automatique</strong>, qui télécharge le DMG depuis cette même page de version à chaque montée de version (séparée depuis la 2.61.0 : colonne « Depuis le site ») ; ' +
-      'et les robots d’indexation et scanners de sécurité, qui récupèrent tous les fichiers de chaque version — ' +
-      'ce qui explique les téléchargements Intel réguliers alors que vous travaillez sur Apple Silicon.</p>' +
-      '<p style="margin-top:12px">Le seul chiffre à surveiller est celui du haut : <strong>' + data.latest.tag +
-      '</strong>, la version vers laquelle pointent le site et toutes les pages.</p>';
-    el('stars').textContent = fmt(repo.stargazers_count || 0);
-    el('watchers').textContent = fmt(repo.subscribers_count || 0) + ' abonnés · ' + fmt(repo.forks_count || 0) + ' forks';
-
-    var tb = el('versions');
-    tb.innerHTML = '';
-    if (!data.rows.length) {
-      tb.innerHTML = '<tr><td colspan="6" style="color:var(--ink-3)">Aucune version avec un DMG.</td></tr>';
+  function card(box, value, label, detail, delta, extraClass) {
+    var c = document.createElement('div');
+    c.className = 'card' + (extraClass ? ' ' + extraClass : '');
+    var n = document.createElement('span'); n.className = 'n' + (value === 0 ? ' zero' : ''); n.textContent = value === null ? '—' : fmt(value);
+    var k = document.createElement('span'); k.className = 'k'; k.textContent = label;
+    c.appendChild(n); c.appendChild(k);
+    if (delta !== undefined && delta !== null) {
+      var s = document.createElement('span'); s.className = 'delta' + (delta.value > 0 ? '' : ' flat');
+      s.textContent = (delta.value > 0 ? '+' + fmt(delta.value) : 'aucun') + ' ' + delta.label;
+      c.appendChild(s);
     }
-    data.rows.slice(0, 25).forEach(function (r) {
+    if (detail) { var d = document.createElement('span'); d.className = 'd'; d.textContent = detail; c.appendChild(d); }
+    box.appendChild(c);
+  }
+
+  function render(live, history) {
+    var now = new Date();
+    var today = parisDay(now);
+    var current = flatten({ day: today, adoption: live.adoption, downloads: { site: { total: live.downloads.site }, update: { total: live.downloads.update } } });
+    var snaps = (history && history.snapshots ? history.snapshots : []).map(flatten);
+    snaps.push(current);
+    var valueAt = function (day, key) { var v = seriesValue(snaps, day, function (s) { return s[key]; }); return v === null ? null : v; };
+    var since = function (day, key) { var past = valueAt(day, key); return past === null ? null : Math.max(0, current[key] - past); };
+    var first = snaps[0].day;
+    var weekStart = weekStartDay(now);
+    var beforeWeek = shift(weekStart, -1);
+    var week = since(beforeWeek, 'active');
+    var weekKnown = beforeWeek >= first;
+    var sevenAgo = shift(today, -7);
+    var thirtyAgo = shift(today, -30);
+    var d7 = function (key) { return sevenAgo >= first ? since(sevenAgo, key) : null; };
+    var firstLabel = 'depuis le ' + new Date(first + 'T12:00:00Z').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+    /* Écart sur 7 jours, ou depuis le premier relevé tant que l'historique est plus court. */
+    var recent = function (key) {
+      return sevenAgo >= first ? { value: since(sevenAgo, key), label: 'en 7 jours' } : { value: Math.max(0, current[key] - snaps[0][key]), label: firstLabel };
+    };
+
+    var people = el('people'); people.innerHTML = '';
+    card(people, current.install, 'installations neuves', 'Premières ouvertures d’Aria, depuis le début', recent('install'));
+    card(people, weekKnown ? week : current.active, weekKnown ? 'Macs actifs cette semaine' : 'Mac-semaines actives', weekKnown ? 'Au moins une transcription depuis lundi' : 'Total depuis le début (historique trop court pour cette semaine)');
+    card(people, d7('activeDay') === null ? current.activeDay : d7('activeDay'), d7('activeDay') === null ? 'jours d’usage au total' : 'jours d’usage en 7 jours', 'Un Mac qui transcrit un jour donné compte 1');
+    card(people, current.update, 'mises à jour installées', 'Ouvertures d’une nouvelle version sur d’autres Mac', recent('update'));
+
+    var downloads = el('downloads'); downloads.innerHTML = '';
+    card(downloads, live.downloads.site, 'depuis le site', 'Apple Silicon ' + fmt(live.downloads.siteArm) + ' · Intel ' + fmt(live.downloads.siteIntel), recent('site'));
+    var ownerSince = valueAt(shift(OWNER_COUNTER_SINCE, -1), 'updateDmg');
+    var cleanUpdates = ownerSince === null ? null : Math.max(0, current.updateDmg - ownerSince - current.ownerDownload);
+    card(downloads, cleanUpdates, 'DMG de mise à jour d’autres Mac', 'Depuis le 21/11/2026, tes DMG retirés');
+    card(downloads, live.downloads.update, 'DMG de mise à jour, brut', 'Depuis la 2.61.0, toi compris avant le 21/11');
+    card(downloads, live.downloads.mixed, 'anciens DMG (avant 2.61)', 'Site et mises à jour mélangés, essais compris');
+
+    var owner = el('owner'); owner.innerHTML = '';
+    card(owner, current.ownerUpdate, 'mises à jour de ton Mac', 'Nouvelles versions ouvertes chez toi', null, 'owner');
+    card(owner, current.ownerDownload, 'DMG téléchargés par ton Mac', 'Retranchés des mises à jour depuis le 21/11', null, 'owner');
+
+    drawChart(snaps, first > thirtyAgo ? first : thirtyAgo, today);
+
+    var tb = el('versions'); tb.innerHTML = '';
+    live.rows.slice(0, 20).forEach(function (r) {
       var tr = document.createElement('tr');
-      var when = r.date ? new Date(r.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
-      var mark = r.pre ? ' <span class="muted">· préversion</span>' : '';
-      tr.innerHTML = '<td><strong>' + r.tag + '</strong>' + mark + '</td><td>' + when + '</td>' +
-        '<td class="n">' + fmt(r.arm) + '</td><td class="n">' + fmt(r.x64) + '</td>' +
-        '<td class="n">' + (r.hasInstaller ? fmt(r.site) : '—') + '</td>' +
-        '<td class="n"><strong>' + fmt(r.total) + '</strong></td>';
+      var when = r.date ? new Date(r.date + 'T12:00:00Z').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+      var cells = [
+        '<strong>' + r.tag.replace(/[<>&]/g, '') + '</strong>' + (r.pre ? ' <span class="muted">préversion</span>' : ''),
+        when, r.mixed && !r.site && !r.update ? '—' : fmt(r.site), r.mixed && !r.site && !r.update ? '—' : fmt(r.update), r.mixed ? fmt(r.mixed) : '—', '<strong>' + fmt(r.site + r.update + r.mixed) + '</strong>'
+      ];
+      tr.innerHTML = cells.map(function (c, i) { return '<td' + (i > 1 ? ' class="num"' : '') + '>' + c + '</td>'; }).join('');
       tb.appendChild(tr);
     });
 
-    var hist = load(KEY_HIST, []);
-    var last = hist[hist.length - 1];
-    if (!last || last.total !== data.total || Date.now() - last.t > 3600000) {
-      hist.push({ t: Date.now(), total: data.total });
-      if (hist.length > 500) hist = hist.slice(-500);
-      store(KEY_HIST, hist);
-    }
-    drawChart(hist);
-    renderBaseline();
-    renderAdoption(data.adoption);
+    var span = Math.max(1, Math.round((Date.parse(today) - Date.parse(first)) / DAY));
+    el('fresh').innerHTML = '<span class="dot"></span>À jour à ' + now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) +
+      ' · historique de ' + span + ' jour' + (span > 1 ? 's' : '') + ' · actualisation toutes les 5 minutes';
+  }
 
-    el('freshness').innerHTML = '<span class="dot"></span>Chiffres GitHub relevés à ' +
-      new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) +
-      ' · actualisation automatique toutes les 5 minutes';
-    el('rate').textContent = rate ? 'Quota de lecture GitHub : ' + rate + ' requêtes restantes cette heure (limite de 60 sans authentification).' : '';
+  var SERIES = [
+    { key: 'site', label: 'Téléchargements depuis le site', color: 'var(--blue)' },
+    { key: 'install', label: 'Installations neuves', color: 'var(--green)' },
+    { key: 'activeDay', label: 'Jours d’usage', color: 'var(--amber)' }
+  ];
+
+  function drawChart(snaps, fromDay, toDay) {
+    var days = dayList(fromDay, toDay);
+    var legend = el('legend');
+    legend.innerHTML = SERIES.map(function (s) { return '<span><i style="background:' + s.color + '"></i>' + s.label + '</span>'; }).join('');
+    var data = days.map(function (day) {
+      var prev = shift(day, -1);
+      var out = { day: day };
+      SERIES.forEach(function (s) {
+        var a = seriesValue(snaps, day, function (x) { return x[s.key]; });
+        var b = seriesValue(snaps, prev, function (x) { return x[s.key]; });
+        out[s.key] = a === null || b === null ? 0 : Math.max(0, a - b);
+      });
+      return out;
+    });
+    var max = 1;
+    data.forEach(function (d) { SERIES.forEach(function (s) { if (d[s.key] > max) max = d[s.key]; }); });
+    var node = el('chart');
+    var W = Math.max(300, Math.round(node.getBoundingClientRect().width) || 720), H = 200, top = 10, bottom = 26, left = 26;
+    node.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var plotH = H - top - bottom, plotW = W - left;
+    var slot = plotW / Math.max(1, data.length);
+    var bar = Math.max(2, Math.min(14, (slot - 4) / SERIES.length));
+    var svg = '';
+    var ticks = max <= 4 ? max : 4;
+    for (var t = 0; t <= ticks; t++) {
+      var v = Math.round((max * t) / ticks);
+      var y = top + plotH - (v / max) * plotH;
+      svg += '<line x1="' + left + '" x2="' + W + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="var(--line)"/>';
+      svg += '<text x="0" y="' + (y + 4).toFixed(1) + '">' + v + '</text>';
+    }
+    var total = 0;
+    data.forEach(function (d, i) {
+      var x0 = left + i * slot + (slot - bar * SERIES.length) / 2;
+      SERIES.forEach(function (s, j) {
+        var v = d[s.key]; total += v;
+        if (!v) return;
+        var h = (v / max) * plotH;
+        svg += '<rect x="' + (x0 + j * bar).toFixed(1) + '" y="' + (top + plotH - h).toFixed(1) + '" width="' + (bar - 1).toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2" fill="' + s.color + '"><title>' + d.day + ' — ' + s.label + ' : ' + v + '</title></rect>';
+      });
+      var every = Math.ceil(data.length / Math.max(2, Math.floor(W / 90)));
+      if (i % every === 0 || i === data.length - 1) {
+        var label = new Date(d.day + 'T12:00:00Z').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+        svg += '<text x="' + (left + i * slot + slot / 2).toFixed(1) + '" y="' + (H - 6) + '" text-anchor="middle">' + label + '</text>';
+      }
+    });
+    el('chart').innerHTML = svg;
+    el('chart').setAttribute('aria-label', 'Évolution quotidienne du ' + fromDay + ' au ' + toDay + ' : ' + total + ' événements au total');
+    el('chartNote').textContent = total
+      ? 'Chaque barre est l’écart entre deux relevés quotidiens. Survolez ou touchez une barre pour son détail.'
+      : 'Aucun téléchargement depuis le site, aucune installation et aucun jour d’usage sur cette période.';
   }
 
   function fail(message) {
-    el('freshness').innerHTML = '<span class="dot stale"></span>' + message;
+    el('fresh').innerHTML = '<span class="dot stale"></span>' + message;
   }
 
+  var busy = false;
   function refresh() {
+    if (busy) return;
+    busy = true;
     var opts = { headers: { accept: 'application/vnd.github+json' }, cache: 'no-store' };
-    Promise.all([
-      fetch('https://api.github.com/repos/' + REPO + '/releases?per_page=100', opts),
-      fetch('https://api.github.com/repos/' + REPO, opts)
-    ]).then(function (res) {
-      if (!res[0].ok || !res[1].ok) {
-        throw new Error(res[0].status === 403 ? 'Quota GitHub atteint, réessayez dans une heure.' : 'GitHub a répondu ' + res[0].status + '.');
-      }
-      var rate = res[0].headers.get('x-ratelimit-remaining');
-      return Promise.all([res[0].json(), res[1].json()]).then(function (j) {
-        render(dmgTotals(j[0]), j[1], rate);
-      });
-    }).catch(function (e) { fail(e.message || 'Lecture impossible.'); });
+    var releases = fetch('https://api.github.com/repos/' + REPO + '/releases?per_page=100', opts).then(function (r) {
+      if (!r.ok) throw new Error(r.status === 403 || r.status === 429 ? 'Quota de lecture GitHub atteint : nouvel essai dans quelques minutes.' : 'GitHub a répondu ' + r.status + '.');
+      return r.json();
+    });
+    var history = fetch(HISTORY, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    Promise.all([releases, history]).then(function (res) {
+      render(summarize(Array.isArray(res[0]) ? res[0] : []), res[1]);
+    }).catch(function (e) { fail(e && e.message ? e.message : 'Lecture impossible.'); })
+      .then(function () { busy = false; });
   }
 
   el('refresh').addEventListener('click', refresh);
-  el('setBaseline').addEventListener('click', function () {
-    if (!state) return;
-    var head = state.headline;
-    store(KEY_BASE, { t: Date.now(), tag: head.tag, metric: head.metric, total: head.total, arm: head.arm, x64: head.x64 });
-    renderBaseline();
-  });
-  el('clearBaseline').addEventListener('click', function () {
-    try { localStorage.removeItem(KEY_BASE); } catch (_) {}
-    renderBaseline();
-  });
-
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
   refresh();
-  setInterval(refresh, 300000);
+  setInterval(function () { if (!document.hidden) refresh(); }, 300000);
 })();
 </script>
 </body>
