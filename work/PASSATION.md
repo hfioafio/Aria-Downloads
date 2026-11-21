@@ -161,6 +161,7 @@ fichiers binaires.
   subscription / Free every week. Pro soon, as a one-time purchase. ». L’achat Pro n’étant pas
   ouvert, le titre ne promet plus ce que le paragraphe suivant corrige. Aucun lien ni URL touché.
 - `tools/README.md` : apostrophes typographiques dans la prose (code et exemple « l'app » gardés).
+- `sitemap.xml` : `lastmod` de l’accueil FR mis au 21/11 à la main (le générateur le conserve).
 
 **Testé**
 - `build_pages.py` puis `check_site.py` : OK (30 fichiers, 26 indexables, 905 références).
