@@ -59,3 +59,44 @@ fichiers binaires.
   seulement si on le souhaite.
 - La date `lastmod` du sitemap n’est mise à jour que pour les pages réécrites par le générateur ;
   une modification manuelle de `index.html` ou `en.html` ne la change pas.
+
+---
+
+## Relecture indépendante — 21/11/2026, 15 h 08 (heure de Paris)
+
+- **Agent :** Claude Code (cloud), modèle Opus 5.5, réflexion standard. Relecture des 4 commits
+  ci-dessus, sans fusion ni PR.
+
+**Vérifié, sans correction nécessaire**
+- `build_pages.py` : l’apostrophe typographique ne touche que du texte entre balises des pages FR
+  (et les titres, descriptions et fils d’Ariane FR de `PAGES`). Comparaison avec `00e703f` : aucun
+  attribut de fragment, aucune URL, aucun bloc `script`/`style`/`code`/`pre` modifié ; pages EN et
+  `en.html` intactes (seul le bouton « Auto » y change). Tous les remplacements sont des élisions
+  françaises (l’, d’, qu’, jusqu’…). Le JSON-LD reprend simplement le texte visible, et reste valide.
+- Génération idempotente : relancer `build_pages.py` ne modifie plus rien.
+- Validateur HTML (vnu via `html5validator`) : mêmes erreurs qu’avant la branche, toutes
+  antérieures. Les fichiers de vérification Google n’ont pas de doctype (normal, à ne pas toucher) ;
+  le `<style>` du bloc `install-dialog:start/end` est dans `<body>` sur les deux accueils. Ce bloc
+  est délimité par des marqueurs, sans doute réinjecté par l’outil de publication : laissé en place.
+  Une fois déplacé dans `<head>` (copie de test), aucune autre erreur n’apparaît.
+- Liens du README et des notes : tous répondent (les DMG et `.sha256` en GET).
+
+**Corrigé**
+- `stats.html` : vert du thème clair `#1d8a4e` → `#187a45`. Le texte « +2 depuis le 16 nov. »
+  (13 px) n’avait que 4,37:1 sur blanc ; axe le signalait en 390 et 1440 avec les données réelles.
+  Nouveau contraste : 5,4:1 sur blanc, 4,7:1 sur le fond secondaire.
+- Notes 2.51.1 : retour au sens d’origine. « Correctif qui renforce les validations » devenait une
+  promesse plus large que « Correctif de validation » ; « après le redémarrage » perdait le sujet
+  (celui du processus de rendu) ; « toutes les améliorations » ajoutait « toutes ».
+- README FR, confidentialité : ajout de deux phrases présentes en anglais et absentes en français
+  (relais au débit limité, compteurs pseudonymes et bornés pour le quota ; statistiques détaillées
+  désactivées par défaut). Sans elles, la version française promettait plus que l’anglaise.
+
+**Testé**
+- `python3 tools/build_pages.py` puis `python3 tools/check_site.py` : OK.
+- Playwright (Chromium) sur les 28 pages, 390 et 1440 px, clair et sombre, axe-core (WCAG 2.0 à
+  2.2 A/AA + bonnes pratiques) : aucune violation, aucun débordement horizontal. La 404 doit être
+  servie sous `/Aria-Downloads/` (chemins absolus) pour être testée correctement.
+
+**Suite**
+- Inchangé : `check_site.py --live` après déploiement.

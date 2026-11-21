@@ -122,11 +122,13 @@ automatiquement.
 
 **Confidentialité :** les clés API restent dans le Trousseau macOS et les données de l’app sur le
 Mac. En mode local, aucun audio n’est envoyé. Avec le mode Groq intégré, l’audio transite par un
-relais Aria vers Groq ; le relais ne conserve ni audio ni texte. Depuis la 2.61.0, Aria télécharge
-un fichier vide depuis ce dépôt à l’installation, à chaque nouvelle version et une fois par semaine d’utilisation,
-pour que le total public de téléchargements de GitHub indique combien de Mac l’utilisent. Aucun
-identifiant, aucun texte ni aucun réglage n’est envoyé, et ce compteur se désactive dans
-Réglages → Données.
+relais Aria vers Groq, au débit limité ; le relais ne conserve ni audio ni texte. Seuls des
+compteurs pseudonymes et bornés protègent le quota partagé. Depuis la 2.61.0, Aria télécharge un
+fichier vide depuis ce dépôt à l’installation, à chaque nouvelle version et une fois par semaine
+d’utilisation, pour que le total public de téléchargements de GitHub indique combien de Mac
+l’utilisent. Aucun identifiant, aucun texte ni aucun réglage n’est envoyé, et ce compteur se
+désactive dans Réglages → Données. Les statistiques d’usage détaillées restent désactivées tant
+que vous ne les activez pas.
 
 **Aide :** ouvrez une [issue](https://github.com/hfioafio/Aria-Downloads/issues/new). N’y collez
 pas de clé API, de dictée, ni d’autre donnée personnelle.
