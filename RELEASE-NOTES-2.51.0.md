@@ -5,12 +5,12 @@ insertion finale.
 
 - Mise à jour transactionnelle avec reprise du téléchargement et restauration automatique de la
   version précédente si la nouvelle application ne démarre pas correctement.
-- Dictées et réunions mieux protégées contre les interruptions, workers bloqués et insertions
-  incomplètes.
+- Dictées et réunions mieux protégées contre les interruptions, les processus de traitement
+  bloqués et les insertions incomplètes.
 - Journal audio allégé sans réduire la récupération après un arrêt brutal.
 - Intégrations Mistral, ElevenLabs et Soniox alignées sur leurs API actuelles, avec nettoyage des
   ressources distantes temporaires.
-- Apparence Nova disponible comme aperçu facultatif et entièrement réversible.
+- Apparence Nova proposée en aperçu, facultative et entièrement réversible.
 
 ## Téléchargements
 

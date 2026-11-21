@@ -194,7 +194,9 @@ def check(live=False):
             warnings.append(f"{name}: meta description de {len(description)} caractères (50 à 170 conseillés)")
     for name, source in sorted(sources.items()):
         for playlist in sorted(set(re.findall(r"youtube\.com/playlist\?list=([\w-]+)", source))):
-            if not re.fullmatch(r"PL[\w-]{16}|PL[\w-]{32}", playlist):
+            # Les playlists récentes ont des identifiants courts (PL + 11 caractères) : ceux des
+            # deux accueils, vérifiés le 21/11/2026, ouvrent bien « démarrer avec Aria ».
+            if not re.fullmatch(r"PL[\w-]{11}|PL[\w-]{16}|PL[\w-]{32}", playlist):
                 warnings.append(f"{name}: identifiant de playlist YouTube inhabituel ({playlist}, {len(playlist)} caractères) : lien probablement tronqué")
 
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}

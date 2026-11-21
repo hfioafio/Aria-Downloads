@@ -26,8 +26,8 @@ The linked video introductions are animations, not screen recordings or speed be
 
 | Your Mac | Download |
 | --- | --- |
-| Apple Silicon (M1, M2, M3, M4 and later) | [Aria-2.62.2-Apple-Silicon.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-Installer-2.62.2-Apple-Silicon.dmg) |
-| Intel | [Aria-2.62.2-Intel.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-Installer-2.62.2-Intel.dmg) |
+| Apple Silicon (M1, M2, M3, M4 and later) | [Aria-Installer-2.62.2-Apple-Silicon.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-Installer-2.62.2-Apple-Silicon.dmg) |
+| Intel | [Aria-Installer-2.62.2-Intel.dmg](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-Installer-2.62.2-Intel.dmg) |
 
 Checksums: [SHA-256 Apple Silicon](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-Installer-2.62.2-Apple-Silicon.dmg.sha256) ·
 [SHA-256 Intel](https://github.com/hfioafio/Aria-Downloads/releases/download/v2.62.2/Aria-Installer-2.62.2-Intel.dmg.sha256)
@@ -42,13 +42,14 @@ Do not mix the two builds: the Apple Silicon DMG is not meant to run under Roset
 - **Cloud engines, your key.** OpenAI, Groq, Deepgram, Soniox, ElevenLabs and Mistral are
   optional and use your own API key, stored encrypted in the macOS Keychain.
 - **File transcription.** Drop in MP3, WAV, M4A, FLAC, OGG, MP4 or MOV and get a transcript.
-- **Meeting mode with speaker identification.** Diarisation locally, or through an API if you
-  prefer.
+- **Meeting mode with speaker identification.** Speaker diarisation runs locally, or through an
+  API if you prefer.
 - **Faithful by default.** Aria does not summarise, translate or rewrite unless you ask. Spoken
   language is preserved: English in, English out.
 - **Personal dictionary.** Correct a name or a piece of jargon once; Aria remembers it.
 - **Searchable local history.** Everything stays on the device.
-- **Menu bar app.** It appears on the shortcut and hands the focus straight back.
+- **Menu bar app.** It appears when you press the shortcut and hands focus straight back to your
+  app.
 
 ## First launch
 
@@ -109,9 +110,23 @@ noms propres dans un dictionnaire personnel et garde un historique local consult
 
 **Première ouverture :** cette version est signée avec une identité stable mais n’est pas encore
 notarisée par Apple. Essayez de l’ouvrir une fois, puis **Réglages Système → Confidentialité et
-sécurité → Ouvrir quand même**. Ne faites cette étape que pour un fichier venu de ce dépôt.
-Pour le vérifier avant : `shasum -a 256 ~/Downloads/Aria-Installer-*.dmg` doit afficher l’empreinte
-du fichier SHA-256 de votre Mac ; sinon, supprimez le DMG sans l’ouvrir.
+sécurité → Ouvrir quand même**. Ne faites cette étape que pour un fichier venu de ce dépôt ou
+du site officiel. Pour le vérifier avant : `shasum -a 256 ~/Downloads/Aria-Installer-*.dmg` doit
+afficher l’empreinte du fichier SHA-256 correspondant à votre Mac ; sinon, supprimez le DMG sans
+l’ouvrir. [Guide d’installation](https://hfioafio.github.io/Aria-Downloads/installer-aria-mac.html)
+
+**Mises à jour :** Aria consulte ce dépôt au lancement, puis toutes les six heures. Avant
+d’installer une nouvelle version, elle vérifie l’architecture, la taille, l’empreinte SHA-256 et
+l’identité de signature. Si la nouvelle version ne démarre pas, la précédente est restaurée
+automatiquement.
+
+**Confidentialité :** les clés API restent dans le Trousseau macOS et les données de l’app sur le
+Mac. En mode local, aucun audio n’est envoyé. Avec le mode Groq intégré, l’audio transite par un
+relais Aria vers Groq ; le relais ne conserve ni audio ni texte. Depuis la 2.61.0, Aria télécharge
+un fichier vide depuis ce dépôt à l’installation, à chaque nouvelle version et une fois par semaine d’utilisation,
+pour que le total public de téléchargements de GitHub indique combien de Mac l’utilisent. Aucun
+identifiant, aucun texte ni aucun réglage n’est envoyé, et ce compteur se désactive dans
+Réglages → Données.
 
 **Aide :** ouvrez une [issue](https://github.com/hfioafio/Aria-Downloads/issues/new). N’y collez
 pas de clé API, de dictée, ni d’autre donnée personnelle.
@@ -120,8 +135,13 @@ pas de clé API, de dictée, ni d’autre donnée personnelle.
 
 ## About this repository
 
-The current public build is an **Electron** app for macOS 11+. This repository contains only the
-compiled releases, their SHA-256 checksums and the update manifest — the source code is not
-published here.
+The current public build is an **Electron** app for macOS 11+. The source code is not published
+here. This repository contains:
+
+- the compiled releases and their SHA-256 checksums, attached to
+  [GitHub Releases](https://github.com/hfioafio/Aria-Downloads/releases), which also carry the
+  release notes of recent versions (the `RELEASE-NOTES-*.md` files cover the first public betas);
+- the update manifests read by the app (`updates/`);
+- the website served by GitHub Pages (`docs/`) and the scripts that build and check it (`tools/`).
 
 Copyright © 2026 — All rights reserved.
