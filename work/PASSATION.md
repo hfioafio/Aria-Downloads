@@ -103,7 +103,7 @@ fichiers binaires.
 
 ---
 
-## Relecture des textes anglais — 21/11/2026, 15 h 36 (heure de Paris)
+## Relecture des textes anglais — 21/11/2026, 15 h 15 (heure de Paris)
 
 - **Agent :** Claude Code (cloud), modèle Opus 5.5, réflexion standard.
 
