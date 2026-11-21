@@ -3,17 +3,12 @@
 // Source : métadonnées publiques des versions GitHub de ce dépôt (nombre de téléchargements par
 // fichier). Aucun identifiant, aucune donnée personnelle. Un instantané n'est ajouté que si un
 // compteur a changé, ou au premier relevé d'un jour de Paris, pour que l'historique reste court.
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
+import { pathToFileURL } from 'node:url'
 
 const REPO = process.env.GITHUB_REPOSITORY || 'hfioafio/Aria-Downloads'
 const ADOPTION_TAG = 'adoption-counter'
 const ADOPTION_KINDS = ['install', 'update', 'active', 'active-day', 'owner-update', 'owner-download']
-
-const [historyPath, latestPath] = process.argv.slice(2)
-if (!historyPath || !latestPath) {
-  console.error('usage: node tools/adoption_stats.mjs <history.json> <latest.json>')
-  process.exit(2)
-}
 
 const PARIS_DAY = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Europe/Paris',
@@ -32,11 +27,14 @@ async function fetchReleases() {
   if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
   const all = []
   for (let page = 1; page <= 20; page++) {
+    // Sans délai maximal, une API qui ne répond plus bloquerait le job jusqu'à son timeout.
     const response = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=100&page=${page}`, {
-      headers
+      headers,
+      signal: AbortSignal.timeout(30_000)
     })
     if (!response.ok) throw new Error(`GitHub API ${response.status}`)
     const batch = await response.json()
+    if (!Array.isArray(batch)) throw new Error('GitHub API : réponse inattendue')
     all.push(...batch)
     if (batch.length < 100) break
   }
@@ -70,7 +68,8 @@ export function classify(release) {
   const row = {
     tag: release.tag_name,
     date: String(release.published_at || '').slice(0, 10),
-    pre: release.prerelease === true || /preview|beta|rc/i.test(release.tag_name || ''),
+    // « rc » seul, ou suivi d'un numéro : un mot qui contient « rc » n'est pas une préversion.
+    pre: release.prerelease === true || /preview|beta|(?:^|[^a-z])rc(?:\d|[^a-z]|$)/i.test(release.tag_name || ''),
     site: bucket(),
     update: bucket(),
     mixed: bucket()
@@ -123,22 +122,41 @@ function readHistory(path) {
   return data
 }
 
-const now = new Date()
-// STATS_RELEASES_FILE : liste de versions déjà téléchargée (contrôle local, sans réseau).
-const source = process.env.STATS_RELEASES_FILE
-  ? JSON.parse(readFileSync(process.env.STATS_RELEASES_FILE, 'utf8'))
-  : await fetchReleases()
-const summary = summarize(source, now)
-const { rows, ...snapshot } = summary
-const history = readHistory(historyPath)
-const last = history.snapshots[history.snapshots.length - 1]
-const changed = !last || last.day !== snapshot.day || signature(last) !== signature(snapshot)
-if (changed) history.snapshots.push(snapshot)
+// Écriture atomique : un job interrompu ne laisse jamais un historique tronqué sur stats-data.
+function writeJson(path, data) {
+  const temporary = `${path}.tmp`
+  writeFileSync(temporary, `${JSON.stringify(data, null, 1)}\n`)
+  renameSync(temporary, path)
+}
 
-writeFileSync(historyPath, `${JSON.stringify(history, null, 1)}\n`)
-writeFileSync(latestPath, `${JSON.stringify({ ...snapshot, rows }, null, 1)}\n`)
-console.log(
-  `${changed ? 'Nouvel instantané' : 'Inchangé'} — site ${snapshot.downloads.site.total}, ` +
-    `mises à jour ${snapshot.downloads.update.total}, mixtes ${snapshot.downloads.mixed.total}, ` +
-    `adoption ${JSON.stringify(snapshot.adoption)}`
-)
+async function main(historyPath, latestPath) {
+  const now = new Date()
+  // STATS_RELEASES_FILE : liste de versions déjà téléchargée (contrôle local, sans réseau).
+  const source = process.env.STATS_RELEASES_FILE
+    ? JSON.parse(readFileSync(process.env.STATS_RELEASES_FILE, 'utf8'))
+    : await fetchReleases()
+  const summary = summarize(source, now)
+  const { rows, ...snapshot } = summary
+  const history = readHistory(historyPath)
+  const last = history.snapshots[history.snapshots.length - 1]
+  const changed = !last || last.day !== snapshot.day || signature(last) !== signature(snapshot)
+  if (changed) history.snapshots.push(snapshot)
+
+  writeJson(historyPath, history)
+  writeJson(latestPath, { ...snapshot, rows })
+  console.log(
+    `${changed ? 'Nouvel instantané' : 'Inchangé'} — site ${snapshot.downloads.site.total}, ` +
+      `mises à jour ${snapshot.downloads.update.total}, mixtes ${snapshot.downloads.mixed.total}, ` +
+      `adoption ${JSON.stringify(snapshot.adoption)}`
+  )
+}
+
+// Exécuté seulement en ligne de commande : les fonctions exportées restent importables en test.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const [historyPath, latestPath] = process.argv.slice(2)
+  if (!historyPath || !latestPath) {
+    console.error('usage: node tools/adoption_stats.mjs <history.json> <latest.json>')
+    process.exit(2)
+  }
+  await main(historyPath, latestPath)
+}

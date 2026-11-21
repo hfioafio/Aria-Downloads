@@ -4,7 +4,7 @@
 Chaque page est décrite dans PAGES ; son corps HTML vit dans tools/pages/<slug>.html.
 Lancer : python3 tools/build_pages.py  (depuis la racine du dépôt)
 """
-import datetime, io, json, os, re, sys
+import datetime, io, json, os, re
 from html import unescape
 from pathlib import Path
 from xml.etree import ElementTree as ET
