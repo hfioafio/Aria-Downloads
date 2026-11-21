@@ -240,6 +240,41 @@
     "update": 3,
     "mixed": 0
    }
+  },
+  {
+   "at": "2026-11-21T16:09:02.098Z",
+   "day": "2026-11-21",
+   "downloads": {
+    "site": {
+     "arm": 4,
+     "intel": 4,
+     "total": 8
+    },
+    "update": {
+     "arm": 8,
+     "intel": 2,
+     "total": 10
+    },
+    "mixed": {
+     "arm": 100,
+     "intel": 63,
+     "total": 163
+    }
+   },
+   "adoption": {
+    "install": 1,
+    "update": 1,
+    "active": 1,
+    "active-day": 0,
+    "owner-update": 4,
+    "owner-download": 0
+   },
+   "latest": {
+    "tag": "v2.62.2",
+    "site": 5,
+    "update": 3,
+    "mixed": 0
+   }
   }
  ]
 }
