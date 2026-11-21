@@ -1,5 +1,5 @@
 {
- "at": "2026-11-21T00:47:44.878Z",
+ "at": "2026-11-21T03:24:49.484Z",
  "day": "2026-11-21",
  "downloads": {
   "site": {
@@ -23,7 +23,8 @@
   "update": 1,
   "active": 1,
   "active-day": 0,
-  "owner-update": 4
+  "owner-update": 4,
+  "owner-download": 0
  },
  "latest": {
   "tag": "v2.62.2",
